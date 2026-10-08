@@ -31,7 +31,7 @@ export default function ServicesPage() {
       title: 'Eventos Corporativos & Cenas de Negocios',
       subtitle: 'Espacios discretos con servicio de sommelier y cortes prime',
       description: 'Ideal para cierres de negocios, cenas ejecutivas y lanzamientos de marca. Ofrecemos área reservada en nuestra Cava VIP con menú maridaje pre-diseñado a tres o cinco tiempos.',
-      image: '/assets/WhatsApp Image 2026-10-08 at 3.07.41 PM (2).jpeg',
+      image: '/assets/cava-vino-mesa.jpg',
       features: ['Cava Privada con capacidad hasta 25 personas', 'Menús ejecutivos maridados', 'Servicio dedicado de meseros y sommelier', 'Pantalla y audio discreto disponible']
     },
     {
@@ -39,7 +39,7 @@ export default function ServicesPage() {
       title: 'Celebraciones Sociales & Aniversarios',
       subtitle: 'Momentos inolvidables envueltos en fuego y elegancia',
       description: 'Celebra tu cumpleaños, aniversario o graduación con el ambiente cálido de nuestras brasas. Diseñamos experiencias de coctelería personalizada y pastelería fina de autor.',
-      image: '/assets/WhatsApp Image 2026-10-08 at 3.07.42 PM (1).jpeg',
+      image: '/assets/coctel-negroni-rojo.jpg',
       features: ['Reservación de Terraza o Salón Principal', 'Decoración y montaje de mesa especial', 'Coctel de bienvenida de autor', 'Postre especial personalizado']
     },
     {
@@ -47,7 +47,7 @@ export default function ServicesPage() {
       title: 'Catas Maridaje & Experiencias de Cava',
       subtitle: 'Guiadas por nuestro Sommelier certificado',
       description: 'Un recorrido sensorial guiado a través de nuestra selección de vinos de Casa Madero, champagnes y etiquetas de autor, acompañados de tabla de quesos finos y charcutería ahumada.',
-      image: '/assets/WhatsApp Image 2026-10-08 at 3.07.43 PM (2).jpeg',
+      image: '/assets/copa-vino-tinto-lampara.jpg',
       features: ['Selección de 4 a 6 etiquetas por cata', 'Tabla de charcutería y bocadillos a la brasa', 'Explicación sensorial por el Sommelier', 'Diploma o souvenir para los asistentes']
     },
     {
@@ -55,7 +55,7 @@ export default function ServicesPage() {
       title: 'Servicio de Parrilla & Catering a Domicilio',
       subtitle: 'Llevamos la experiencia PÚA a tu residencia u oficina',
       description: 'Nuestro equipo de parrilleros y meseros se desplaza hasta tu evento privado con nuestros asadores móviles para cocinar cortes prime y tacos de autor en vivo.',
-      image: '/assets/WhatsApp Image 2026-10-08 at 3.07.41 PM.jpeg',
+      image: '/assets/parrillada-brasas.jpg',
       features: ['Chef parrillero y personal en sitio', 'Montaje de estación de brasas y mixología', 'Insumos y cristalería de lujo incluidos', 'Menú totalmente personalizable']
     }
   ];

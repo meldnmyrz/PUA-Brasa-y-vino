@@ -7,14 +7,14 @@ export default function AboutPage() {
   }, []);
 
   const galleryImages = [
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.41 PM.jpeg',
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.42 PM (1).jpeg',
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.43 PM.jpeg',
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.44 PM.jpeg',
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.45 PM.jpeg',
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.46 PM.jpeg',
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.41 PM (2).jpeg',
-    '/assets/WhatsApp Image 2026-10-08 at 3.07.42 PM.jpeg',
+    '/assets/corte-filete-mignon.jpg',
+    '/assets/parrillada-brasas.jpg',
+    '/assets/coctel-tiki-maracuya.jpg',
+    '/assets/postre-crocante-helado.jpg',
+    '/assets/tuna-sashimi-tiradito.jpg',
+    '/assets/coctel-negroni-rojo.jpg',
+    '/assets/cava-vino-mesa.jpg',
+    '/assets/terraza-jardin-pua.jpg',
   ];
 
   return (

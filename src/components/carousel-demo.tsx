@@ -8,37 +8,44 @@ export default function CarouselDemo() {
       title: "Parrillada Mar y Tierra",
       button: "Reservar Platillo",
       price: 1700,
-      src: "/assets/WhatsApp Image 2026-10-08 at 3.07.41 PM.jpeg",
+      src: "/assets/parrillada-brasas.jpg",
     },
     {
       title: "Filete Mignon al Vino Tinto",
       button: "Reservar Platillo",
       price: 450,
-      src: "/assets/WhatsApp Image 2026-10-08 at 3.07.42 PM (1).jpeg",
+      src: "/assets/corte-filete-mignon.jpg",
     },
     {
       title: "PÚA Trago Insignia",
       button: "Reservar Coctel",
       price: 195,
-      src: "/assets/WhatsApp Image 2026-10-08 at 3.07.42 PM.jpeg",
+      src: "/assets/coctel-tiki-maracuya.jpg",
     },
     {
-      title: "Hamburguesa Doble Queso",
+      title: "Tuétanos al Carbón & Picaña",
       button: "Reservar Platillo",
-      price: 285,
-      src: "/assets/WhatsApp Image 2026-10-08 at 3.07.44 PM.jpeg",
+      price: 320,
+      src: "/assets/tuetanos-carne-brasas.jpg",
     },
     {
-      title: "Tacos Mar y Tierra en Costra",
-      button: "Reservar Tacos",
-      price: 220,
-      src: "/assets/WhatsApp Image 2026-10-08 at 3.07.41 PM (2).jpeg",
+      title: "Tiradito de Atún & Sésamo",
+      button: "Reservar Entrada",
+      price: 240,
+      src: "/assets/tuna-sashimi-tiradito.jpg",
+    },
+    {
+      title: "Crocante & Helado Papantla",
+      button: "Reservar Postre",
+      price: 180,
+      src: "/assets/postre-crocante-helado.jpg",
     },
   ];
 
   return (
-    <div className="relative overflow-hidden w-full h-full py-16 flex flex-col items-center justify-center">
+    <div className="relative overflow-visible w-full py-8 flex flex-col items-center justify-center">
       <Carousel slides={slideData} />
     </div>
   );
 }
+
