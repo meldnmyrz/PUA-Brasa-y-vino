@@ -76,7 +76,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/reservas"
-            className="btn-gold-luxury px-6 py-2.5 rounded-full text-[11px] flex items-center gap-2"
+            className="btn-luxury-gold px-6 py-2.5 rounded-full text-[11px] flex items-center gap-2"
           >
             <Calendar className="w-3.5 h-3.5 text-black" />
             Reservar Mesa
@@ -113,7 +113,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/reservas"
-            className="mt-4 w-full py-3.5 rounded-full btn-gold-luxury text-xs flex items-center justify-center gap-2"
+            className="mt-4 w-full py-3.5 rounded-full btn-luxury-gold text-xs flex items-center justify-center gap-2"
           >
             <Calendar className="w-4 h-4 text-black" />
             Reservar Mesa Ahora
