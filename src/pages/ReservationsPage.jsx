@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { Calendar, Clock, Users, Flame, Wine, Sparkles, MessageSquare, CheckCircle2, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Flame, Wine, Sparkles, MessageSquare, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { restaurantInfo } from '../data/menuData';
 
 export default function ReservationsPage() {
+  useEffect(() => {
+    document.title = "PÚA Brasa y Vino | Reservas de Mesa Prioritarias";
+  }, []);
+
   const [selectedZone, setSelectedZone] = useState('salon');
   const [guestCount, setGuestCount] = useState(2);
   const [resDate, setResDate] = useState(() => {
@@ -59,10 +63,7 @@ export default function ReservationsPage() {
 
     const url = `https://wa.me/${restaurantInfo.whatsapp}?text=${encodeURIComponent(text)}`;
     
-    // Show confirmation UI state
     setIsSubmitted(true);
-
-    // Open WhatsApp link after small delay or directly
     window.open(url, '_blank');
   };
 
@@ -156,8 +157,6 @@ export default function ReservationsPage() {
               </label>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                
-                {/* Personas */}
                 <div>
                   <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
                     Nº de Comensales
@@ -176,7 +175,6 @@ export default function ReservationsPage() {
                   </select>
                 </div>
 
-                {/* Fecha */}
                 <div>
                   <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
                     Fecha
@@ -190,7 +188,6 @@ export default function ReservationsPage() {
                   />
                 </div>
 
-                {/* Hora */}
                 <div>
                   <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
                     Horario Deseado
@@ -207,7 +204,6 @@ export default function ReservationsPage() {
                     ))}
                   </select>
                 </div>
-
               </div>
             </div>
 

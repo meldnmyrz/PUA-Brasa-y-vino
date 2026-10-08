@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Clock, MessageSquare, Send, ArrowUpRight, HelpCircle, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Clock, MessageSquare, Send, ArrowUpRight, HelpCircle, ShieldCheck } from 'lucide-react';
 import { restaurantInfo } from '../data/menuData';
 
-export default function ContactPage({ setActivePage }) {
+export default function ContactPage() {
+  useEffect(() => {
+    document.title = "PÚA Brasa y Vino | Contacto & Google Maps";
+  }, []);
+
   const [contactName, setContactName] = useState('');
   const [contactMessage, setContactMessage] = useState('');
 

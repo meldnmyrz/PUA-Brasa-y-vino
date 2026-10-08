@@ -1,9 +1,13 @@
-import React from 'react';
-import { Flame, Wine, Sparkles, Calendar, ChevronRight, Award, MapPin, ArrowRight, ShieldCheck, HeartHandshake } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Flame, Wine, Sparkles, Calendar, Award, ArrowRight, ShieldCheck } from 'lucide-react';
 import { menuItems, restaurantInfo } from '../data/menuData';
 
-export default function HomePage({ setActivePage }) {
-  // Get top featured items for Home section showcase
+export default function HomePage() {
+  useEffect(() => {
+    document.title = "PÚA Brasa y Vino | Inicio - Alta Gastronomía al Carbón";
+  }, []);
+
   const featuredDishes = menuItems.filter(item => item.badge).slice(0, 4);
 
   return (
@@ -29,7 +33,7 @@ export default function HomePage({ setActivePage }) {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6 pt-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold uppercase tracking-[0.3em] backdrop-blur-md animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold uppercase tracking-[0.3em] backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             Experiencia Gastronómica de Alta Gama
           </div>
@@ -42,22 +46,22 @@ export default function HomePage({ setActivePage }) {
             Donde el fuego del carbón seleccionado se funde con la elegancia de nuestra cava de autor y la mixología ritual más refinada.
           </p>
 
-          {/* Action CTAs */}
+          {/* Action CTAs linked to independent subpages */}
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => setActivePage('reservas')}
+            <Link
+              to="/reservas"
               className="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-200 transition-all duration-300 shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-105 flex items-center justify-center gap-3"
             >
               <Calendar className="w-4 h-4" />
               Reservar Mesa Vía WhatsApp
-            </button>
-            <button
-              onClick={() => setActivePage('menu')}
+            </Link>
+            <Link
+              to="/menu"
               className="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-amber-200 bg-zinc-900/80 hover:bg-zinc-800 border border-amber-500/30 hover:border-amber-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Flame className="w-4 h-4 text-amber-400" />
               Explorar Menú Completo
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -109,7 +113,7 @@ export default function HomePage({ setActivePage }) {
         </div>
       </section>
 
-      {/* FEATURED DISHES & MIXOLOGY CAROUSEL PREVIEW */}
+      {/* FEATURED DISHES */}
       <section className="py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 relative border-t border-b border-amber-500/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -122,13 +126,13 @@ export default function HomePage({ setActivePage }) {
                 Creaciones Insignia
               </h2>
             </div>
-            <button
-              onClick={() => setActivePage('menu')}
+            <Link
+              to="/menu"
               className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-amber-300 hover:text-amber-100 font-bold group"
             >
               Ver Menú Completo (50+ Platillos & Bebidas)
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -160,12 +164,12 @@ export default function HomePage({ setActivePage }) {
                       {dish.description}
                     </p>
                   </div>
-                  <button
-                    onClick={() => setActivePage('reservas')}
-                    className="w-full py-2.5 rounded-lg border border-amber-500/30 text-amber-300 hover:bg-amber-500 hover:text-black text-xs font-bold uppercase tracking-wider transition-all duration-300"
+                  <Link
+                    to="/reservas"
+                    className="w-full py-2.5 rounded-lg border border-amber-500/30 text-amber-300 hover:bg-amber-500 hover:text-black text-xs font-bold uppercase tracking-wider transition-all duration-300 text-center block"
                   >
                     Reservar para Probar
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -174,7 +178,7 @@ export default function HomePage({ setActivePage }) {
         </div>
       </section>
 
-      {/* REAL VIDEO AMBIANCE & EXPERIENCE SHOWCASE */}
+      {/* AMBIANCE SECTION */}
       <section className="py-24 bg-zinc-950 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -186,7 +190,7 @@ export default function HomePage({ setActivePage }) {
               Una Atmósfera Diseñada para los Sentidos
             </h2>
             <p className="text-sm text-zinc-300 leading-relaxed font-light">
-              En PÚA Brasa y Vino cada detalle cuenta: desde la música de fondo que acompaña el crujir de las brasas hasta la temperatura perfecta de nuestra cava de vinos. Un espacio donde las noches de negocios se convierten en celebraciones y las cenas íntimas en recuerdos inolvidables.
+              En PÚA Brasa y Vino cada detalle cuenta: desde la música de fondo que acompaña el crujir de las brasas hasta la temperatura perfecta de nuestra cava de vinos.
             </p>
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3 text-xs text-zinc-200">
@@ -197,18 +201,14 @@ export default function HomePage({ setActivePage }) {
                 <ShieldCheck className="w-5 h-5 text-amber-400" />
                 <span>Mixología ritual con flameado directo en mesa</span>
               </div>
-              <div className="flex items-center gap-3 text-xs text-zinc-200">
-                <ShieldCheck className="w-5 h-5 text-amber-400" />
-                <span>Valet parking y servicio de Sommelier personalizado</span>
-              </div>
             </div>
             <div className="pt-4">
-              <button
-                onClick={() => setActivePage('nosotros')}
-                className="px-6 py-3 rounded-full text-xs uppercase tracking-widest font-bold text-amber-300 border border-amber-500/40 hover:bg-amber-500/10 transition-all"
+              <Link
+                to="/nosotros"
+                className="px-6 py-3 rounded-full text-xs uppercase tracking-widest font-bold text-amber-300 border border-amber-500/40 hover:bg-amber-500/10 transition-all inline-block"
               >
                 Conocer la Historia de PÚA
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -223,11 +223,6 @@ export default function HomePage({ setActivePage }) {
               <source src="/assets/PUA VID 2.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-6 left-6 right-6 glass-luxury p-4 rounded-xl border border-amber-400/30">
-              <p className="text-xs font-serif-luxury font-bold text-amber-200">
-                "La madera adecuada, la temperatura exacta y la compañía perfecta."
-              </p>
-            </div>
           </div>
 
         </div>
@@ -240,15 +235,15 @@ export default function HomePage({ setActivePage }) {
             Asegura tu Mesa en PÚA Brasa y Vino
           </h2>
           <p className="text-sm text-zinc-300 max-w-xl mx-auto font-light">
-            Recibe confirmación prioritaria e inmediata a través de nuestro canal de WhatsApp. Disponemos de áreas en Terraza, Salón de Brasas y Cava Privada.
+            Recibe confirmación prioritaria e inmediata a través de nuestro canal de WhatsApp.
           </p>
           <div className="pt-4 flex justify-center">
-            <button
-              onClick={() => setActivePage('reservas')}
-              className="px-10 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-200 transition-all duration-300 shadow-[0_0_35px_rgba(212,175,55,0.5)] hover:scale-105"
+            <Link
+              to="/reservas"
+              className="px-10 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-200 transition-all duration-300 shadow-[0_0_35px_rgba(212,175,55,0.5)] hover:scale-105 inline-block"
             >
               Reservar por WhatsApp Ahora
-            </button>
+            </Link>
           </div>
         </div>
       </section>

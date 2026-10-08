@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import { Search, Flame, Wine, Utensils, Sparkles, Filter, X, ChevronRight, CheckCircle2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Search, Flame, Utensils, X } from 'lucide-react';
 import { menuCategories, menuItems } from '../data/menuData';
 
-export default function MenuPage({ setActivePage }) {
+export default function MenuPage() {
+  useEffect(() => {
+    document.title = "PÚA Brasa y Vino | Carta & Menú Oficial";
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDishModal, setSelectedDishModal] = useState(null);
 
-  // Filter items based on category and search query
   const filteredItems = menuItems.filter((item) => {
     const matchesCategory = selectedCategory === 'todos' || item.category === selectedCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -36,7 +39,6 @@ export default function MenuPage({ setActivePage }) {
       {/* SEARCH BAR & CATEGORY SELECTOR */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-12">
         
-        {/* Search Bar Input */}
         <div className="max-w-xl mx-auto relative">
           <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-amber-400" />
           <input
@@ -56,7 +58,6 @@ export default function MenuPage({ setActivePage }) {
           )}
         </div>
 
-        {/* Category Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none justify-start lg:justify-center">
           {menuCategories.map((cat) => {
             const isActive = selectedCategory === cat.id;
@@ -107,7 +108,6 @@ export default function MenuPage({ setActivePage }) {
                 className="glass-luxury rounded-2xl overflow-hidden group hover:border-amber-400/50 transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
-                  {/* Image Header */}
                   <div className="relative h-56 overflow-hidden bg-zinc-950">
                     <img
                       src={item.image}
@@ -127,7 +127,6 @@ export default function MenuPage({ setActivePage }) {
                     </span>
                   </div>
 
-                  {/* Body Content */}
                   <div className="p-6 space-y-3">
                     <h3 className="font-serif-luxury text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
                       {item.name}
@@ -136,7 +135,6 @@ export default function MenuPage({ setActivePage }) {
                       {item.description}
                     </p>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-1.5 pt-2">
                       {item.tags.map((t, idx) => (
                         <span
@@ -150,15 +148,14 @@ export default function MenuPage({ setActivePage }) {
                   </div>
                 </div>
 
-                {/* Footer Action */}
                 <div className="p-6 pt-0">
-                  <button
-                    onClick={() => setActivePage('reservas')}
-                    className="w-full py-3 rounded-xl border border-amber-500/30 text-amber-300 hover:bg-amber-500 hover:text-black font-semibold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2"
+                  <Link
+                    to="/reservas"
+                    className="w-full py-3 rounded-xl border border-amber-500/30 text-amber-300 hover:bg-amber-500 hover:text-black font-semibold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 text-center"
                   >
                     <Flame className="w-4 h-4" />
                     Reservar para Probar
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

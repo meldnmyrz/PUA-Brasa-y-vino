@@ -1,8 +1,18 @@
 import React from 'react';
-import { Flame, MapPin, Phone, Clock, MessageSquare, Instagram, Facebook, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Flame, MapPin, Clock, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { restaurantInfo } from '../data/menuData';
 
-export default function Footer({ setActivePage }) {
+export default function Footer() {
+  const pagesList = [
+    { path: '/', name: 'Inicio' },
+    { path: '/menu', name: 'Menú' },
+    { path: '/servicios', name: 'Servicios' },
+    { path: '/nosotros', name: 'Nosotros' },
+    { path: '/contacto', name: 'Contacto' },
+    { path: '/reservas', name: 'Reservas' }
+  ];
+
   return (
     <footer className="relative bg-zinc-950 border-t border-amber-500/20 text-zinc-400 pt-16 pb-12 overflow-hidden">
       {/* Glow ambient background elements */}
@@ -14,7 +24,7 @@ export default function Footer({ setActivePage }) {
           
           {/* BRAND COL */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <img 
                 src="/assets/PUA LOGO.jpeg" 
                 alt="PÚA Logo" 
@@ -28,7 +38,7 @@ export default function Footer({ setActivePage }) {
                   Brasa & Vino
                 </span>
               </div>
-            </div>
+            </Link>
             <p className="text-xs text-zinc-400 leading-relaxed pt-2">
               Sabor ahumado a la leña, cortes de carne prime seleccionados, mixología ritual de autor y la mejor cava para tus celebraciones más memorables.
             </p>
@@ -54,25 +64,22 @@ export default function Footer({ setActivePage }) {
             </div>
           </div>
 
-          {/* QUICK LINKS */}
+          {/* QUICK LINKS TO INDIVIDUAL PAGES */}
           <div>
             <h4 className="font-serif-luxury text-sm font-bold uppercase tracking-widest text-amber-300 mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amber-500" />
-              Navegación
+              Páginas del Sitio
             </h4>
             <ul className="space-y-3 text-xs uppercase tracking-wider">
-              {['inicio', 'menu', 'servicios', 'nosotros', 'contacto', 'reservas'].map((sec) => (
-                <li key={sec}>
-                  <button
-                    onClick={() => {
-                      setActivePage(sec);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+              {pagesList.map((p) => (
+                <li key={p.path}>
+                  <Link
+                    to={p.path}
                     className="hover:text-amber-300 transition-colors flex items-center gap-1.5 group"
                   >
                     <span className="text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity">›</span>
-                    {sec.charAt(0).toUpperCase() + sec.slice(1)}
-                  </button>
+                    {p.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -121,7 +128,7 @@ export default function Footer({ setActivePage }) {
         <div className="border-t border-zinc-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
           <p>© {new Date().getFullYear()} PÚA Brasa y Vino. Todos los derechos reservados.</p>
           <p className="flex items-center gap-1 text-[11px] text-amber-300/60">
-            <span>Experiencia Gastronómica Luxury</span>
+            <span>Sitio Web Multi-Página Luxury</span>
             <span>•</span>
             <span>Cultura al Carbón</span>
           </p>

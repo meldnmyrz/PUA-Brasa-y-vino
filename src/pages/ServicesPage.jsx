@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { Sparkles, Wine, Users, Calendar, Award, MessageSquare, Check, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Check, MessageSquare } from 'lucide-react';
 import { restaurantInfo } from '../data/menuData';
 
-export default function ServicesPage({ setActivePage }) {
+export default function ServicesPage() {
+  useEffect(() => {
+    document.title = "PÚA Brasa y Vino | Servicios & Eventos Privados";
+  }, []);
+
   const [eventType, setEventType] = useState('corporativo');
   const [guestsCount, setGuestsCount] = useState('15-30');
   const [eventDate, setEventDate] = useState('');

@@ -1,7 +1,11 @@
-import React from 'react';
-import { Flame, Wine, Award, Sparkles, Heart, Shield, Image as ImageIcon } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Image as ImageIcon } from 'lucide-react';
 
-export default function AboutPage({ setActivePage }) {
+export default function AboutPage() {
+  useEffect(() => {
+    document.title = "PÚA Brasa y Vino | Nosotros & Galería de Experiencias";
+  }, []);
+
   const galleryImages = [
     '/assets/WhatsApp Image 2026-10-08 at 3.07.41 PM.jpeg',
     '/assets/WhatsApp Image 2026-10-08 at 3.07.42 PM (1).jpeg',
