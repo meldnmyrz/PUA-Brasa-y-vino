@@ -1,53 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Flame, MapPin, Clock, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { MapPin, Clock, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { restaurantInfo } from '../data/menuData';
+import PuaLogo from './PuaLogo';
 
 export default function Footer() {
   const pagesList = [
     { path: '/', name: 'Inicio' },
     { path: '/menu', name: 'Menú' },
-    { path: '/servicios', name: 'Servicios' },
     { path: '/nosotros', name: 'Nosotros' },
-    { path: '/contacto', name: 'Contacto' },
+    { path: '/servicios', name: 'Servicios' },
     { path: '/reservas', name: 'Reservas' }
   ];
 
   return (
-    <footer className="relative bg-zinc-950 border-t border-amber-500/20 text-zinc-400 pt-16 pb-12 overflow-hidden">
-      {/* Glow ambient background elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-950/20 blur-3xl pointer-events-none" />
+    <footer className="relative bg-[#000000] border-t border-[#3D352E] text-[#F4F0EA]/70 pt-16 pb-12 overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-[#C4924A]/10 via-[#C4924A]/5 to-transparent blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
-          {/* BRAND COL */}
+          {/* BRAND COLUMN WITH BRAND LOGO */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <img 
-                src="/assets/PUA LOGO.jpeg" 
-                alt="PÚA Logo" 
-                className="w-12 h-12 rounded-full border border-amber-400/40 object-cover shadow-[0_0_15px_rgba(212,175,55,0.3)]" 
-              />
-              <div>
-                <span className="font-serif-luxury text-2xl font-bold tracking-widest text-gold-gradient block">
-                  PÚA
-                </span>
-                <span className="text-[10px] tracking-[0.3em] uppercase text-amber-300/60 block">
-                  Brasa & Vino
-                </span>
-              </div>
+            <Link to="/" className="inline-block">
+              <PuaLogo color="#C4924A" size="small" className="!items-start" />
             </Link>
-            <p className="text-xs text-zinc-400 leading-relaxed pt-2">
-              Sabor ahumado a la leña, cortes de carne prime seleccionados, mixología ritual de autor y la mejor cava para tus celebraciones más memorables.
+            <p className="text-xs text-[#F4F0EA]/60 leading-relaxed pt-2 font-light">
+              Sabor ahumado a la leña, cortes de carne prime seleccionados, mixología ritual de autor y la mejor cava de vinos.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a 
                 href={restaurantInfo.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-zinc-900 border border-amber-500/30 flex items-center justify-center text-amber-300 hover:bg-amber-500 hover:text-black transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-[#121212] border border-[#3D352E] flex items-center justify-center text-[#C4924A] hover:border-[#C4924A] hover:bg-[#C4924A] hover:text-black transition-all duration-300"
                 title="Google Maps"
               >
                 <MapPin className="w-4 h-4" />
@@ -56,7 +43,7 @@ export default function Footer() {
                 href={`https://wa.me/${restaurantInfo.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-zinc-900 border border-amber-500/30 flex items-center justify-center text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-[#121212] border border-[#3D352E] flex items-center justify-center text-emerald-400 hover:border-emerald-400 hover:bg-emerald-500 hover:text-black transition-all duration-300"
                 title="WhatsApp Directo"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -64,20 +51,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* QUICK LINKS TO INDIVIDUAL PAGES */}
+          {/* 5 MAIN PAGES LINKS */}
           <div>
-            <h4 className="font-serif-luxury text-sm font-bold uppercase tracking-widest text-amber-300 mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500" />
-              Páginas del Sitio
+            <h4 className="font-serif-corp text-xs font-bold uppercase tracking-[0.25em] text-[#C4924A] mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C4924A]" />
+              Navegación
             </h4>
-            <ul className="space-y-3 text-xs uppercase tracking-wider">
+            <ul className="space-y-3 text-xs uppercase tracking-[0.2em] font-sans">
               {pagesList.map((p) => (
                 <li key={p.path}>
                   <Link
                     to={p.path}
-                    className="hover:text-amber-300 transition-colors flex items-center gap-1.5 group"
+                    className="hover:text-[#C4924A] transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity">›</span>
+                    <span className="text-[#C4924A] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
                     {p.name}
                   </Link>
                 </li>
@@ -87,37 +74,37 @@ export default function Footer() {
 
           {/* HORARIOS */}
           <div>
-            <h4 className="font-serif-luxury text-sm font-bold uppercase tracking-widest text-amber-300 mb-6 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-amber-500" />
-              Horarios de Brasa
+            <h4 className="font-serif-corp text-xs font-bold uppercase tracking-[0.25em] text-[#C4924A] mb-6 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#C4924A]" />
+              Horarios de Fuego
             </h4>
-            <div className="space-y-3 text-xs">
+            <div className="space-y-3 text-xs font-light">
               {restaurantInfo.hours.map((h, i) => (
-                <div key={i} className="border-b border-zinc-800/80 pb-2">
-                  <span className="text-zinc-200 block font-medium">{h.days}</span>
-                  <span className="text-amber-400/90 text-[11px]">{h.time}</span>
+                <div key={i} className="border-b border-[#121212] pb-2">
+                  <span className="text-[#F4F0EA] block font-medium">{h.days}</span>
+                  <span className="text-[#C4924A] text-[11px] font-sans">{h.time}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* UBICACIÓN & CONTACTO */}
+          {/* UBICACIÓN & MAPS */}
           <div>
-            <h4 className="font-serif-luxury text-sm font-bold uppercase tracking-widest text-amber-300 mb-6 flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-amber-500" />
+            <h4 className="font-serif-corp text-xs font-bold uppercase tracking-[0.25em] text-[#C4924A] mb-6 flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-[#C4924A]" />
               Ubicación & Cava
             </h4>
-            <p className="text-xs text-zinc-300 mb-4 leading-relaxed">
-              Encuéntranos en Google Maps para indicaciones exactas y disponibilidad de estacionamiento con Valet Parking.
+            <p className="text-xs text-[#F4F0EA]/60 mb-4 leading-relaxed font-light">
+              Encuéntranos en Google Maps para indicaciones exactas y servicio de Valet Parking.
             </p>
             <a
               href={restaurantInfo.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-black bg-gradient-to-r from-amber-300 to-amber-500 px-4 py-2.5 rounded-lg shadow-lg hover:from-amber-400 hover:to-amber-200 transition-all duration-300"
+              className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black bg-[#C4924A] px-4 py-2.5 rounded-full shadow-lg hover:bg-[#D6A85F] transition-all duration-300"
             >
-              <MapPin className="w-4 h-4" />
-              Ver Ficha en Google Maps
+              <MapPin className="w-3.5 h-3.5" />
+              Ficha en Google Maps
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -125,12 +112,10 @@ export default function Footer() {
         </div>
 
         {/* BOTTOM COPYRIGHT */}
-        <div className="border-t border-zinc-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+        <div className="border-t border-[#121212] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F4F0EA]/50 font-light">
           <p>© {new Date().getFullYear()} PÚA Brasa y Vino. Todos los derechos reservados.</p>
-          <p className="flex items-center gap-1 text-[11px] text-amber-300/60">
-            <span>Sitio Web Multi-Página Luxury</span>
-            <span>•</span>
-            <span>Cultura al Carbón</span>
+          <p className="flex items-center gap-1 text-[11px] text-[#C4924A]">
+            <span>Sabores de Brasa & Vino</span>
           </p>
         </div>
       </div>

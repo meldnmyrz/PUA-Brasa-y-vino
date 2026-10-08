@@ -24,19 +24,19 @@ export default function ReservationsPage() {
     {
       id: 'salon',
       name: 'Salón Principal de Brasas',
-      desc: 'Ambiente cálido junto a la parrilla abierta y música ambientada.',
+      desc: 'Ambiente cálido junto a la parrilla abierta.',
       icon: Flame
     },
     {
       id: 'terraza',
       name: 'Terraza al Aire Libre',
-      desc: 'Espacio fresco rodeado de vegetación y vista nocturna.',
+      desc: 'Espacio fresco rodeado de vegetación nocturna.',
       icon: Sparkles
     },
     {
       id: 'cava',
       name: 'Cava Privada VIP',
-      desc: 'Exclusividad rodeada de nuestras mejores etiquetas de vino.',
+      desc: 'Exclusividad rodeada de nuestras mejores etiquetas.',
       icon: Wine
     }
   ];
@@ -68,54 +68,54 @@ export default function ReservationsPage() {
   };
 
   return (
-    <div className="pt-28 pb-24 min-h-screen text-amber-50 relative">
+    <div className="pt-28 pb-24 min-h-screen text-[#F4F0EA] bg-[#000000] relative">
       
       {/* HEADER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 mb-16">
-        <span className="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold block">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 mb-16">
+        <span className="font-script-lujo text-3xl sm:text-4xl text-[#C4924A] block">
           Reserva Prioritaria Vía WhatsApp
         </span>
-        <h1 className="font-serif-luxury text-4xl sm:text-5xl font-extrabold text-white">
-          RESERVAS <span className="text-gold-gradient">PÚA</span>
+        <h1 className="font-serif-corp text-4xl sm:text-5xl font-bold text-[#F4F0EA]">
+          RESERVAS <span className="text-[#C4924A]">PÚA</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-sm text-zinc-300 font-light leading-relaxed">
+        <p className="max-w-2xl mx-auto text-xs sm:text-sm text-[#F4F0EA]/70 font-light leading-relaxed">
           Garantiza tu mesa en la zona de tu preferencia. Al completar tu solicitud serás redirigido a WhatsApp para confirmación inmediata.
         </p>
-        <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto pt-2" />
+        <div className="w-24 h-0.5 bg-[#C4924A] mx-auto pt-2" />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {isSubmitted ? (
-          <div className="glass-luxury p-12 rounded-3xl text-center space-y-6 border border-emerald-500/40 shadow-2xl animate-fade-in">
+          <div className="glass-luxury-black p-12 rounded-3xl text-center space-y-6 border border-emerald-500/40 shadow-2xl">
             <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
             
-            <h2 className="font-serif-luxury text-3xl font-bold text-white">
-              ¡Solicitud Enviada a WhatsApp!
+            <h2 className="font-serif-corp text-3xl font-bold text-white">
+              ¡SOLICITUD ENVIADA A WHATSAPP!
             </h2>
             
-            <p className="text-sm text-zinc-300 max-w-md mx-auto font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#F4F0EA]/70 max-w-md mx-auto font-light leading-relaxed">
               Si tu aplicación de WhatsApp no se abrió automáticamente, presiona el botón inferior para confirmar tu mesa con nuestro hostess.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
               <button
                 onClick={() => setIsSubmitted(false)}
-                className="px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest bg-zinc-900 text-zinc-300 border border-zinc-700 hover:border-amber-400"
+                className="px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest bg-[#121212] text-[#F4F0EA] border border-[#3D352E] hover:border-[#C4924A]"
               >
                 Modificar Reserva
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmitReservation} className="glass-luxury p-8 sm:p-12 rounded-3xl border border-amber-500/30 shadow-2xl space-y-10">
+          <form onSubmit={handleSubmitReservation} className="glass-luxury-black p-8 sm:p-12 rounded-3xl border border-[#3D352E] shadow-2xl space-y-10">
             
             {/* 1. SELECCIÓN DE ZONA */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-amber-300 font-semibold mb-4 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-amber-500 text-black flex items-center justify-center text-[10px] font-bold">1</span>
+              <label className="block text-xs uppercase tracking-widest text-[#C4924A] font-semibold mb-4 flex items-center gap-2 font-serif-corp">
+                <span className="w-5 h-5 rounded-full bg-[#C4924A] text-black flex items-center justify-center text-[10px] font-bold font-sans">1</span>
                 Selecciona la Zona de tu Preferencia
               </label>
 
@@ -130,16 +130,16 @@ export default function ReservationsPage() {
                       onClick={() => setSelectedZone(zone.id)}
                       className={`p-5 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between space-y-3 ${
                         isSel
-                          ? 'bg-gradient-to-br from-amber-500/20 to-zinc-900 border-amber-400 shadow-[0_0_20px_rgba(212,175,55,0.3)]'
-                          : 'bg-zinc-900/60 border-zinc-800 hover:border-amber-500/40'
+                          ? 'bg-[#121212] border-[#C4924A] shadow-[0_0_20px_rgba(196,146,74,0.3)]'
+                          : 'bg-[#000000] border-[#3D352E] hover:border-[#C4924A]/50'
                       }`}
                     >
-                      <Icon className={`w-6 h-6 ${isSel ? 'text-amber-300' : 'text-zinc-500'}`} />
+                      <Icon className={`w-6 h-6 ${isSel ? 'text-[#C4924A]' : 'text-[#F4F0EA]/40'}`} />
                       <div>
-                        <h3 className="font-serif-luxury text-sm font-bold text-white">
+                        <h3 className="font-serif-corp text-sm font-bold text-[#F4F0EA]">
                           {zone.name}
                         </h3>
-                        <p className="text-[11px] text-zinc-400 font-light mt-1">
+                        <p className="text-[11px] text-[#F4F0EA]/50 font-light mt-1">
                           {zone.desc}
                         </p>
                       </div>
@@ -151,20 +151,20 @@ export default function ReservationsPage() {
 
             {/* 2. DATOS DE FECHA, HORA Y PERSONAS */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-amber-300 font-semibold mb-4 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-amber-500 text-black flex items-center justify-center text-[10px] font-bold">2</span>
+              <label className="block text-xs uppercase tracking-widest text-[#C4924A] font-semibold mb-4 flex items-center gap-2 font-serif-corp">
+                <span className="w-5 h-5 rounded-full bg-[#C4924A] text-black flex items-center justify-center text-[10px] font-bold font-sans">2</span>
                 Detalles de tu Visita
               </label>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+                  <label className="block text-[11px] uppercase tracking-wider text-[#F4F0EA]/60 mb-2">
                     Nº de Comensales
                   </label>
                   <select
                     value={guestCount}
                     onChange={(e) => setGuestCount(Number(e.target.value))}
-                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
                       <option key={num} value={num}>
@@ -176,7 +176,7 @@ export default function ReservationsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+                  <label className="block text-[11px] uppercase tracking-wider text-[#F4F0EA]/60 mb-2">
                     Fecha
                   </label>
                   <input
@@ -184,18 +184,18 @@ export default function ReservationsPage() {
                     required
                     value={resDate}
                     onChange={(e) => setResDate(e.target.value)}
-                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+                  <label className="block text-[11px] uppercase tracking-wider text-[#F4F0EA]/60 mb-2">
                     Horario Deseado
                   </label>
                   <select
                     value={resTime}
                     onChange={(e) => setResTime(e.target.value)}
-                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                   >
                     {timeSlots.map((slot) => (
                       <option key={slot} value={slot}>
@@ -209,28 +209,28 @@ export default function ReservationsPage() {
 
             {/* 3. DATOS DE TITULAR */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-amber-300 font-semibold mb-4 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-amber-500 text-black flex items-center justify-center text-[10px] font-bold">3</span>
+              <label className="block text-xs uppercase tracking-widest text-[#C4924A] font-semibold mb-4 flex items-center gap-2 font-serif-corp">
+                <span className="w-5 h-5 rounded-full bg-[#C4924A] text-black flex items-center justify-center text-[10px] font-bold font-sans">3</span>
                 Datos del Titular de la Reserva
               </label>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+                  <label className="block text-[11px] uppercase tracking-wider text-[#F4F0EA]/60 mb-2">
                     Nombre Completo
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Ej. Carlos Slim"
+                    placeholder="Ej. Sofía Mendoza"
                     value={guestName}
                     onChange={(e) => setGuestName(e.target.value)}
-                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+                  <label className="block text-[11px] uppercase tracking-wider text-[#F4F0EA]/60 mb-2">
                     Teléfono de Contacto (WhatsApp)
                   </label>
                   <input
@@ -239,7 +239,7 @@ export default function ReservationsPage() {
                     placeholder="Ej. 55 1234 5678"
                     value={guestPhone}
                     onChange={(e) => setGuestPhone(e.target.value)}
-                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                   />
                 </div>
               </div>
@@ -248,13 +248,13 @@ export default function ReservationsPage() {
             {/* 4. OCASIÓN & NOTAS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider text-amber-300 font-semibold mb-2">
+                <label className="block text-[11px] uppercase tracking-wider text-[#C4924A] font-semibold mb-2">
                   Ocasión Especial
                 </label>
                 <select
                   value={occasion}
                   onChange={(e) => setOccasion(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                 >
                   <option value="ninguna">Cena / Comida Casual</option>
                   <option value="cumpleanios">Cumpleaños</option>
@@ -264,7 +264,7 @@ export default function ReservationsPage() {
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider text-amber-300 font-semibold mb-2">
+                <label className="block text-[11px] uppercase tracking-wider text-[#C4924A] font-semibold mb-2">
                   Comentarios o Alergias
                 </label>
                 <input
@@ -272,7 +272,7 @@ export default function ReservationsPage() {
                   placeholder="Ej. Preferencia de mesa junto a la ventana..."
                   value={specialRequests}
                   onChange={(e) => setSpecialRequests(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                 />
               </div>
             </div>
@@ -281,12 +281,12 @@ export default function ReservationsPage() {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl text-xs font-bold uppercase tracking-[0.2em] text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-200 transition-all duration-300 shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center gap-3"
+                className="btn-gold-luxury w-full py-4 rounded-xl text-xs flex items-center justify-center gap-3"
               >
                 <MessageSquare className="w-5 h-5 text-black" />
                 Confirmar y Enviar Reserva a WhatsApp
               </button>
-              <p className="text-[11px] text-zinc-500 text-center mt-3 flex items-center justify-center gap-1.5">
+              <p className="text-[11px] text-[#F4F0EA]/40 text-center mt-3 flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 No cobramos comisión de reserva en línea. Confirmación prioritaria inmediata.
               </p>

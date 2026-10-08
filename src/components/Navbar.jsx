@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Calendar, Menu, X } from 'lucide-react';
+import PuaLogo from './PuaLogo';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,62 +20,43 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // EXACT NAVIGATION ORDER AS REQUESTED: INICIO, MENÚ, NOSOTROS, SERVICIOS, RESERVAS
   const navLinks = [
     { path: '/', label: 'Inicio' },
     { path: '/menu', label: 'Menú' },
-    { path: '/servicios', label: 'Servicios' },
     { path: '/nosotros', label: 'Nosotros' },
-    { path: '/contacto', label: 'Contacto' },
+    { path: '/servicios', label: 'Servicios' },
     { path: '/reservas', label: 'Reservas' },
   ];
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'glass-nav py-3' : 'bg-gradient-to-b from-black/90 via-black/70 to-transparent py-5'
+        isScrolled ? 'glass-nav-black py-3' : 'bg-gradient-to-b from-black via-black/80 to-transparent py-5'
       }`}
-      style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* BRAND LOGO WITH STRICT EXPICIT DIMENSIONS */}
+        {/* BRAND LOGO VECTORED FROM BRAND IDENTITY BOARD */}
         <Link 
           to="/" 
-          className="flex items-center gap-3.5 group text-left focus:outline-none"
+          className="flex items-center gap-3 group focus:outline-none py-1"
         >
-          <div 
-            className="relative rounded-full p-0.5 bg-gradient-to-r from-amber-500 via-amber-300 to-amber-700 shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:scale-105 transition-transform duration-300"
-            style={{ width: '44px', height: '44px', minWidth: '44px', flexShrink: 0 }}
-          >
-            <img 
-              src="/assets/PUA LOGO.jpeg" 
-              alt="PÚA Logo" 
-              className="w-full h-full object-cover rounded-full"
-              style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }}
-            />
-          </div>
-          <div>
-            <span className="font-serif-luxury text-xl sm:text-2xl font-bold tracking-widest text-gold-gradient block leading-tight">
-              PÚA
-            </span>
-            <span className="text-[10px] tracking-[0.3em] uppercase text-amber-200/70 block font-light">
-              Brasa & Vino
-            </span>
-          </div>
+          <PuaLogo color="#C4924A" size="small" />
         </Link>
 
-        {/* DESKTOP NAVIGATION */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+        {/* DESKTOP NAVIGATION IN EXACT ORDER */}
+        <nav className="hidden md:flex items-center gap-2 lg:gap-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `relative px-4 py-2 text-xs lg:text-sm uppercase tracking-widest font-medium transition-all duration-300 ${
+                `relative px-3.5 py-2 text-xs uppercase tracking-[0.25em] font-sans font-medium transition-all duration-300 ${
                   isActive 
-                    ? 'text-amber-300 font-semibold' 
-                    : 'text-zinc-300 hover:text-amber-200'
+                    ? 'text-[#C4924A] font-bold' 
+                    : 'text-[#F4F0EA]/70 hover:text-[#F4F0EA]'
                 }`
               }
             >
@@ -82,7 +64,7 @@ export default function Navbar() {
                 <>
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-amber-500 via-amber-300 to-amber-500 shadow-[0_0_8px_#D4AF37]" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-[2px] bg-[#C4924A] shadow-[0_0_8px_#C4924A]" />
                   )}
                 </>
               )}
@@ -90,13 +72,13 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT ACTION BUTTON */}
+        {/* RIGHT ACTION RESERVATION BUTTON */}
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/reservas"
-            className="group relative px-6 py-2.5 rounded-full overflow-hidden text-xs uppercase tracking-widest font-bold text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-200 transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:scale-105 flex items-center gap-2"
+            className="btn-gold-luxury px-6 py-2.5 rounded-full text-[11px] flex items-center gap-2"
           >
-            <Calendar className="w-4 h-4 text-black" />
+            <Calendar className="w-3.5 h-3.5 text-black" />
             Reservar Mesa
           </Link>
         </div>
@@ -104,7 +86,7 @@ export default function Navbar() {
         {/* MOBILE HAMBURGER BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-amber-300 hover:text-amber-100 focus:outline-none"
+          className="md:hidden p-2 rounded-lg text-[#C4924A] focus:outline-none"
           aria-label="Menu Toggle"
         >
           {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -114,15 +96,15 @@ export default function Navbar() {
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[68px] bg-zinc-950/98 backdrop-blur-2xl border-b border-amber-500/20 px-6 py-8 shadow-2xl flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden fixed inset-x-0 top-[68px] bg-black/98 backdrop-blur-2xl border-b border-[#3D352E] px-6 py-8 shadow-2xl flex flex-col gap-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `text-left py-3 text-sm uppercase tracking-widest font-medium border-b border-zinc-800/60 transition-colors ${
-                  isActive ? 'text-amber-300 font-bold border-amber-500/50 pl-2' : 'text-zinc-300'
+                `text-left py-3 text-xs uppercase tracking-[0.3em] font-medium border-b border-[#121212] transition-colors ${
+                  isActive ? 'text-[#C4924A] font-bold border-[#C4924A] pl-2' : 'text-[#F4F0EA]/80'
                 }`
               }
             >
@@ -131,9 +113,9 @@ export default function Navbar() {
           ))}
           <Link
             to="/reservas"
-            className="mt-4 w-full py-3.5 rounded-full text-xs uppercase tracking-widest font-bold text-black bg-gradient-to-r from-amber-300 to-amber-500 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+            className="mt-4 w-full py-3.5 rounded-full btn-gold-luxury text-xs flex items-center justify-center gap-2"
           >
-            <Calendar className="w-4 h-4" />
+            <Calendar className="w-4 h-4 text-black" />
             Reservar Mesa Ahora
           </Link>
         </div>

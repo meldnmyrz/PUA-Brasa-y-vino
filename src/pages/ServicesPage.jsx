@@ -61,20 +61,20 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="pt-28 pb-24 min-h-screen text-amber-50 relative">
+    <div className="pt-28 pb-24 min-h-screen text-[#F4F0EA] bg-[#000000] relative">
       
       {/* HEADER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 mb-16">
-        <span className="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold block">
-          Eventos & Experiencias Exclusivas
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 mb-16">
+        <span className="font-script-lujo text-3xl sm:text-4xl text-[#C4924A] block">
+          Experiencias Exclusivas
         </span>
-        <h1 className="font-serif-luxury text-4xl sm:text-5xl font-extrabold text-white">
-          SERVICIOS <span className="text-gold-gradient">PÚA</span>
+        <h1 className="font-serif-corp text-4xl sm:text-5xl font-bold text-[#F4F0EA]">
+          SERVICIOS <span className="text-[#C4924A]">PÚA</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-sm text-zinc-300 font-light leading-relaxed">
+        <p className="max-w-2xl mx-auto text-xs sm:text-sm text-[#F4F0EA]/70 font-light leading-relaxed">
           Transformamos tus celebraciones corporativas y privadas en experiencias gastronómicas memorables.
         </p>
-        <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto pt-2" />
+        <div className="w-24 h-0.5 bg-[#C4924A] mx-auto pt-2" />
       </div>
 
       {/* SERVICES LIST SHOWCASE */}
@@ -82,31 +82,31 @@ export default function ServicesPage() {
         {servicesList.map((service, idx) => (
           <div
             key={service.id}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center glass-luxury p-8 sm:p-12 rounded-3xl gold-border-glow ${
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center glass-luxury-black p-8 sm:p-12 rounded-3xl border border-[#3D352E] ${
               idx % 2 === 1 ? 'lg:grid-flow-dense' : ''
             }`}
           >
             <div className={`space-y-6 ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-[11px] font-semibold uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#121212] border border-[#3D352E] text-[#C4924A] text-[10px] font-bold uppercase tracking-widest">
                 <Sparkles className="w-3.5 h-3.5" />
                 Experiencia VIP
               </div>
               
-              <h2 className="font-serif-luxury text-2xl sm:text-3xl font-bold text-white leading-tight">
+              <h2 className="font-serif-corp text-2xl sm:text-3xl font-bold text-[#F4F0EA] leading-tight">
                 {service.title}
               </h2>
-              <p className="text-xs text-amber-300/80 uppercase tracking-widest font-medium">
+              <p className="text-xs text-[#C4924A] uppercase tracking-widest font-medium font-sans">
                 {service.subtitle}
               </p>
               
-              <p className="text-sm text-zinc-300 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#F4F0EA]/70 font-light leading-relaxed">
                 {service.description}
               </p>
 
               <div className="space-y-2.5 pt-2">
                 {service.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-3 text-xs text-zinc-200">
-                    <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
+                  <div key={fIdx} className="flex items-center gap-3 text-xs text-[#F4F0EA]/90">
+                    <div className="w-5 h-5 rounded-full bg-[#121212] border border-[#3D352E] flex items-center justify-center text-[#C4924A]">
                       <Check className="w-3.5 h-3.5" />
                     </div>
                     <span>{feat}</span>
@@ -115,7 +115,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className={`relative rounded-2xl overflow-hidden shadow-2xl h-80 lg:h-96 ${idx % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+            <div className={`relative rounded-2xl overflow-hidden shadow-2xl border border-[#3D352E] h-80 lg:h-96 ${idx % 2 === 1 ? 'lg:col-start-1' : ''}`}>
               <img
                 src={service.image}
                 alt={service.title}
@@ -129,13 +129,16 @@ export default function ServicesPage() {
 
       {/* EVENT QUOTE FORM */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-luxury p-8 sm:p-12 rounded-3xl border border-amber-500/30 shadow-2xl relative">
-          <div className="text-center space-y-3 mb-8">
-            <h2 className="font-serif-luxury text-2xl sm:text-3xl font-bold text-gold-gradient">
-              Solicitar Cotización de Evento
+        <div className="glass-luxury-black p-8 sm:p-12 rounded-3xl border border-[#3D352E] shadow-2xl relative">
+          <div className="text-center space-y-2 mb-8">
+            <span className="font-script-lujo text-3xl text-[#C4924A] block">
+              Atención Personalizada
+            </span>
+            <h2 className="font-serif-corp text-2xl sm:text-3xl font-bold text-[#F4F0EA]">
+              SOLICITAR COTIZACIÓN DE EVENTO
             </h2>
-            <p className="text-xs text-zinc-300 font-light">
-              Completa el formulario y te enviaremos una propuesta personalizada vía WhatsApp en cuestión de minutos.
+            <p className="text-xs text-[#F4F0EA]/60 font-light">
+              Completa el formulario y te enviaremos una propuesta personalizada vía WhatsApp.
             </p>
           </div>
 
@@ -143,13 +146,13 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               <div>
-                <label className="block text-xs uppercase tracking-wider text-amber-300 font-semibold mb-2">
+                <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
                   Tipo de Evento
                 </label>
                 <select
                   value={eventType}
                   onChange={(e) => setEventType(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                 >
                   <option value="corporativo">Evento Corporativo / Cena de Negocios</option>
                   <option value="cumpleanios">Cumpleaños o Celebración Social</option>
@@ -160,13 +163,13 @@ export default function ServicesPage() {
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider text-amber-300 font-semibold mb-2">
+                <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
                   Número Estimado de Invitados
                 </label>
                 <select
                   value={guestsCount}
                   onChange={(e) => setGuestsCount(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                 >
                   <option value="2-6 personas">2 a 6 personas</option>
                   <option value="7-15 personas">7 a 15 personas</option>
@@ -178,19 +181,19 @@ export default function ServicesPage() {
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-amber-300 font-semibold mb-2">
+              <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
                 Fecha Tentativa
               </label>
               <input
                 type="date"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
               />
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-amber-300 font-semibold mb-2">
+              <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
                 Detalles o Peticiones Especiales
               </label>
               <textarea
@@ -198,13 +201,13 @@ export default function ServicesPage() {
                 placeholder="Indica cualquier preferencia alimenticia, presupuesto o requerimiento de espacio..."
                 value={eventNotes}
                 onChange={(e) => setEventNotes(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-amber-500/30 text-amber-100 text-sm focus:outline-none focus:border-amber-400"
+                className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 rounded-xl text-xs font-bold uppercase tracking-[0.2em] text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-200 transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.4)] flex items-center justify-center gap-3"
+              className="btn-gold-luxury w-full py-4 rounded-xl text-xs flex items-center justify-center gap-3"
             >
               <MessageSquare className="w-5 h-5 text-black" />
               Enviar Cotización a WhatsApp
