@@ -61,41 +61,36 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="pt-28 pb-24 min-h-screen text-[#F4F0EA] bg-[#000000] relative">
+    <div className="pt-32 pb-28 min-h-screen text-[#F4F0EA] bg-[#000000] relative">
       
       {/* HEADER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 mb-16">
-        <span className="font-script-lujo text-3xl sm:text-4xl text-[#C4924A] block">
-          Experiencias Exclusivas
-        </span>
-        <h1 className="font-serif-corp text-4xl sm:text-5xl font-bold text-[#F4F0EA]">
+      <div className="max-w-4xl mx-auto px-4 text-center space-y-3 mb-20">
+        <div className="eyebrow-tag justify-center">EXPERIENCIAS EXCLUSIVAS</div>
+        <h1 className="font-serif-corp text-4xl sm:text-5xl font-light tracking-widest text-[#F4F0EA]">
           SERVICIOS <span className="text-[#C4924A]">PÚA</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-xs sm:text-sm text-[#F4F0EA]/70 font-light leading-relaxed">
-          Transformamos tus celebraciones corporativas y privadas en experiencias gastronómicas memorables.
-        </p>
-        <div className="w-24 h-0.5 bg-[#C4924A] mx-auto pt-2" />
+        <span className="font-script-lujo text-3xl sm:text-4xl text-[#C4924A] block">
+          Eventos Privados & Catering
+        </span>
+        <div className="w-16 h-0.5 bg-[#C4924A] mx-auto pt-2" />
       </div>
 
       {/* SERVICES LIST SHOWCASE */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 mb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 mb-28">
         {servicesList.map((service, idx) => (
           <div
             key={service.id}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center glass-luxury-black p-8 sm:p-12 rounded-3xl border border-[#3D352E] ${
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center card-editorial p-8 sm:p-12 border border-[#2D2722] ${
               idx % 2 === 1 ? 'lg:grid-flow-dense' : ''
             }`}
           >
             <div className={`space-y-6 ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#121212] border border-[#3D352E] text-[#C4924A] text-[10px] font-bold uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5" />
-                Experiencia VIP
-              </div>
+              <div className="eyebrow-tag">0{idx + 1} // EXPERIENCIA VIP</div>
               
-              <h2 className="font-serif-corp text-2xl sm:text-3xl font-bold text-[#F4F0EA] leading-tight">
+              <h2 className="font-serif-corp text-2xl sm:text-3xl font-light tracking-wider text-[#F4F0EA] leading-tight">
                 {service.title}
               </h2>
-              <p className="text-xs text-[#C4924A] uppercase tracking-widest font-medium font-sans">
+              <p className="text-xs text-[#C4924A] uppercase tracking-[0.2em] font-medium font-sans">
                 {service.subtitle}
               </p>
               
@@ -105,17 +100,15 @@ export default function ServicesPage() {
 
               <div className="space-y-2.5 pt-2">
                 {service.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-3 text-xs text-[#F4F0EA]/90">
-                    <div className="w-5 h-5 rounded-full bg-[#121212] border border-[#3D352E] flex items-center justify-center text-[#C4924A]">
-                      <Check className="w-3.5 h-3.5" />
-                    </div>
+                  <div key={fIdx} className="flex items-center gap-3 text-xs text-[#F4F0EA]/90 font-light">
+                    <Check className="w-4 h-4 text-[#C4924A]" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className={`relative rounded-2xl overflow-hidden shadow-2xl border border-[#3D352E] h-80 lg:h-96 ${idx % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+            <div className={`relative overflow-hidden border border-[#2D2722] shadow-2xl h-80 lg:h-96 ${idx % 2 === 1 ? 'lg:col-start-1' : ''}`}>
               <img
                 src={service.image}
                 alt={service.title}
@@ -128,13 +121,13 @@ export default function ServicesPage() {
       </div>
 
       {/* EVENT QUOTE FORM */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-luxury-black p-8 sm:p-12 rounded-3xl border border-[#3D352E] shadow-2xl relative">
-          <div className="text-center space-y-2 mb-8">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="card-editorial p-8 sm:p-14 border border-[#2D2722] shadow-2xl relative">
+          <div className="text-center space-y-2 mb-10">
             <span className="font-script-lujo text-3xl text-[#C4924A] block">
               Atención Personalizada
             </span>
-            <h2 className="font-serif-corp text-2xl sm:text-3xl font-bold text-[#F4F0EA]">
+            <h2 className="font-serif-corp text-2xl sm:text-3xl font-light tracking-widest text-[#F4F0EA]">
               SOLICITAR COTIZACIÓN DE EVENTO
             </h2>
             <p className="text-xs text-[#F4F0EA]/60 font-light">
@@ -146,13 +139,13 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               <div>
-                <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
+                <label className="block text-[10px] uppercase tracking-[0.25em] text-[#C4924A] font-medium mb-2">
                   Tipo de Evento
                 </label>
                 <select
                   value={eventType}
                   onChange={(e) => setEventType(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                  className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                 >
                   <option value="corporativo">Evento Corporativo / Cena de Negocios</option>
                   <option value="cumpleanios">Cumpleaños o Celebración Social</option>
@@ -163,13 +156,13 @@ export default function ServicesPage() {
               </div>
 
               <div>
-                <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
+                <label className="block text-[10px] uppercase tracking-[0.25em] text-[#C4924A] font-medium mb-2">
                   Número Estimado de Invitados
                 </label>
                 <select
                   value={guestsCount}
                   onChange={(e) => setGuestsCount(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                  className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
                 >
                   <option value="2-6 personas">2 a 6 personas</option>
                   <option value="7-15 personas">7 a 15 personas</option>
@@ -181,19 +174,19 @@ export default function ServicesPage() {
             </div>
 
             <div>
-              <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-[#C4924A] font-medium mb-2">
                 Fecha Tentativa
               </label>
               <input
                 type="date"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] uppercase tracking-widest text-[#C4924A] font-semibold mb-2">
+              <label className="block text-[10px] uppercase tracking-[0.25em] text-[#C4924A] font-medium mb-2">
                 Detalles o Peticiones Especiales
               </label>
               <textarea
@@ -201,15 +194,12 @@ export default function ServicesPage() {
                 placeholder="Indica cualquier preferencia alimenticia, presupuesto o requerimiento de espacio..."
                 value={eventNotes}
                 onChange={(e) => setEventNotes(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-xl bg-[#121212] border border-[#3D352E] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
               />
             </div>
 
-            <button
-              type="submit"
-              className="btn-gold-luxury w-full py-4 rounded-xl text-xs flex items-center justify-center gap-3"
-            >
-              <MessageSquare className="w-5 h-5 text-black" />
+            <button type="submit" className="btn-luxury-gold w-full py-4 text-xs">
+              <MessageSquare className="w-4 h-4 text-black" />
               Enviar Cotización a WhatsApp
             </button>
           </form>
