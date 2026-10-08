@@ -15,7 +15,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
@@ -30,21 +29,28 @@ export default function Navbar() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled ? 'glass-nav py-3' : 'bg-gradient-to-b from-black/90 via-black/60 to-transparent py-5'
-    }`}>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'glass-nav py-3' : 'bg-gradient-to-b from-black/90 via-black/70 to-transparent py-5'
+      }`}
+      style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* LOGO & BRAND LINK TO HOME */}
+        {/* BRAND LOGO WITH STRICT EXPICIT DIMENSIONS */}
         <Link 
           to="/" 
           className="flex items-center gap-3.5 group text-left focus:outline-none"
         >
-          <div className="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-r from-amber-500 via-amber-300 to-amber-700 shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:scale-105 transition-transform duration-300">
+          <div 
+            className="relative rounded-full p-0.5 bg-gradient-to-r from-amber-500 via-amber-300 to-amber-700 shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:scale-105 transition-transform duration-300"
+            style={{ width: '44px', height: '44px', minWidth: '44px', flexShrink: 0 }}
+          >
             <img 
               src="/assets/PUA LOGO.jpeg" 
               alt="PÚA Logo" 
               className="w-full h-full object-cover rounded-full"
+              style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }}
             />
           </div>
           <div>
@@ -57,7 +63,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* DESKTOP NAVIGATION WITH REAL PAGE ROUTES */}
+        {/* DESKTOP NAVIGATION */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
           {navLinks.map((link) => (
             <NavLink
@@ -84,7 +90,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT ACTION BUTTON LINK TO RESERVAS */}
+        {/* RIGHT ACTION BUTTON */}
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/reservas"
