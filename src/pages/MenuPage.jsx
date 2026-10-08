@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Flame, Wine, Sparkles, X, ChevronRight, Eye, Calendar, Utensils, Heart } from 'lucide-react';
+import { Search, Flame, Wine, Sparkles, X, ChevronRight, Eye, Calendar, Utensils } from 'lucide-react';
 import { menuCategories, menuItems } from '../data/menuData';
+import CarouselDemo from '../components/carousel-demo';
 
 export default function MenuPage() {
   useEffect(() => {
@@ -33,11 +34,11 @@ export default function MenuPage() {
   };
 
   return (
-    <div className="pt-32 pb-28 min-h-screen text-[#F4F0EA] bg-[#000000] relative">
+    <div className="pt-32 pb-28 min-h-screen text-[#F4F0EA] bg-[#000000] relative overflow-hidden">
       
       {/* DIGITAL SUB-WEBSITE HERO BANNER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="card-editorial p-8 sm:p-14 border border-[#3D352E] relative overflow-hidden text-center space-y-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="card-editorial p-8 sm:p-12 border border-[#3D352E] relative overflow-hidden text-center space-y-3">
           <div className="eyebrow-tag justify-center">
             SUB-EXPERIENCIA DIGITAL // CARTA PÚA
           </div>
@@ -45,17 +46,21 @@ export default function MenuPage() {
             CATÁLOGO VISUAL <span className="text-[#C4924A]">&</span> CAVA
           </h1>
           <span className="font-script-lujo text-3xl sm:text-5xl text-[#C4924A] block">
-            Explora cada platillo, trago y etiqueta en alta definición
+            Especialidades Insignias en 3D
           </span>
-          <p className="max-w-2xl mx-auto text-xs sm:text-sm text-[#F4F0EA]/70 font-light leading-relaxed">
-            Haz clic en cualquier platillo para abrir la ficha técnica del Chef, maridaje sugerido y reservar tu mesa para degustarlo.
-          </p>
-          <div className="w-20 h-0.5 bg-[#C4924A] mx-auto pt-2" />
         </div>
       </div>
 
+      {/* 3D INTERACTIVE CAROUSEL INSIGNIA FEATURE */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 overflow-visible">
+        <div className="text-center mb-6">
+          <span className="eyebrow-tag justify-center">DESLIZA & ROTACIÓN 3D</span>
+        </div>
+        <CarouselDemo />
+      </div>
+
       {/* INTERACTIVE CONTROLS & CATEGORY TABS */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-16 pt-12 border-t border-[#2D2722]">
         
         {/* Search Bar */}
         <div className="max-w-xl mx-auto relative">
