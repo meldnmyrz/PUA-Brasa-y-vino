@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Flame, Wine, Calendar, ArrowRight, Sparkles, 
-  MapPin, Phone, Plus, ChevronUp, ChefHat 
+  MapPin, Phone, Plus, ChevronUp, ChefHat, X, Play
 } from 'lucide-react';
 import { menuItems } from '../data/menuData';
 import GhostType from '../components/ui/ghost-type';
@@ -10,6 +10,7 @@ import ParticleConstellation from '../components/ParticleConstellation';
 
 export default function HomePage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
     document.title = "PÚA Brasa y Vino | Sabores de Brasa & Cava";
@@ -21,11 +22,41 @@ export default function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % 4);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const featuredDishes = menuItems.filter(item => item.badge).slice(0, 4);
+
+  const heroSlides = [
+    {
+      title: "SABOR DE BRASA, CAVA & HISTORIA.",
+      subtitle: "Elevamos los cortes prime al carbón de encino y la enología de autor a una experiencia sensorial inolvidable.",
+      tag: "PÚA POLANCO // CDMX"
+    },
+    {
+      title: "CORTES PRIME A LA LEÑA DE ENCINO.",
+      subtitle: "Tomahawk, Ribeye y New York madurados y asados a fuego directo con precisión artesanal.",
+      tag: "PARRILLA & AUTOR"
+    },
+    {
+      title: "MÁS DE 500 ETIQUETAS DE CAVA.",
+      subtitle: "Maridaje exclusivo por sommeliers internacionales con etiquetas icónicas y colecciones VIP.",
+      tag: "ENOLOGÍA SELECCIONADA"
+    },
+    {
+      title: "MIXOLOGÍA RITUAL Y AHUMADOS.",
+      subtitle: "Coctelería conceptual elaborada en mesa con destilados premium e infusiones botánicas.",
+      tag: "RITUAL DE FUEGO"
+    }
+  ];
 
   const servicesList = [
     {
@@ -60,90 +91,131 @@ export default function HomePage() {
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
-      {/* 01 HERO SECTION — STELLAR GALLERY WALL AT MIDNIGHT STYLE */}
-      <section className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden border-b border-[#2c2c2e]/60 z-10">
-        {/* Background Video Layer */}
-        <div className="absolute inset-0 z-0 opacity-35">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover filter brightness-50 contrast-125 scale-105"
-          >
-            <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/80 to-[#000000]" />
-        </div>
-
-        {/* Hero Content matching Stellar Specs */}
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 text-center space-y-8 animate-slideInDown">
+      {/* 01 HERO SECTION — GOOGLE FLOW OMNI INTERFACE STYLE */}
+      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-[1240px] mx-auto z-10">
+        
+        {/* MAIN HERO ROUNDED CONTAINER (GOOGLE FLOW CARD SPEC) */}
+        <div className="relative rounded-[28px] overflow-hidden border border-[#2c2c2e] bg-[#0d0e12] min-h-[560px] lg:min-h-[640px] flex flex-col justify-between shadow-2xl">
           
-          {/* Eyebrow Label Tag Chip (6px radius) */}
-          <div className="eyebrow-tag-violet">
-            ★ EXPERIENCIA GASTRONÓMICA AL CARBÓN & CAVA DE AUTOR
+          {/* BACKGROUND VIDEO WITH GRADIENT FADE TO LEFT */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover object-center opacity-70 filter contrast-110"
+            >
+              <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
+            </video>
+            {/* Dark gradient overlay fading from black on left to transparent on right for readable text */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#000000]/80 sm:via-[#000000]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/40" />
           </div>
 
-          <div className="py-2">
-            <GhostType
-              text="PÚA BRASA Y VINO"
-              completions={[
-                'SINFONÍA & TEMPORADA',
-                'CAVA DE AUTOR & MIXOLOGÍA',
-                'CORTES PRIME AL CARBÓN',
-                'EL RITUAL DEL FUEGO'
-              ]}
-              typeBase={false}
-              streamSpeed={35}
-              thinkDelay={500}
-              holdDelay={2600}
-              accentColor="#6a48f2"
-              ghostOpacity={1}
-              className="w-full text-center"
-              textClassName="font-display-stellar text-5xl sm:text-7xl md:text-9xl tracking-tight text-[#ffffff] leading-none uppercase"
-              ghostClassName="font-script-lujo text-3xl sm:text-5xl md:text-6xl text-[#6a48f2] normal-case tracking-normal py-1 block"
-              as="h1"
-            />
-          </div>
-
-          {/* Subtext Paragraph (18-19px Weight 400 Ash #888888) */}
-          <p className="font-subtext-stellar max-w-2xl mx-auto text-[#888888]">
-            Confluencia entre la devoción por el fuego de encino y la alta enología. Una atmósfera de penumbra elegante donde cada sabor flota con precisión magistral.
-          </p>
-
-          {/* LOCATION & PHONE METADATA LINE */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-6 font-mono text-xs tracking-widest text-[#888888]">
-            <div className="flex items-center gap-2 text-[#ffffff] uppercase">
-              <MapPin className="w-4 h-4 text-[#6a48f2]" />
-              <span>CIUDAD DE MÉXICO // ZONA POLANCO</span>
+          {/* TOP RIGHT CLOSE / ACTION ICON */}
+          <div className="relative z-20 flex justify-between items-center p-6 sm:p-8">
+            <div className="eyebrow-tag-violet">
+              ★ {heroSlides[activeSlide].tag}
             </div>
-            <div className="hidden sm:block text-[#6a48f2]">•</div>
-            <div className="flex items-center gap-2 text-[#ffffff] uppercase">
-              <Phone className="w-4 h-4 text-[#C4924A]" />
-              <span>TEL: +52 55 1234 5678</span>
-            </div>
+            <button className="text-[#888888] hover:text-white transition-colors p-2 rounded-full bg-black/40 backdrop-blur-md border border-[#2c2c2e]">
+              <X className="w-5 h-5" />
+            </button>
           </div>
 
-          {/* Stellar Action Buttons (50px Pill CTA) */}
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Link to="/reservas" className="btn-sprint-violet">
-              <Calendar className="w-4 h-4 text-white" />
-              Reservar Mesa Ahora
-              <ArrowRight className="w-4 h-4 text-white" />
-            </Link>
-            <Link to="/menu" className="btn-ghost-border">
-              Explorar Menú Completo
-            </Link>
+          {/* SPLIT LAYOUT: LEFT SIDE TEXT + CTA (GOOGLE FLOW SPEC) */}
+          <div className="relative z-10 px-6 sm:px-12 lg:px-16 py-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* LEFT COLUMN CONTENT */}
+            <div className="lg:col-span-8 space-y-6 text-left">
+              
+              <div className="py-1">
+                <GhostType
+                  text={heroSlides[activeSlide].title}
+                  completions={[
+                    'SINFONÍA & TEMPORADA',
+                    'CAVA DE AUTOR & MIXOLOGÍA',
+                    'CORTES PRIME AL CARBÓN',
+                    'EL RITUAL DEL FUEGO'
+                  ]}
+                  typeBase={false}
+                  streamSpeed={35}
+                  thinkDelay={500}
+                  holdDelay={2600}
+                  accentColor="#6a48f2"
+                  ghostOpacity={1}
+                  className="w-full text-left"
+                  textClassName="font-display-stellar text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#ffffff] leading-[1.05] uppercase"
+                  ghostClassName="font-script-lujo text-2xl sm:text-4xl text-[#6a48f2] normal-case tracking-normal py-1 block"
+                  as="h1"
+                />
+              </div>
+
+              {/* Subtitle Paragraph */}
+              <p className="font-subtext-stellar text-sm sm:text-lg text-[#dddddd] max-w-xl leading-relaxed">
+                {heroSlides[activeSlide].subtitle}
+              </p>
+
+              {/* Action Buttons: White Pill CTA ("Get started" style) + Ghost Link */}
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <Link 
+                  to="/reservas" 
+                  className="bg-white hover:bg-[#e9e9e9] text-black font-sans font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-300 shadow-xl flex items-center gap-2 transform hover:scale-105"
+                >
+                  Get started — Reservar Mesa
+                  <ArrowRight className="w-4 h-4 text-black" />
+                </Link>
+                
+                <Link 
+                  to="/menu" 
+                  className="btn-ghost-border !border-white/30 text-white hover:!border-white text-sm"
+                >
+                  Explorar Menú Completo
+                </Link>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN — SPACE FOR VIDEO VISUAL FOCUS */}
+            <div className="hidden lg:block lg:col-span-4 relative h-64" />
+
           </div>
+
+          {/* BOTTOM BAR: SEGMENTED SLIDER INDICATOR + FLOATING TRANSLUCENT OVERLAY CARD */}
+          <div className="relative z-20 px-6 sm:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 bg-black/30 backdrop-blur-md">
+            
+            {/* SEGMENTED PROGRESS BARS (GOOGLE FLOW SPEC) */}
+            <div className="flex items-center gap-2 w-full sm:w-auto max-w-md">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveSlide(idx)}
+                  className={`h-1.5 rounded-full transition-all duration-500 flex-1 ${
+                    activeSlide === idx 
+                      ? 'bg-white w-12' 
+                      : 'bg-white/30 hover:bg-white/60'
+                  }`}
+                  aria-label={`Slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* FLOATING TRANSLUCENT ACTION CARD OVERLAY ("+ Nuevo Proyecto" STYLE FROM SCREENSHOT) */}
+            <div className="flex items-center gap-4 bg-[#171718]/90 backdrop-blur-xl border border-[#2c2c2e] p-3 sm:p-4 rounded-[20px] shadow-2xl">
+              <Link 
+                to="/reservas"
+                className="flex items-center gap-3 text-white text-xs sm:text-sm font-sans font-medium hover:text-[#6a48f2] transition-colors"
+              >
+                <div className="w-9 h-9 rounded-xl bg-[#6a48f2] text-white flex items-center justify-center shadow-lg">
+                  <Plus className="w-5 h-5 stroke-[2.5]" />
+                </div>
+                <span>+ Reservar Experiencia VIP</span>
+              </Link>
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#888888] text-[10px] uppercase tracking-[0.3em] z-10">
-          <span>Desplazar</span>
-          <div className="w-4 h-7 border border-[#2c2c2e] rounded-full flex justify-center p-1">
-            <div className="w-1 h-1.5 bg-[#6a48f2] rounded-full animate-bounce" />
-          </div>
-        </div>
       </section>
 
       {/* 02 ABOUT SECTION — STELLAR ASYMMETRIC OBSIDIAN PANEL */}
