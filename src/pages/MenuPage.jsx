@@ -40,53 +40,53 @@ export default function MenuPage() {
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
-      {/* DALA DIGITAL SUB-WEBSITE HERO BANNER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
-        <div className="card-standard p-8 sm:p-14 border border-[#3D352E] relative overflow-hidden text-center space-y-4 rounded-[24px]">
-          <div className="saffron-tag-pill mx-auto">
+      {/* STELLAR DIGITAL SUB-WEBSITE HERO BANNER */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
+        <div className="card-obsidian p-8 sm:p-12 border border-[#2c2c2e] relative overflow-hidden text-center space-y-4 rounded-[10px]">
+          <div className="eyebrow-tag-violet mx-auto">
             CATÁLOGO VISUAL DE ESPECIALIDADES & CAVA
           </div>
-          <h1 className="font-display-dala text-4xl sm:text-7xl text-[#ffffff] uppercase tracking-tight">
-            PLATILLOS INSIGNIA & <span className="text-[#ffb829]">CAVA VIP</span>
+          <h1 className="font-display-stellar text-4xl sm:text-7xl text-[#ffffff] uppercase tracking-tight">
+            PLATILLOS INSIGNIA & <span className="text-[#6a48f2]">CAVA VIP</span>
           </h1>
-          <p className="font-body-ultralight max-w-2xl mx-auto text-[#bdbdbd]">
+          <p className="font-subtext-stellar max-w-2xl mx-auto text-[#888888]">
             Explora la maestría de nuestros cortes asados a la leña de encino y la cuidada selección de etiquetas internacionales maridadas por nuestros sommeliers.
           </p>
         </div>
       </div>
 
       {/* 3D INTERACTIVE CAROUSEL INSIGNIA FEATURE */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 overflow-visible relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-24 overflow-visible relative z-10">
         <div className="text-center mb-6">
-          <span className="iris-tag-pill">DESLIZA Y ROTACIÓN 3D</span>
+          <span className="eyebrow-tag-pill">DESLIZA Y ROTACIÓN 3D</span>
         </div>
         <CarouselDemo />
       </div>
 
       {/* INTERACTIVE CONTROLS & CATEGORY TABS */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-16 pt-12 border-t border-[#2D2722] relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-16 pt-12 border-t border-[#2c2c2e] relative z-10">
         
-        {/* Search Bar */}
+        {/* Outlined Input Field (6px radius) */}
         <div className="max-w-xl mx-auto relative">
-          <Search className="w-4 h-4 absolute left-5 top-1/2 -translate-y-1/2 text-[#8052ff]" />
+          <Search className="w-4 h-4 absolute left-5 top-1/2 -translate-y-1/2 text-[#6a48f2]" />
           <input
             type="text"
             placeholder="Buscar por corte, ingrediente, trago o vino..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-10 py-4 bg-[#090a0f] border border-[#3D352E] rounded-[24px] text-[#ffffff] placeholder-[#9a9a9a] text-sm focus:outline-none focus:border-[#8052ff] transition-all"
+            className="w-full pl-12 pr-10 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] placeholder-[#888888] text-sm focus:outline-none focus:border-[#6a48f2] transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-5 top-1/2 -translate-y-1/2 text-[#9a9a9a] hover:text-white"
+              className="absolute right-5 top-1/2 -translate-y-1/2 text-[#888888] hover:text-white"
             >
               <X className="w-4 h-4" />
             </button>
           )}
         </div>
 
-        {/* Category Selector Cards */}
+        {/* Category Selector Cards (6px radius tags) */}
         <div className="flex items-center gap-3 overflow-x-auto pb-4 scrollbar-none justify-start lg:justify-center">
           {menuCategories.map((cat) => {
             const isActive = selectedCategory === cat.id;
@@ -95,15 +95,15 @@ export default function MenuPage() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-6 py-3 rounded-full text-xs font-mono-tag uppercase tracking-wider whitespace-nowrap transition-all duration-300 border flex items-center gap-2 ${
+                className={`px-5 py-2.5 rounded-[6px] text-xs font-sans uppercase tracking-wider whitespace-nowrap transition-all duration-200 border flex items-center gap-2 ${
                   isActive
-                    ? 'bg-[#8052ff] text-white border-[#8052ff] font-semibold shadow-[0_0_25px_rgba(128,82,255,0.5)] scale-105'
-                    : 'bg-[#090a0f] text-[#9a9a9a] border-[#3D352E] hover:border-[#8052ff] hover:text-[#ffffff]'
+                    ? 'bg-[#6a48f2] text-white border-[#6a48f2] font-medium'
+                    : 'bg-[#171718] text-[#888888] border-[#2c2c2e] hover:border-[#6a48f2] hover:text-[#ffffff]'
                 }`}
               >
                 <span>{cat.name}</span>
-                <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                  isActive ? 'bg-black text-[#ffb829]' : 'bg-[#2D2722] text-[#bdbdbd]'
+                <span className={`text-[10px] px-2 py-0.5 rounded-[4px] ${
+                  isActive ? 'bg-black text-[#ffffff]' : 'bg-[#2c2c2e] text-[#888888]'
                 }`}>
                   {count}
                 </span>
@@ -113,16 +113,16 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* RICH VISUAL DISH CARDS GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* RICH VISUAL DISH CARDS GRID (10px RADIUS CARDS) */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {filteredItems.length === 0 ? (
-          <div className="card-standard p-12 rounded-[24px] text-center max-w-md mx-auto space-y-4 my-12 border border-[#3D352E]">
-            <Utensils className="w-10 h-10 text-[#8052ff] mx-auto" />
-            <h3 className="font-condensed-bold text-xl text-[#ffffff]">
+          <div className="card-obsidian p-12 rounded-[10px] text-center max-w-md mx-auto space-y-4 my-12 border border-[#2c2c2e]">
+            <Utensils className="w-10 h-10 text-[#6a48f2] mx-auto" />
+            <h3 className="font-sans font-medium text-lg text-[#ffffff]">
               No hay coincidencias en el catálogo
             </h3>
-            <p className="font-body-ultralight text-xs text-[#9a9a9a]">
+            <p className="font-subtext-stellar text-xs text-[#888888]">
               Prueba buscando por otro ingrediente o selecciona "Todo el Menú".
             </p>
             <button
@@ -130,7 +130,7 @@ export default function MenuPage() {
                 setSelectedCategory('todos');
                 setSearchQuery('');
               }}
-              className="btn-iris-pill"
+              className="btn-sprint-violet"
             >
               Ver Todo el Catálogo
             </button>
@@ -141,30 +141,30 @@ export default function MenuPage() {
               <div
                 key={item.id}
                 onClick={() => setActiveDishModal(item)}
-                className="card-standard rounded-[24px] overflow-hidden group cursor-pointer border border-[#3D352E] hover:border-[#8052ff] transition-all duration-500 flex flex-col justify-between p-0"
+                className="card-obsidian rounded-[10px] overflow-hidden group cursor-pointer border border-[#2c2c2e] hover:border-[#6a48f2] transition-all duration-300 flex flex-col justify-between p-0"
               >
                 <div>
                   {/* Photo Frame */}
-                  <div className="relative h-64 overflow-hidden bg-black rounded-t-[24px]">
+                  <div className="relative h-64 overflow-hidden bg-black rounded-t-[10px]">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                     
                     {item.badge && (
-                      <span className="absolute top-4 left-4 saffron-tag-pill shadow-lg">
+                      <span className="absolute top-4 left-4 eyebrow-tag-violet">
                         ★ {item.badge}
                       </span>
                     )}
 
-                    <span className="absolute bottom-4 right-4 bg-black/90 border border-[#8052ff]/40 text-[#ffb829] font-mono-tag text-sm font-semibold px-4 py-1 rounded-full">
+                    <span className="absolute bottom-4 right-4 bg-[#171718] border border-[#2c2c2e] text-[#6a48f2] font-mono text-sm font-semibold px-3 py-1 rounded-[6px]">
                       ${item.price.toLocaleString()} MXN
                     </span>
 
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 backdrop-blur-xs">
-                      <span className="btn-iris-pill text-xs py-2 px-5 flex items-center gap-2">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-xs">
+                      <span className="btn-sprint-violet text-xs py-2 px-4 flex items-center gap-2">
                         <Eye className="w-4 h-4 text-white" />
                         Ver Ficha Completa
                       </span>
@@ -173,10 +173,10 @@ export default function MenuPage() {
 
                   {/* Card Content */}
                   <div className="p-6 space-y-3">
-                    <h3 className="font-condensed-bold text-xl text-[#ffffff] group-hover:text-[#ffb829] transition-colors leading-snug">
+                    <h3 className="font-sans font-medium text-lg text-[#ffffff] group-hover:text-[#6a48f2] transition-colors leading-snug">
                       {item.name}
                     </h3>
-                    <p className="font-body-ultralight text-xs text-[#bdbdbd] line-clamp-3">
+                    <p className="font-subtext-stellar text-xs text-[#888888] line-clamp-3">
                       {item.description}
                     </p>
 
@@ -184,7 +184,7 @@ export default function MenuPage() {
                       {item.tags.map((t, idx) => (
                         <span
                           key={idx}
-                          className="text-[10px] bg-[#000000] border border-[#2D2722] text-[#9a9a9a] px-3 py-1 rounded-full font-mono-tag"
+                          className="text-[10px] bg-[#000000] border border-[#2c2c2e] text-[#888888] px-2.5 py-1 rounded-[4px] font-mono"
                         >
                           #{t}
                         </span>
@@ -199,7 +199,7 @@ export default function MenuPage() {
                       e.stopPropagation();
                       handleReserveDish(item.name);
                     }}
-                    className="w-full btn-iris-pill py-3 text-xs"
+                    className="w-full btn-sprint-violet py-3 text-xs"
                   >
                     <Flame className="w-4 h-4" />
                     Reservar para Probar
@@ -219,15 +219,15 @@ export default function MenuPage() {
           onClick={() => setActiveDishModal(null)}
         >
           <div 
-            className="card-standard max-w-3xl w-full border border-[#8052ff]/60 overflow-hidden relative my-auto shadow-2xl rounded-[24px] p-0"
+            className="card-obsidian max-w-3xl w-full border border-[#6a48f2]/60 overflow-hidden relative my-auto shadow-2xl rounded-[10px] p-0"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setActiveDishModal(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/80 border border-[#3D352E] text-[#ffffff] hover:text-[#8052ff] flex items-center justify-center transition-colors"
+              className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-[#171718] border border-[#2c2c2e] text-[#ffffff] hover:text-[#6a48f2] flex items-center justify-center transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2">
@@ -245,44 +245,44 @@ export default function MenuPage() {
               <div className="p-8 space-y-6 flex flex-col justify-between">
                 <div className="space-y-4">
                   {activeDishModal.badge && (
-                    <span className="saffron-tag-pill">
+                    <span className="eyebrow-tag-violet">
                       ★ {activeDishModal.badge}
                     </span>
                   )}
                   
-                  <h2 className="font-condensed-bold text-2xl text-[#ffffff] leading-tight">
+                  <h2 className="font-sans font-medium text-2xl text-[#ffffff] leading-tight">
                     {activeDishModal.name}
                   </h2>
                   
-                  <div className="font-mono-tag text-2xl font-bold text-[#ffb829]">
+                  <div className="font-mono text-xl font-bold text-[#6a48f2]">
                     ${activeDishModal.price.toLocaleString()} MXN
                   </div>
 
-                  <p className="font-body-ultralight text-xs text-[#bdbdbd]">
+                  <p className="font-subtext-stellar text-xs text-[#888888]">
                     {activeDishModal.description}
                   </p>
 
                   <div className="pt-2 space-y-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#ffb829] block font-mono-tag">
+                    <span className="text-[10px] uppercase tracking-wider text-[#6a48f2] block font-mono">
                       Notas del Sommelier & Chef:
                     </span>
-                    <p className="font-body-ultralight text-xs text-[#9a9a9a] italic">
+                    <p className="font-subtext-stellar text-xs text-[#888888] italic">
                       "Recomendamos maridar esta preparación con nuestra selección de vinos tintos Casa Madero o una mixología ahumada en mesa."
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-[#2D2722] space-y-3">
+                <div className="pt-6 border-t border-[#2c2c2e] space-y-3">
                   <button
                     onClick={() => handleReserveDish(activeDishModal.name)}
-                    className="btn-iris-pill w-full py-4 text-xs"
+                    className="btn-sprint-violet w-full py-3.5 text-xs"
                   >
                     <Calendar className="w-4 h-4 text-white" />
                     Reservar Mesa para Degustar Este Platillo
                   </button>
                   <button
                     onClick={() => setActiveDishModal(null)}
-                    className="w-full py-2.5 text-xs text-[#9a9a9a] hover:text-white uppercase tracking-widest font-mono-tag"
+                    className="w-full py-2.5 text-xs text-[#888888] hover:text-white uppercase tracking-widest font-mono"
                   >
                     Cerrar Ficha
                   </button>

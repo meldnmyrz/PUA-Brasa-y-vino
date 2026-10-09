@@ -17,59 +17,49 @@ export default function ParticleConstellation({ className = "" }) {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Dala chromatic palette: Electric Iris, Saffron Spark, Deep Verdant, Flame Gold, Soft Magenta
+    // Stellar midnight gallery chromatic palette: Sprint Violet (#6a48f2), Soft Pink, Bone (#f3f3f3), Flame Gold (#C4924A), Ash (#888888)
     const colors = [
-      '#8052ff', // Electric Iris
-      '#ffb829', // Saffron Spark
-      '#15846e', // Deep Verdant
+      '#6a48f2', // Sprint Violet
+      '#fcceee', // Soft Pink Accent
+      '#f3f3f3', // Bone White
       '#C4924A', // Flame Gold
-      '#a855f7', // Saturated Violet
-      '#38bdf8'  // Cosmic Blue
+      '#888888'  // Ash Gray
     ];
 
-    const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 12000), 75);
+    const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 14000), 65);
     const particles = [];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 4 + 2, // 2px - 6px tiny triangles
+        size: Math.random() * 3 + 1.5,
         color: colors[Math.floor(Math.random() * colors.length)],
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
         rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.02,
-        opacity: Math.random() * 0.5 + 0.3
+        rotationSpeed: (Math.random() - 0.5) * 0.015,
+        opacity: Math.random() * 0.45 + 0.2
       });
     }
 
-    const drawTriangle = (x, y, size, rotation, color, opacity) => {
+    const drawParticleNode = (x, y, size, rotation, color, opacity) => {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(rotation);
       ctx.globalAlpha = opacity;
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.2;
-
-      ctx.beginPath();
-      ctx.moveTo(0, -size);
-      ctx.lineTo(size * 0.866, size * 0.5);
-      ctx.lineTo(-size * 0.866, size * 0.5);
-      ctx.closePath();
-      ctx.stroke();
-
-      // Subtle center dot glow
       ctx.fillStyle = color;
+
+      // Small round node / diamond node
       ctx.beginPath();
-      ctx.arc(0, 0, 1, 0, Math.PI * 2);
+      ctx.arc(0, 0, size, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.restore();
     };
 
     const drawConstellationLines = () => {
-      const maxDistance = 130;
+      const maxDistance = 120;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -77,10 +67,10 @@ export default function ParticleConstellation({ className = "" }) {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * 0.25;
-            ctx.strokeStyle = '#8052ff';
+            const alpha = (1 - dist / maxDistance) * 0.18;
+            ctx.strokeStyle = '#6a48f2';
             ctx.globalAlpha = alpha;
-            ctx.lineWidth = 0.6;
+            ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -105,7 +95,7 @@ export default function ParticleConstellation({ className = "" }) {
         if (p.y < -20) p.y = canvas.height + 20;
         if (p.y > canvas.height + 20) p.y = -20;
 
-        drawTriangle(p.x, p.y, p.size, p.rotation, p.color, p.opacity);
+        drawParticleNode(p.x, p.y, p.size, p.rotation, p.color, p.opacity);
       });
 
       animationFrameId = requestAnimationFrame(render);

@@ -14,19 +14,19 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#000000] border-t border-[#3D352E] text-[#bdbdbd] pt-16 pb-12 overflow-hidden z-10">
+    <footer className="relative bg-[#000000] border-t border-[#2c2c2e] text-[#888888] pt-16 pb-12 overflow-hidden z-10">
       {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-[#8052ff]/10 via-transparent to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-[#6a48f2]/10 via-transparent to-transparent blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
           {/* BRAND COLUMN WITH BRAND LOGO */}
           <div className="space-y-4">
             <Link to="/" className="inline-block">
-              <PuaLogo color="#8052ff" size="small" className="!items-start" />
+              <PuaLogo color="#6a48f2" size="small" className="!items-start" />
             </Link>
-            <p className="font-body-ultralight text-xs text-[#9a9a9a]">
+            <p className="font-subtext-stellar text-xs text-[#888888]">
               Sabor ahumado a la leña, cortes de carne prime seleccionados, mixología ritual de autor y la mejor cava de vinos.
             </p>
             <div className="flex items-center gap-3 pt-2">
@@ -34,7 +34,7 @@ export default function Footer() {
                 href={restaurantInfo.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-[#090a0f] border border-[#3D352E] flex items-center justify-center text-[#8052ff] hover:border-[#8052ff] hover:bg-[#8052ff] hover:text-white transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-[#171718] border border-[#2c2c2e] flex items-center justify-center text-[#6a48f2] hover:border-[#6a48f2] hover:bg-[#6a48f2] hover:text-white transition-all duration-300"
                 title="Google Maps"
               >
                 <MapPin className="w-4 h-4" />
@@ -43,7 +43,7 @@ export default function Footer() {
                 href={`https://wa.me/${restaurantInfo.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-[#090a0f] border border-[#3D352E] flex items-center justify-center text-[#ffb829] hover:border-[#ffb829] hover:bg-[#ffb829] hover:text-black transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-[#171718] border border-[#2c2c2e] flex items-center justify-center text-[#6a48f2] hover:border-[#6a48f2] hover:bg-[#6a48f2] hover:text-white transition-all duration-300"
                 title="WhatsApp Directo"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -53,18 +53,18 @@ export default function Footer() {
 
           {/* 5 MAIN PAGES LINKS */}
           <div>
-            <h4 className="font-mono-tag text-xs uppercase tracking-wider text-[#ffb829] mb-6 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8052ff]" />
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6a48f2]" />
               Navegación
             </h4>
-            <ul className="space-y-3 text-xs uppercase tracking-wider font-mono-tag">
+            <ul className="space-y-3 text-xs font-sans">
               {pagesList.map((p) => (
                 <li key={p.path}>
                   <Link
                     to={p.path}
-                    className="text-[#9a9a9a] hover:text-white transition-colors flex items-center gap-1.5 group"
+                    className="text-[#dddddd] hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="text-[#8052ff] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
+                    <span className="text-[#6a48f2] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
                     {p.name}
                   </Link>
                 </li>
@@ -74,15 +74,15 @@ export default function Footer() {
 
           {/* HORARIOS */}
           <div>
-            <h4 className="font-mono-tag text-xs uppercase tracking-wider text-[#ffb829] mb-6 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#8052ff]" />
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-6 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#6a48f2]" />
               Horarios de Fuego
             </h4>
             <div className="space-y-3 text-xs">
               {restaurantInfo.hours.map((h, i) => (
-                <div key={i} className="border-b border-[#2D2722] pb-2">
-                  <span className="font-body-ultralight text-[#ffffff] block">{h.days}</span>
-                  <span className="font-mono-tag text-[#ffb829] text-[11px]">{h.time}</span>
+                <div key={i} className="border-b border-[#2c2c2e] pb-2">
+                  <span className="font-subtext-stellar text-[#ffffff] block">{h.days}</span>
+                  <span className="font-mono text-[#6a48f2] text-[11px]">{h.time}</span>
                 </div>
               ))}
             </div>
@@ -90,18 +90,18 @@ export default function Footer() {
 
           {/* UBICACIÓN & MAPS */}
           <div>
-            <h4 className="font-mono-tag text-xs uppercase tracking-wider text-[#ffb829] mb-6 flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#8052ff]" />
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-6 flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-[#6a48f2]" />
               Ubicación & Cava
             </h4>
-            <p className="font-body-ultralight text-xs text-[#9a9a9a] mb-4">
+            <p className="font-subtext-stellar text-xs text-[#888888] mb-4">
               Encuéntranos en Google Maps para indicaciones exactas y servicio de Valet Parking.
             </p>
             <a
               href={restaurantInfo.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-iris-pill text-[11px] py-2.5 px-4"
+              className="btn-sprint-violet text-[11px] py-2.5 px-4"
             >
               <MapPin className="w-3.5 h-3.5" />
               Ficha en Google Maps
@@ -112,10 +112,10 @@ export default function Footer() {
         </div>
 
         {/* BOTTOM COPYRIGHT */}
-        <div className="border-t border-[#2D2722] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-body-ultralight text-[#9a9a9a]">
+        <div className="border-t border-[#2c2c2e] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-subtext-stellar text-[#888888]">
           <p>© {new Date().getFullYear()} PÚA Brasa y Vino. Todos los derechos reservados.</p>
-          <p className="flex items-center gap-1 text-[11px] text-[#ffb829] font-mono-tag">
-            <span>Sabores de Brasa & Vino — Style: Dala Constellation</span>
+          <p className="flex items-center gap-1 text-[11px] text-[#6a48f2] font-mono">
+            <span>Sabores de Brasa & Vino — Style: Stellar Dark Midnight Gallery</span>
           </p>
         </div>
       </div>

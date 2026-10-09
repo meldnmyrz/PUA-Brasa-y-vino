@@ -1,69 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  /* Colors from Dala — Constellation Floating on Black Velvet */
-  --color-void: #000000;
-  --color-bone-white: #ffffff;
-  --color-ash-gray: #9a9a9a;
-  --color-silver-mist: #bdbdbd;
-  --color-electric-iris: #8052ff;
-  --color-saffron-spark: #ffb829;
-  --color-deep-verdant: #15846e;
+  /* Colors from Stellar — Gallery Wall at Midnight */
+  --color-void-black: #000000;
+  --color-obsidian: #171718;
+  --color-graphite: #2c2c2e;
+  --color-ash: #888888;
+  --color-smoke: #e9e9e9;
+  --color-bone: #f3f3f3;
+  --color-paper: #ffffff;
+  --color-platinum: #dddddd;
+  --color-sprint-violet: #6a48f2;
+  --gradient-sprint-violet: linear-gradient(7deg, rgb(106, 72, 242) 20%, rgb(252, 206, 238));
+
+  /* PÚA Flame Gold Accent Token */
   --color-flame-gold: #C4924A;
-  --color-gold-light: #E5C388;
+  --color-flame-gold-light: #E5C388;
 
   /* Typography Families */
-  --font-ppneuemontreal: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-suisseintlcond: 'Oswald', ui-sans-serif, system-ui, sans-serif;
-  --font-suisseintlmono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-neue-montreal: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-condensed: 'Oswald', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Typography Scale */
-  --text-caption: 12px;
-  --leading-caption: 1.5;
-  --text-nav-label: 14px;
-  --leading-nav-label: 1.2;
-  --tracking-nav-label: 0.35px;
-  --text-body: 18px;
-  --leading-body: 1.5;
-  --text-heading-2xs: 24px;
-  --leading-heading-2xs: 1.25;
-  --tracking-heading-2xs: -0.48px;
-  --text-heading-xs: 27px;
-  --leading-heading-xs: 1.0;
-  --text-subheading: 36px;
-  --leading-subheading: 1.2;
-  --text-heading-sm: 42px;
-  --leading-heading-sm: 1.2;
-  --tracking-heading-sm: -1.68px;
-  --text-heading: 48px;
-  --leading-heading: 1.1;
-  --tracking-heading: -1.68px;
-  --text-heading-lg: 78px;
-  --leading-heading-lg: 1.1;
-  --tracking-heading-lg: -3.12px;
-  --text-display: 113px;
-  --leading-display: 0.90;
-  --tracking-display: -4.52px;
+  --text-caption: 14px;
+  --text-body: 16px;
+  --text-subheading: 19px;
+  --text-heading: 22px;
+  --text-heading-lg: 40px;
+  --text-display: 72px;
+  --text-display-xl: 104px;
 
-  /* Spacing Scale (6px base unit) */
-  --spacing-6: 6px;
-  --spacing-12: 12px;
-  --spacing-18: 18px;
-  --spacing-24: 24px;
-  --spacing-30: 30px;
-  --spacing-36: 36px;
-  --spacing-60: 60px;
-  --spacing-96: 96px;
-  --spacing-120: 120px;
-
-  /* Border Radii */
-  --radius-nav: 24px;
-  --radius-tags: 9999px;
-  --radius-cards: 24px;
-  --radius-buttons: 24px;
+  /* Border Radii Tokens — CRITICAL STELLAR SPEC */
+  --radius-nav: 6px;
+  --radius-tags: 6px;
+  --radius-inputs: 6px;
+  --radius-cards: 10px;
+  --radius-buttons: 50px;
 }
 
-/* Global Reset for Pure Black Void Canvas */
+/* Global Reset for Pure Void Canvas */
 *, ::before, ::after {
   box-sizing: border-box;
 }
@@ -74,10 +50,10 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-void); /* Pure black void #000000 */
-  color: var(--color-bone-white);
-  font-family: var(--font-ppneuemontreal);
-  letter-spacing: -0.01em;
+  background-color: var(--color-void-black); /* Pure Void #000000 */
+  color: var(--color-paper);
+  font-family: var(--font-neue-montreal);
+  letter-spacing: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -88,254 +64,213 @@ img, video {
   display: block;
 }
 
-/* DALA MONOLITHIC DISPLAY HEADLINE (WEIGHT 400 AT 78-113px WITH -0.04em TRACKING) */
-.font-display-dala {
-  font-family: var(--font-ppneuemontreal);
+/* STELLAR DISPLAY HEADLINE (WEIGHT 400 AT 70-104px WITH -0.02em TRACKING, NEVER BOLD) */
+.font-display-stellar {
+  font-family: var(--font-neue-montreal);
   font-weight: 400;
-  font-size: clamp(48px, 7vw, 113px);
-  line-height: 0.90;
-  letter-spacing: -0.04em;
-  color: var(--color-bone-white);
+  font-size: clamp(40px, 6vw, 104px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--color-paper);
   text-transform: uppercase;
 }
 
 .font-condensed-bold {
-  font-family: var(--font-suisseintlcond);
+  font-family: var(--font-condensed);
   font-weight: 700;
-  line-height: 0.90;
-  letter-spacing: -0.03em;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
-/* SIGNATURE ULTRA-LIGHT BODY COPY (WEIGHT 200 AT 18px) */
-.font-body-ultralight {
-  font-family: var(--font-ppneuemontreal);
-  font-weight: 200;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--color-silver-mist);
-}
-
-.font-mono-tag {
-  font-family: var(--font-suisseintlmono);
-  font-size: 12px;
-  letter-spacing: -0.03em;
-}
-
-.font-serif-corp {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.font-script-lujo {
-  font-family: 'Alex Brush', cursive;
+/* STELLAR SUBTEXT PARAGRAPH (18-19px WEIGHT 400 ASH #888888) */
+.font-subtext-stellar {
+  font-family: var(--font-neue-montreal);
   font-weight: 400;
+  font-size: 18px;
+  line-height: 1.43;
+  color: var(--color-ash);
 }
 
-/* ACCENT TEXT COLORS */
-.text-saffron-spark {
-  color: var(--color-saffron-spark);
+/* STELLAR EYEBROW LABEL (12-14px WEIGHT 500 UPPERCASE, LETTER SPACING +0.035em TO +0.040em, ASH #888888) */
+.eyebrow-stellar {
+  font-family: var(--font-neue-montreal);
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ash);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.text-electric-iris {
-  color: var(--color-electric-iris);
-}
-
-.text-silver-mist {
-  color: var(--color-silver-mist);
-}
-
-.text-ash-gray {
-  color: var(--color-ash-gray);
-}
-
-/* TAG PILLS (9999px BORDER-RADIUS) */
-.mint-tag-pill {
-  background-color: var(--color-deep-verdant);
-  color: var(--color-bone-white);
-  font-family: var(--font-suisseintlmono);
+.eyebrow-tag-pill {
+  background-color: var(--color-obsidian);
+  color: var(--color-ash);
+  border: 1px solid var(--color-graphite);
+  font-family: var(--font-neue-montreal);
   font-size: 12px;
   font-weight: 500;
-  padding: 6px 16px;
-  border-radius: var(--radius-tags);
+  padding: 6px 14px;
+  border-radius: var(--radius-tags); /* 6px radius */
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  letter-spacing: -0.02em;
-}
-
-.flame-tag-pill {
-  background-color: var(--color-flame-gold);
-  color: var(--color-void);
-  font-family: var(--font-suisseintlmono);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: var(--radius-tags);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: -0.02em;
-}
-
-.iris-tag-pill {
-  background-color: var(--color-electric-iris);
-  color: var(--color-bone-white);
-  font-family: var(--font-suisseintlmono);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: var(--radius-tags);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: -0.02em;
-}
-
-.saffron-tag-pill {
-  background-color: var(--color-saffron-spark);
-  color: var(--color-void);
-  font-family: var(--font-suisseintlmono);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: var(--radius-tags);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: -0.02em;
-}
-
-/* DALA ELECTRIC IRIS FILLED VIOLET PILL BUTTON (24px BORDER-RADIUS) */
-.btn-iris-pill, .btn-filled-dark {
-  background-color: var(--color-electric-iris);
-  color: var(--color-bone-white);
-  font-family: var(--font-ppneuemontreal);
-  font-size: 14px;
-  font-weight: 600;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
-  letter-spacing: 0.025em;
-  padding: 14.4px 24px;
-  border-radius: var(--radius-buttons); /* 24px pill */
+}
+
+.eyebrow-tag-violet {
+  background-color: rgba(106, 72, 242, 0.15);
+  color: var(--color-paper);
+  border: 1px solid rgba(106, 72, 242, 0.4);
+  font-family: var(--font-neue-montreal);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-tags); /* 6px radius */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+/* STELLAR PRIMARY CTA BUTTON (50px PILL RADIUS, FILLED SPRINT VIOLET #6a48f2) */
+.btn-sprint-violet, .btn-iris-pill, .btn-filled-dark {
+  background-color: var(--color-sprint-violet);
+  background-image: var(--gradient-sprint-violet);
+  color: var(--color-paper);
+  font-family: var(--font-neue-montreal);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 12px 24px;
+  border-radius: var(--radius-buttons); /* 50px pill radius */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(128, 82, 255, 0.4);
+  box-shadow: 0 0 20px rgba(106, 72, 242, 0.4);
 }
 
-.btn-iris-pill:hover, .btn-filled-dark:hover {
-  background-color: #9368ff;
+.btn-sprint-violet:hover, .btn-iris-pill:hover, .btn-filled-dark:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 35px rgba(128, 82, 255, 0.6);
+  box-shadow: 0 0 30px rgba(106, 72, 242, 0.6);
+  opacity: 0.95;
 }
 
 .btn-flame-pill {
   background-color: var(--color-flame-gold);
-  color: var(--color-void);
-  font-family: var(--font-ppneuemontreal);
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
-  padding: 14.4px 24px;
-  border-radius: var(--radius-buttons); /* 24px pill */
+  color: var(--color-void-black);
+  font-family: var(--font-neue-montreal);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 12px 24px;
+  border-radius: var(--radius-buttons); /* 50px pill radius */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(196, 146, 74, 0.4);
 }
 
 .btn-flame-pill:hover {
-  background-color: var(--color-gold-light);
+  background-color: var(--color-flame-gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 0 35px rgba(196, 146, 74, 0.6);
 }
 
-/* GHOST TEXT LINK BUTTON */
-.btn-ghost-text {
+/* GHOST INLINE / NAV LINK (PLATINUM #dddddd -> PAPER #ffffff / SPRINT VIOLET #6a48f2 ON HOVER) */
+.btn-ghost-link {
   background: transparent;
-  color: var(--color-ash-gray);
+  color: var(--color-platinum);
   border: none;
-  font-family: var(--font-ppneuemontreal);
-  font-size: 14px;
+  font-family: var(--font-neue-montreal);
+  font-size: 15px;
   font-weight: 400;
-  padding: 12px 20px;
+  padding: 10px 16px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
+  border-radius: var(--radius-buttons);
 }
 
-.btn-ghost-text:hover {
-  color: var(--color-bone-white);
+.btn-ghost-link:hover {
+  color: var(--color-paper);
 }
 
 .btn-ghost-border {
   background: transparent;
-  color: var(--color-bone-white);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-family: var(--font-ppneuemontreal);
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
-  padding: 14px 24px;
+  color: var(--color-paper);
+  border: 1px solid var(--color-graphite);
+  font-family: var(--font-neue-montreal);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 24px;
   border-radius: var(--radius-buttons);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .btn-ghost-border:hover {
-  border-color: var(--color-electric-iris);
-  color: var(--color-electric-iris);
+  border-color: var(--color-sprint-violet);
+  color: var(--color-sprint-violet);
 }
 
-/* FLOATING NAV CAPSULE */
+/* STELLAR FLOATING NAV BAR (6px BORDER RADIUS, TRANSPARENT OVER VOID #000000) */
 .nav-pill-floating {
-  background: rgba(9, 10, 15, 0.85);
+  background: rgba(23, 23, 24, 0.85);
   backdrop-filter: blur(16px);
-  border-radius: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  border-radius: var(--radius-nav); /* 6px radius */
+  border: 1px solid var(--color-graphite);
 }
 
-/* CARDS FLOATING ON BLACK VOID (24px RADIUS, ZERO SHADOWS) */
-.card-standard, .card-editorial {
-  background: #090a0f;
-  border-radius: var(--radius-cards); /* 24px radius */
-  padding: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* STELLAR CARDS (OBSIDIAN #171718 SURFACE ON VOID #000000, 10px RADIUS, NO BOX-SHADOWS) */
+.card-standard, .card-editorial, .card-obsidian {
+  background-color: var(--color-obsidian); /* #171718 */
+  border-radius: var(--radius-cards); /* 10px radius */
+  padding: 20px;
+  border: 1px solid var(--color-graphite); /* #2c2c2e hairline */
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  box-shadow: none !important; /* STELLAR SPEC: NO SHADOWS, ELEVATION IS SURFACE CONTRAST ONLY */
 }
 
-.card-standard:hover, .card-editorial:hover {
-  border-color: rgba(128, 82, 255, 0.5);
-  transform: translateY(-4px);
+.card-standard:hover, .card-editorial:hover, .card-obsidian:hover {
+  border-color: rgba(106, 72, 242, 0.6);
 }
 
-/* AMBIENT CONSTELLATION FLOATING PARTICLES */
-@keyframes particleFloat {
-  0% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
-  50% { transform: translateY(-15px) rotate(180deg); opacity: 0.8; }
-  100% { transform: translateY(0px) rotate(360deg); opacity: 0.4; }
+/* STELLAR OUTLINED INPUT FIELD (6px RADIUS, GRAPHITE BORDER, OBSIDIAN/TRANSPARENT BG, FOCUS VIOLET) */
+.input-stellar {
+  background-color: var(--color-obsidian);
+  border: 1px solid var(--color-graphite);
+  border-radius: var(--radius-inputs); /* 6px radius */
+  padding: 14px 18px;
+  color: var(--color-paper);
+  font-family: var(--font-neue-montreal);
+  font-size: 15px;
+  transition: border-color 0.2s ease;
 }
 
-.ambient-particle {
-  animation: particleFloat 6s ease-in-out infinite;
+.input-stellar::placeholder {
+  color: var(--color-ash);
+}
+
+.input-stellar:focus {
+  outline: none;
+  border-color: var(--color-sprint-violet);
 }
 
 /* Custom Scrollbar */
@@ -343,12 +278,12 @@ img, video {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--color-void-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2D2722;
+  background: var(--color-graphite);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8052ff;
+  background: var(--color-sprint-violet);
 }

@@ -67,55 +67,55 @@ export default function ServicesPage() {
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
-      {/* HEADER BLOCK — DALA MONOLITHIC DISPLAY */}
-      <div className="max-w-5xl mx-auto px-4 text-center space-y-4 mb-20 relative z-10">
-        <div className="iris-tag-pill mx-auto">EXPERIENCIAS EXCLUSIVAS VIP</div>
-        <h1 className="font-display-dala text-5xl sm:text-7xl md:text-8xl text-[#ffffff] uppercase tracking-tight">
-          SERVICIOS <span className="text-[#8052ff]">PÚA</span>
+      {/* HEADER BLOCK — STELLAR DISPLAY HEADLINE */}
+      <div className="max-w-[1200px] mx-auto px-4 text-center space-y-4 mb-20 relative z-10">
+        <div className="eyebrow-tag-violet mx-auto">EXPERIENCIAS EXCLUSIVAS VIP</div>
+        <h1 className="font-display-stellar text-5xl sm:text-7xl md:text-8xl text-[#ffffff] uppercase tracking-tight">
+          SERVICIOS <span className="text-[#6a48f2]">PÚA</span>
         </h1>
-        <p className="font-body-ultralight max-w-2xl mx-auto text-[#bdbdbd]">
+        <p className="font-subtext-stellar max-w-2xl mx-auto text-[#888888]">
           Organización integral para banquetes corporativos, catas privadas de cava y servicios de parrilla gourmet a domicilio.
         </p>
       </div>
 
       {/* SERVICES LIST SHOWCASE */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 mb-28 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16 mb-28 relative z-10">
         {servicesList.map((service, idx) => (
           <div
             key={service.id}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center card-standard p-8 sm:p-12 border border-[#3D352E] rounded-[24px] ${
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center card-obsidian p-8 sm:p-12 border border-[#2c2c2e] rounded-[10px] ${
               idx % 2 === 1 ? 'lg:grid-flow-dense' : ''
             }`}
           >
             <div className={`space-y-6 ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-              <div className="saffron-tag-pill">0{idx + 1} // EXPERIENCIA EXCLUSIVA</div>
+              <div className="eyebrow-tag-violet">0{idx + 1} // EXPERIENCIA EXCLUSIVA</div>
               
-              <h2 className="font-display-dala text-3xl sm:text-5xl text-[#ffffff] leading-tight">
+              <h2 className="font-display-stellar text-3xl sm:text-5xl text-[#ffffff] leading-tight">
                 {service.title}
               </h2>
-              <p className="font-mono-tag text-xs text-[#ffb829] uppercase tracking-wider">
+              <p className="font-mono text-xs text-[#6a48f2] uppercase tracking-wider">
                 {service.subtitle}
               </p>
               
-              <p className="font-body-ultralight text-sm text-[#bdbdbd]">
+              <p className="font-subtext-stellar text-sm text-[#888888]">
                 {service.description}
               </p>
 
               <div className="space-y-3 pt-2">
                 {service.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-3 font-body-ultralight text-xs text-[#ffffff]">
-                    <Check className="w-4 h-4 text-[#8052ff]" />
+                  <div key={fIdx} className="flex items-center gap-3 font-subtext-stellar text-xs text-[#ffffff]">
+                    <Check className="w-4 h-4 text-[#6a48f2]" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className={`relative overflow-hidden border border-[#3D352E] rounded-[24px] shadow-2xl h-80 lg:h-96 ${idx % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+            <div className={`relative overflow-hidden border border-[#2c2c2e] rounded-[10px] shadow-none h-80 lg:h-96 bg-[#171718] ${idx % 2 === 1 ? 'lg:col-start-1' : ''}`}>
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             </div>
@@ -125,15 +125,15 @@ export default function ServicesPage() {
 
       {/* EVENT QUOTE FORM */}
       <div className="max-w-4xl mx-auto px-4 relative z-10">
-        <div className="card-standard p-8 sm:p-14 border border-[#3D352E] rounded-[24px] relative">
+        <div className="card-obsidian p-8 sm:p-12 border border-[#2c2c2e] rounded-[10px] relative">
           <div className="text-center space-y-3 mb-10">
-            <span className="iris-tag-pill mx-auto">
+            <span className="eyebrow-tag-violet mx-auto">
               ATENCIÓN PERSONALIZADA VIP
             </span>
-            <h2 className="font-display-dala text-3xl sm:text-5xl text-[#ffffff] tracking-tight">
+            <h2 className="font-display-stellar text-3xl sm:text-5xl text-[#ffffff] tracking-tight">
               SOLICITAR COTIZACIÓN DE EVENTO
             </h2>
-            <p className="font-body-ultralight text-xs text-[#bdbdbd]">
+            <p className="font-subtext-stellar text-xs text-[#888888]">
               Completa el formulario y te enviaremos una propuesta personalizada vía WhatsApp.
             </p>
           </div>
@@ -142,13 +142,13 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               <div>
-                <label className="block font-mono-tag text-xs uppercase tracking-wider text-[#ffb829] mb-2">
+                <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
                   Tipo de Evento
                 </label>
                 <select
                   value={eventType}
                   onChange={(e) => setEventType(e.target.value)}
-                  className="w-full px-4 py-4 bg-[#090a0f] border border-[#3D352E] rounded-[24px] text-[#ffffff] text-xs focus:outline-none focus:border-[#8052ff]"
+                  className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
                 >
                   <option value="corporativo">Evento Corporativo / Cena de Negocios</option>
                   <option value="cumpleanios">Cumpleaños o Celebración Social</option>
@@ -159,13 +159,13 @@ export default function ServicesPage() {
               </div>
 
               <div>
-                <label className="block font-mono-tag text-xs uppercase tracking-wider text-[#ffb829] mb-2">
+                <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
                   Número Estimado de Invitados
                 </label>
                 <select
                   value={guestsCount}
                   onChange={(e) => setGuestsCount(e.target.value)}
-                  className="w-full px-4 py-4 bg-[#090a0f] border border-[#3D352E] rounded-[24px] text-[#ffffff] text-xs focus:outline-none focus:border-[#8052ff]"
+                  className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
                 >
                   <option value="2-6 personas">2 a 6 personas</option>
                   <option value="7-15 personas">7 a 15 personas</option>
@@ -177,19 +177,19 @@ export default function ServicesPage() {
             </div>
 
             <div>
-              <label className="block font-mono-tag text-xs uppercase tracking-wider text-[#ffb829] mb-2">
+              <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
                 Fecha Tentativa
               </label>
               <input
                 type="date"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
-                className="w-full px-4 py-4 bg-[#090a0f] border border-[#3D352E] rounded-[24px] text-[#ffffff] text-xs focus:outline-none focus:border-[#8052ff]"
+                className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
               />
             </div>
 
             <div>
-              <label className="block font-mono-tag text-xs uppercase tracking-wider text-[#ffb829] mb-2">
+              <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
                 Detalles o Peticiones Especiales
               </label>
               <textarea
@@ -197,11 +197,11 @@ export default function ServicesPage() {
                 placeholder="Indica cualquier preferencia alimenticia, presupuesto o requerimiento de espacio..."
                 value={eventNotes}
                 onChange={(e) => setEventNotes(e.target.value)}
-                className="w-full px-4 py-4 bg-[#090a0f] border border-[#3D352E] rounded-[24px] text-[#ffffff] text-xs focus:outline-none focus:border-[#8052ff]"
+                className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
               />
             </div>
 
-            <button type="submit" className="btn-iris-pill w-full py-4 text-xs">
+            <button type="submit" className="btn-sprint-violet w-full py-3.5 text-xs">
               <MessageSquare className="w-4 h-4 text-white" />
               Enviar Cotización a WhatsApp
             </button>
