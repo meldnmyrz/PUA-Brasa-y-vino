@@ -71,8 +71,8 @@ export default function ReservationsPage() {
     <div className="pt-32 pb-28 min-h-screen text-[#F4F0EA] bg-[#000000] relative">
       
       {/* HEADER */}
-      <div className="max-w-4xl mx-auto px-4 text-center space-y-3 mb-20">
-        <div className="eyebrow-tag justify-center">RESERVA PRIORITARIA VÍA WHATSAPP</div>
+      <div className="max-w-4xl mx-auto px-4 text-center space-y-3 mb-16 animate-slideInDown">
+        <div className="eyebrow-tag justify-center shadow-lg">RESERVA PRIORITARIA VÍA WHATSAPP</div>
         <h1 className="font-serif-corp text-4xl sm:text-5xl font-light tracking-widest text-[#F4F0EA]">
           RESERVAS <span className="text-[#C4924A]">PÚA</span>
         </h1>
@@ -82,10 +82,10 @@ export default function ReservationsPage() {
         <div className="w-16 h-0.5 bg-[#C4924A] mx-auto pt-2" />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4 animate-fadeIn">
         
         {isSubmitted ? (
-          <div className="card-editorial p-14 rounded-none text-center space-y-6 border border-emerald-500/40 shadow-2xl">
+          <div className="card-editorial p-14 rounded-3xl text-center space-y-6 border border-emerald-500/40 shadow-2xl">
             <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-400/40 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
@@ -101,14 +101,14 @@ export default function ReservationsPage() {
             <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
               <button
                 onClick={() => setIsSubmitted(false)}
-                className="btn-luxury-outline"
+                className="btn-apple-outline"
               >
                 Modificar Reserva
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmitReservation} className="card-editorial p-8 sm:p-14 border border-[#2D2722] shadow-2xl space-y-12">
+          <form onSubmit={handleSubmitReservation} className="card-editorial p-8 sm:p-14 rounded-3xl border border-[#3D352E]/80 shadow-2xl space-y-12">
             
             {/* 1. SELECCIÓN DE ZONA */}
             <div>
@@ -126,13 +126,13 @@ export default function ReservationsPage() {
                       key={zone.id}
                       type="button"
                       onClick={() => setSelectedZone(zone.id)}
-                      className={`p-6 border text-left transition-all duration-300 flex flex-col justify-between space-y-4 ${
+                      className={`p-6 rounded-2xl border text-left transition-all duration-400 flex flex-col justify-between space-y-4 ${
                         isSel
-                          ? 'bg-[#101012] border-[#C4924A]'
+                          ? 'bg-[#121115] border-[#C4924A] shadow-xl shadow-[#C4924A]/10 scale-[1.02]'
                           : 'bg-[#000000] border-[#2D2722] hover:border-[#C4924A]/50'
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${isSel ? 'text-[#C4924A]' : 'text-[#F4F0EA]/40'}`} />
+                      <Icon className={`w-6 h-6 ${isSel ? 'text-[#C4924A]' : 'text-[#F4F0EA]/40'}`} />
                       <div>
                         <h3 className="font-serif-corp text-sm font-normal text-[#F4F0EA]">
                           {zone.name}
@@ -162,7 +162,7 @@ export default function ReservationsPage() {
                   <select
                     value={guestCount}
                     onChange={(e) => setGuestCount(Number(e.target.value))}
-                    className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
                       <option key={num} value={num}>
@@ -182,7 +182,7 @@ export default function ReservationsPage() {
                     required
                     value={resDate}
                     onChange={(e) => setResDate(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
                   />
                 </div>
 
@@ -193,7 +193,7 @@ export default function ReservationsPage() {
                   <select
                     value={resTime}
                     onChange={(e) => setResTime(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
                   >
                     {timeSlots.map((slot) => (
                       <option key={slot} value={slot}>
@@ -223,7 +223,7 @@ export default function ReservationsPage() {
                     placeholder="Ej. Sofía Mendoza"
                     value={guestName}
                     onChange={(e) => setGuestName(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
                   />
                 </div>
 
@@ -237,7 +237,7 @@ export default function ReservationsPage() {
                     placeholder="Ej. 55 1234 5678"
                     value={guestPhone}
                     onChange={(e) => setGuestPhone(e.target.value)}
-                    className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
                   />
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default function ReservationsPage() {
                 <select
                   value={occasion}
                   onChange={(e) => setOccasion(e.target.value)}
-                  className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
                 >
                   <option value="ninguna">Cena / Comida Casual</option>
                   <option value="cumpleanios">Cumpleaños</option>
@@ -270,18 +270,18 @@ export default function ReservationsPage() {
                   placeholder="Ej. Preferencia de mesa junto a la ventana..."
                   value={specialRequests}
                   onChange={(e) => setSpecialRequests(e.target.value)}
-                  className="w-full px-4 py-3.5 bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A]"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-[#000000] border border-[#2D2722] text-[#F4F0EA] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
                 />
               </div>
             </div>
 
             {/* SUBMIT BUTTON */}
             <div className="pt-4">
-              <button type="submit" className="btn-luxury-gold w-full py-4 text-xs">
+              <button type="submit" className="btn-apple-gold w-full py-4 text-xs shadow-2xl">
                 <MessageSquare className="w-4 h-4 text-black" />
                 Confirmar y Enviar Reserva a WhatsApp
               </button>
-              <p className="text-[10px] text-[#F4F0EA]/40 text-center mt-3 flex items-center justify-center gap-1.5 font-light">
+              <p className="text-[10px] text-[#F4F0EA]/40 text-center mt-4 flex items-center justify-center gap-1.5 font-light">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 Sin comisión de reserva en línea. Confirmación prioritaria inmediata.
               </p>
