@@ -1,27 +1,11 @@
 import React, { useState, useRef, useId, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-interface SlideData {
-  title: string;
-  button: string;
-  src: string;
-  price?: number;
-  description?: string;
-}
-
-interface SlideProps {
-  slide: SlideData;
-  index: number;
-  current: number;
-  handleSlideClick: (index: number) => void;
-  totalSlides: number;
-}
-
-const Slide = ({ slide, index, current, handleSlideClick, totalSlides }: SlideProps) => {
-  const slideRef = useRef<HTMLLIElement>(null);
+const Slide = ({ slide, index, current, handleSlideClick, totalSlides }) => {
+  const slideRef = useRef(null);
   const xRef = useRef(0);
   const yRef = useRef(0);
-  const frameRef = useRef<number>();
+  const frameRef = useRef(null);
 
   useEffect(() => {
     const animate = () => {
@@ -41,7 +25,7 @@ const Slide = ({ slide, index, current, handleSlideClick, totalSlides }: SlidePr
     };
   }, []);
 
-  const handleMouseMove = (event: React.MouseEvent) => {
+  const handleMouseMove = (event) => {
     const el = slideRef.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
@@ -124,13 +108,7 @@ const Slide = ({ slide, index, current, handleSlideClick, totalSlides }: SlidePr
   );
 };
 
-interface CarouselControlProps {
-  type: string;
-  title: string;
-  handleClick: () => void;
-}
-
-const CarouselControl = ({ type, title, handleClick }: CarouselControlProps) => {
+const CarouselControl = ({ type, title, handleClick }) => {
   return (
     <button
       className={`w-12 h-12 flex items-center justify-center bg-[#121212] border border-[#3D352E] text-[#C4924A] rounded-full focus:border-[#C4924A] focus:outline-none hover:bg-[#C4924A] hover:text-black hover:scale-110 active:scale-95 transition duration-300 shadow-xl ${
@@ -144,11 +122,7 @@ const CarouselControl = ({ type, title, handleClick }: CarouselControlProps) => 
   );
 };
 
-interface CarouselProps {
-  slides?: SlideData[];
-}
-
-export default function Carousel({ slides = [] }: CarouselProps) {
+export default function Carousel({ slides = [] }) {
   const [current, setCurrent] = useState(0);
   const id = useId();
 
@@ -164,7 +138,7 @@ export default function Carousel({ slides = [] }: CarouselProps) {
     setCurrent((prev) => (prev + 1 === slides.length ? 0 : prev + 1));
   };
 
-  const handleSlideClick = (index: number) => {
+  const handleSlideClick = (index) => {
     if (current !== index) {
       setCurrent(index);
     }
