@@ -43,15 +43,15 @@ const Slide = ({ slide, index, current, handleSlideClick, totalSlides }) => {
   const isActive = current === index;
 
   return (
-    <div className="[perspective:1200px] [transform-style:preserve-3d]">
+    <div className="flex-none shrink-0 w-full flex items-center justify-center [perspective:1200px] [transform-style:preserve-3d]">
       <li
         ref={slideRef}
-        className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[290px] sm:w-[380px] md:w-[420px] h-[420px] sm:h-[480px] md:h-[520px] mx-2 sm:mx-5 z-10 cursor-pointer"
+        className="flex flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] h-[440px] sm:h-[480px] md:h-[520px] z-10 cursor-pointer"
         onClick={() => handleSlideClick(index)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          transform: isActive ? "scale(1) rotateX(0deg)" : "scale(0.95) rotateX(6deg)",
+          transform: isActive ? "scale(1) rotateX(0deg)" : "scale(0.92) rotateX(6deg)",
           transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
           transformOrigin: "bottom",
         }}
@@ -73,11 +73,11 @@ const Slide = ({ slide, index, current, handleSlideClick, totalSlides }) => {
             loading="eager"
           />
           {isActive && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent transition-all duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent transition-all duration-700" />
           )}
 
           {/* Slide index counter badge */}
-          <div className="absolute top-4 right-4 bg-black/80 border border-[#3D352E] backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-sans tracking-widest text-[#C4924A]">
+          <div className="absolute top-4 right-4 bg-black/80 border border-[#3D352E] backdrop-blur-md px-3.5 py-1 rounded-full text-[10px] font-sans tracking-widest text-[#C4924A]">
             {index + 1} / {totalSlides}
           </div>
         </div>
@@ -93,11 +93,11 @@ const Slide = ({ slide, index, current, handleSlideClick, totalSlides }) => {
             </span>
           )}
           
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif-corp font-bold text-[#F4F0EA] tracking-wider relative drop-shadow-lg leading-tight mb-2">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif-corp font-bold text-[#F4F0EA] tracking-wider relative drop-shadow-lg leading-tight mb-3">
             {title}
           </h2>
 
-          <div className="flex justify-center mt-3">
+          <div className="flex justify-center mt-2">
             <button className="btn-luxury-gold text-xs py-3 px-7 rounded-full shadow-xl font-bold tracking-widest uppercase">
               {button || "Reservar Platillo"}
             </button>
@@ -146,13 +146,13 @@ export default function Carousel({ slides = [] }) {
 
   return (
     <div
-      className="relative w-full max-w-[440px] h-[480px] sm:h-[540px] md:h-[580px] mx-auto overflow-visible flex flex-col items-center justify-center"
+      className="relative w-full max-w-[440px] min-h-[520px] sm:min-h-[580px] mx-auto overflow-hidden flex flex-col items-center justify-center py-4"
       aria-labelledby={`carousel-heading-${id}`}
     >
       <ul
-        className="flex transition-transform duration-700 ease-out py-6 overflow-visible"
+        className="w-full flex transition-transform duration-700 ease-out py-4"
         style={{
-          transform: `translateX(calc(-${current} * (100% + 1.25rem)))`,
+          transform: `translateX(-${current * 100}%)`,
         }}
       >
         {slides.map((slide, index) => (

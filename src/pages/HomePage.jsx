@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Flame, Wine, Calendar, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { menuItems, restaurantInfo } from '../data/menuData';
+import GhostType from '../components/ui/ghost-type';
 
 export default function HomePage() {
   useEffect(() => {
@@ -38,13 +39,26 @@ export default function HomePage() {
             01 // EXPERIENCIA GASTRONÓMICA DE ALTA GAMA
           </div>
 
-          <div className="space-y-2">
-            <h1 className="font-serif-corp text-4xl sm:text-6xl md:text-7xl font-light tracking-[0.12em] text-[#F4F0EA] leading-none uppercase">
-              SABORES DE <span className="text-[#C4924A] font-normal">BRASA Y VINO</span>
-            </h1>
-            <span className="font-script-lujo text-4xl sm:text-6xl text-[#C4924A] block py-1">
-              Sinfonía & Temporada
-            </span>
+          <div className="py-4">
+            <GhostType
+              text="PÚA BRASA Y VINO"
+              completions={[
+                'Sinfonía & Temporada',
+                'Cava de Autor & Mixología',
+                'Cortes Prime de Autor',
+                'El Ritual del Fuego'
+              ]}
+              typeBase={false}
+              streamSpeed={35}
+              thinkDelay={500}
+              holdDelay={2600}
+              accentColor="#C4924A"
+              ghostOpacity={1}
+              className="w-full text-center"
+              textClassName="font-serif-corp text-4xl sm:text-6xl md:text-7xl font-light tracking-[0.12em] text-[#F4F0EA] leading-none uppercase drop-shadow-2xl"
+              ghostClassName="font-script-lujo text-3xl sm:text-5xl md:text-6xl text-[#C4924A] normal-case tracking-normal py-1 drop-shadow-[0_4px_12px_rgba(196,146,74,0.5)]"
+              as="h1"
+            />
           </div>
 
           <p className="max-w-xl mx-auto text-xs sm:text-sm text-[#F4F0EA]/70 font-light leading-relaxed tracking-wide font-sans">
