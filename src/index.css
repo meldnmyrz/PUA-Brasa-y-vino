@@ -36,7 +36,14 @@ img, video {
   display: block;
 }
 
-/* BRAND TYPOGRAPHY CLASSES */
+/* BRAND TYPOGRAPHY CLASSES MATCHING HTML CODEX & LUXURY PÚA BRAND */
+.font-condensed-bold {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .font-serif-corp {
   font-family: 'Cormorant Garamond', Georgia, serif;
   letter-spacing: 0.08em;
@@ -148,6 +155,31 @@ img, video {
   background: rgba(196, 146, 74, 0.12);
   box-shadow: 0 8px 30px rgba(196, 146, 74, 0.25);
   transform: translateY(-2px) scale(1.02);
+}
+
+/* HTML CODEX RED/GOLD CTAS */
+.btn-codex-action {
+  background: #C4924A;
+  color: #000000;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(196, 146, 74, 0.4);
+}
+
+.btn-codex-action:hover {
+  background: #E5C388;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(196, 146, 74, 0.6);
 }
 
 /* Leader Dots for Physical Menu */

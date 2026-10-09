@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Calendar, Menu, X } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import PuaLogo from './PuaLogo';
 
 export default function Navbar() {
@@ -10,7 +10,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -20,7 +20,6 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
-  // EXACT NAVIGATION ORDER AS REQUESTED: INICIO, MENÚ, NOSOTROS, SERVICIOS, RESERVAS
   const navLinks = [
     { path: '/', label: 'Inicio' },
     { path: '/menu', label: 'Menú' },
@@ -31,8 +30,10 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'glass-nav-black py-3' : 'bg-gradient-to-b from-black via-black/80 to-transparent py-5'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-[#0b0c12]/95 backdrop-blur-xl border-b border-[#2D2722]/80 py-3 shadow-2xl' 
+          : 'bg-[#0f111a]/90 backdrop-blur-md border-b border-[#2D2722]/50 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -45,41 +46,34 @@ export default function Navbar() {
           <PuaLogo color="#C4924A" size="small" />
         </Link>
 
-        {/* DESKTOP NAVIGATION IN EXACT ORDER */}
-        <nav className="hidden md:flex items-center gap-2 lg:gap-4">
+        {/* DESKTOP NAVIGATION MATCHING HTML CODEX 2315 DEMO OSWALD TYPOGRAPHY */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `relative px-3.5 py-2 text-xs uppercase tracking-[0.25em] font-sans font-medium transition-all duration-300 ${
+                `font-condensed-bold text-sm uppercase tracking-[0.15em] transition-all duration-300 py-1 ${
                   isActive 
-                    ? 'text-[#C4924A] font-bold' 
-                    : 'text-[#F4F0EA]/70 hover:text-[#F4F0EA]'
+                    ? 'text-[#C4924A] font-bold border-b-2 border-[#C4924A]' 
+                    : 'text-[#F4F0EA]/80 hover:text-[#C4924A]'
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-[2px] bg-[#C4924A] shadow-[0_0_8px_#C4924A]" />
-                  )}
-                </>
-              )}
+              {link.label}
             </NavLink>
           ))}
         </nav>
 
-        {/* RIGHT ACTION RESERVATION BUTTON */}
+        {/* RIGHT ACTION BUTTON MATCHING HTML CODEX APPOINTMENT BUTTON */}
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/reservas"
-            className="btn-luxury-gold px-6 py-2.5 rounded-full text-[11px] flex items-center gap-2"
+            className="btn-codex-action px-6 py-3 rounded-full text-xs font-condensed-bold flex items-center gap-2"
           >
-            <Calendar className="w-3.5 h-3.5 text-black" />
             Reservar Mesa
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -96,15 +90,15 @@ export default function Navbar() {
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[68px] bg-black/98 backdrop-blur-2xl border-b border-[#3D352E] px-6 py-8 shadow-2xl flex flex-col gap-4">
+        <div className="md:hidden fixed inset-x-0 top-[68px] bg-[#0b0c12]/98 backdrop-blur-2xl border-b border-[#3D352E] px-6 py-8 shadow-2xl flex flex-col gap-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `text-left py-3 text-xs uppercase tracking-[0.3em] font-medium border-b border-[#121212] transition-colors ${
-                  isActive ? 'text-[#C4924A] font-bold border-[#C4924A] pl-2' : 'text-[#F4F0EA]/80'
+                `text-left py-3 font-condensed-bold text-base uppercase tracking-[0.2em] transition-colors border-b border-[#1f1e26] ${
+                  isActive ? 'text-[#C4924A] pl-2 border-[#C4924A]' : 'text-[#F4F0EA]/80'
                 }`
               }
             >
@@ -113,10 +107,10 @@ export default function Navbar() {
           ))}
           <Link
             to="/reservas"
-            className="mt-4 w-full py-3.5 rounded-full btn-luxury-gold text-xs flex items-center justify-center gap-2"
+            className="mt-4 w-full py-4 btn-codex-action text-sm flex items-center justify-center gap-2"
           >
-            <Calendar className="w-4 h-4 text-black" />
             Reservar Mesa Ahora
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       )}
