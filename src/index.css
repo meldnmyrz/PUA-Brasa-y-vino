@@ -1,17 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --negro-absoluto: #000000;
-  --negro-carbon: #101012;
-  --bronce-oscuro: #2D2722;
-  --bronce-linea: #3D352E;
-  --oro-brasa: #C4924A;
-  --oro-claro: #E5C388;
-  --hueso: #F4F0EA;
-  --hueso-muted: rgba(244, 240, 234, 0.65);
+  /* Colors from AI for Business Style Tokens */
+  --color-carbon-black: #000000;
+  --color-paper-white: #ffffff;
+  --color-warm-canvas: #e5e5e5;
+  --color-mist-gray: #f3f3f3;
+  --color-ash: #c6c6c6;
+  --color-smoke: #979797;
+  --color-slate: #444444;
+  --color-graphite: #2f2f2f;
+  --color-mint-chip: #d1ffca;
+  --color-voltage-yellow: #fff100;
+  --color-flame-gold: #C4924A;
+  --color-gold-light: #E5C388;
+
+  /* Typography Families */
+  --font-suisseintlcond: 'Oswald', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-suisseintl: 'Montserrat', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-suisseintlmono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Typography Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.6;
+  --tracking-caption: -0.36px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.3;
+  --text-body: 16px;
+  --leading-body: 1.25;
+  --text-heading-sm: 28px;
+  --leading-heading-sm: 1.3;
+  --text-heading: 40px;
+  --leading-heading: 1.1;
+  --text-heading-lg: 48px;
+  --leading-heading-lg: 0.9;
+  --text-display: 80px;
+  --leading-display: 0.9;
+  --tracking-display: -0.03em;
+  --text-display-xl: 130px;
+  --leading-display-xl: 0.9;
+  --tracking-display-xl: -0.03em;
+
+  /* Spacing */
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+
+  /* Border Radii */
+  --radius-buttons: 8px;
+  --radius-cards: 32px;
+  --radius-nav-pill: 48px;
+  --radius-tags: 64px;
+  --radius-large-cards: 64px;
 }
 
-/* Global resets for ultra-luxury editorial aesthetic */
+/* Global Reset */
 *, ::before, ::after {
   box-sizing: border-box;
 }
@@ -22,12 +68,11 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--negro-absoluto);
-  color: var(--hueso);
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: 0.03em;
+  background-color: var(--color-carbon-black);
+  color: #F4F0EA;
+  font-family: var(--font-suisseintl);
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 img, video {
@@ -36,175 +81,151 @@ img, video {
   display: block;
 }
 
-/* BRAND TYPOGRAPHY CLASSES MATCHING HTML CODEX & LUXURY PÚA BRAND */
-.font-condensed-bold {
-  font-family: 'Oswald', sans-serif;
+/* TYPOGRAPHY CLASSES MATCHING BRUTALIST SHOWROOM SPECIFICATION */
+.font-display-xl {
+  font-family: var(--font-suisseintlcond);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 0.90;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+}
+
+.font-condensed-bold {
+  font-family: var(--font-suisseintlcond);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.font-mono-tag {
+  font-family: var(--font-suisseintlmono);
+  font-size: 12px;
+  letter-spacing: -0.03em;
 }
 
 .font-serif-corp {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .font-script-lujo {
   font-family: 'Alex Brush', cursive;
   font-weight: 400;
-  letter-spacing: 0.04em;
 }
 
-.font-sans-geo {
-  font-family: 'Montserrat', -apple-system, sans-serif;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-}
-
-/* HTML CODEX STYLE BADGE PILL */
-.eyebrow-tag {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: #C4924A;
-  background: rgba(45, 39, 34, 0.4);
-  border: 1px solid rgba(196, 146, 74, 0.3);
-  padding: 6px 18px;
-  border-radius: 9999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
-}
-
-.eyebrow-tag:hover {
-  border-color: #C4924A;
-  box-shadow: 0 0 15px rgba(196, 146, 74, 0.3);
-  transform: translateY(-1px);
-}
-
-.eyebrow-tag::before {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #C4924A;
-  box-shadow: 0 0 8px #C4924A;
-}
-
-/* APPLE-STYLE ROUNDED LUXURY BUTTONS */
-.btn-luxury-gold, .btn-apple-gold {
-  background: linear-gradient(135deg, #C4924A 0%, #E5C388 100%);
-  color: #000000;
-  font-family: 'Montserrat', -apple-system, sans-serif;
+/* TAG PILLS MATCHING SPEC (64px BORDER-RADIUS) */
+.mint-tag-pill {
+  background-color: var(--color-mint-chip);
+  color: var(--color-carbon-black);
+  font-family: var(--font-suisseintlmono);
   font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  padding: 16px 34px;
-  border-radius: 9999px; /* Apple-style rounded pill */
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 30px rgba(196, 146, 74, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: var(--radius-tags);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 8px;
+  letter-spacing: -0.02em;
 }
 
-.btn-luxury-gold:hover, .btn-apple-gold:hover {
-  background: linear-gradient(135deg, #E5C388 0%, #F4F0EA 100%);
-  box-shadow: 0 12px 40px rgba(196, 146, 74, 0.6), 0 0 20px rgba(229, 195, 136, 0.4);
-  transform: translateY(-2px) scale(1.02);
-}
-
-.btn-luxury-gold:active, .btn-apple-gold:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.btn-luxury-outline, .btn-apple-outline {
-  background: rgba(16, 16, 18, 0.6);
-  color: #F4F0EA;
-  border: 1px solid rgba(196, 146, 74, 0.4);
-  backdrop-filter: blur(16px);
-  font-family: 'Montserrat', -apple-system, sans-serif;
+.flame-tag-pill {
+  background-color: var(--color-flame-gold);
+  color: var(--color-carbon-black);
+  font-family: var(--font-suisseintlmono);
   font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  padding: 16px 34px;
-  border-radius: 9999px; /* Apple-style rounded pill */
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 6px 16px;
+  border-radius: var(--radius-tags);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  cursor: pointer;
+  gap: 8px;
+  letter-spacing: -0.02em;
 }
 
-.btn-luxury-outline:hover, .btn-apple-outline:hover {
-  border-color: #C4924A;
-  color: #C4924A;
-  background: rgba(196, 146, 74, 0.12);
-  box-shadow: 0 8px 30px rgba(196, 146, 74, 0.25);
-  transform: translateY(-2px) scale(1.02);
+/* NAV PILL FLOATING CONTAINER (48px BORDER-RADIUS) */
+.nav-pill-floating {
+  background: rgba(18, 20, 31, 0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-nav-pill);
+  padding: 8px 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
-/* HTML CODEX RED/GOLD CTAS */
-.btn-codex-action {
-  background: #C4924A;
-  color: #000000;
-  font-family: 'Oswald', sans-serif;
+/* BUTTONS MATCHING SPECIFICATION (8px RADIUS / HIGH CONTRAST) */
+.btn-filled-dark {
+  background-color: var(--color-flame-gold);
+  color: var(--color-carbon-black);
+  font-family: var(--font-suisseintlcond);
+  font-size: 15px;
   font-weight: 700;
-  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  padding: 14px 28px;
-  border-radius: 9999px;
+  letter-spacing: 0.12em;
+  padding: 16px 28px;
+  border-radius: var(--radius-buttons); /* 8px radius */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(196, 146, 74, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  cursor: pointer;
 }
 
-.btn-codex-action:hover {
-  background: #E5C388;
+.btn-filled-dark:hover {
+  background-color: var(--color-gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(196, 146, 74, 0.6);
+  box-shadow: 0 10px 30px rgba(196, 146, 74, 0.4);
 }
 
-/* Leader Dots for Physical Menu */
-.menu-dots {
-  flex-grow: 1;
-  border-bottom: 1px dotted rgba(196, 146, 74, 0.4);
-  margin: 0 14px 6px 14px;
+.btn-ghost-border {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid var(--color-slate);
+  font-family: var(--font-suisseintl);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* Editorial Thin Hairline Cards with Apple Corners */
-.card-editorial {
-  background: rgba(12, 12, 14, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(61, 53, 46, 0.7);
-  border-radius: 24px; /* Apple-style rounded card */
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+.btn-ghost-border:hover {
+  border-color: var(--color-flame-gold);
+  color: var(--color-flame-gold);
+  background: rgba(196, 146, 74, 0.08);
 }
 
-.card-editorial:hover {
-  border-color: rgba(196, 146, 74, 0.8);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(196, 146, 74, 0.15);
+/* CARDS MATCHING SPECIFICATION (24-32px RADIUS & 64px TOP-ARC) */
+.card-standard {
+  background-color: #12141f;
+  border-radius: var(--radius-cards); /* 32px radius */
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-standard:hover {
+  border-color: rgba(196, 146, 74, 0.6);
   transform: translateY(-4px);
 }
 
-/* HTML CODEX & APPLE ANIMATION KEYFRAMES */
+.card-top-arc {
+  background-color: #0c0d13;
+  border-radius: 64px 64px 0px 0px; /* Top arc dome shape */
+  padding: 48px 32px;
+  border-top: 1px solid rgba(196, 146, 74, 0.4);
+}
+
+/* ANIMATIONS */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -221,45 +242,15 @@ img, video {
   }
 }
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .animate-fadeIn {
-  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.8s ease forwards;
 }
 
 .animate-slideInDown {
-  animation: slideInDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInDown 0.8s ease forwards;
 }
 
-.animate-slideInUp {
-  animation: slideInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-zoomIn {
-  animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Custom Luxury Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }

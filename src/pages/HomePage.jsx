@@ -56,7 +56,7 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen text-[#F4F0EA] bg-[#000000] overflow-hidden">
       
-      {/* 01 HERO SECTION - EXACT HTML CODEX 2315 OSWALD CONDENSED HERO STYLE */}
+      {/* 01 HERO SECTION - BRUTALIST EDITORIAL SHOWROOM HERO STYLE */}
       <section className="relative h-screen min-h-[750px] flex items-center justify-center overflow-hidden border-b border-[#2D2722]/60">
         {/* Background Video Layer */}
         <div className="absolute inset-0 z-0">
@@ -73,10 +73,11 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.85)_100%)]" />
         </div>
 
-        {/* Hero Content matching HTML Codex 2315 */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6 pt-20 animate-slideInDown">
+        {/* Hero Content matching HTML Codex & AI for Business Specs */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6 pt-24 animate-slideInDown">
           
-          <div className="inline-block bg-[#12141f] text-[#C4924A] font-condensed-bold text-xs uppercase tracking-[0.25em] px-5 py-2 border border-[#C4924A]/40 shadow-xl">
+          {/* Mint Chip Pill Tag */}
+          <div className="mint-tag-pill shadow-xl">
             01 // EXPERIENCIA GASTRONÓMICA DE ALTA GAMA
           </div>
 
@@ -96,13 +97,13 @@ export default function HomePage() {
               accentColor="#C4924A"
               ghostOpacity={1}
               className="w-full text-center"
-              textClassName="font-condensed-bold text-4xl sm:text-6xl md:text-8xl tracking-wide text-[#F4F0EA] leading-tight uppercase drop-shadow-2xl"
+              textClassName="font-condensed-bold text-4xl sm:text-6xl md:text-8xl tracking-wide text-[#F4F0EA] leading-none uppercase drop-shadow-2xl"
               ghostClassName="font-script-lujo text-3xl sm:text-5xl md:text-6xl text-[#C4924A] normal-case tracking-normal py-1 block"
               as="h1"
             />
           </div>
 
-          {/* HTML CODEX 2315 LOCATION & PHONE HERO METADATA LINE */}
+          {/* LOCATION & PHONE METADATA LINE */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-6 font-condensed-bold text-sm sm:text-base tracking-widest text-[#F4F0EA]">
             <div className="flex items-center gap-2 text-white uppercase">
               <MapPin className="w-5 h-5 text-[#C4924A]" />
@@ -115,14 +116,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Apple & Codex Action Buttons */}
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-5 animate-slideInUp">
-            <Link to="/reservas" className="btn-codex-action px-8 py-4 text-sm font-condensed-bold flex items-center gap-2 shadow-2xl">
+          {/* Action Buttons (8px radius) */}
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-5">
+            <Link to="/reservas" className="btn-filled-dark px-8 py-4 text-sm font-condensed-bold flex items-center gap-2 shadow-2xl">
               <Calendar className="w-4 h-4 text-black" />
               Reservar Mesa Ahora
               <ArrowRight className="w-4 h-4 text-black" />
             </Link>
-            <Link to="/menu" className="btn-apple-outline px-8 py-4 text-xs font-condensed-bold">
+            <Link to="/menu" className="btn-ghost-border px-8 py-4 text-xs font-condensed-bold">
               Explorar Menú Completo
             </Link>
           </div>
@@ -137,7 +138,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 02 ABOUT SECTION - EXACT HTML CODEX 2315 SCREENSHOT 1 LOOK & EXPERIENCE BADGE */}
+      {/* 02 ABOUT SECTION - EXACT MATCH TO SCREENSHOT 1 */}
       <section className="py-28 bg-[#07080b] relative border-b border-[#2D2722]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -152,7 +153,7 @@ export default function HomePage() {
                 />
               </div>
 
-              {/* Offset Experience Box matching Codex 2315 screenshot */}
+              {/* Offset Experience Box matching Screenshot 1 */}
               <div className="absolute -bottom-8 right-0 sm:right-6 bg-[#12141f] border-2 border-[#C4924A] p-8 rounded-2xl shadow-2xl max-w-[280px]">
                 <h3 className="font-condensed-bold text-3xl sm:text-4xl text-[#C4924A] leading-none mb-1">
                   15 AÑOS
@@ -163,7 +164,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Text Column */}
+            {/* Right Text Column matching Screenshot 1 */}
             <div className="space-y-6 animate-slideInDown">
               <div className="inline-block bg-[#12141f] text-[#C4924A] font-condensed-bold text-xs uppercase tracking-[0.25em] px-4 py-1.5 border border-[#C4924A]/30">
                 Sobre Nosotros
@@ -193,9 +194,9 @@ export default function HomePage() {
               </div>
 
               <div className="pt-4">
-                <Link to="/nosotros" className="btn-codex-action">
+                <Link to="/nosotros" className="btn-filled-dark">
                   Conocer Nuestra Historia
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-black" />
                 </Link>
               </div>
             </div>
@@ -204,7 +205,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 03 SERVICES SECTION - EXACT HTML CODEX 2315 SCREENSHOT 2 GRID CARDS */}
+      {/* 03 SERVICES SECTION - EXACT MATCH TO SCREENSHOT 2 */}
       <section className="py-28 bg-[#000000] relative border-b border-[#2D2722]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -268,7 +269,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="card-editorial p-8 sm:p-14 rounded-3xl border border-[#3D352E]/80 shadow-2xl space-y-10">
+          <div className="card-standard p-8 sm:p-14 border border-[#3D352E]/80 shadow-2xl space-y-10">
             {featuredDishes.map((dish) => (
               <div key={dish.id} className="group pb-8 border-b border-[#2D2722]/80 last:border-0 last:pb-0">
                 <div className="flex items-baseline justify-between">
@@ -289,7 +290,7 @@ export default function HomePage() {
             ))}
 
             <div className="pt-8 text-center">
-              <Link to="/menu" className="btn-codex-action shadow-2xl">
+              <Link to="/menu" className="btn-filled-dark shadow-2xl">
                 Ver Carta Completa de Platillos & Vinos
                 <ArrowRight className="w-4 h-4 text-black" />
               </Link>
@@ -299,7 +300,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FLOATING BACK TO TOP BUTTON MATCHING HTML CODEX 2315 SCREENSHOT */}
+      {/* FLOATING BACK TO TOP BUTTON MATCHING HTML CODEX SCREENSHOT */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}

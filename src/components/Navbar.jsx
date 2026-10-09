@@ -30,15 +30,14 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-[#0b0c12]/95 backdrop-blur-xl border-b border-[#2D2722]/80 py-3 shadow-2xl' 
-          : 'bg-[#0f111a]/90 backdrop-blur-md border-b border-[#2D2722]/50 py-4'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 flex justify-center ${
+        isScrolled ? 'px-2 sm:px-6' : 'px-4 sm:px-8'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      {/* FLOATING NAV PILL (48px RADIUS AS SPECIFIED IN STYLE TOKENS) */}
+      <div className="w-full max-w-7xl nav-pill-floating flex items-center justify-between">
         
-        {/* BRAND LOGO VECTORED FROM BRAND IDENTITY BOARD */}
+        {/* BRAND LOGO */}
         <Link 
           to="/" 
           className="flex items-center gap-3 group focus:outline-none py-1"
@@ -46,7 +45,7 @@ export default function Navbar() {
           <PuaLogo color="#C4924A" size="small" />
         </Link>
 
-        {/* DESKTOP NAVIGATION MATCHING HTML CODEX 2315 DEMO OSWALD TYPOGRAPHY */}
+        {/* DESKTOP NAVIGATION LINKS */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <NavLink
@@ -56,7 +55,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `font-condensed-bold text-sm uppercase tracking-[0.15em] transition-all duration-300 py-1 ${
                   isActive 
-                    ? 'text-[#C4924A] font-bold border-b-2 border-[#C4924A]' 
+                    ? 'text-[#C4924A] border-b-2 border-[#C4924A]' 
                     : 'text-[#F4F0EA]/80 hover:text-[#C4924A]'
                 }`
               }
@@ -66,14 +65,14 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT ACTION BUTTON MATCHING HTML CODEX APPOINTMENT BUTTON */}
+        {/* RIGHT ACTION BUTTON (8px RADIUS FILLED DARK CTA AS SPECIFIED IN TOKENS) */}
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/reservas"
-            className="btn-codex-action px-6 py-3 rounded-full text-xs font-condensed-bold flex items-center gap-2"
+            className="btn-filled-dark px-6 py-2.5 text-xs font-condensed-bold flex items-center gap-2"
           >
             Reservar Mesa
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-black" />
           </Link>
         </div>
 
@@ -90,7 +89,7 @@ export default function Navbar() {
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[68px] bg-[#0b0c12]/98 backdrop-blur-2xl border-b border-[#3D352E] px-6 py-8 shadow-2xl flex flex-col gap-4">
+        <div className="md:hidden fixed inset-x-4 top-[84px] bg-[#0b0c12]/98 backdrop-blur-2xl border border-[#3D352E] rounded-3xl px-6 py-8 shadow-2xl flex flex-col gap-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -107,10 +106,10 @@ export default function Navbar() {
           ))}
           <Link
             to="/reservas"
-            className="mt-4 w-full py-4 btn-codex-action text-sm flex items-center justify-center gap-2"
+            className="mt-4 w-full py-4 btn-filled-dark text-sm flex items-center justify-center gap-2"
           >
             Reservar Mesa Ahora
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-black" />
           </Link>
         </div>
       )}
