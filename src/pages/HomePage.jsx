@@ -37,6 +37,11 @@ export default function HomePage() {
 
   const heroSlides = [
     {
+      title: "MÁS DE 500 ETIQUETAS DE CAVA.",
+      subtitle: "Maridaje exclusivo por sommeliers internacionales con etiquetas icónicas y colecciones VIP.",
+      tag: "CORTES PRIME AL CARBÓN"
+    },
+    {
       title: "SABOR DE BRASA, CAVA & HISTORIA.",
       subtitle: "Elevamos los cortes prime al carbón de encino y la enología de autor a una experiencia sensorial inolvidable.",
       tag: "PÚA POLANCO // CDMX"
@@ -45,11 +50,6 @@ export default function HomePage() {
       title: "CORTES PRIME A LA LEÑA DE ENCINO.",
       subtitle: "Tomahawk, Ribeye y New York madurados y asados a fuego directo con precisión artesanal.",
       tag: "PARRILLA & AUTOR"
-    },
-    {
-      title: "MÁS DE 500 ETIQUETAS DE CAVA.",
-      subtitle: "Maridaje exclusivo por sommeliers internacionales con etiquetas icónicas y colecciones VIP.",
-      tag: "ENOLOGÍA SELECCIONADA"
     },
     {
       title: "MIXOLOGÍA RITUAL Y AHUMADOS.",
@@ -88,130 +88,121 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen text-[#ffffff] bg-[#000000] overflow-hidden">
       
-      {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
-      <ParticleConstellation />
+      {/* 00 FULL PAGE BACKGROUND VIDEO — PUA HEAD OF.MP4 AT 100% OPACITY (NO LOW OPACITY) */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center opacity-100 filter contrast-105 brightness-100"
+        >
+          <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
+        </video>
+        {/* Soft left vignette shadow for readable text while leaving video 100% visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
+      </div>
 
-      {/* 01 HERO SECTION — GOOGLE FLOW OMNI INTERFACE WITH PUA HEAD OF VIDEO */}
-      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-[1240px] mx-auto z-10">
+      {/* AMBIENT CONSTELLATION PARTICLES OVERLAY */}
+      <ParticleConstellation className="!opacity-40" />
+
+      {/* 01 HERO SECTION — FULL BLEED GOOGLE FLOW / OMNI STYLE WITH FULL VIDEO BACKGROUND */}
+      <section className="relative min-h-screen pt-28 pb-16 px-4 sm:px-8 lg:px-16 max-w-[1400px] mx-auto z-10 flex flex-col justify-between">
         
-        {/* MAIN HERO ROUNDED CONTAINER (GOOGLE FLOW CARD SPEC) */}
-        <div className="relative rounded-[28px] overflow-hidden border border-[#2c2c2e] bg-[#0d0e12] min-h-[560px] lg:min-h-[640px] flex flex-col justify-between shadow-2xl">
+        {/* TOP METADATA TAG */}
+        <div className="flex justify-between items-center">
+          <div className="eyebrow-tag-violet bg-black/50 backdrop-blur-md border border-[#6a48f2]/40">
+            ★ {heroSlides[activeSlide].tag}
+          </div>
+        </div>
+
+        {/* MAIN DISPLAY CONTENT LEFT ALIGNED OVER FULL-PAGE VIDEO */}
+        <div className="my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* BACKGROUND VIDEO USING PUA HEAD OF.MP4 (MUTED / SIN AUDIO) */}
-          <div className="absolute inset-0 z-0">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover object-center opacity-70 filter contrast-110"
-            >
-              <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
-            </video>
-            {/* Dark gradient overlay fading from black on left to transparent on right for readable text */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#000000]/80 sm:via-[#000000]/60 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/40" />
-          </div>
-
-          {/* TOP RIGHT CLOSE / ACTION ICON */}
-          <div className="relative z-20 flex justify-between items-center p-6 sm:p-8">
-            <div className="eyebrow-tag-violet">
-              ★ {heroSlides[activeSlide].tag}
-            </div>
-            <button className="text-[#888888] hover:text-white transition-colors p-2 rounded-full bg-black/40 backdrop-blur-md border border-[#2c2c2e]">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* SPLIT LAYOUT: LEFT SIDE TEXT + CTA (GOOGLE FLOW SPEC) */}
-          <div className="relative z-10 px-6 sm:px-12 lg:px-16 py-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* LEFT COLUMN: DISPLAY TYPOGRAPHY + SUBTITLE + CTA BUTTONS */}
+          <div className="lg:col-span-8 space-y-6 text-left">
             
-            {/* LEFT COLUMN CONTENT */}
-            <div className="lg:col-span-8 space-y-6 text-left">
-              
-              <div className="py-1">
-                <GhostType
-                  text={heroSlides[activeSlide].title}
-                  completions={[
-                    'SINFONÍA & TEMPORADA',
-                    'CAVA DE AUTOR & MIXOLOGÍA',
-                    'CORTES PRIME AL CARBÓN',
-                    'EL RITUAL DEL FUEGO'
-                  ]}
-                  typeBase={false}
-                  streamSpeed={35}
-                  thinkDelay={500}
-                  holdDelay={2600}
-                  accentColor="#6a48f2"
-                  ghostOpacity={1}
-                  className="w-full text-left"
-                  textClassName="font-display-stellar text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#ffffff] leading-[1.05] uppercase"
-                  ghostClassName="font-script-lujo text-2xl sm:text-4xl text-[#6a48f2] normal-case tracking-normal py-1 block"
-                  as="h1"
-                />
-              </div>
-
-              {/* Subtitle Paragraph */}
-              <p className="font-subtext-stellar text-sm sm:text-lg text-[#dddddd] max-w-xl leading-relaxed">
-                {heroSlides[activeSlide].subtitle}
-              </p>
-
-              {/* Action Buttons: White Pill CTA ("Get started" style) + Ghost Link */}
-              <div className="pt-4 flex flex-wrap items-center gap-4">
-                <Link 
-                  to="/reservas" 
-                  className="bg-white hover:bg-[#e9e9e9] text-black font-sans font-medium text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-300 shadow-xl flex items-center gap-2 transform hover:scale-105"
-                >
-                  Get started — Reservar Mesa
-                  <ArrowRight className="w-4 h-4 text-black" />
-                </Link>
-                
-                <Link 
-                  to="/menu" 
-                  className="btn-ghost-border !border-white/30 text-white hover:!border-white text-sm"
-                >
-                  Explorar Menú Completo
-                </Link>
-              </div>
+            <div className="py-1">
+              <GhostType
+                text={heroSlides[activeSlide].title}
+                completions={[
+                  'SINFONÍA & TEMPORADA',
+                  'CAVA DE AUTOR & MIXOLOGÍA',
+                  'CORTES PRIME AL CARBÓN',
+                  'EL RITUAL DEL FUEGO'
+                ]}
+                typeBase={false}
+                streamSpeed={35}
+                thinkDelay={500}
+                holdDelay={2600}
+                accentColor="#6a48f2"
+                ghostOpacity={1}
+                className="w-full text-left"
+                textClassName="font-display-stellar text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#ffffff] leading-[1.05] uppercase drop-shadow-lg"
+                ghostClassName="font-script-lujo text-2xl sm:text-4xl text-[#6a48f2] normal-case tracking-normal py-1 block"
+                as="h1"
+              />
             </div>
 
-            {/* RIGHT COLUMN — SPACE FOR VIDEO VISUAL FOCUS */}
-            <div className="hidden lg:block lg:col-span-4 relative h-64" />
+            {/* Subtext Paragraph */}
+            <p className="font-subtext-stellar text-sm sm:text-lg text-[#dddddd] max-w-xl leading-relaxed drop-shadow-md">
+              {heroSlides[activeSlide].subtitle}
+            </p>
 
-          </div>
-
-          {/* BOTTOM BAR: SEGMENTED SLIDER INDICATOR + FLOATING TRANSLUCENT OVERLAY CARD */}
-          <div className="relative z-20 px-6 sm:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 bg-black/30 backdrop-blur-md">
-            
-            {/* SEGMENTED PROGRESS BARS (GOOGLE FLOW SPEC) */}
-            <div className="flex items-center gap-2 w-full sm:w-auto max-w-md">
-              {heroSlides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveSlide(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-500 flex-1 ${
-                    activeSlide === idx 
-                      ? 'bg-white w-12' 
-                      : 'bg-white/30 hover:bg-white/60'
-                  }`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* FLOATING TRANSLUCENT ACTION CARD OVERLAY ("+ Nuevo Proyecto" STYLE FROM SCREENSHOT) */}
-            <div className="flex items-center gap-4 bg-[#171718]/90 backdrop-blur-xl border border-[#2c2c2e] p-3 sm:p-4 rounded-[20px] shadow-2xl">
+            {/* Action Buttons: White Pill CTA ("Get started" style) + Ghost Link */}
+            <div className="pt-4 flex flex-wrap items-center gap-4">
               <Link 
-                to="/reservas"
-                className="flex items-center gap-3 text-white text-xs sm:text-sm font-sans font-medium hover:text-[#6a48f2] transition-colors"
+                to="/reservas" 
+                className="bg-white hover:bg-[#e9e9e9] text-black font-sans font-medium text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300 shadow-2xl flex items-center gap-2 transform hover:scale-105"
               >
-                <div className="w-9 h-9 rounded-xl bg-[#6a48f2] text-white flex items-center justify-center shadow-lg">
-                  <Plus className="w-5 h-5 stroke-[2.5]" />
-                </div>
-                <span>+ Reservar Experiencia VIP</span>
+                Get started — Reservar Mesa
+                <ArrowRight className="w-4 h-4 text-black" />
+              </Link>
+              
+              <Link 
+                to="/menu" 
+                className="btn-ghost-border !border-white/40 text-white hover:!border-white text-sm backdrop-blur-md bg-black/30"
+              >
+                Explorar Menú Completo
               </Link>
             </div>
+          </div>
 
+          <div className="hidden lg:block lg:col-span-4" />
+
+        </div>
+
+        {/* BOTTOM BAR: SEGMENTED SLIDER INDICATOR + FLOATING TRANSLUCENT OVERLAY CARD */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-white/10">
+          
+          {/* SEGMENTED PROGRESS BARS */}
+          <div className="flex items-center gap-2 w-full sm:w-auto max-w-md">
+            {heroSlides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveSlide(idx)}
+                className={`h-1.5 rounded-full transition-all duration-500 flex-1 ${
+                  activeSlide === idx 
+                    ? 'bg-white w-12' 
+                    : 'bg-white/30 hover:bg-white/60'
+                }`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* FLOATING TRANSLUCENT ACTION CARD OVERLAY */}
+          <div className="flex items-center gap-4 bg-[#171718]/90 backdrop-blur-xl border border-[#2c2c2e] p-3 sm:p-4 rounded-[20px] shadow-2xl">
+            <Link 
+              to="/reservas"
+              className="flex items-center gap-3 text-white text-xs sm:text-sm font-sans font-medium hover:text-[#6a48f2] transition-colors"
+            >
+              <div className="w-9 h-9 rounded-xl bg-[#6a48f2] text-white flex items-center justify-center shadow-lg">
+                <Plus className="w-5 h-5 stroke-[2.5]" />
+              </div>
+              <span>+ Reservar Experiencia VIP</span>
+            </Link>
           </div>
 
         </div>
@@ -219,7 +210,7 @@ export default function HomePage() {
       </section>
 
       {/* 02 ABOUT SECTION — STELLAR ASYMMETRIC OBSIDIAN PANEL */}
-      <section className="py-24 bg-[#000000] relative border-b border-[#2c2c2e]/60 z-10">
+      <section className="py-24 bg-[#000000]/80 backdrop-blur-md relative border-b border-[#2c2c2e]/60 z-10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
@@ -286,7 +277,7 @@ export default function HomePage() {
       </section>
 
       {/* 03 SERVICES SECTION — STELLAR OBSIDIAN CARDS (10px RADIUS, NO SHADOWS) */}
-      <section className="py-24 bg-[#000000] relative border-b border-[#2c2c2e]/60 z-10">
+      <section className="py-24 bg-[#000000]/90 backdrop-blur-md relative border-b border-[#2c2c2e]/60 z-10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4 animate-fadeIn">
@@ -337,7 +328,7 @@ export default function HomePage() {
       </section>
 
       {/* 04 CARTA SELECTION SHOWCASE */}
-      <section className="py-24 bg-[#000000] relative border-b border-[#2c2c2e]/60 z-10">
+      <section className="py-24 bg-[#000000]/90 backdrop-blur-md relative border-b border-[#2c2c2e]/60 z-10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
