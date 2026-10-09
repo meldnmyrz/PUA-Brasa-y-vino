@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Colors from Stellar — Gallery Wall at Midnight */
+  /* Colors from Stellar & Luxury Steakhouse Theme */
   --color-void-black: #000000;
   --color-obsidian: #171718;
   --color-graphite: #2c2c2e;
@@ -11,27 +11,20 @@
   --color-paper: #ffffff;
   --color-platinum: #dddddd;
   --color-sprint-violet: #6a48f2;
-  --gradient-sprint-violet: linear-gradient(7deg, rgb(106, 72, 242) 20%, rgb(252, 206, 238));
-
+  
   /* PÚA Flame Gold Accent Token */
   --color-flame-gold: #C4924A;
   --color-flame-gold-light: #E5C388;
+  --color-flame-gold-dark: #A67531;
 
   /* Typography Families */
   --font-neue-montreal: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif-luxury: 'Cormorant Garamond', Georgia, serif;
+  --font-script-luxury: 'Alex Brush', cursive;
   --font-condensed: 'Oswald', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* Typography Scale */
-  --text-caption: 14px;
-  --text-body: 16px;
-  --text-subheading: 19px;
-  --text-heading: 22px;
-  --text-heading-lg: 40px;
-  --text-display: 72px;
-  --text-display-xl: 104px;
-
-  /* Border Radii Tokens — CRITICAL STELLAR SPEC */
+  /* Border Radii Tokens */
   --radius-nav: 6px;
   --radius-tags: 6px;
   --radius-inputs: 6px;
@@ -50,7 +43,7 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-void-black); /* Pure Void #000000 */
+  background-color: var(--color-void-black);
   color: var(--color-paper);
   font-family: var(--font-neue-montreal);
   letter-spacing: normal;
@@ -64,13 +57,28 @@ img, video {
   display: block;
 }
 
-/* STELLAR DISPLAY HEADLINE (WEIGHT 400 AT 70-104px WITH -0.02em TRACKING, NEVER BOLD) */
-.font-display-stellar {
-  font-family: var(--font-neue-montreal);
+/* LUXURY SERIF HEADLINE (COR MORANT GARAMOND) */
+.font-serif-lujo {
+  font-family: var(--font-serif-luxury);
   font-weight: 400;
-  font-size: clamp(40px, 6vw, 104px);
-  line-height: 1.0;
-  letter-spacing: -0.02em;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--color-paper);
+  text-transform: uppercase;
+}
+
+.font-script-lujo {
+  font-family: var(--font-script-luxury);
+  font-weight: 400;
+  color: var(--color-flame-gold);
+}
+
+.font-display-stellar {
+  font-family: var(--font-serif-luxury);
+  font-weight: 400;
+  font-size: clamp(44px, 6.5vw, 96px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
   color: var(--color-paper);
   text-transform: uppercase;
 }
@@ -83,23 +91,23 @@ img, video {
   text-transform: uppercase;
 }
 
-/* STELLAR SUBTEXT PARAGRAPH (18-19px WEIGHT 400 ASH #888888) */
+/* SUBTEXT PARAGRAPH */
 .font-subtext-stellar {
   font-family: var(--font-neue-montreal);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.43;
-  color: var(--color-ash);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(244, 240, 234, 0.8);
 }
 
-/* STELLAR EYEBROW LABEL (12-14px WEIGHT 500 UPPERCASE, LETTER SPACING +0.035em TO +0.040em, ASH #888888) */
+/* EYEBROW LABELS */
 .eyebrow-stellar {
   font-family: var(--font-neue-montreal);
   font-weight: 500;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--color-ash);
+  color: var(--color-flame-gold);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -107,13 +115,13 @@ img, video {
 
 .eyebrow-tag-pill {
   background-color: var(--color-obsidian);
-  color: var(--color-ash);
-  border: 1px solid var(--color-graphite);
+  color: var(--color-flame-gold);
+  border: 1px solid rgba(196, 146, 74, 0.4);
   font-family: var(--font-neue-montreal);
   font-size: 12px;
   font-weight: 500;
   padding: 6px 14px;
-  border-radius: var(--radius-tags); /* 6px radius */
+  border-radius: var(--radius-tags);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -121,33 +129,43 @@ img, video {
   text-transform: uppercase;
 }
 
-.eyebrow-tag-violet {
-  background-color: rgba(106, 72, 242, 0.15);
-  color: var(--color-paper);
-  border: 1px solid rgba(106, 72, 242, 0.4);
+/* LUXURY GOLD BUTTON MATCHING REFERENCE SCREENSHOT */
+.btn-gold-luxury {
+  background: linear-gradient(135deg, #C4924A 0%, #E5C388 50%, #A67531 100%);
+  color: #000000;
   font-family: var(--font-neue-montreal);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 14px;
-  border-radius: var(--radius-tags); /* 6px radius */
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 14px 28px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 25px rgba(196, 146, 74, 0.35);
 }
 
-/* STELLAR PRIMARY CTA BUTTON (50px PILL RADIUS, FILLED SPRINT VIOLET #6a48f2) */
+.btn-gold-luxury:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 35px rgba(196, 146, 74, 0.55);
+  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
+}
+
 .btn-sprint-violet, .btn-iris-pill, .btn-filled-dark {
-  background-color: var(--color-sprint-violet);
-  background-image: var(--gradient-sprint-violet);
-  color: var(--color-paper);
+  background: linear-gradient(135deg, #C4924A 0%, #E5C388 50%, #A67531 100%);
+  color: #000000;
   font-family: var(--font-neue-montreal);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  padding: 12px 24px;
-  border-radius: var(--radius-buttons); /* 50px pill radius */
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 14px 28px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -155,68 +173,19 @@ img, video {
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(106, 72, 242, 0.4);
-}
-
-.btn-sprint-violet:hover, .btn-iris-pill:hover, .btn-filled-dark:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(106, 72, 242, 0.6);
-  opacity: 0.95;
-}
-
-.btn-flame-pill {
-  background-color: var(--color-flame-gold);
-  color: var(--color-void-black);
-  font-family: var(--font-neue-montreal);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  padding: 12px 24px;
-  border-radius: var(--radius-buttons); /* 50px pill radius */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-flame-pill:hover {
-  background-color: var(--color-flame-gold-light);
-  transform: translateY(-2px);
-}
-
-/* GHOST INLINE / NAV LINK (PLATINUM #dddddd -> PAPER #ffffff / SPRINT VIOLET #6a48f2 ON HOVER) */
-.btn-ghost-link {
-  background: transparent;
-  color: var(--color-platinum);
-  border: none;
-  font-family: var(--font-neue-montreal);
-  font-size: 15px;
-  font-weight: 400;
-  padding: 10px 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border-radius: var(--radius-buttons);
-}
-
-.btn-ghost-link:hover {
-  color: var(--color-paper);
+  box-shadow: 0 4px 25px rgba(196, 146, 74, 0.35);
 }
 
 .btn-ghost-border {
   background: transparent;
   color: var(--color-paper);
-  border: 1px solid var(--color-graphite);
+  border: none;
   font-family: var(--font-neue-montreal);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
-  padding: 12px 24px;
-  border-radius: var(--radius-buttons);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -226,37 +195,34 @@ img, video {
 }
 
 .btn-ghost-border:hover {
-  border-color: var(--color-sprint-violet);
-  color: var(--color-sprint-violet);
+  color: var(--color-flame-gold);
 }
 
-/* STELLAR FLOATING NAV BAR (6px BORDER RADIUS, TRANSPARENT OVER VOID #000000) */
+/* FLOATING NAV BAR */
 .nav-pill-floating {
-  background: rgba(23, 23, 24, 0.85);
+  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(16px);
-  border-radius: var(--radius-nav); /* 6px radius */
-  border: 1px solid var(--color-graphite);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* STELLAR CARDS (OBSIDIAN #171718 SURFACE ON VOID #000000, 10px RADIUS, NO BOX-SHADOWS) */
+/* CARDS */
 .card-standard, .card-editorial, .card-obsidian {
-  background-color: var(--color-obsidian); /* #171718 */
-  border-radius: var(--radius-cards); /* 10px radius */
-  padding: 20px;
-  border: 1px solid var(--color-graphite); /* #2c2c2e hairline */
+  background-color: #0d0e12;
+  border-radius: var(--radius-cards);
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: border-color 0.3s ease, transform 0.3s ease;
-  box-shadow: none !important; /* STELLAR SPEC: NO SHADOWS, ELEVATION IS SURFACE CONTRAST ONLY */
 }
 
 .card-standard:hover, .card-editorial:hover, .card-obsidian:hover {
-  border-color: rgba(106, 72, 242, 0.6);
+  border-color: rgba(196, 146, 74, 0.6);
 }
 
-/* STELLAR OUTLINED INPUT FIELD (6px RADIUS, GRAPHITE BORDER, OBSIDIAN/TRANSPARENT BG, FOCUS VIOLET) */
+/* OUTLINED INPUT FIELD */
 .input-stellar {
-  background-color: var(--color-obsidian);
-  border: 1px solid var(--color-graphite);
-  border-radius: var(--radius-inputs); /* 6px radius */
+  background-color: #0d0e12;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-inputs);
   padding: 14px 18px;
   color: var(--color-paper);
   font-family: var(--font-neue-montreal);
@@ -264,13 +230,9 @@ img, video {
   transition: border-color 0.2s ease;
 }
 
-.input-stellar::placeholder {
-  color: var(--color-ash);
-}
-
 .input-stellar:focus {
   outline: none;
-  border-color: var(--color-sprint-violet);
+  border-color: var(--color-flame-gold);
 }
 
 /* Custom Scrollbar */
@@ -285,5 +247,5 @@ img, video {
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sprint-violet);
+  background: var(--color-flame-gold);
 }
