@@ -71,7 +71,7 @@ export default function AboutPage() {
             playsInline
             className="w-full h-full object-cover filter brightness-90"
           >
-            <source src="/assets/PUA VID 3.mp4" type="video/mp4" />
+            <source src="/assets/pua-vid-3.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70" />
           <div className="absolute bottom-8 left-8 right-8 text-center border-t border-[#6a48f2]/40 pt-4">

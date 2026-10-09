@@ -78,7 +78,8 @@ export default function HomePage() {
               playsInline
               className="w-full h-full object-cover object-right lg:object-center opacity-100 filter brightness-110 contrast-105"
             >
-              <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
+              <source src="/assets/pua-head-of.mp4" type="video/mp4" />
+              <source src="/assets/pua-header.mp4" type="video/mp4" />
             </video>
             {/* Dark gradient overlay fading from black on left to transparent on right for crystal clear readable text */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#000000]/80 sm:via-[#000000]/60 to-transparent pointer-events-none" />
