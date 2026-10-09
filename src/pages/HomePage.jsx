@@ -4,11 +4,10 @@ import {
   Flame, Wine, Calendar, ArrowRight, Sparkles, 
   MapPin, Phone, Plus, ChevronUp, ChefHat 
 } from 'lucide-react';
-import { menuItems } from '../data/menuData';
+import Hero24 from '../components/ui/hero-24';
 
 export default function HomePage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(0);
 
   useEffect(() => {
     document.title = "PÚA Brasa y Vino | Sabores de Brasa & Cava";
@@ -25,13 +24,6 @@ export default function HomePage() {
   };
 
   const featuredDishes = menuItems.filter(item => item.badge).slice(0, 4);
-
-  const heroCategories = [
-    { id: '01 / 04', label: 'LA BRASA' },
-    { id: '02 / 04', label: 'EL VINO' },
-    { id: '03 / 04', label: 'LA EXPERIENCIA' },
-    { id: '04 / 04', label: 'COCTELERÍA' }
-  ];
 
   const servicesList = [
     {
@@ -63,123 +55,24 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen text-[#F4F0EA] bg-[#000000] overflow-hidden">
       
-      {/* 01 HERO SECTION — GOOGLE FLOW HERO CARD INTERFACE */}
+      {/* 01 HERO SECTION — REACT BITS PRO HERO 24 BLOCK (GLOWING FILAMENTS HERO) */}
       <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-[1360px] mx-auto z-10">
-        
-        {/* GOOGLE FLOW ROUNDED CONTAINER (28px RADIUS CARD SPEC) */}
-        <div className="relative rounded-[28px] overflow-hidden border border-[#2c2c2e] bg-[#090a0f] min-h-[580px] lg:min-h-[640px] flex flex-col justify-between shadow-2xl">
-          
-          {/* BACKGROUND VIDEO LAYER — PUA HEAD OF.MP4 (OPACITY 100, HIGHLIGHTING THE 3D PUA EMBLEM) */}
-          <div className="absolute inset-0 z-0">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover object-right lg:object-center opacity-100 filter brightness-110 contrast-105"
-            >
-              <source src="/assets/pua-head-of.mp4" type="video/mp4" />
-              <source src="/assets/pua-header.mp4" type="video/mp4" />
-            </video>
-            {/* Dark gradient overlay fading from black on left to transparent on right for crystal clear readable text */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#000000]/80 sm:via-[#000000]/60 to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/40 pointer-events-none" />
-          </div>
-
-          {/* TOP BAR: TAG CHIP + TOP RIGHT CLOSE BUTTON */}
-          <div className="relative z-20 flex justify-between items-center p-6 sm:p-8">
-            <div className="inline-flex items-center gap-2 bg-[#171718]/80 backdrop-blur-md border border-[#2c2c2e] px-4 py-1.5 rounded-full text-xs font-sans uppercase tracking-[0.2em] text-[#C4924A]">
-              ★ PÚA BRASA Y VINO // POLANCO
-            </div>
-            <button className="text-[#888888] hover:text-white transition-colors p-2.5 rounded-full bg-black/40 backdrop-blur-md border border-[#2c2c2e]">
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* MIDDLE CONTENT: GOOGLE FLOW TYPOGRAPHY & BUTTONS */}
-          <div className="relative z-10 px-6 sm:px-12 lg:px-16 py-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* LEFT COLUMN CONTENT */}
-            <div className="lg:col-span-8 space-y-6 text-left">
-              
-              {/* SERIF HEADLINE + SCRIPT */}
-              <div className="space-y-1">
-                <h1 className="font-serif-lujo text-4xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-[0.95] uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-                  EL ARTE DE
-                </h1>
-                <h1 className="font-serif-lujo text-4xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-[0.95] uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-                  LA BRASA
-                </h1>
-                <div className="font-script-lujo text-3xl sm:text-5xl lg:text-6xl text-[#C4924A] tracking-normal py-1 block drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] -mt-2">
-                  y el vino
-                </div>
-              </div>
-
-              {/* Subtitle Paragraph */}
-              <p className="font-sans text-xs sm:text-sm text-[#dddddd] max-w-xl leading-relaxed font-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-                Una experiencia gastronómica de fuego, tierra y tiempo en el corazón de la alta cocina. Descubre nuestra propuesta maridada con los mejores viñedos del mundo.
-              </p>
-
-              {/* GOOGLE FLOW ACTION BUTTONS: White Pill CTA ("Get started" style) + Ghost Link */}
-              <div className="pt-4 flex flex-wrap items-center gap-4">
-                <Link 
-                  to="/reservas" 
-                  className="bg-white hover:bg-[#e9e9e9] text-black font-sans font-medium text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all duration-300 shadow-xl flex items-center gap-2.5 transform hover:scale-105"
-                >
-                  Get started — Reservar Mesa
-                  <ArrowRight className="w-4 h-4 text-black" />
-                </Link>
-                
-                <Link 
-                  to="/menu" 
-                  className="btn-ghost-border !border-white/30 text-white hover:!border-white text-xs"
-                >
-                  Explorar Menú Completo
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN — VISUAL SPACE HIGHLIGHTING THE 3D PUA LOGO VIDEO */}
-            <div className="hidden lg:block lg:col-span-4 relative h-64" />
-
-          </div>
-
-          {/* BOTTOM BAR: SEGMENTED PROGRESS BARS + FLOATING TRANSLUCENT OVERLAY CARD */}
-          <div className="relative z-20 px-6 sm:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 bg-black/40 backdrop-blur-md">
-            
-            {/* SEGMENTED PROGRESS BARS (GOOGLE FLOW SPEC) */}
-            <div className="flex items-center gap-2 w-full sm:w-auto max-w-xs">
-              {[0, 1, 2, 3].map((idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveCategory(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-500 flex-1 ${
-                    activeCategory === idx 
-                      ? 'bg-white w-10' 
-                      : 'bg-white/30 hover:bg-white/60'
-                  }`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* FLOATING TRANSLUCENT OVERLAY CARD ("+ Nuevo proyecto" STYLE FROM SCREENSHOT 2) */}
-            <div className="flex items-center gap-4 bg-[#171718]/90 backdrop-blur-xl border border-[#2c2c2e] p-3.5 rounded-[20px] shadow-2xl">
-              <Link 
-                to="/reservas"
-                className="flex items-center gap-3 text-white text-xs font-sans font-medium hover:text-[#C4924A] transition-colors"
-              >
-                <div className="w-8 h-8 rounded-xl bg-[#C4924A] text-black flex items-center justify-center shadow-lg">
-                  <Plus className="w-4 h-4 stroke-[3]" />
-                </div>
-                <span>+ Reservar Experiencia VIP</span>
-              </Link>
-            </div>
-
-          </div>
-
-        </div>
-
+        <Hero24
+          badgeText="★ PÚA BRASA Y VINO // POLANCO"
+          title="EL ARTE DE LA BRASA"
+          subtitle="y el vino"
+          description="Una experiencia gastronómica de fuego, tierra y tiempo en el corazón de la alta cocina. Descubre nuestra propuesta maridada con los mejores viñedos del mundo."
+          primaryCtaText="Reservar Mesa VIP"
+          primaryCtaLink="/reservas"
+          secondaryCtaText="Explorar Carta & Cava"
+          secondaryCtaLink="/menu"
+          videoSrc="/assets/pua-head-of.mp4"
+          stats={[
+            { label: "Cortes Prime", val: "A las brasas" },
+            { label: "Cava Seleccionada", val: "+500 Etiquetas" },
+            { label: "Experiencia VIP", val: "Sommelier en mesa" }
+          ]}
+        />
       </section>
 
       {/* 02 ABOUT SECTION — LUXURY BRASA & CAVA SHOWCASE */}
