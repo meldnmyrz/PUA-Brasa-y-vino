@@ -63,19 +63,21 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen text-[#F4F0EA] bg-[#000000] overflow-hidden">
       
-      {/* 00 HERO BACKGROUND VIDEO — CINEMATIC CLEAN PUA HEADER VIDEO */}
+      {/* 00 HERO BACKGROUND VIDEO — HIGH OPACITY CENTERED PUA HEAD OF VIDEO */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden h-screen">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-center opacity-50 filter brightness-90 contrast-110"
+          className="w-full h-full object-cover object-center opacity-90 filter brightness-105 contrast-105"
         >
+          <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
           <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
         </video>
-        {/* Dark vignette gradient overlay for maximum readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/80 pointer-events-none" />
+        {/* Soft gradient overlay for subtle text readability while preserving full video vibrancy */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none" />
       </div>
 
       {/* 01 HERO SECTION — EXACT MATCH TO REFERENCE SCREENSHOT */}
