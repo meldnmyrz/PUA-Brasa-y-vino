@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Flame, Wine, Sparkles, X, ChevronRight, Eye, Calendar, Utensils } from 'lucide-react';
+import { Search, Flame, Wine, Sparkles, X, Eye, Calendar, Utensils } from 'lucide-react';
 import { menuCategories, menuItems } from '../data/menuData';
 import CarouselDemo from '../components/carousel-demo';
+import ParticleConstellation from '../components/ParticleConstellation';
 
 export default function MenuPage() {
   useEffect(() => {
-    document.title = "PÚA Brasa y Vino | Sub-Experiencia Digital de Menú & Cava";
+    document.title = "PÚA Brasa y Vino | Catálogo Digital & Cava";
   }, []);
 
   const navigate = useNavigate();
@@ -34,48 +35,51 @@ export default function MenuPage() {
   };
 
   return (
-    <div className="pt-32 pb-28 min-h-screen text-[#F4F0EA] bg-[#000000] relative overflow-hidden">
+    <div className="pt-32 pb-28 min-h-screen text-[#ffffff] bg-[#000000] relative overflow-hidden">
       
-      {/* DIGITAL SUB-WEBSITE HERO BANNER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="card-editorial p-8 sm:p-12 border border-[#3D352E] relative overflow-hidden text-center space-y-3">
-          <div className="eyebrow-tag justify-center">
-            SUB-EXPERIENCIA DIGITAL // CARTA PÚA
+      {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
+      <ParticleConstellation />
+
+      {/* DALA DIGITAL SUB-WEBSITE HERO BANNER */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
+        <div className="card-standard p-8 sm:p-14 border border-[#3D352E] relative overflow-hidden text-center space-y-4 rounded-[24px]">
+          <div className="saffron-tag-pill mx-auto">
+            CATÁLOGO VISUAL DE ESPECIALIDADES & CAVA
           </div>
-          <h1 className="font-serif-corp text-4xl sm:text-6xl font-light tracking-widest text-[#F4F0EA]">
-            CATÁLOGO VISUAL <span className="text-[#C4924A]">&</span> CAVA
+          <h1 className="font-display-dala text-4xl sm:text-7xl text-[#ffffff] uppercase tracking-tight">
+            PLATILLOS INSIGNIA & <span className="text-[#ffb829]">CAVA VIP</span>
           </h1>
-          <span className="font-script-lujo text-3xl sm:text-5xl text-[#C4924A] block">
-            Especialidades Insignias en 3D
-          </span>
+          <p className="font-body-ultralight max-w-2xl mx-auto text-[#bdbdbd]">
+            Explora la maestría de nuestros cortes asados a la leña de encino y la cuidada selección de etiquetas internacionales maridadas por nuestros sommeliers.
+          </p>
         </div>
       </div>
 
       {/* 3D INTERACTIVE CAROUSEL INSIGNIA FEATURE */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 overflow-visible">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 overflow-visible relative z-10">
         <div className="text-center mb-6">
-          <span className="eyebrow-tag justify-center">DESLIZA & ROTACIÓN 3D</span>
+          <span className="iris-tag-pill">DESLIZA Y ROTACIÓN 3D</span>
         </div>
         <CarouselDemo />
       </div>
 
       {/* INTERACTIVE CONTROLS & CATEGORY TABS */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-16 pt-12 border-t border-[#2D2722]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-16 pt-12 border-t border-[#2D2722] relative z-10">
         
         {/* Search Bar */}
         <div className="max-w-xl mx-auto relative">
-          <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-[#C4924A]" />
+          <Search className="w-4 h-4 absolute left-5 top-1/2 -translate-y-1/2 text-[#8052ff]" />
           <input
             type="text"
             placeholder="Buscar por corte, ingrediente, trago o vino..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-10 py-3.5 bg-[#101012] border border-[#3D352E] text-[#F4F0EA] placeholder-[#F4F0EA]/40 text-xs focus:outline-none focus:border-[#C4924A] transition-all"
+            className="w-full pl-12 pr-10 py-4 bg-[#090a0f] border border-[#3D352E] rounded-[24px] text-[#ffffff] placeholder-[#9a9a9a] text-sm focus:outline-none focus:border-[#8052ff] transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#F4F0EA]/50 hover:text-white"
+              className="absolute right-5 top-1/2 -translate-y-1/2 text-[#9a9a9a] hover:text-white"
             >
               <X className="w-4 h-4" />
             </button>
@@ -91,15 +95,15 @@ export default function MenuPage() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-5 py-3 rounded-full text-xs font-sans uppercase tracking-[0.2em] whitespace-nowrap transition-all duration-300 border flex items-center gap-2 ${
+                className={`px-6 py-3 rounded-full text-xs font-mono-tag uppercase tracking-wider whitespace-nowrap transition-all duration-300 border flex items-center gap-2 ${
                   isActive
-                    ? 'bg-[#C4924A] text-black border-[#C4924A] font-bold shadow-[0_0_20px_rgba(196,146,74,0.4)] scale-105'
-                    : 'bg-[#101012] text-[#F4F0EA]/70 border-[#3D352E] hover:border-[#C4924A] hover:text-[#F4F0EA]'
+                    ? 'bg-[#8052ff] text-white border-[#8052ff] font-semibold shadow-[0_0_25px_rgba(128,82,255,0.5)] scale-105'
+                    : 'bg-[#090a0f] text-[#9a9a9a] border-[#3D352E] hover:border-[#8052ff] hover:text-[#ffffff]'
                 }`}
               >
                 <span>{cat.name}</span>
                 <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                  isActive ? 'bg-black text-[#C4924A]' : 'bg-[#2D2722] text-[#F4F0EA]/70'
+                  isActive ? 'bg-black text-[#ffb829]' : 'bg-[#2D2722] text-[#bdbdbd]'
                 }`}>
                   {count}
                 </span>
@@ -110,15 +114,15 @@ export default function MenuPage() {
       </div>
 
       {/* RICH VISUAL DISH CARDS GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {filteredItems.length === 0 ? (
-          <div className="card-editorial p-12 rounded-none text-center max-w-md mx-auto space-y-4 my-12 border border-[#3D352E]">
-            <Utensils className="w-10 h-10 text-[#C4924A]/50 mx-auto" />
-            <h3 className="font-serif-corp text-lg font-normal text-[#F4F0EA]">
+          <div className="card-standard p-12 rounded-[24px] text-center max-w-md mx-auto space-y-4 my-12 border border-[#3D352E]">
+            <Utensils className="w-10 h-10 text-[#8052ff] mx-auto" />
+            <h3 className="font-condensed-bold text-xl text-[#ffffff]">
               No hay coincidencias en el catálogo
             </h3>
-            <p className="text-xs text-[#F4F0EA]/60 font-light">
+            <p className="font-body-ultralight text-xs text-[#9a9a9a]">
               Prueba buscando por otro ingrediente o selecciona "Todo el Menú".
             </p>
             <button
@@ -126,7 +130,7 @@ export default function MenuPage() {
                 setSelectedCategory('todos');
                 setSearchQuery('');
               }}
-              className="btn-luxury-gold"
+              className="btn-iris-pill"
             >
               Ver Todo el Catálogo
             </button>
@@ -137,11 +141,11 @@ export default function MenuPage() {
               <div
                 key={item.id}
                 onClick={() => setActiveDishModal(item)}
-                className="card-editorial rounded-none overflow-hidden group cursor-pointer border border-[#3D352E] hover:border-[#C4924A] transition-all duration-500 flex flex-col justify-between"
+                className="card-standard rounded-[24px] overflow-hidden group cursor-pointer border border-[#3D352E] hover:border-[#8052ff] transition-all duration-500 flex flex-col justify-between p-0"
               >
                 <div>
                   {/* Photo Frame */}
-                  <div className="relative h-64 overflow-hidden bg-black">
+                  <div className="relative h-64 overflow-hidden bg-black rounded-t-[24px]">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -150,18 +154,18 @@ export default function MenuPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                     
                     {item.badge && (
-                      <span className="absolute top-3 left-3 bg-[#C4924A] text-black text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-lg">
+                      <span className="absolute top-4 left-4 saffron-tag-pill shadow-lg">
                         ★ {item.badge}
                       </span>
                     )}
 
-                    <span className="absolute bottom-3 right-3 bg-black/90 border border-[#3D352E] text-[#C4924A] font-serif-corp text-base font-bold px-3.5 py-1 rounded-lg">
+                    <span className="absolute bottom-4 right-4 bg-black/90 border border-[#8052ff]/40 text-[#ffb829] font-mono-tag text-sm font-semibold px-4 py-1 rounded-full">
                       ${item.price.toLocaleString()} MXN
                     </span>
 
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-xs">
-                      <span className="btn-luxury-gold text-[10px] py-2 px-4 flex items-center gap-2">
-                        <Eye className="w-3.5 h-3.5 text-black" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 backdrop-blur-xs">
+                      <span className="btn-iris-pill text-xs py-2 px-5 flex items-center gap-2">
+                        <Eye className="w-4 h-4 text-white" />
                         Ver Ficha Completa
                       </span>
                     </div>
@@ -169,18 +173,18 @@ export default function MenuPage() {
 
                   {/* Card Content */}
                   <div className="p-6 space-y-3">
-                    <h3 className="font-serif-corp text-lg font-bold text-[#F4F0EA] group-hover:text-[#C4924A] transition-colors leading-snug">
+                    <h3 className="font-condensed-bold text-xl text-[#ffffff] group-hover:text-[#ffb829] transition-colors leading-snug">
                       {item.name}
                     </h3>
-                    <p className="text-xs text-[#F4F0EA]/60 leading-relaxed font-light line-clamp-3">
+                    <p className="font-body-ultralight text-xs text-[#bdbdbd] line-clamp-3">
                       {item.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1.5 pt-2">
+                    <div className="flex flex-wrap gap-2 pt-2">
                       {item.tags.map((t, idx) => (
                         <span
                           key={idx}
-                          className="text-[9px] bg-[#101012] border border-[#2D2722] text-[#F4F0EA]/50 px-2.5 py-0.5 rounded-full"
+                          className="text-[10px] bg-[#000000] border border-[#2D2722] text-[#9a9a9a] px-3 py-1 rounded-full font-mono-tag"
                         >
                           #{t}
                         </span>
@@ -195,7 +199,7 @@ export default function MenuPage() {
                       e.stopPropagation();
                       handleReserveDish(item.name);
                     }}
-                    className="w-full py-3 border border-[#3D352E] text-[#C4924A] hover:bg-[#C4924A] hover:text-black font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 text-center"
+                    className="w-full btn-iris-pill py-3 text-xs"
                   >
                     <Flame className="w-4 h-4" />
                     Reservar para Probar
@@ -215,13 +219,13 @@ export default function MenuPage() {
           onClick={() => setActiveDishModal(null)}
         >
           <div 
-            className="card-editorial max-w-3xl w-full border border-[#C4924A]/60 overflow-hidden relative my-auto shadow-2xl"
+            className="card-standard max-w-3xl w-full border border-[#8052ff]/60 overflow-hidden relative my-auto shadow-2xl rounded-[24px] p-0"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setActiveDishModal(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/80 border border-[#3D352E] text-[#F4F0EA] hover:text-[#C4924A] flex items-center justify-center transition-colors"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/80 border border-[#3D352E] text-[#ffffff] hover:text-[#8052ff] flex items-center justify-center transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -241,28 +245,28 @@ export default function MenuPage() {
               <div className="p-8 space-y-6 flex flex-col justify-between">
                 <div className="space-y-4">
                   {activeDishModal.badge && (
-                    <span className="eyebrow-tag">
+                    <span className="saffron-tag-pill">
                       ★ {activeDishModal.badge}
                     </span>
                   )}
                   
-                  <h2 className="font-serif-corp text-2xl font-bold text-[#F4F0EA] leading-tight">
+                  <h2 className="font-condensed-bold text-2xl text-[#ffffff] leading-tight">
                     {activeDishModal.name}
                   </h2>
                   
-                  <div className="font-serif-corp text-2xl font-bold text-[#C4924A]">
+                  <div className="font-mono-tag text-2xl font-bold text-[#ffb829]">
                     ${activeDishModal.price.toLocaleString()} MXN
                   </div>
 
-                  <p className="text-xs text-[#F4F0EA]/80 font-light leading-relaxed">
+                  <p className="font-body-ultralight text-xs text-[#bdbdbd]">
                     {activeDishModal.description}
                   </p>
 
                   <div className="pt-2 space-y-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#C4924A] block font-bold">
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#ffb829] block font-mono-tag">
                       Notas del Sommelier & Chef:
                     </span>
-                    <p className="text-[11px] text-[#F4F0EA]/60 font-light italic">
+                    <p className="font-body-ultralight text-xs text-[#9a9a9a] italic">
                       "Recomendamos maridar esta preparación con nuestra selección de vinos tintos Casa Madero o una mixología ahumada en mesa."
                     </p>
                   </div>
@@ -271,14 +275,14 @@ export default function MenuPage() {
                 <div className="pt-6 border-t border-[#2D2722] space-y-3">
                   <button
                     onClick={() => handleReserveDish(activeDishModal.name)}
-                    className="btn-luxury-gold w-full py-3.5 text-xs flex items-center justify-center gap-2"
+                    className="btn-iris-pill w-full py-4 text-xs"
                   >
-                    <Calendar className="w-4 h-4 text-black" />
+                    <Calendar className="w-4 h-4 text-white" />
                     Reservar Mesa para Degustar Este Platillo
                   </button>
                   <button
                     onClick={() => setActiveDishModal(null)}
-                    className="w-full py-2.5 text-xs text-[#F4F0EA]/50 hover:text-white uppercase tracking-widest"
+                    className="w-full py-2.5 text-xs text-[#9a9a9a] hover:text-white uppercase tracking-widest font-mono-tag"
                   >
                     Cerrar Ficha
                   </button>

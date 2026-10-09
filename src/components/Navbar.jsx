@@ -34,18 +34,18 @@ export default function Navbar() {
         isScrolled ? 'px-2 sm:px-6' : 'px-4 sm:px-8'
       }`}
     >
-      {/* FLOATING NAV PILL (48px RADIUS AS SPECIFIED IN STYLE TOKENS) */}
-      <div className="w-full max-w-7xl nav-pill-floating flex items-center justify-between">
+      {/* DALA FLOATING NAV PILL */}
+      <div className="w-full max-w-7xl nav-pill-floating flex items-center justify-between px-6 py-3">
         
         {/* BRAND LOGO */}
         <Link 
           to="/" 
           className="flex items-center gap-3 group focus:outline-none py-1"
         >
-          <PuaLogo color="#C4924A" size="small" />
+          <PuaLogo color="#8052ff" size="small" />
         </Link>
 
-        {/* DESKTOP NAVIGATION LINKS */}
+        {/* DESKTOP NAVIGATION LINKS — DALA SPEC: PPNEUEMONTREAL 14px UPPERCASE, 0.025em TRACKING, INACTIVE #9a9a9a, ACTIVE #ffffff */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <NavLink
@@ -53,10 +53,10 @@ export default function Navbar() {
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `font-condensed-bold text-sm uppercase tracking-[0.15em] transition-all duration-300 py-1 ${
+                `font-mono-tag text-xs uppercase tracking-wider transition-all duration-300 py-1 ${
                   isActive 
-                    ? 'text-[#C4924A] border-b-2 border-[#C4924A]' 
-                    : 'text-[#F4F0EA]/80 hover:text-[#C4924A]'
+                    ? 'text-white font-semibold border-b-2 border-[#8052ff]' 
+                    : 'text-[#9a9a9a] hover:text-white'
                 }`
               }
             >
@@ -65,21 +65,21 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT ACTION BUTTON (8px RADIUS FILLED DARK CTA AS SPECIFIED IN TOKENS) */}
+        {/* RIGHT ACTION BUTTON — DALA FILLED VIOLET PILL */}
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/reservas"
-            className="btn-filled-dark px-6 py-2.5 text-xs font-condensed-bold flex items-center gap-2"
+            className="btn-iris-pill px-6 py-2.5 text-xs flex items-center gap-2"
           >
             Reservar Mesa
-            <ArrowRight className="w-4 h-4 text-black" />
+            <ArrowRight className="w-4 h-4 text-white" />
           </Link>
         </div>
 
         {/* MOBILE HAMBURGER BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-[#C4924A] focus:outline-none"
+          className="md:hidden p-2 rounded-lg text-[#8052ff] focus:outline-none"
           aria-label="Menu Toggle"
         >
           {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -89,15 +89,15 @@ export default function Navbar() {
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-4 top-[84px] bg-[#0b0c12]/98 backdrop-blur-2xl border border-[#3D352E] rounded-3xl px-6 py-8 shadow-2xl flex flex-col gap-4">
+        <div className="md:hidden fixed inset-x-4 top-[84px] bg-[#090a0f]/98 backdrop-blur-2xl border border-[#3D352E] rounded-[24px] px-6 py-8 shadow-2xl flex flex-col gap-4 z-50">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `text-left py-3 font-condensed-bold text-base uppercase tracking-[0.2em] transition-colors border-b border-[#1f1e26] ${
-                  isActive ? 'text-[#C4924A] pl-2 border-[#C4924A]' : 'text-[#F4F0EA]/80'
+                `text-left py-3 font-mono-tag text-sm uppercase tracking-wider transition-colors border-b border-[#2D2722] ${
+                  isActive ? 'text-white font-bold pl-2 border-[#8052ff]' : 'text-[#9a9a9a]'
                 }`
               }
             >
@@ -106,10 +106,10 @@ export default function Navbar() {
           ))}
           <Link
             to="/reservas"
-            className="mt-4 w-full py-4 btn-filled-dark text-sm flex items-center justify-center gap-2"
+            className="mt-4 w-full py-4 btn-iris-pill text-xs flex items-center justify-center gap-2"
           >
             Reservar Mesa Ahora
-            <ArrowRight className="w-4 h-4 text-black" />
+            <ArrowRight className="w-4 h-4 text-white" />
           </Link>
         </div>
       )}

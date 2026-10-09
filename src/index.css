@@ -1,63 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  /* Colors from AI for Business Style Tokens */
-  --color-carbon-black: #000000;
-  --color-paper-white: #ffffff;
-  --color-warm-canvas: #e5e5e5;
-  --color-mist-gray: #f3f3f3;
-  --color-ash: #c6c6c6;
-  --color-smoke: #979797;
-  --color-slate: #444444;
-  --color-graphite: #2f2f2f;
-  --color-mint-chip: #d1ffca;
-  --color-voltage-yellow: #fff100;
+  /* Colors from Dala — Constellation Floating on Black Velvet */
+  --color-void: #000000;
+  --color-bone-white: #ffffff;
+  --color-ash-gray: #9a9a9a;
+  --color-silver-mist: #bdbdbd;
+  --color-electric-iris: #8052ff;
+  --color-saffron-spark: #ffb829;
+  --color-deep-verdant: #15846e;
   --color-flame-gold: #C4924A;
   --color-gold-light: #E5C388;
 
   /* Typography Families */
-  --font-suisseintlcond: 'Oswald', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-suisseintl: 'Montserrat', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-ppneuemontreal: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-suisseintlcond: 'Oswald', ui-sans-serif, system-ui, sans-serif;
   --font-suisseintlmono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Typography Scale */
   --text-caption: 12px;
-  --leading-caption: 1.6;
-  --tracking-caption: -0.36px;
-  --text-body-sm: 14px;
-  --leading-body-sm: 1.3;
-  --text-body: 16px;
-  --leading-body: 1.25;
-  --text-heading-sm: 28px;
-  --leading-heading-sm: 1.3;
-  --text-heading: 40px;
+  --leading-caption: 1.5;
+  --text-nav-label: 14px;
+  --leading-nav-label: 1.2;
+  --tracking-nav-label: 0.35px;
+  --text-body: 18px;
+  --leading-body: 1.5;
+  --text-heading-2xs: 24px;
+  --leading-heading-2xs: 1.25;
+  --tracking-heading-2xs: -0.48px;
+  --text-heading-xs: 27px;
+  --leading-heading-xs: 1.0;
+  --text-subheading: 36px;
+  --leading-subheading: 1.2;
+  --text-heading-sm: 42px;
+  --leading-heading-sm: 1.2;
+  --tracking-heading-sm: -1.68px;
+  --text-heading: 48px;
   --leading-heading: 1.1;
-  --text-heading-lg: 48px;
-  --leading-heading-lg: 0.9;
-  --text-display: 80px;
-  --leading-display: 0.9;
-  --tracking-display: -0.03em;
-  --text-display-xl: 130px;
-  --leading-display-xl: 0.9;
-  --tracking-display-xl: -0.03em;
+  --tracking-heading: -1.68px;
+  --text-heading-lg: 78px;
+  --leading-heading-lg: 1.1;
+  --tracking-heading-lg: -3.12px;
+  --text-display: 113px;
+  --leading-display: 0.90;
+  --tracking-display: -4.52px;
 
-  /* Spacing */
-  --spacing-8: 8px;
-  --spacing-16: 16px;
+  /* Spacing Scale (6px base unit) */
+  --spacing-6: 6px;
+  --spacing-12: 12px;
+  --spacing-18: 18px;
   --spacing-24: 24px;
-  --spacing-40: 40px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
+  --spacing-30: 30px;
+  --spacing-36: 36px;
+  --spacing-60: 60px;
+  --spacing-96: 96px;
+  --spacing-120: 120px;
 
   /* Border Radii */
-  --radius-buttons: 8px;
-  --radius-cards: 32px;
-  --radius-nav-pill: 48px;
-  --radius-tags: 64px;
-  --radius-large-cards: 64px;
+  --radius-nav: 24px;
+  --radius-tags: 9999px;
+  --radius-cards: 24px;
+  --radius-buttons: 24px;
 }
 
-/* Global Reset */
+/* Global Reset for Pure Black Void Canvas */
 *, ::before, ::after {
   box-sizing: border-box;
 }
@@ -68,11 +74,12 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-carbon-black);
-  color: #F4F0EA;
-  font-family: var(--font-suisseintl);
+  background-color: var(--color-void); /* Pure black void #000000 */
+  color: var(--color-bone-white);
+  font-family: var(--font-ppneuemontreal);
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img, video {
@@ -81,22 +88,32 @@ img, video {
   display: block;
 }
 
-/* TYPOGRAPHY CLASSES MATCHING BRUTALIST SHOWROOM SPECIFICATION */
-.font-display-xl {
-  font-family: var(--font-suisseintlcond);
-  font-weight: 700;
-  font-size: clamp(48px, 8vw, 120px);
+/* DALA MONOLITHIC DISPLAY HEADLINE (WEIGHT 400 AT 78-113px WITH -0.04em TRACKING) */
+.font-display-dala {
+  font-family: var(--font-ppneuemontreal);
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 113px);
   line-height: 0.90;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  color: var(--color-bone-white);
   text-transform: uppercase;
 }
 
 .font-condensed-bold {
   font-family: var(--font-suisseintlcond);
   font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -0.025em;
+  line-height: 0.90;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+}
+
+/* SIGNATURE ULTRA-LIGHT BODY COPY (WEIGHT 200 AT 18px) */
+.font-body-ultralight {
+  font-family: var(--font-ppneuemontreal);
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-silver-mist);
 }
 
 .font-mono-tag {
@@ -116,10 +133,27 @@ img, video {
   font-weight: 400;
 }
 
-/* TAG PILLS MATCHING SPEC (64px BORDER-RADIUS) */
+/* ACCENT TEXT COLORS */
+.text-saffron-spark {
+  color: var(--color-saffron-spark);
+}
+
+.text-electric-iris {
+  color: var(--color-electric-iris);
+}
+
+.text-silver-mist {
+  color: var(--color-silver-mist);
+}
+
+.text-ash-gray {
+  color: var(--color-ash-gray);
+}
+
+/* TAG PILLS (9999px BORDER-RADIUS) */
 .mint-tag-pill {
-  background-color: var(--color-mint-chip);
-  color: var(--color-carbon-black);
+  background-color: var(--color-deep-verdant);
+  color: var(--color-bone-white);
   font-family: var(--font-suisseintlmono);
   font-size: 12px;
   font-weight: 500;
@@ -133,7 +167,7 @@ img, video {
 
 .flame-tag-pill {
   background-color: var(--color-flame-gold);
-  color: var(--color-carbon-black);
+  color: var(--color-void);
   font-family: var(--font-suisseintlmono);
   font-size: 12px;
   font-weight: 600;
@@ -145,27 +179,45 @@ img, video {
   letter-spacing: -0.02em;
 }
 
-/* NAV PILL FLOATING CONTAINER (48px BORDER-RADIUS) */
-.nav-pill-floating {
-  background: rgba(18, 20, 31, 0.92);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-nav-pill);
-  padding: 8px 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+.iris-tag-pill {
+  background-color: var(--color-electric-iris);
+  color: var(--color-bone-white);
+  font-family: var(--font-suisseintlmono);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: var(--radius-tags);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.02em;
 }
 
-/* BUTTONS MATCHING SPECIFICATION (8px RADIUS / HIGH CONTRAST) */
-.btn-filled-dark {
-  background-color: var(--color-flame-gold);
-  color: var(--color-carbon-black);
-  font-family: var(--font-suisseintlcond);
-  font-size: 15px;
-  font-weight: 700;
+.saffron-tag-pill {
+  background-color: var(--color-saffron-spark);
+  color: var(--color-void);
+  font-family: var(--font-suisseintlmono);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: var(--radius-tags);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.02em;
+}
+
+/* DALA ELECTRIC IRIS FILLED VIOLET PILL BUTTON (24px BORDER-RADIUS) */
+.btn-iris-pill, .btn-filled-dark {
+  background-color: var(--color-electric-iris);
+  color: var(--color-bone-white);
+  font-family: var(--font-ppneuemontreal);
+  font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 16px 28px;
-  border-radius: var(--radius-buttons); /* 8px radius */
+  letter-spacing: 0.025em;
+  padding: 14.4px 24px;
+  border-radius: var(--radius-buttons); /* 24px pill */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -173,81 +225,117 @@ img, video {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
   cursor: pointer;
+  box-shadow: 0 0 25px rgba(128, 82, 255, 0.4);
 }
 
-.btn-filled-dark:hover {
-  background-color: var(--color-gold-light);
+.btn-iris-pill:hover, .btn-filled-dark:hover {
+  background-color: #9368ff;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(196, 146, 74, 0.4);
+  box-shadow: 0 0 35px rgba(128, 82, 255, 0.6);
 }
 
-.btn-ghost-border {
-  background: transparent;
-  color: #ffffff;
-  border: 1.5px solid var(--color-slate);
-  font-family: var(--font-suisseintl);
+.btn-flame-pill {
+  background-color: var(--color-flame-gold);
+  color: var(--color-void);
+  font-family: var(--font-ppneuemontreal);
   font-size: 14px;
-  font-weight: 500;
-  padding: 14px 24px;
-  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  padding: 14.4px 24px;
+  border-radius: var(--radius-buttons); /* 24px pill */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(196, 146, 74, 0.4);
+}
+
+.btn-flame-pill:hover {
+  background-color: var(--color-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(196, 146, 74, 0.6);
+}
+
+/* GHOST TEXT LINK BUTTON */
+.btn-ghost-text {
+  background: transparent;
+  color: var(--color-ash-gray);
+  border: none;
+  font-family: var(--font-ppneuemontreal);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-ghost-text:hover {
+  color: var(--color-bone-white);
+}
+
+.btn-ghost-border {
+  background: transparent;
+  color: var(--color-bone-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-ppneuemontreal);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  padding: 14px 24px;
+  border-radius: var(--radius-buttons);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .btn-ghost-border:hover {
-  border-color: var(--color-flame-gold);
-  color: var(--color-flame-gold);
-  background: rgba(196, 146, 74, 0.08);
+  border-color: var(--color-electric-iris);
+  color: var(--color-electric-iris);
 }
 
-/* CARDS MATCHING SPECIFICATION (24-32px RADIUS & 64px TOP-ARC) */
-.card-standard {
-  background-color: #12141f;
-  border-radius: var(--radius-cards); /* 32px radius */
+/* FLOATING NAV CAPSULE */
+.nav-pill-floating {
+  background: rgba(9, 10, 15, 0.85);
+  backdrop-filter: blur(16px);
+  border-radius: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* CARDS FLOATING ON BLACK VOID (24px RADIUS, ZERO SHADOWS) */
+.card-standard, .card-editorial {
+  background: #090a0f;
+  border-radius: var(--radius-cards); /* 24px radius */
   padding: 32px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card-standard:hover {
-  border-color: rgba(196, 146, 74, 0.6);
+.card-standard:hover, .card-editorial:hover {
+  border-color: rgba(128, 82, 255, 0.5);
   transform: translateY(-4px);
 }
 
-.card-top-arc {
-  background-color: #0c0d13;
-  border-radius: 64px 64px 0px 0px; /* Top arc dome shape */
-  padding: 48px 32px;
-  border-top: 1px solid rgba(196, 146, 74, 0.4);
+/* AMBIENT CONSTELLATION FLOATING PARTICLES */
+@keyframes particleFloat {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+  50% { transform: translateY(-15px) rotate(180deg); opacity: 0.8; }
+  100% { transform: translateY(0px) rotate(360deg); opacity: 0.4; }
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-.animate-slideInDown {
-  animation: slideInDown 0.8s ease forwards;
+.ambient-particle {
+  animation: particleFloat 6s ease-in-out infinite;
 }
 
 /* Custom Scrollbar */
@@ -262,5 +350,5 @@ img, video {
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C4924A;
+  background: #8052ff;
 }
