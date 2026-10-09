@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Flame, Wine, Calendar, ArrowRight, Sparkles, 
-  MapPin, Phone, Plus, ChevronUp, ChefHat, X, Play
+  MapPin, Phone, Plus, ChevronUp, ChefHat, X
 } from 'lucide-react';
 import { menuItems } from '../data/menuData';
 import GhostType from '../components/ui/ghost-type';
@@ -91,13 +91,13 @@ export default function HomePage() {
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
-      {/* 01 HERO SECTION — GOOGLE FLOW OMNI INTERFACE STYLE */}
+      {/* 01 HERO SECTION — GOOGLE FLOW OMNI INTERFACE WITH PUA HEAD OF VIDEO */}
       <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-[1240px] mx-auto z-10">
         
         {/* MAIN HERO ROUNDED CONTAINER (GOOGLE FLOW CARD SPEC) */}
         <div className="relative rounded-[28px] overflow-hidden border border-[#2c2c2e] bg-[#0d0e12] min-h-[560px] lg:min-h-[640px] flex flex-col justify-between shadow-2xl">
           
-          {/* BACKGROUND VIDEO WITH GRADIENT FADE TO LEFT */}
+          {/* BACKGROUND VIDEO USING PUA HEAD OF.MP4 (MUTED / SIN AUDIO) */}
           <div className="absolute inset-0 z-0">
             <video
               autoPlay
@@ -106,7 +106,7 @@ export default function HomePage() {
               playsInline
               className="w-full h-full object-cover object-center opacity-70 filter contrast-110"
             >
-              <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
+              <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
             </video>
             {/* Dark gradient overlay fading from black on left to transparent on right for readable text */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#000000]/80 sm:via-[#000000]/60 to-transparent" />
