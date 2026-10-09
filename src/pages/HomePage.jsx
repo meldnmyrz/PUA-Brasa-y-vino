@@ -63,27 +63,27 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen text-[#F4F0EA] bg-[#000000] overflow-hidden">
       
-      {/* 00 FULL PAGE BACKGROUND VIDEO — PUA HEAD OF.MP4 WITH HIGH OPACITY (SIN REDUCIR OPACIDAD) */}
+      {/* 00 FULL PAGE BACKGROUND VIDEO — PUA HEAD OF.MP4 AT 100% FULL OPACITY WITH CENTERED BRAND FOCUS */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-center opacity-90 filter brightness-105 contrast-110"
+          className="w-full h-full object-cover object-center opacity-100 filter brightness-105 contrast-105"
         >
           <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
         </video>
-        {/* Soft vignette gradient for clean readability on left text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40" />
+        {/* Soft edge gradients to keep text crystal clear while keeping video 100% vivid and unshadowed in center */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none" />
       </div>
 
       {/* 01 HERO SECTION — EXACT MATCH TO REFERENCE SCREENSHOT */}
       <section className="relative min-h-screen pt-32 pb-16 px-6 sm:px-12 lg:px-20 max-w-[1500px] mx-auto z-10 flex flex-col justify-between">
         
-        {/* LEFT VERTICAL METADATA TEXT (MATCHING SCREENSHOT LEFTHAND MARGIN) */}
-        <div className="hidden lg:flex flex-col justify-between absolute left-6 top-36 bottom-24 z-20 pointer-events-none text-[10px] font-sans uppercase tracking-[0.3em] text-[#C8C3BC]/60">
+        {/* LEFT VERTICAL METADATA TEXT */}
+        <div className="hidden lg:flex flex-col justify-between absolute left-6 top-36 bottom-24 z-20 pointer-events-none text-[10px] font-sans uppercase tracking-[0.3em] text-[#C8C3BC]/80 drop-shadow">
           <div className="rotate-180 [writing-mode:vertical-rl]">
             SÍGUENOS — IG / FB
           </div>
@@ -92,39 +92,39 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* HERO MAIN TEXT CONTENT LEFT ALIGNED (EXACT MATCH TO REFERENCE SCREENSHOT) */}
+        {/* HERO MAIN TEXT CONTENT LEFT ALIGNED WITH HIGH CONTRAST DROP SHADOWS */}
         <div className="my-auto pt-8 pb-12 max-w-2xl text-left space-y-6 lg:pl-10 animate-fadeIn">
           
           {/* SERIF HEADLINE + LUXURY CURSIVE SCRIPT "y el vino" */}
           <div className="space-y-1">
-            <h1 className="font-serif-lujo text-5xl sm:text-7xl lg:text-8xl text-[#F4F0EA] tracking-wide leading-[0.92] uppercase drop-shadow-md">
+            <h1 className="font-serif-lujo text-5xl sm:text-7xl lg:text-8xl text-[#F4F0EA] tracking-wide leading-[0.92] uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               EL ARTE DE
             </h1>
-            <h1 className="font-serif-lujo text-5xl sm:text-7xl lg:text-8xl text-[#F4F0EA] tracking-wide leading-[0.92] uppercase drop-shadow-md">
+            <h1 className="font-serif-lujo text-5xl sm:text-7xl lg:text-8xl text-[#F4F0EA] tracking-wide leading-[0.92] uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               LA BRASA
             </h1>
-            <div className="font-script-lujo text-4xl sm:text-6xl lg:text-7xl text-[#C4924A] tracking-normal py-1 block drop-shadow-lg -mt-2">
+            <div className="font-script-lujo text-4xl sm:text-6xl lg:text-7xl text-[#C4924A] tracking-normal py-1 block drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] -mt-2">
               y el vino
             </div>
           </div>
 
-          {/* SUBTITLE PARAGRAPH (EXACT MATCH TO REFERENCE SCREENSHOT) */}
-          <p className="font-sans text-xs sm:text-sm text-[#F4F0EA]/80 font-light leading-relaxed max-w-lg drop-shadow">
+          {/* SUBTITLE PARAGRAPH */}
+          <p className="font-sans text-xs sm:text-sm text-[#F4F0EA] font-normal leading-relaxed max-w-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
             Una experiencia gastronómica de fuego, tierra y tiempo en el corazón de la alta cocina. Descubre nuestra propuesta maridada con los mejores viñedos del mundo.
           </p>
 
-          {/* ACTION BUTTONS (EXACT MATCH TO REFERENCE SCREENSHOT) */}
+          {/* ACTION BUTTONS */}
           <div className="pt-4 flex flex-wrap items-center gap-6">
             <Link 
               to="/reservas" 
-              className="btn-gold-luxury"
+              className="btn-gold-luxury shadow-2xl"
             >
               RESERVAR UNA MESA
             </Link>
             
             <Link 
               to="/menu" 
-              className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#F4F0EA] hover:text-[#C4924A] transition-colors flex items-center gap-2"
+              className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#F4F0EA] hover:text-[#C4924A] transition-colors flex items-center gap-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
             >
               VER LA CARTA
               <ArrowRight className="w-4 h-4 text-[#C4924A]" />
@@ -133,8 +133,8 @@ export default function HomePage() {
 
         </div>
 
-        {/* BOTTOM BAR: CATEGORY ROW + SCROLL INDICATOR (EXACT MATCH TO REFERENCE SCREENSHOT) */}
-        <div className="relative z-20 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-6 pt-6 border-t border-white/10 lg:pl-10">
+        {/* BOTTOM BAR: CATEGORY ROW + SCROLL INDICATOR */}
+        <div className="relative z-20 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-6 pt-6 border-t border-white/20 lg:pl-10">
           
           {/* LEFT CATEGORY DOT LIST */}
           <div className="flex items-center gap-4 text-xs font-sans uppercase tracking-[0.2em] overflow-x-auto scrollbar-none py-1">
@@ -142,8 +142,8 @@ export default function HomePage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(idx)}
-                className={`flex items-center gap-2 transition-colors whitespace-nowrap ${
-                  activeCategory === idx ? 'text-[#F4F0EA] font-semibold' : 'text-[#C8C3BC]/60 hover:text-white'
+                className={`flex items-center gap-2 transition-colors whitespace-nowrap drop-shadow ${
+                  activeCategory === idx ? 'text-[#F4F0EA] font-semibold' : 'text-[#C8C3BC]/80 hover:text-white'
                 }`}
               >
                 {activeCategory === idx && <span className="text-[#C4924A]">{cat.id}</span>}
@@ -153,8 +153,8 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* SCROLL INDICATOR WITH VERTICAL GOLD LINE (MATCHING SCREENSHOT) */}
-          <div className="flex flex-col items-center gap-2 text-[10px] font-sans uppercase tracking-[0.3em] text-[#F4F0EA]/70 mx-auto sm:mx-0">
+          {/* SCROLL INDICATOR WITH VERTICAL GOLD LINE */}
+          <div className="flex flex-col items-center gap-2 text-[10px] font-sans uppercase tracking-[0.3em] text-[#F4F0EA] mx-auto sm:mx-0 drop-shadow">
             <span>SCROLL</span>
             <div className="w-0.5 h-10 bg-gradient-to-b from-[#C4924A] to-transparent animate-pulse" />
           </div>
