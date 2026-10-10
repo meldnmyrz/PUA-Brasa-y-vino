@@ -5,6 +5,7 @@ import {
   MapPin, Phone, Plus, ChevronUp, ChefHat 
 } from 'lucide-react';
 import Hero24 from '../components/ui/hero-24';
+import { menuItems } from '../data/menuData';
 
 export default function HomePage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
