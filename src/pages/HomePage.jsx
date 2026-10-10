@@ -29,15 +29,15 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const featuredDishes = menuItems.filter(item => item.tags && item.tags.length > 0).slice(0, 6);
 
   return (
-    <div className="pt-20 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
+    <div className="pt-[96px] pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
       {/* ============================================================
-          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO CENTRADO)
+          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO CENTRADO PERFECTAMENTE)
          ============================================================ */}
-      <section className="relative w-full h-[90vh] sm:h-[94vh] flex flex-col justify-end pb-20 z-10 overflow-hidden">
+      <section className="relative w-full h-[calc(100vh-96px)] min-h-[580px] flex flex-col justify-center py-12 z-10 overflow-hidden">
         
         {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -46,16 +46,16 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover brightness-115 contrast-110 opacity-100 transition-all duration-700"
-            style={{ objectPosition: '85% 62%' }}
+            className="w-full h-full object-cover brightness-115 contrast-110 opacity-100 transition-all duration-700 scale-100"
+            style={{ objectPosition: '85% 70%' }}
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
             <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
           </video>
 
           {/* ULTRA LIGHT GRADIENT SHADOW ONLY UNDER LEFT TEXT FOR MAXIMUM VIDEO VISIBILITY */}
-          <div className="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/90 via-black/50 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/90 via-black/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
         </div>
 
         {/* HERO MAIN TEXT CONTENT ONLY */}
