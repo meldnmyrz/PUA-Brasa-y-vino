@@ -29,15 +29,15 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const featuredDishes = menuItems.filter(item => item.tags && item.tags.length > 0).slice(0, 6);
 
   return (
-    <div className="pt-[64px] pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
+    <div className="pt-0 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
       {/* ============================================================
-          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO CENTRADO PERFECTAMENTE SIN REFORTES)
+          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (NAVBAR 100% TRANSPARENTE FLOTANTE SOBRE VIDEO)
          ============================================================ */}
-      <section className="relative w-full h-[88vh] min-h-[560px] flex flex-col justify-center py-10 z-10 overflow-hidden">
+      <section className="relative w-full h-screen min-h-[600px] flex flex-col justify-center pt-24 pb-12 z-10 overflow-hidden">
         
         {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER WITH NATURAL CONTAINED PROPORTION */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end">
