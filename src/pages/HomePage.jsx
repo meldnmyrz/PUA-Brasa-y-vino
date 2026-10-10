@@ -34,123 +34,99 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
-      {/* 01 HERO STAGE WITH VIDEO PUA HEAD OF */}
-      <section className="relative min-h-[85vh] flex flex-col justify-between max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 z-10">
+      {/* ============================================================
+          01 FULL-BLEED VIDEO HERO STAGE (PUA HEAD OF BACKGROUND)
+         ============================================================ */}
+      <section className="relative min-h-[90vh] flex flex-col justify-between max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 z-10 my-4 rounded-[28px] overflow-hidden border border-white/10 shadow-2xl">
         
-        {/* AVAILABILITY BADGE */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <span className="badge-availability">
+        {/* FULL-BLEED BACKGROUND VIDEO PLAYER */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover filter brightness-75 scale-105"
+          >
+            <source src="/assets/pua-head-of.mp4" type="video/mp4" />
+            <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
+          </video>
+
+          {/* CINEMATIC DARK GRADIENT OVERLAY FOR HIGH-CONTRAST READABILITY */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
+        </div>
+
+        {/* AVAILABILITY BADGES OVERLAY */}
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
+          <span className="badge-availability !bg-black/80 !border-white/20 backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff791b] animate-ping" />
             RESERVA VIP DISPONIBLE · POLANCO CDMX
           </span>
           <div className="hidden sm:flex items-center gap-2">
-            <span className="text-[11px] font-mono text-[#00d959] bg-[#111111] px-3 py-1 rounded-full border border-white/10">
+            <span className="text-[11px] font-mono text-[#00d959] bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
               ✓ 45 Días Maduración
             </span>
-            <span className="text-[11px] font-mono text-[#ff3037] bg-[#111111] px-3 py-1 rounded-full border border-white/10">
+            <span className="text-[11px] font-mono text-[#ff3037] bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
               🔥 600°C Leña Encino
             </span>
           </div>
         </div>
 
-        {/* HERO MAIN GRID: MONUMENTAL STATEMENT & VIDEO PUA HEAD OF */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-8">
+        {/* HERO MAIN TEXT CONTENT OVER VIDEO */}
+        <div className="relative z-10 max-w-2xl space-y-6 my-16">
+          <div className="space-y-3">
+            <span className="text-xs uppercase font-semibold tracking-wider text-[#ff791b] block">
+              GASTRONOMÍA A LAS BRASAS & CAVA DE AUTOR
+            </span>
+            <h1 className="text-hero-display tracking-[-1.2px] text-[#f5f5f7] drop-shadow-2xl">
+              EL RITUAL DEL <br />
+              <span className="text-[#f5f5f7]">FUEGO & LA CAVA.</span>
+            </h1>
+          </div>
           
-          {/* LEFT 6 COLUMNS: MONUMENTAL STATEMENT */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="space-y-3">
-              <span className="text-xs uppercase font-semibold tracking-wider text-[#ff791b] block">
-                GASTRONOMÍA A LAS BRASAS & CAVA DE AUTOR
-              </span>
-              <h1 className="text-hero-display tracking-[-1.2px] text-[#f5f5f7]">
-                EL RITUAL DEL <br />
-                <span className="text-[#f5f5f7]">FUEGO & LA CAVA.</span>
-              </h1>
-            </div>
-            
-            <p className="text-body-apple max-w-xl text-[#86868b]">
-              Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
-            </p>
+          <p className="text-body-apple max-w-xl text-[#e8e8ed] drop-shadow-md">
+            Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
+          </p>
 
-            {/* FLOATING DARK UTILITY CAPSULE (#333336, 36px radius) */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <div className="dark-utility-capsule max-w-md w-full sm:w-auto">
-                <div className="flex flex-col">
-                  <span className="text-xs font-semibold text-[#f5f5f7] leading-tight">
-                    Experiencia Gastronómica desde $680 MXN
-                  </span>
-                  <span className="text-[11px] text-[#86868b]">
-                    Incluye Maridaje de Cava & Degustación
-                  </span>
-                </div>
-                <Link to="/reservas" className="btn-apple-blue font-semibold shrink-0">
-                  <span>Reservar Mesa</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+          {/* FLOATING DARK UTILITY CAPSULE OVER VIDEO */}
+          <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="dark-utility-capsule max-w-md w-full sm:w-auto bg-black/80 backdrop-blur-md border border-white/20">
+              <div className="flex flex-col">
+                <span className="text-xs font-semibold text-[#f5f5f7] leading-tight">
+                  Experiencia Gastronómica desde $680 MXN
+                </span>
+                <span className="text-[11px] text-[#86868b]">
+                  Incluye Maridaje de Cava & Degustación
+                </span>
               </div>
-
-              <Link to="/menu" className="btn-white-outline">
-                <span>Ver Carta Completa</span>
+              <Link to="/reservas" className="btn-apple-blue font-semibold shrink-0">
+                <span>Reservar Mesa</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
+            <Link to="/menu" className="btn-white-outline bg-black/60 backdrop-blur-md border-white/30">
+              <span>Ver Carta Completa</span>
+            </Link>
           </div>
-
-          {/* RIGHT 6 COLUMNS: VIDEO PUA HEAD OF */}
-          <div className="lg:col-span-6 relative">
-            <div className="card-black-media relative h-[480px] sm:h-[520px] w-full overflow-hidden border border-white/10 group">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
-              >
-                <source src="/assets/pua-head-of.mp4" type="video/mp4" />
-                <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-              
-              {/* LIVE METRIC OVERLAYS IN PULSE RED & VITAL GREEN */}
-              <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
-                <div className="bg-[#111111]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
-                  <Thermometer className="w-3.5 h-3.5 text-[#ff3037]" />
-                  <span className="text-xs font-bold text-[#ff3037] font-mono">600°C EMBERS</span>
-                </div>
-                <div className="bg-[#111111]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
-                  <Droplets className="w-3.5 h-3.5 text-[#00d959]" />
-                  <span className="text-xs font-bold text-[#00d959] font-mono">85% HUMIDITY</span>
-                </div>
-              </div>
-
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-xs text-[#86868b] uppercase tracking-wider block font-semibold mb-1">
-                  SELLO DE ASADO A LA LEÑA
-                </span>
-                <p className="text-lg font-semibold text-[#f5f5f7] font-sf-pro-display">
-                  Técnica ancestral con fuego de encino & mezquite.
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        {/* 5 CONNECTED SECTIONS NAV QUICK LINKS */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/10 text-center">
-          <Link to="/nosotros" className="py-3 px-4 rounded-2xl bg-[#111111] hover:bg-[#1d1d1f] transition-colors border border-white/5 group">
+        {/* 5 CONNECTED SECTIONS NAV QUICK LINKS OVER VIDEO FOOTER */}
+        <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/20 text-center">
+          <Link to="/nosotros" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
             <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">01. NOSOTROS</span>
             <span className="text-[11px] text-[#86868b]">Historia & Filosofía</span>
           </Link>
-          <Link to="/menu" className="py-3 px-4 rounded-2xl bg-[#111111] hover:bg-[#1d1d1f] transition-colors border border-white/5 group">
+          <Link to="/menu" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
             <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">02. MENÚ</span>
             <span className="text-[11px] text-[#86868b]">Carta & Maridajes</span>
           </Link>
-          <Link to="/servicios" className="py-3 px-4 rounded-2xl bg-[#111111] hover:bg-[#1d1d1f] transition-colors border border-white/5 group">
+          <Link to="/servicios" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
             <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">03. SERVICIOS</span>
             <span className="text-[11px] text-[#86868b]">Eventos & Cava VIP</span>
           </Link>
-          <Link to="/contacto" className="py-3 px-4 rounded-2xl bg-[#111111] hover:bg-[#1d1d1f] transition-colors border border-white/5 group">
+          <Link to="/contacto" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
             <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">04. CONTACTO</span>
             <span className="text-[11px] text-[#86868b]">Ubicación & Reservas</span>
           </Link>
