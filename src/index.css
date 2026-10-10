@@ -1,49 +1,47 @@
 @import "tailwindcss";
 
 /* ============================================================
-   PÚA BRASA Y VINO — DARK LUXE DESIGN SYSTEM
-   Inspired by Apple Watch cinematic gallery aesthetic
-   Brand accent: Flame Gold #C4924A
+   APPLE WATCH SERIES 12 CINEMATIC DARK DESIGN SYSTEM
+   Theme: Dark
+   Gallery Black (#000000) & Charcoal Stage (#111111)
+   Apple Blue (#0071e3), Pulse Red (#ff3037), Vital Green (#00d959)
    ============================================================ */
 
 :root {
-  /* ── CANVAS ──────────────────────────────────────────────── */
-  --color-void-black:    #000000;   /* full-bleed background     */
-  --color-gallery-dark:  #111112;   /* near-black surface        */
-  --color-obsidian-bg:   #0d0e12;   /* card/module background    */
-  --color-card-bg:       #171718;   /* elevated card surface     */
-  --color-card-border:   #2c2c2e;   /* hairline border           */
-  --color-divider:       #1f1f21;   /* section divider           */
+  /* ── COLORS ──────────────────────────────────────────────── */
+  --color-gallery-black:    #000000;
+  --color-charcoal-stage:   #111111;
+  --color-ink:              #1d1d1f;
+  --color-porcelain:        #f5f5f7;
+  --color-paper:            #ffffff;
+  --color-steel:            #86868b;
+  --color-graphite:         #6e6e73;
+  --color-control-charcoal: #333336;
+  --color-cloud-gray:       #e8e8ed;
+  --color-apple-blue:       #0071e3;
+  --color-link-blue:        #0066cc;
+  --color-pulse-red:        #ff3037;
+  --color-vital-green:      #00d959;
+  --color-signal-orange:    #ff791b;
+  --color-new-orange:       #b64400;
+  --color-burnt-badge-wash: #311400;
 
-  /* ── FLAME GOLD METALLIC ─────────────────────────────────── */
+  /* ── BRAND GASTRONOMY HARMONY ────────────────────────────── */
   --color-flame-gold:       #C4924A;
   --color-flame-gold-light: #E5C388;
   --color-flame-gold-dark:  #A67531;
-  --color-flame-gold-muted: rgba(196, 146, 74, 0.12);
-  --color-flame-gold-glow:  rgba(196, 146, 74, 0.35);
 
-  /* ── TEXT HIERARCHY ──────────────────────────────────────── */
-  --color-text-white:   #ffffff;    /* primary editorial         */
-  --color-text-bone:    #F4F0EA;    /* warm off-white            */
-  --color-text-muted:   #888888;    /* subdued labels            */
-  --color-text-faint:   #555558;    /* ghost / disabled          */
+  /* ── TYPOGRAPHY ──────────────────────────────────────────── */
+  --font-sf-pro-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sf-pro-text:    'SF Pro Text', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* ── WINE PAIRING ACCENT (sommelier badges) ──────────────── */
-  --color-wine-bg:     #1a1622;
-  --color-wine-border: #3d2a45;
-  --color-wine-text:   #e2b6ed;
-
-  /* ── FONTS ───────────────────────────────────────────────── */
-  --font-display:  'Cormorant Garamond', Georgia, serif;
-  --font-body:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-
-  /* ── RADII ───────────────────────────────────────────────── */
-  --radius-card:   10px;
-  --radius-pill:   9999px;
-  --radius-soft:   6px;
-
-  /* ── TRANSITIONS ─────────────────────────────────────────── */
-  --ease-luxury: cubic-bezier(0.4, 0, 0.2, 1);
+  /* ── BORDER RADII ────────────────────────────────────────── */
+  --radius-cards:           28px;
+  --radius-links:           10px;
+  --radius-badges:          5px;
+  --radius-inputs:          980px;
+  --radius-buttons:         9999px;
+  --radius-utilitycontrols: 36px;
 }
 
 /* ============================================================
@@ -57,9 +55,9 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-void-black);
-  color: var(--color-text-bone);
-  font-family: var(--font-body);
+  background-color: var(--color-gallery-black);
+  color: var(--color-porcelain);
+  font-family: var(--font-sf-pro-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -67,334 +65,348 @@ html, body {
 img, video { max-width: 100%; height: auto; display: block; }
 
 /* ============================================================
-   TYPOGRAPHY — STELLAR SYSTEM
-   SF Pro Display → Cormorant Garamond (cinematic headlines)
-   SF Pro Text   → Plus Jakarta Sans   (precise body labels)
+   TYPOGRAPHY SPECIFICATIONS (APPLE STYLE)
    ============================================================ */
 
-/* Monumental display headline — Cormorant Garamond */
-.font-display-stellar {
-  font-family: var(--font-display);
-  font-weight: 300;
-  line-height: 0.92;
-  letter-spacing: 0.04em;
-  color: var(--color-text-white);
-}
-
-/* Body & subtext — Plus Jakarta Sans */
-.font-subtext-stellar {
-  font-family: var(--font-body);
-  font-size: 0.875rem;  /* 14px */
-  line-height: 1.65;
-  color: var(--color-text-muted);
-  letter-spacing: 0.01em;
-}
-
-/* Serif italic — brand voice / pull-quotes */
-.font-script-lujo {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--color-flame-gold);
-  letter-spacing: 0.02em;
-}
-
-/* Legacy aliases */
-.font-serif-lujo {
-  font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--color-text-white);
-}
-.font-sans-clean { font-family: var(--font-body); }
-
-/* Monumental hero title */
-.text-title-hero {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6.5vw, 86px);
-  font-weight: 300;
-  line-height: 0.92;
-  letter-spacing: 0.04em;
-  color: var(--color-text-white);
-  text-transform: uppercase;
-}
-
-/* ============================================================
-   EYEBROW TAGS — Small tightly-tracked labels above headings
-   ============================================================ */
-
-/* Gold pill — primary brand tag */
-.eyebrow-tag-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: var(--color-flame-gold-muted);
-  color: var(--color-flame-gold);
-  border: 1px solid rgba(196, 146, 74, 0.30);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-}
-
-/* Alias — was "violet", now all-gold for brand consistency */
-.eyebrow-tag-violet {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: var(--color-flame-gold-muted);
-  color: var(--color-flame-gold);
-  border: 1px solid rgba(196, 146, 74, 0.30);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-}
-
-/* ============================================================
-   BADGES
-   ============================================================ */
-
-.badge-gold-pill {
-  background-color: var(--color-flame-gold-muted);
-  color: var(--color-flame-gold);
-  border: 1px solid rgba(196, 146, 74, 0.35);
-  font-family: var(--font-body);
-  font-size: 11px;
+/* Hero Display 80px / 600 weight / -1.2px tracking */
+.text-hero-display {
+  font-family: var(--font-sf-pro-display);
   font-weight: 600;
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: clamp(40px, 6.5vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  color: var(--color-porcelain);
 }
 
-.badge-wine-pill {
-  background-color: var(--color-wine-bg);
-  color: var(--color-wine-text);
-  border: 1px solid var(--color-wine-border);
-  font-family: var(--font-body);
-  font-size: 11px;
+/* Feature Display 64px / 600 weight / -0.576px tracking */
+.text-feature-display {
+  font-family: var(--font-sf-pro-display);
   font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -0.576px;
+  color: var(--color-porcelain);
 }
 
-/* ============================================================
-   CARDS — Obsidian module surfaces
-   Apple Watch: "contained white merchandising panels"
-   Here: contained dark-obsidian panels on void black
-   ============================================================ */
-
-.card-obsidian {
-  background-color: var(--color-obsidian-bg);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-card);
-  transition: border-color 0.3s var(--ease-luxury), transform 0.3s var(--ease-luxury);
+/* Section Heading 56px / 600 weight / -0.28px tracking */
+.text-section-heading {
+  font-family: var(--font-sf-pro-display);
+  font-weight: 600;
+  font-size: clamp(28px, 4vw, 56px);
+  line-height: 1.07;
+  letter-spacing: -0.28px;
+  color: var(--color-porcelain);
 }
 
-.card-obsidian:hover {
-  border-color: rgba(196, 146, 74, 0.45);
+/* Metric Display 48px / 600 weight / -0.144px tracking */
+.text-metric-display {
+  font-family: var(--font-sf-pro-display);
+  font-weight: 600;
+  font-size: clamp(24px, 3.5vw, 48px);
+  line-height: 1;
+  letter-spacing: -0.144px;
 }
 
-/* Legacy class */
-.card-lujo-obsidian {
-  background-color: var(--color-obsidian-bg);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-card);
-  padding: 20px;
-  transition: all 0.3s var(--ease-luxury);
-}
-.card-lujo-obsidian:hover {
-  border-color: rgba(196, 146, 74, 0.5);
-  transform: translateY(-3px);
+/* Card Heading 28px / 600 weight / 0.196px tracking */
+.text-card-heading {
+  font-family: var(--font-sf-pro-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: 0.196px;
 }
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
+/* Body Copy 17px / 400 weight / 1.47 line height / -0.374px tracking */
+.text-body-apple {
+  font-family: var(--font-sf-pro-text);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+  color: var(--color-steel);
+}
 
-/* PRIMARY — Flame Gold filled (main CTA, replaces Apple blue) */
-.btn-gold-luxury {
-  background: linear-gradient(135deg, #C4924A 0%, #E5C388 48%, #A67531 100%);
-  color: #000000;
-  font-family: var(--font-body);
+/* Body Strong 14px / 600 weight / -0.224px tracking */
+.text-body-strong {
+  font-family: var(--font-sf-pro-text);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+  color: var(--color-porcelain);
+}
+
+/* Nav 12px / 400 weight / -0.12px tracking */
+.text-nav-apple {
+  font-family: var(--font-sf-pro-text);
+  font-weight: 400;
   font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 14px 28px;
-  border-radius: var(--radius-pill);
+  line-height: 1;
+  letter-spacing: -0.12px;
+}
+
+/* Legacy fonts bridge */
+.font-display-stellar {
+  font-family: var(--font-sf-pro-display);
+  font-weight: 600;
+}
+.font-subtext-stellar {
+  font-family: var(--font-sf-pro-text);
+}
+.font-script-lujo {
+  font-family: var(--font-sf-pro-display);
+  font-style: italic;
+  color: var(--color-flame-gold);
+}
+
+/* ============================================================
+   COMPONENTS (APPLE STYLE REFERENCE)
+   ============================================================ */
+
+/* 1. Global Navigation Bar (44px #111111 bar) */
+.apple-global-nav {
+  height: 44px;
+  background-color: var(--color-charcoal-stage);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 2. Local Product Navigation Bar (52px bar) */
+.apple-local-nav {
+  height: 52px;
+  background-color: var(--color-gallery-black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 3. Blue Purchase Pill (#0071e3) */
+.btn-apple-blue {
+  background-color: var(--color-apple-blue);
+  color: var(--color-paper);
+  border-radius: var(--radius-inputs);
+  font-family: var(--font-sf-pro-text);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.12px;
+  padding: 8px 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s var(--ease-luxury);
-  box-shadow: 0 4px 28px rgba(196, 146, 74, 0.32);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-apple-blue:hover {
+  background-color: #0077ed;
+  transform: scale(1.02);
+}
+
+/* 4. White Outline Pill (Dark-stage secondary product control) */
+.btn-white-outline {
+  background-color: transparent;
+  color: var(--color-paper);
+  border: 1px solid var(--color-paper);
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-sf-pro-text);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-white-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 5. Dark Utility Capsule (#333336, 36px radius) */
+.dark-utility-capsule {
+  background-color: var(--color-control-charcoal);
+  border-radius: var(--radius-utilitycontrols);
+  padding: 8px 8px 8px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* 6. Black Feature Media Card (#000000, 28px radius, no shadow) */
+.card-black-media {
+  background-color: var(--color-gallery-black);
+  border-radius: var(--radius-cards);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: none;
+}
+.card-black-media:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 7. White Merchandising Card (#ffffff, 28px radius, no shadow) */
+.card-white-merchandising {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  border-radius: var(--radius-cards);
+  overflow: hidden;
+  box-shadow: none;
+}
+
+/* 8. Upgrade Comparison / Feature Module (#111111, 28px radius) */
+.module-charcoal-stage {
+  background-color: var(--color-charcoal-stage);
+  border-radius: var(--radius-cards);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+/* 9. Feature Metric Tile (#000000, 28px radius, 16px padding) */
+.tile-feature-metric {
+  background-color: var(--color-gallery-black);
+  border-radius: var(--radius-cards);
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+/* 10. Pill Select Input (rgba(255,255,255,0.04) fill, 1px #6e6e73 outline, 980px radius) */
+.pill-select-input {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-graphite);
+  color: var(--color-porcelain);
+  border-radius: var(--radius-inputs);
+  padding-left: 24px;
+  padding-right: 45px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-family: var(--font-sf-pro-text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.pill-select-input:focus {
+  border-color: var(--color-apple-blue);
+}
+
+/* 11. Availability Badge (Burnt Badge Wash #311400 + Signal Orange #ff791b text) */
+.badge-availability {
+  background-color: var(--color-burnt-badge-wash);
+  color: var(--color-signal-orange);
+  border-radius: var(--radius-badges);
+  padding: 4px 8px;
+  font-family: var(--font-sf-pro-text);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 12. Inline Product Link (#0066cc) */
+.inline-product-link {
+  color: var(--color-link-blue);
+  text-decoration: none;
+  font-family: var(--font-sf-pro-text);
+  transition: opacity 0.2s ease;
+}
+.inline-product-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Legacy aliases for compatibility */
+.btn-gold-luxury {
+  background-color: var(--color-apple-blue);
+  color: #ffffff;
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.12px;
+  padding: 10px 22px;
+  border-radius: var(--radius-inputs);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 .btn-gold-luxury:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 40px rgba(196, 146, 74, 0.55);
-  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
+  background-color: #0077ed;
+  transform: translateY(-1px);
 }
 
-/* SECONDARY — Ghost outline / subdued */
-.btn-ghost-luxury {
-  background: rgba(13, 14, 18, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--color-text-white);
-  border: 1px solid rgba(196, 146, 74, 0.4);
-  font-family: var(--font-body);
-  font-size: 12px;
+.btn-ghost-luxury, .btn-ghost-border {
+  background-color: transparent;
+  color: var(--color-porcelain);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-sf-pro-text);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  padding: 10px 22px;
+  border-radius: var(--radius-buttons);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-ghost-luxury:hover, .btn-ghost-border:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-paper);
+}
+
+.btn-flame-pill, .btn-sprint-violet {
+  background-color: var(--color-apple-blue);
+  color: #ffffff;
+  border-radius: var(--radius-inputs);
+  padding: 10px 22px;
+  font-size: 13px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 13px 26px;
-  border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s var(--ease-luxury);
-}
-.btn-ghost-luxury:hover {
-  border-color: var(--color-flame-gold);
-  color: var(--color-flame-gold);
-  background: rgba(196, 146, 74, 0.08);
+  transition: all 0.2s ease;
 }
 
-/* GHOST BORDER — minimal border button (alias) */
-.btn-ghost-border {
-  background: transparent;
-  color: var(--color-text-white);
-  border: 1px solid rgba(196, 146, 74, 0.40);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 13px 26px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s var(--ease-luxury);
-}
-.btn-ghost-border:hover {
-  border-color: var(--color-flame-gold);
-  color: var(--color-flame-gold);
-  background: rgba(196, 146, 74, 0.06);
-}
-
-/* SPRINT — Gold filled, was "violet", now gold */
-.btn-sprint-violet {
-  background: linear-gradient(135deg, #C4924A 0%, #E5C388 48%, #A67531 100%);
-  color: #000000;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 14px 24px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s var(--ease-luxury);
-  box-shadow: 0 4px 24px rgba(196, 146, 74, 0.28);
-}
-.btn-sprint-violet:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 36px rgba(196, 146, 74, 0.50);
-  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
-}
-
-/* FLAME PILL — warm gold / WhatsApp CTA */
-.btn-flame-pill {
-  background: linear-gradient(135deg, #C4924A 0%, #E5C388 48%, #A67531 100%);
-  color: #000000;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 14px 24px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s var(--ease-luxury);
-  box-shadow: 0 4px 24px rgba(196, 146, 74, 0.28);
-}
-.btn-flame-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 36px rgba(196, 146, 74, 0.50);
-  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
-}
-
-/* ============================================================
-   NAVBAR — Floating pill
-   ============================================================ */
-.nav-pill-floating {
-  background: rgba(9, 10, 15, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+.card-obsidian, .card-lujo-obsidian {
+  background-color: var(--color-charcoal-stage);
+  border-radius: var(--radius-cards);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9999px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
 }
 
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
-@keyframes slideInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+.eyebrow-tag-pill, .eyebrow-tag-violet {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-burnt-badge-wash);
+  color: var(--color-signal-orange);
+  border: 1px solid rgba(255, 121, 27, 0.3);
+  font-family: var(--font-sf-pro-text);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.12px;
+  padding: 4px 12px;
+  border-radius: var(--radius-badges);
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
-}
-
-.animate-slideInDown { animation: slideInDown 0.6s var(--ease-luxury) both; }
-.animate-fadeIn      { animation: fadeIn      0.8s var(--ease-luxury) both; }
 
 /* ============================================================
    CUSTOM SCROLLBAR
    ============================================================ */
-::-webkit-scrollbar          { width: 5px; height: 5px; }
-::-webkit-scrollbar-track    { background: var(--color-void-black); }
-::-webkit-scrollbar-thumb    { background: #2c2c2e; border-radius: var(--radius-pill); }
-::-webkit-scrollbar-thumb:hover { background: var(--color-flame-gold); }
+::-webkit-scrollbar          { width: 6px; height: 6px; }
+::-webkit-scrollbar-track    { background: var(--color-gallery-black); }
+::-webkit-scrollbar-thumb    { background: var(--color-control-charcoal); border-radius: var(--radius-inputs); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-graphite); }
