@@ -2,48 +2,28 @@ import React from 'react';
 
 /**
  * PuaLogo Component
- * Renders the clean white minimalist vector PÚA emblem matching the brand reference screenshot.
+ * Renders the official PÚA Brasa y Vino logo with transparent background.
  *
  * @param {Object} props
- * @param {string} [props.color='#ffffff'] - Logo stroke & text color
  * @param {string} [props.size='small'] - 'small' | 'medium' | 'large'
  * @param {string} [props.className=''] - Additional CSS classes
  */
-export default function PuaLogo({ color = '#ffffff', size = 'small', className = '' }) {
+export default function PuaLogo({ size = 'small', className = '' }) {
   const heightMap = {
-    small: '34px',
-    medium: '44px',
-    large: '60px'
+    small: 'h-8 sm:h-9',
+    medium: 'h-11 sm:h-12',
+    large: 'h-16 sm:h-20'
   };
 
-  const currentHeight = heightMap[size] || heightMap.small;
+  const currentHeightClass = heightMap[size] || heightMap.small;
 
   return (
-    <div className={`inline-flex flex-col items-start justify-center select-none cursor-pointer ${className}`}>
-      <svg 
-        viewBox="0 0 200 65" 
-        style={{ height: currentHeight, width: 'auto' }}
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Minimalist Rounded PÚA Logo Vector in White */}
-        <g stroke={color} strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round">
-          {/* Letter 'p' */}
-          <path d="M 32 12 V 52 M 32 20 C 44 20 54 26 54 36 C 54 46 44 52 32 52" />
-          
-          {/* Letter 'u' curve */}
-          <path d="M 72 20 V 40 C 72 48 80 52 92 52 C 104 52 112 48 112 40 V 20 M 92 20 V 36" />
-          
-          {/* Letter 'a' */}
-          <path d="M 160 20 C 146 20 134 28 134 38 C 134 48 146 52 160 52 C 168 52 172 48 172 44 V 20 M 172 32 V 52" />
-        </g>
-      </svg>
-      <span 
-        style={{ color: color, letterSpacing: '0.35em' }} 
-        className="text-[9px] font-sans font-medium uppercase tracking-[0.35em] mt-0.5 opacity-90 pl-0.5"
-      >
-        BRASA Y VINO
-      </span>
+    <div className={`inline-flex items-center justify-center select-none ${className}`}>
+      <img 
+        src="/pua-logo-transparent.png" 
+        alt="PÚA Brasa y Vino" 
+        className={`${currentHeightClass} w-auto object-contain filter brightness-120 drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]`}
+      />
     </div>
   );
 }

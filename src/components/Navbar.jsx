@@ -157,16 +157,8 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
         }`}
       >
         {/* BRAND LOGO & IDENTITY */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <PuaLogo color="#ffffff" size="small" />
-          <div className="flex flex-col">
-            <span className="text-[#ffffff] font-semibold text-base sm:text-lg tracking-tight font-sf-pro-display group-hover:text-[#0071e3] transition-colors">
-              PÚA
-            </span>
-            <span className="text-[#86868b] text-[10px] font-medium tracking-widest uppercase -mt-1">
-              Brasa y Vino
-            </span>
-          </div>
+        <Link to="/" className="flex items-center hover:opacity-90 transition-opacity">
+          <PuaLogo size="small" />
         </Link>
 
         {/* HIGH CONTRAST NAVIGATION LINKS (DESKTOP) */}
