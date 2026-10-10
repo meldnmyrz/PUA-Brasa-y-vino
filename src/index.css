@@ -1,46 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  /* GRAZA TOKENS — ADAPTED FOR DARK OBSIDIAN THEME ("EN COLOR NEGRO") */
-  --color-olive-ink: #F4F0EA;
-  --color-olive-dark: #3c422e;
-  --color-linen-cream: #090a0f;
-  --color-buttery-peach: #14171f;
-  --color-squeeze-bottle-green: #9eef80;
-  --color-evoo-yellow-green: #d1e030;
-  --color-mustard-sun: #fbd535;
-  --color-dark-olive-band: #1b2216;
-  --color-gold-band: #C4924A;
+  /* COLORS FROM MENU-PUA.VERCEL.APP */
+  --bg-obsidian: #050505;
+  --bg-card: #0e0f14;
+  --bg-card-hover: #161820;
+  --text-main: #f4f4f5;
+  --text-muted: #9a9a9a;
 
-  /* Typography — Font Families */
-  --font-gt-alpina-typewriter: 'Courier Prime', 'Lora', Georgia, serif;
-  --font-itc-garamond-condensed: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-apercu: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* ACCENT COLORS */
+  --color-acid-lime: #e6ff55;
+  --color-pua-green: #9eef80;
+  --color-flame-gold: #C4924A;
+  --color-flame-gold-light: #E5C388;
 
-  /* Typography — Scale & Tracking */
-  --text-caption: 12px;
-  --text-body: 16px;
-  --text-body-lg: 18px;
-  --text-subheading: 20px;
-  --text-heading-sm: 46px;
-  --text-heading: 72px;
-  --text-heading-lg: 102px;
-  --text-display: 120px;
+  /* TYPOGRAPHY FAMILIES */
+  --font-body-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif-cormorant: 'Cormorant Garamond', Georgia, serif;
 
-  /* Border Radius */
-  --radius-pills: 9999px;
-  --radius-images: 20px;
-  --radius-inputs: 10px;
-  --radius-buttons: 10px;
-  --radius-nav-capsule: 32px;
-
-  /* Layout */
-  --section-gap: 64px;
-  --card-padding: 30px;
-  --element-gap: 20px;
+  /* RADIUS TOKENS */
+  --radius-card: 16px;
+  --radius-pill: 9999px;
+  --radius-tag: 8px;
+  --radius-button: 12px;
 }
 
-/* Global Reset — Zero Shadows & Crisp Hairlines */
 *, ::before, ::after {
   box-sizing: border-box;
 }
@@ -51,9 +35,9 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #000000;
-  color: #F4F0EA;
-  font-family: var(--font-gt-alpina-typewriter);
+  background-color: var(--bg-obsidian);
+  color: var(--text-main);
+  font-family: var(--font-body-ui);
   letter-spacing: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,131 +49,97 @@ img, video {
   display: block;
 }
 
-/* GRAZA TYPOGRAPHY CLASSES */
-/* Typewriter Serif — Utility, Body, Nav, Buttons, Captions */
-.font-typewriter {
-  font-family: var(--font-gt-alpina-typewriter);
-  line-height: 1.5;
+/* TYPOGRAPHY CLASSES MATCHING MENU-PUA */
+.font-sans-pua {
+  font-family: var(--font-body-ui);
 }
 
-/* Condensed Garamond — Display & Headlines ONLY (Swallows the Page) */
-.font-garamond-condensed {
-  font-family: var(--font-itc-garamond-condensed);
+.font-serif-pua {
+  font-family: var(--font-serif-cormorant);
   font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.031em;
-  text-transform: uppercase;
-}
-
-.text-display-graza {
-  font-family: var(--font-itc-garamond-condensed);
-  font-size: clamp(56px, 9vw, 120px);
-  line-height: 0.9;
-  letter-spacing: -0.031em;
-  text-transform: uppercase;
-}
-
-.text-heading-graza {
-  font-family: var(--font-itc-garamond-condensed);
-  font-size: clamp(40px, 6vw, 72px);
   line-height: 0.95;
-  letter-spacing: -0.021em;
+  letter-spacing: 0.01em;
+}
+
+.text-title-display {
+  font-family: var(--font-serif-cormorant);
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
-/* Apercu Status Badge — All-Caps Sans with Asterisks */
-.badge-apercu {
-  font-family: var(--font-apercu);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-olive-ink);
-}
-
-/* GRAZA BUTTONS & COMPONENTS */
-/* Pill Nav Button */
-.btn-pill-graza {
-  border-radius: var(--radius-pills);
-  border: 1px solid rgba(244, 240, 234, 0.3);
-  background-color: rgba(9, 10, 15, 0.85);
-  backdrop-filter: blur(12px);
-  color: #F4F0EA;
-  font-family: var(--font-gt-alpina-typewriter);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 8px 18px;
+/* BADGES & TAGS */
+.badge-lime-pua {
+  background-color: rgba(230, 255, 85, 0.12);
+  color: #e6ff55;
+  border: 1px solid rgba(230, 255, 85, 0.3);
+  font-family: var(--font-body-ui);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-tag);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  transition: all 0.2s ease;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.btn-pill-graza:hover {
-  border-color: #C4924A;
+.badge-gold-pua {
+  background-color: rgba(196, 146, 74, 0.12);
   color: #C4924A;
-  background-color: rgba(196, 146, 74, 0.1);
-}
-
-/* Primary Filled CTA — Squeeze Bottle / EVOO Green or Gold */
-.btn-primary-graza {
-  background-color: var(--color-squeeze-bottle-green);
-  color: #090a0f;
-  font-family: var(--font-gt-alpina-typewriter);
-  font-size: 16px;
+  border: 1px solid rgba(196, 146, 74, 0.3);
+  font-family: var(--font-body-ui);
+  font-size: 11px;
   font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-tag);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 16px 32px;
-  border-radius: var(--radius-buttons);
+}
+
+/* BUTTONS MATCHING MENU-PUA */
+.btn-lime-pua {
+  background-color: #e6ff55;
+  color: #000000;
+  font-family: var(--font-body-ui);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: all 0.25 ease;
+  box-shadow: 0 0 20px rgba(230, 255, 85, 0.25);
 }
 
-.btn-primary-graza:hover {
+.btn-lime-pua:hover {
   transform: translateY(-2px);
-  opacity: 0.95;
+  box-shadow: 0 0 30px rgba(230, 255, 85, 0.45);
+  background-color: #f1ff7a;
 }
 
-.btn-gold-graza {
-  background-color: var(--color-mustard-sun);
-  color: #090a0f;
-  font-family: var(--font-gt-alpina-typewriter);
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 16px 32px;
-  border-radius: var(--radius-buttons);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.btn-gold-graza:hover {
-  transform: translateY(-2px);
-  background-color: #e6c22a;
-}
-
-/* Outline Ghost Button */
-.btn-outline-graza {
-  background: transparent;
-  color: #F4F0EA;
-  border: 1px solid #F4F0EA;
-  font-family: var(--font-gt-alpina-typewriter);
-  font-size: 16px;
-  font-weight: 500;
-  padding: 16px 32px;
-  border-radius: var(--radius-buttons);
+.btn-outline-pua {
+  background: rgba(14, 15, 20, 0.7);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-body-ui);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -198,105 +148,111 @@ img, video {
   transition: all 0.2s ease;
 }
 
-.btn-outline-graza:hover {
-  background-color: #F4F0EA;
-  color: #090a0f;
+.btn-outline-pua:hover {
+  border-color: #e6ff55;
+  color: #e6ff55;
 }
 
-/* Editorial Text Link with Em-Arrow */
-.link-editorial-graza {
-  font-family: var(--font-gt-alpina-typewriter);
-  font-size: 16px;
-  font-weight: 500;
-  color: inherit;
+/* CARD STYLES MATCHING MENU-PUA */
+.card-menu-pua {
+  background-color: #0e0f14;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.card-menu-pua:hover {
+  border-color: rgba(230, 255, 85, 0.4);
+  background-color: #14161f;
+  transform: translateY(-3px);
+}
+
+/* Legacy Fallbacks */
+.font-serif-lujo {
+  font-family: var(--font-serif-cormorant);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.font-subtext-stellar {
+  font-family: var(--font-body-ui);
+  font-weight: 300;
+  color: #9a9a9a;
+}
+
+.eyebrow-tag-pill {
+  background-color: rgba(230, 255, 85, 0.1);
+  color: #e6ff55;
+  border: 1px solid rgba(230, 255, 85, 0.3);
+  font-family: var(--font-body-ui);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: opacity 0.2s ease;
-}
-
-.link-editorial-graza:hover {
-  opacity: 0.8;
-}
-
-/* Image 20px Radius Rule (Zero Shadows) */
-.img-graza-radius {
-  border-radius: var(--radius-images);
-  box-shadow: none !important;
-  object-fit: cover;
-}
-
-/* Full-Bleed Section Bands */
-.band-full-bleed {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-/* Circled Word Annotation Oval */
-.oval-annotation {
-  position: relative;
-  display: inline-block;
-  padding: 2px 14px;
-}
-
-.oval-annotation::after {
-  content: '';
-  position: absolute;
-  inset: -6px -12px;
-  border: 1.5px solid currentColor;
-  border-radius: 50%;
-  transform: rotate(-3deg);
-  pointer-events: none;
-}
-
-/* Legacy utility fallbacks */
-.font-serif-lujo {
-  font-family: var(--font-itc-garamond-condensed);
-  font-weight: 400;
-  letter-spacing: -0.021em;
+  gap: 6px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.font-script-lujo {
-  font-family: var(--font-gt-alpina-typewriter);
-  font-style: italic;
-  color: var(--color-squeeze-bottle-green);
 }
 
 .btn-gold-luxury {
-  background-color: var(--color-squeeze-bottle-green);
-  color: #090a0f;
-  font-family: var(--font-gt-alpina-typewriter);
-  font-size: 14px;
-  font-weight: 700;
+  background-color: #e6ff55;
+  color: #000000;
+  font-family: var(--font-body-ui);
+  font-size: 13px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 14px 28px;
-  border-radius: var(--radius-buttons);
+  letter-spacing: 0.06em;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.25s ease;
+}
+
+.btn-gold-luxury:hover {
+  transform: translateY(-2px);
+  background-color: #f1ff7a;
+}
+
+.btn-ghost-border {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-body-ui);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost-border:hover {
+  border-color: #e6ff55;
+  color: #e6ff55;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3c422e;
+  background: #252835;
   border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e6ff55;
 }

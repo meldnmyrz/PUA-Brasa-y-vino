@@ -1,82 +1,4 @@
-// Official Menu Data extracted from menu-pua.vercel.app
-export const restaurantInfo = {
-  "name": "PÚA Brasa y Vino",
-  "subtitle": "Menú Gastronómico Oficial",
-  "tagline": "Fuego de Encino & Cava de Autor",
-  "address": "Av. Presidente Masaryk, Polanco, CDMX",
-  "phone": "+52 (55) 8900-7821",
-  "whatsapp": "525589007821",
-  "googleMapsUrl": "https://maps.google.com/?q=Polanco+CDMX",
-  "hours": [
-    {
-      "days": "Lunes a Miércoles",
-      "time": "13:00 hrs - 23:00 hrs"
-    },
-    {
-      "days": "Jueves a Sábado",
-      "time": "13:00 hrs - 01:00 hrs"
-    },
-    {
-      "days": "Domingo",
-      "time": "13:00 hrs - 20:00 hrs"
-    }
-  ]
-};
-
-export const menuCategories = [
-  {
-    "id": "todos",
-    "name": "Todo el Menú",
-    "icon": "Utensils"
-  },
-  {
-    "id": "maridajes",
-    "name": "Para Maridar",
-    "icon": "Wine"
-  },
-  {
-    "id": "entradas",
-    "name": "Entradas",
-    "icon": "Sparkles"
-  },
-  {
-    "id": "sopas",
-    "name": "Sopas & Cremas",
-    "icon": "Soup"
-  },
-  {
-    "id": "ensaladas",
-    "name": "Ensaladas",
-    "icon": "Leaf"
-  },
-  {
-    "id": "cortes",
-    "name": "Cortes Prime (Angus)",
-    "icon": "Flame"
-  },
-  {
-    "id": "pastas",
-    "name": "Pastas de Autor",
-    "icon": "UtensilsCrossed"
-  },
-  {
-    "id": "mariscos",
-    "name": "Especialidades del Mar",
-    "icon": "Fish"
-  },
-  {
-    "id": "postres",
-    "name": "Postres",
-    "icon": "Cake"
-  },
-  {
-    "id": "mixologia",
-    "name": "Mixología & Cava",
-    "icon": "GlassWater"
-  }
-];
-
-export const menuItems = [
+[
   {
     "id": "mar-1",
     "category": "maridajes",
@@ -1407,4 +1329,4 @@ export const menuItems = [
     ],
     "pairing": null
   }
-];
+]

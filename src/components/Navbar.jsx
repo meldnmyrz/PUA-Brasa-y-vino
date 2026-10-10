@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Calendar, ShoppingBag } from 'lucide-react';
+import { Menu, X, Calendar, Phone, Utensils } from 'lucide-react';
 import PuaLogo from './PuaLogo';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [lang, setLang] = useState('ES');
   const location = useLocation();
 
   useEffect(() => {
@@ -23,43 +22,48 @@ export default function Navbar() {
 
   const navLinks = [
     { path: '/', label: 'INICIO' },
-    { path: '/nosotros', label: 'EL ARTE DE LA BRASA' },
-    { path: '/menu', label: 'LA CARTA' },
-    { path: '/servicios', label: 'CANTINA & COCTELERÍA' },
-    { path: '/contacto', label: 'EL LUGAR' },
+    { path: '/menu', label: 'MENÚ COMPLETO' },
+    { path: '/nosotros', label: 'NOSOTROS' },
+    { path: '/servicios', label: 'EXPERIENCIAS' },
+    { path: '/contacto', label: 'UBICACIÓN' },
   ];
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 sm:px-12 flex justify-center border-b border-[#F4F0EA]/10 bg-[#090a0f]/85 backdrop-blur-md ${
-        isScrolled ? 'bg-[#090a0f]/95 py-3.5 shadow-none' : ''
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 px-4 sm:px-8 flex justify-center border-b border-white/10 bg-[#050505]/90 backdrop-blur-xl ${
+        isScrolled ? 'bg-[#050505]/98 py-3 border-white/15' : ''
       }`}
     >
       <div className="w-full max-w-[1400px] flex items-center justify-between">
         
-        {/* BRAND WORDMARK — GRAZA GARAMOND CONDENSED STYLE */}
+        {/* BRAND LOGO & TITLE */}
         <Link 
           to="/" 
           className="flex items-center gap-3 group focus:outline-none"
         >
-          <PuaLogo color="#C4924A" size="small" />
-          <span className="font-garamond-condensed text-2xl tracking-tight text-[#F4F0EA] group-hover:text-[#9eef80] transition-colors hidden sm:inline-block">
-            PÚA BRASA Y VINO
-          </span>
+          <PuaLogo color="#e6ff55" size="small" />
+          <div className="flex flex-col text-left">
+            <span className="font-serif-pua text-xl sm:text-2xl tracking-tight text-[#ffffff] group-hover:text-[#e6ff55] transition-colors leading-none uppercase">
+              PÚA BRASA Y VINO
+            </span>
+            <span className="font-sans-pua text-[10px] text-[#9a9a9a] tracking-wider uppercase font-medium mt-0.5">
+              MENÚ GASTRONÓMICO OFICIAL
+            </span>
+          </div>
         </Link>
 
-        {/* DESKTOP NAVIGATION LINKS — TYPEWRITER SERIF STYLE */}
-        <nav className="hidden xl:flex items-center gap-8 lg:gap-10">
+        {/* DESKTOP NAVIGATION LINKS */}
+        <nav className="hidden xl:flex items-center gap-8">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `font-typewriter text-xs uppercase tracking-[0.15em] transition-all py-1 font-medium ${
+                `font-sans-pua text-xs uppercase tracking-[0.12em] transition-all py-1 font-semibold ${
                   isActive 
-                    ? 'text-[#9eef80] border-b-2 border-[#9eef80]' 
-                    : 'text-[#F4F0EA]/80 hover:text-[#9eef80]'
+                    ? 'text-[#e6ff55] border-b-2 border-[#e6ff55]' 
+                    : 'text-[#f4f4f5]/80 hover:text-[#e6ff55]'
                 }`
               }
             >
@@ -68,38 +72,21 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT ACTION BUTTONS — GRAZA PILL BUTTONS (9999px RADIUS) */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* RIGHT ACTION BUTTON — LIME PILL CTA */}
+        <div className="hidden sm:flex items-center gap-4">
           <Link
             to="/reservas"
-            className="btn-pill-graza !bg-[#9eef80] !text-[#090a0f] !border-[#9eef80] hover:!bg-[#fbd535] hover:!border-[#fbd535] font-bold text-xs uppercase tracking-wider"
+            className="btn-lime-pua shadow-[0_0_20px_rgba(230,255,85,0.25)]"
           >
-            <Calendar className="w-3.5 h-3.5" />
+            <Calendar className="w-4 h-4 stroke-[2.5]" />
             <span>RESERVAR MESA</span>
           </Link>
-
-          {/* LANGUAGE TOGGLE PILL */}
-          <div className="btn-pill-graza text-xs font-mono">
-            <button
-              onClick={() => setLang('ES')}
-              className={lang === 'ES' ? 'text-[#9eef80] font-bold' : 'hover:text-white'}
-            >
-              ES
-            </button>
-            <span className="opacity-40">|</span>
-            <button
-              onClick={() => setLang('EN')}
-              className={lang === 'EN' ? 'text-[#9eef80] font-bold' : 'hover:text-white'}
-            >
-              EN
-            </button>
-          </div>
         </div>
 
         {/* MOBILE HAMBURGER BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="xl:hidden p-2 rounded-md text-[#9eef80] focus:outline-none"
+          className="xl:hidden p-2 rounded-md text-[#e6ff55] focus:outline-none"
           aria-label="Menu Toggle"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,15 +96,15 @@ export default function Navbar() {
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-x-4 top-[80px] bg-[#090a0f] border border-[#F4F0EA]/20 rounded-2xl px-6 py-8 flex flex-col gap-5 z-50">
+        <div className="xl:hidden fixed inset-x-4 top-[75px] bg-[#0e0f14] border border-[#e6ff55]/30 rounded-2xl px-6 py-6 flex flex-col gap-4 z-50 shadow-2xl">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               end={link.path === '/'}
               className={({ isActive }) =>
-                `text-left py-2.5 font-typewriter text-xs uppercase tracking-[0.15em] transition-colors border-b border-[#F4F0EA]/10 ${
-                  isActive ? 'text-[#9eef80] font-bold pl-2 border-[#9eef80]' : 'text-[#F4F0EA]/80'
+                `text-left py-2.5 font-sans-pua text-xs uppercase tracking-[0.12em] transition-colors border-b border-white/10 ${
+                  isActive ? 'text-[#e6ff55] font-bold pl-2 border-[#e6ff55]' : 'text-[#f4f4f5]/80'
                 }`
               }
             >
@@ -126,9 +113,10 @@ export default function Navbar() {
           ))}
           <Link
             to="/reservas"
-            className="mt-2 w-full py-3.5 bg-[#9eef80] text-[#090a0f] font-typewriter font-bold text-xs uppercase tracking-widest text-center rounded-[10px]"
+            className="mt-2 w-full py-3.5 bg-[#e6ff55] text-black font-sans-pua font-bold text-xs uppercase tracking-widest text-center rounded-full flex items-center justify-center gap-2"
           >
-            RESERVAR MESA VIP
+            <Calendar className="w-4 h-4" />
+            <span>RESERVAR MESA VIP</span>
           </Link>
         </div>
       )}
