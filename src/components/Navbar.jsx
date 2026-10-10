@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { 
-  Search, Menu, X, Calendar, ShoppingBag, Flame, ChevronDown, 
-  ArrowRight, Sparkles, MapPin, Phone, ChefHat
+  Search, Menu, X, ShoppingBag, ChevronDown, ArrowRight, ArrowUpRight 
 } from 'lucide-react';
 import PuaLogo from './PuaLogo';
 
@@ -39,11 +38,11 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
 
   // Structural links definition with mega menu keys
   const navLinks = [
-    { path: '/', label: 'INICIO', megaKey: null },
-    { path: '/nosotros', label: 'NOSOTROS', megaKey: 'nosotros' },
-    { path: '/menu', label: 'MENÚ', megaKey: 'menu' },
-    { path: '/servicios', label: 'SERVICIOS', megaKey: 'servicios' },
-    { path: '/contacto', label: 'CONTACTO', megaKey: null },
+    { path: '/', label: 'Inicio', megaKey: null },
+    { path: '/nosotros', label: 'Nosotros', megaKey: 'nosotros' },
+    { path: '/menu', label: 'Menú', megaKey: 'menu' },
+    { path: '/servicios', label: 'Servicios', megaKey: 'servicios' },
+    { path: '/contacto', label: 'Contacto', megaKey: null },
   ];
 
   // Mega Menu structured content with link columns
@@ -146,23 +145,23 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
   };
 
   return (
-    <header ref={megaMenuRef} className="fixed top-0 inset-x-0 z-50 flex flex-col w-full">
+    <header ref={megaMenuRef} className="fixed top-0 inset-x-0 z-50 w-full transition-all duration-300">
       
-      {/* SINGLE UNIFIED CLEAN LUXURY NAVBAR — 64px HIGH CONTRAST GLASS BAR */}
+      {/* FLOATING MINIMALIST TRANSPARENT NAVBAR (MOONMAN AGENCY STYLE) */}
       <div 
-        className={`w-full h-[64px] px-4 sm:px-8 flex items-center justify-between border-b transition-all duration-300 ${
+        className={`w-full px-6 sm:px-12 flex items-center justify-between transition-all duration-500 ${
           isScrolled 
-            ? 'bg-[#000000]/95 backdrop-blur-2xl border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.9)]' 
-            : 'bg-[#000000]/85 backdrop-blur-xl border-white/10'
+            ? 'py-4 bg-[#000000]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.9)]' 
+            : 'py-6 sm:py-8 bg-transparent border-b border-transparent'
         }`}
       >
-        {/* BRAND LOGO & IDENTITY */}
-        <Link to="/" className="flex items-center hover:opacity-90 transition-opacity">
+        {/* LEFT: BRAND EMBLEM LOGO */}
+        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <PuaLogo size="small" />
         </Link>
 
-        {/* HIGH CONTRAST NAVIGATION LINKS (DESKTOP) */}
-        <nav className="hidden lg:flex items-center gap-8">
+        {/* CENTER: MINIMALIST CENTERED NAVIGATION LINKS */}
+        <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => {
             const hasMega = Boolean(link.megaKey);
             const isMegaActive = activeMegaMenu === link.megaKey;
@@ -170,7 +169,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
             return (
               <div 
                 key={link.path}
-                className="relative py-4 group"
+                className="relative py-2 group"
                 onMouseEnter={() => hasMega && setActiveMegaMenu(link.megaKey)}
               >
                 <NavLink
@@ -178,16 +177,16 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                   end={link.path === '/'}
                   onClick={() => !hasMega && setActiveMegaMenu(null)}
                   className={({ isActive }) =>
-                    `flex items-center gap-1.5 text-xs font-semibold tracking-wider transition-all duration-200 py-1 ${
+                    `flex items-center gap-1 text-[13px] font-medium tracking-tight transition-all duration-200 ${
                       isActive || isMegaActive
-                        ? 'text-[#ffffff] border-b-2 border-[#0071e3] drop-shadow-[0_0_12px_rgba(0,113,227,0.8)]' 
-                        : 'text-[#e5e5e7] hover:text-[#0071e3]'
+                        ? 'text-white font-semibold' 
+                        : 'text-white/75 hover:text-white'
                     }`
                   }
                 >
                   <span>{link.label}</span>
                   {hasMega && (
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isMegaActive ? 'rotate-180 text-[#0071e3]' : 'text-[#86868b]'}`} />
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 opacity-60 group-hover:opacity-100 ${isMegaActive ? 'rotate-180 text-white' : ''}`} />
                   )}
                 </NavLink>
               </div>
@@ -195,17 +194,17 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
           })}
         </nav>
 
-        {/* RIGHT SIDE ACTIONS: SEARCH, CART & RESERVATION PILL */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        {/* RIGHT: MINIMALIST CTA LINK & ACTIONS */}
+        <div className="flex items-center gap-5 sm:gap-8">
           
           {/* SEARCH BUTTON */}
           {onOpenSearch && (
             <button
               onClick={onOpenSearch}
-              className="flex items-center gap-2 bg-[#1c1c1e] text-[#f5f5f7] hover:bg-[#2c2c2e] hover:text-white px-3 py-1.5 rounded-full text-xs font-medium border border-white/10 transition-all"
+              className="text-white/80 hover:text-white transition-colors p-1"
+              title="Buscar"
             >
-              <Search className="w-3.5 h-3.5 text-[#86868b]" />
-              <span className="hidden sm:inline text-[11px]">Buscar</span>
+              <Search className="w-4.5 h-4.5" />
             </button>
           )}
 
@@ -213,32 +212,31 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
           {onOpenOrderDrawer && (
             <button
               onClick={onOpenOrderDrawer}
-              className="relative p-2 text-[#f5f5f7] hover:text-white hover:bg-white/10 rounded-full transition-colors"
+              className="relative text-white/80 hover:text-white transition-colors p-1"
               title="Mi Mesa"
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingBag className="w-4.5 h-4.5" />
               {cartCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#0071e3] text-white font-mono text-[9px] font-bold flex items-center justify-center shadow-lg">
+                <span className="absolute -top-1.5 -right-2 w-4 h-4 rounded-full bg-[#ff3037] text-white font-mono text-[9px] font-bold flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
             </button>
           )}
 
-          {/* APPLE BLUE RESERVATION PILL */}
+          {/* RIGHT CTA LINK matching reference image style */}
           <Link
             to="/reservas"
-            className="btn-apple-blue font-semibold !py-2 !px-5 !text-xs text-white shadow-[0_2px_14px_rgba(0,113,227,0.5)] flex items-center gap-2"
+            className="text-xs sm:text-sm font-semibold text-white hover:text-[#ff3037] transition-all flex items-center gap-1.5 tracking-tight group"
           >
-            <Calendar className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">RESERVAR MESA</span>
-            <span className="sm:hidden">RESERVAR</span>
+            <span>Reservar mesa</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-white/80 group-hover:text-[#ff3037]" />
           </Link>
 
           {/* MOBILE TOGGLE */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#f5f5f7] hover:text-white"
+            className="lg:hidden text-white/90 hover:text-white p-1"
             aria-label="Menu Toggle"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -259,7 +257,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
             {/* MEGA MENU HEADER BADGE & TITLE */}
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
               <div className="flex items-center gap-3">
-                <span className="badge-availability !bg-[#0071e3]/20 !text-[#0071e3] !border-[#0071e3]/30">
+                <span className="badge-availability !bg-[#ff3037]/20 !text-[#ff3037] !border-[#ff3037]/30">
                   {megaMenuData[activeMegaMenu].badge}
                 </span>
                 <h3 className="text-sm font-semibold tracking-wider text-[#f5f5f7] uppercase font-sf-pro-display">
@@ -292,9 +290,9 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                             onClick={() => setActiveMegaMenu(null)}
                             className="group block space-y-0.5 p-2 -mx-2 rounded-lg hover:bg-white/5 transition-all"
                           >
-                            <div className="flex items-center justify-between text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] transition-colors">
+                            <div className="flex items-center justify-between text-xs font-semibold text-[#f5f5f7] group-hover:text-[#ff3037] transition-colors">
                               <span>{item.name}</span>
-                              <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#0071e3]" />
+                              <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#ff3037]" />
                             </div>
                             <p className="text-[11px] text-[#86868b] leading-tight font-normal line-clamp-1">
                               {item.desc}
@@ -311,7 +309,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
               <div className={`${megaMenuData[activeMegaMenu].columns.length === 3 ? 'col-span-3' : 'col-span-4'}`}>
                 <div className="bg-[#161618] border border-white/10 rounded-2xl p-6 flex flex-col justify-between h-full space-y-4 hover:border-white/20 transition-all">
                   <div className="space-y-2">
-                    <span className="text-[10px] text-[#0071e3] font-semibold uppercase tracking-wider block">
+                    <span className="text-[10px] text-[#ff3037] font-semibold uppercase tracking-wider block">
                       RECOMENDACIÓN DESTACADA
                     </span>
                     <h5 className="text-sm font-semibold text-white">
@@ -324,7 +322,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                   <Link
                     to={megaMenuData[activeMegaMenu].featured.path}
                     onClick={() => setActiveMegaMenu(null)}
-                    className="btn-apple-blue !py-2.5 !px-4 !text-xs font-semibold text-center w-full justify-center"
+                    className="btn-apple-blue !py-2.5 !px-4 !text-xs font-semibold text-center w-full justify-center !bg-[#ff3037] hover:!bg-[#e0282f]"
                   >
                     <span>{megaMenuData[activeMegaMenu].featured.linkText}</span>
                   </Link>
@@ -347,7 +345,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
               end={link.path === '/'}
               className={({ isActive }) =>
                 `text-left py-2 font-sf-pro-text text-sm transition-colors border-b border-white/5 ${
-                  isActive ? 'text-[#0071e3] font-semibold pl-2' : 'text-[#86868b]'
+                  isActive ? 'text-[#ff3037] font-semibold pl-2' : 'text-[#86868b]'
                 }`
               }
             >
