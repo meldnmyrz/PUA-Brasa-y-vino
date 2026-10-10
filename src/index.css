@@ -1,39 +1,55 @@
 @import "tailwindcss";
 
+/* ============================================================
+   PÚA BRASA Y VINO — DARK LUXE DESIGN SYSTEM
+   Inspired by Apple Watch cinematic gallery aesthetic
+   Brand accent: Flame Gold #C4924A
+   ============================================================ */
+
 :root {
-  /* PÚA BRASA Y VINO — PURE VOID & LUXURY FLAME GOLD TOKENS */
-  --color-void-black: #000000;
-  --color-obsidian-bg: #090a0f;
-  --color-card-bg: #0d0e12;
-  --color-card-border: #232730;
+  /* ── CANVAS ──────────────────────────────────────────────── */
+  --color-void-black:    #000000;   /* full-bleed background     */
+  --color-gallery-dark:  #111112;   /* near-black surface        */
+  --color-obsidian-bg:   #0d0e12;   /* card/module background    */
+  --color-card-bg:       #171718;   /* elevated card surface     */
+  --color-card-border:   #2c2c2e;   /* hairline border           */
+  --color-divider:       #1f1f21;   /* section divider           */
 
-  /* FLAME GOLD METALLIC TOKENS */
-  --color-flame-gold: #C4924A;
+  /* ── FLAME GOLD METALLIC ─────────────────────────────────── */
+  --color-flame-gold:       #C4924A;
   --color-flame-gold-light: #E5C388;
-  --color-flame-gold-dark: #A67531;
+  --color-flame-gold-dark:  #A67531;
+  --color-flame-gold-muted: rgba(196, 146, 74, 0.12);
+  --color-flame-gold-glow:  rgba(196, 146, 74, 0.35);
 
-  /* TEXT COLORS */
-  --color-text-white: #ffffff;
-  --color-text-bone: #F4F0EA;
-  --color-text-muted: #aaaaaa;
+  /* ── TEXT HIERARCHY ──────────────────────────────────────── */
+  --color-text-white:   #ffffff;    /* primary editorial         */
+  --color-text-bone:    #F4F0EA;    /* warm off-white            */
+  --color-text-muted:   #888888;    /* subdued labels            */
+  --color-text-faint:   #555558;    /* ghost / disabled          */
 
-  /* WINE PAIRING ACCENT */
-  --color-wine-bg: #1a1622;
+  /* ── WINE PAIRING ACCENT (sommelier badges) ──────────────── */
+  --color-wine-bg:     #1a1622;
   --color-wine-border: #3d2a45;
-  --color-wine-text: #e2b6ed;
+  --color-wine-text:   #e2b6ed;
 
-  /* FONT FAMILIES */
-  --font-serif-luxury: 'Cormorant Garamond', Georgia, serif;
-  --font-sans-modern: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* ── FONTS ───────────────────────────────────────────────── */
+  --font-display:  'Cormorant Garamond', Georgia, serif;
+  --font-body:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* RADII */
-  --radius-cards: 16px;
-  --radius-buttons: 9999px;
+  /* ── RADII ───────────────────────────────────────────────── */
+  --radius-card:   10px;
+  --radius-pill:   9999px;
+  --radius-soft:   6px;
+
+  /* ── TRANSITIONS ─────────────────────────────────────────── */
+  --ease-luxury: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-*, ::before, ::after {
-  box-sizing: border-box;
-}
+/* ============================================================
+   BASE RESET
+   ============================================================ */
+*, ::before, ::after { box-sizing: border-box; }
 
 html, body {
   margin: 0;
@@ -43,111 +59,117 @@ html, body {
   overflow-x: hidden;
   background-color: var(--color-void-black);
   color: var(--color-text-bone);
-  font-family: var(--font-sans-modern);
-  letter-spacing: normal;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+img, video { max-width: 100%; height: auto; display: block; }
 
-/* LUXURY TYPOGRAPHY CLASSES */
-.font-serif-lujo {
-  font-family: var(--font-serif-luxury);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: 0.03em;
+/* ============================================================
+   TYPOGRAPHY — STELLAR SYSTEM
+   SF Pro Display → Cormorant Garamond (cinematic headlines)
+   SF Pro Text   → Plus Jakarta Sans   (precise body labels)
+   ============================================================ */
+
+/* Monumental display headline — Cormorant Garamond */
+.font-display-stellar {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
   color: var(--color-text-white);
-  text-transform: uppercase;
 }
 
+/* Body & subtext — Plus Jakarta Sans */
+.font-subtext-stellar {
+  font-family: var(--font-body);
+  font-size: 0.875rem;  /* 14px */
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* Serif italic — brand voice / pull-quotes */
 .font-script-lujo {
-  font-family: var(--font-serif-luxury);
+  font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
   color: var(--color-flame-gold);
-}
-
-.font-sans-clean {
-  font-family: var(--font-sans-modern);
-}
-
-.text-title-hero {
-  font-family: var(--font-serif-luxury);
-  font-size: clamp(40px, 6.5vw, 86px);
-  line-height: 0.95;
   letter-spacing: 0.02em;
+}
+
+/* Legacy aliases */
+.font-serif-lujo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+}
+.font-sans-clean { font-family: var(--font-body); }
+
+/* Monumental hero title */
+.text-title-hero {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6.5vw, 86px);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
   color: var(--color-text-white);
   text-transform: uppercase;
 }
 
-/* LUXURY GOLD BUTTONS */
-.btn-gold-luxury {
-  background: linear-gradient(135deg, #C4924A 0%, #E5C388 50%, #A67531 100%);
-  color: #000000;
-  font-family: var(--font-sans-modern);
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 14px 28px;
-  border-radius: var(--radius-buttons);
+/* ============================================================
+   EYEBROW TAGS — Small tightly-tracked labels above headings
+   ============================================================ */
+
+/* Gold pill — primary brand tag */
+.eyebrow-tag-pill {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 25px rgba(196, 146, 74, 0.35);
-}
-
-.btn-gold-luxury:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 35px rgba(196, 146, 74, 0.55);
-  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
-}
-
-.btn-ghost-luxury {
-  background: rgba(13, 14, 18, 0.6);
-  backdrop-filter: blur(12px);
-  color: var(--color-text-white);
-  border: 1px solid rgba(196, 146, 74, 0.4);
-  font-family: var(--font-sans-modern);
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 13px 26px;
-  border-radius: var(--radius-buttons);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-ghost-luxury:hover {
-  border-color: var(--color-flame-gold);
+  gap: 6px;
+  background-color: var(--color-flame-gold-muted);
   color: var(--color-flame-gold);
-  background: rgba(196, 146, 74, 0.1);
+  border: 1px solid rgba(196, 146, 74, 0.30);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
 }
 
-/* BADGES & TAGS */
+/* Alias — was "violet", now all-gold for brand consistency */
+.eyebrow-tag-violet {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-flame-gold-muted);
+  color: var(--color-flame-gold);
+  border: 1px solid rgba(196, 146, 74, 0.30);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+}
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+
 .badge-gold-pill {
-  background-color: rgba(196, 146, 74, 0.12);
+  background-color: var(--color-flame-gold-muted);
   color: var(--color-flame-gold);
   border: 1px solid rgba(196, 146, 74, 0.35);
-  font-family: var(--font-sans-modern);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   padding: 5px 14px;
-  border-radius: var(--radius-buttons);
+  border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -159,7 +181,7 @@ img, video {
   background-color: var(--color-wine-bg);
   color: var(--color-wine-text);
   border: 1px solid var(--color-wine-border);
-  font-family: var(--font-sans-modern);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   padding: 4px 12px;
@@ -169,42 +191,210 @@ img, video {
   gap: 6px;
 }
 
-/* CARDS */
-.card-lujo-obsidian {
-  background-color: var(--color-card-bg);
+/* ============================================================
+   CARDS — Obsidian module surfaces
+   Apple Watch: "contained white merchandising panels"
+   Here: contained dark-obsidian panels on void black
+   ============================================================ */
+
+.card-obsidian {
+  background-color: var(--color-obsidian-bg);
   border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-cards);
-  padding: 20px;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-card);
+  transition: border-color 0.3s var(--ease-luxury), transform 0.3s var(--ease-luxury);
 }
 
+.card-obsidian:hover {
+  border-color: rgba(196, 146, 74, 0.45);
+}
+
+/* Legacy class */
+.card-lujo-obsidian {
+  background-color: var(--color-obsidian-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  transition: all 0.3s var(--ease-luxury);
+}
 .card-lujo-obsidian:hover {
   border-color: rgba(196, 146, 74, 0.5);
   transform: translateY(-3px);
 }
 
-/* FLOATING NAV BAR */
-.nav-pill-floating {
-  background: rgba(9, 10, 15, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 9999px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+/* PRIMARY — Flame Gold filled (main CTA, replaces Apple blue) */
+.btn-gold-luxury {
+  background: linear-gradient(135deg, #C4924A 0%, #E5C388 48%, #A67531 100%);
+  color: #000000;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-luxury);
+  box-shadow: 0 4px 28px rgba(196, 146, 74, 0.32);
+}
+.btn-gold-luxury:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(196, 146, 74, 0.55);
+  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* SECONDARY — Ghost outline / subdued */
+.btn-ghost-luxury {
+  background: rgba(13, 14, 18, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--color-text-white);
+  border: 1px solid rgba(196, 146, 74, 0.4);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-luxury);
 }
-::-webkit-scrollbar-track {
-  background: var(--color-void-black);
+.btn-ghost-luxury:hover {
+  border-color: var(--color-flame-gold);
+  color: var(--color-flame-gold);
+  background: rgba(196, 146, 74, 0.08);
 }
-::-webkit-scrollbar-thumb {
-  background: #232730;
+
+/* GHOST BORDER — minimal border button (alias) */
+.btn-ghost-border {
+  background: transparent;
+  color: var(--color-text-white);
+  border: 1px solid rgba(196, 146, 74, 0.40);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-luxury);
+}
+.btn-ghost-border:hover {
+  border-color: var(--color-flame-gold);
+  color: var(--color-flame-gold);
+  background: rgba(196, 146, 74, 0.06);
+}
+
+/* SPRINT — Gold filled, was "violet", now gold */
+.btn-sprint-violet {
+  background: linear-gradient(135deg, #C4924A 0%, #E5C388 48%, #A67531 100%);
+  color: #000000;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-luxury);
+  box-shadow: 0 4px 24px rgba(196, 146, 74, 0.28);
+}
+.btn-sprint-violet:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 36px rgba(196, 146, 74, 0.50);
+  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
+}
+
+/* FLAME PILL — warm gold / WhatsApp CTA */
+.btn-flame-pill {
+  background: linear-gradient(135deg, #C4924A 0%, #E5C388 48%, #A67531 100%);
+  color: #000000;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-luxury);
+  box-shadow: 0 4px 24px rgba(196, 146, 74, 0.28);
+}
+.btn-flame-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 36px rgba(196, 146, 74, 0.50);
+  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
+}
+
+/* ============================================================
+   NAVBAR — Floating pill
+   ============================================================ */
+.nav-pill-floating {
+  background: rgba(9, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
 }
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-flame-gold);
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-slideInDown { animation: slideInDown 0.6s var(--ease-luxury) both; }
+.animate-fadeIn      { animation: fadeIn      0.8s var(--ease-luxury) both; }
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: var(--color-void-black); }
+::-webkit-scrollbar-thumb    { background: #2c2c2e; border-radius: var(--radius-pill); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-flame-gold); }

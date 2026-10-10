@@ -49,9 +49,9 @@ export default function ContactPage() {
 
       {/* HEADER BLOCK — STELLAR DISPLAY HEADLINE */}
       <div className="max-w-[1200px] mx-auto px-4 text-center space-y-4 mb-20 relative z-10">
-        <div className="eyebrow-tag-violet mx-auto">ESTAMOS A TU SERVICIO</div>
+        <div className="eyebrow-tag-pill mx-auto">ESTAMOS A TU SERVICIO</div>
         <h1 className="font-display-stellar text-5xl sm:text-7xl md:text-8xl text-[#ffffff] uppercase tracking-tight">
-          CONTACTO <span className="text-[#6a48f2]">PÚA</span>
+          CONTACTO <span className="text-[#C4924A]">PÚA</span>
         </h1>
         <p className="font-subtext-stellar max-w-2xl mx-auto text-[#888888]">
           Encuéntranos en Google Maps, comunícate directamente por WhatsApp o visítanos en nuestro salón de brasas y cava VIP.
@@ -62,9 +62,9 @@ export default function ContactPage() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20 relative z-10">
         
         {/* GOOGLE MAPS CARD LINK */}
-        <div className="card-obsidian p-8 rounded-[10px] border border-[#2c2c2e] flex flex-col justify-between hover:border-[#6a48f2] transition-all duration-300 shadow-none">
+        <div className="card-obsidian p-8 rounded-[10px] border border-[#2c2c2e] flex flex-col justify-between hover:border-[#C4924A]/50 transition-all duration-300 shadow-none">
           <div className="space-y-4">
-            <div className="w-12 h-12 rounded-[6px] bg-[#6a48f2]/20 flex items-center justify-center text-[#6a48f2]">
+            <div className="w-12 h-12 rounded-[6px] bg-[#C4924A]/10 flex items-center justify-center text-[#C4924A]">
               <MapPin className="w-6 h-6" />
             </div>
             <h2 className="font-sans font-medium text-xl text-white">
@@ -80,7 +80,7 @@ export default function ContactPage() {
               href={restaurantInfo.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-sprint-violet w-full text-xs py-3.5"
+              className="btn-ghost-luxury w-full text-xs py-3.5"
             >
               Abrir Google Maps
               <ArrowUpRight className="w-4 h-4" />
@@ -89,9 +89,9 @@ export default function ContactPage() {
         </div>
 
         {/* WHATSAPP DIRECT CARD */}
-        <div className="card-obsidian p-8 rounded-[10px] border border-[#2c2c2e] flex flex-col justify-between hover:border-[#6a48f2] transition-all duration-300 shadow-none">
+        <div className="card-obsidian p-8 rounded-[10px] border border-[#2c2c2e] flex flex-col justify-between hover:border-[#C4924A]/50 transition-all duration-300 shadow-none">
           <div className="space-y-4">
-            <div className="w-12 h-12 rounded-[6px] bg-[#6a48f2]/20 flex items-center justify-center text-[#6a48f2]">
+            <div className="w-12 h-12 rounded-[6px] bg-[#C4924A]/10 flex items-center justify-center text-[#C4924A]">
               <MessageSquare className="w-6 h-6" />
             </div>
             <h2 className="font-sans font-medium text-xl text-white">
@@ -110,7 +110,7 @@ export default function ContactPage() {
               className="btn-flame-pill w-full text-xs py-3.5"
             >
               Chatear por WhatsApp
-              <ArrowUpRight className="w-4 h-4 text-black" />
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
         {/* OPERATING HOURS */}
         <div className="card-obsidian p-8 rounded-[10px] border border-[#2c2c2e] flex flex-col justify-between shadow-none">
           <div className="space-y-4">
-            <div className="w-12 h-12 rounded-[6px] bg-[#6a48f2]/20 flex items-center justify-center text-[#6a48f2]">
+            <div className="w-12 h-12 rounded-[6px] bg-[#C4924A]/10 flex items-center justify-center text-[#C4924A]">
               <Clock className="w-6 h-6" />
             </div>
             <h2 className="font-sans font-medium text-xl text-white">
@@ -128,14 +128,14 @@ export default function ContactPage() {
               {restaurantInfo.hours.map((h, idx) => (
                 <div key={idx} className="border-b border-[#2c2c2e] pb-2 flex justify-between items-center text-xs">
                   <span className="font-subtext-stellar text-[#dddddd]">{h.days}</span>
-                  <span className="font-mono text-[#6a48f2] font-bold">{h.time}</span>
+                  <span className="font-mono text-[#C4924A] font-bold">{h.time}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="pt-4 font-subtext-stellar text-[11px] text-[#888888] flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#6a48f2]" />
+            <ShieldCheck className="w-4 h-4 text-[#C4924A]" />
             <span>Valet Parking disponible en la entrada.</span>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
           </h2>
           <form onSubmit={handleSendWhatsAppContact} className="space-y-5">
             <div>
-              <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
+              <label className="block font-mono text-xs uppercase tracking-wider text-[#C4924A] mb-2">
                 Tu Nombre
               </label>
               <input
@@ -161,11 +161,11 @@ export default function ContactPage() {
                 placeholder="Ej. Sofía Mendoza"
                 value={contactName}
                 onChange={(e) => setContactName(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-[6px] bg-[#171718] border border-[#2c2c2e] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
+                className="w-full px-4 py-3.5 rounded-[6px] bg-[#171718] border border-[#2c2c2e] text-[#ffffff] text-xs focus:outline-none focus:border-[#C4924A] transition-all"
               />
             </div>
             <div>
-              <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
+              <label className="block font-mono text-xs uppercase tracking-wider text-[#C4924A] mb-2">
                 Mensaje o Consulta
               </label>
               <textarea
@@ -174,14 +174,14 @@ export default function ContactPage() {
                 placeholder="Escribe tu duda, felicitación o solicitud especial..."
                 value={contactMessage}
                 onChange={(e) => setContactMessage(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-[6px] bg-[#171718] border border-[#2c2c2e] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
+                className="w-full px-4 py-3.5 rounded-[6px] bg-[#171718] border border-[#2c2c2e] text-[#ffffff] text-xs focus:outline-none focus:border-[#C4924A] transition-all resize-none"
               />
             </div>
             <button
               type="submit"
-              className="btn-sprint-violet w-full py-3.5 text-xs"
+              className="btn-gold-luxury w-full py-3.5 text-xs"
             >
-              <Send className="w-4 h-4 text-white" />
+              <Send className="w-4 h-4" />
               Enviar Mensaje vía WhatsApp
             </button>
           </form>
@@ -190,14 +190,14 @@ export default function ContactPage() {
         {/* FREQUENTLY ASKED QUESTIONS */}
         <div className="space-y-6">
           <h2 className="font-display-stellar text-2xl sm:text-3xl text-white flex items-center gap-3">
-            <HelpCircle className="w-6 h-6 text-[#6a48f2]" />
+            <HelpCircle className="w-6 h-6 text-[#C4924A]" />
             PREGUNTAS FRECUENTES
           </h2>
 
           <div className="space-y-4">
             {faqList.map((faq, i) => (
               <div key={i} className="card-obsidian p-6 rounded-[10px] border border-[#2c2c2e] space-y-2">
-                <h3 className="font-sans font-medium text-sm text-[#6a48f2]">
+                <h3 className="font-sans font-medium text-sm text-[#C4924A]">
                   {faq.q}
                 </h3>
                 <p className="font-subtext-stellar text-xs text-[#888888]">

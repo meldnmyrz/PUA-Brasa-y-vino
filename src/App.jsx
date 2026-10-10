@@ -13,6 +13,7 @@ import SectionPage from './pages/SectionPage';
 import DestiladosPage from './pages/DestiladosPage';
 import AboutPage from './pages/AboutPage';
 import ReservationsPage from './pages/ReservationsPage';
+import ContactPage from './pages/ContactPage';
 import ServicesPage from './pages/ServicesPage';
 
 function ScrollToTop() {
@@ -111,7 +112,7 @@ export default function App() {
               <Route path="/nosotros" element={<AboutPage />} />
               <Route path="/servicios" element={<ServicesPage />} />
               <Route path="/reservas" element={<ReservationsPage />} />
-              <Route path="/contacto" element={<AboutPage />} />
+              <Route path="/contacto" element={<ContactPage />} />
               <Route path="*" element={<HomePage onOpenItemModal={(dish) => setActiveItemModal(dish)} onAddToCart={handleAddToCart} />} />
             </Routes>
           </main>
