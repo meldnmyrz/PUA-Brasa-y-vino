@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, ArrowLeft, ArrowRight, Flame, Wine, Utensils, Sparkles } from 'lucide-react';
 import { menuCategories, menuItems } from '../data/menuData';
 import MenuItemCard from '../components/MenuItemCard';
+import ParticleConstellation from '../components/ParticleConstellation';
 
 export default function SectionPage({ onOpenItemModal, onAddToCart }) {
   const { id } = useParams();
@@ -24,46 +25,49 @@ export default function SectionPage({ onOpenItemModal, onAddToCart }) {
   }, [currentCatId, currentCategory.name]);
 
   return (
-    <div className="pt-28 pb-24 min-h-screen bg-[#050505] text-[#f5f7f5] font-jakarta text-left">
+    <div className="pt-32 pb-28 min-h-screen bg-[#000000] text-[#ffffff] font-subtext-stellar text-left relative overflow-hidden">
       
+      {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
+      <ParticleConstellation />
+
       {/* BREADCRUMBS BAR */}
-      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 mb-8">
-        <nav className="flex items-center gap-2 text-xs font-mono text-[#848a96]">
+      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 mb-8 relative z-10">
+        <nav className="flex items-center gap-2 text-xs font-mono text-[#888888]">
           <Link to="/" className="hover:text-white transition-colors">Inicio</Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <Link to="/menu" className="hover:text-white transition-colors">Menú</Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-[#c89f53] font-semibold">{currentCategory.name}</span>
+          <span className="text-[#C4924A] font-semibold">{currentCategory.name}</span>
         </nav>
       </div>
 
       {/* SECTION HERO HEADER */}
-      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 mb-12">
-        <div className="card-lujo-obsidian p-8 sm:p-12 border border-[#232730] space-y-4 rounded-[24px] bg-[#0b0e14] relative overflow-hidden">
-          <div className="badge-amber-tag">
-            ★ CLASIFICACIÓN DEL MENÚ ★
+      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 mb-12 relative z-10">
+        <div className="card-obsidian p-8 sm:p-12 border border-[#2c2c2e] space-y-4 rounded-[10px] bg-[#0d0e12] relative overflow-hidden">
+          <div className="eyebrow-tag-pill">
+            CLASIFICACIÓN DEL MENÚ
           </div>
           
-          <h1 className="text-section-title text-white uppercase font-garamond">
+          <h1 className="font-display-stellar text-4xl sm:text-6xl text-white uppercase">
             {currentCategory.name}
           </h1>
 
-          <p className="font-jakarta text-sm sm:text-base text-[#d4d3c9] max-w-2xl leading-relaxed font-light">
+          <p className="font-subtext-stellar text-sm sm:text-base text-[#888888] max-w-2xl leading-relaxed">
             Explora nuestra propuesta exclusiva en {currentCategory.name.toLowerCase()}. Elaborada con los más altos estándares de alta cocina al carbón de encino y maridajes recomendados.
           </p>
 
-          <div className="pt-2 flex items-center gap-3 text-xs font-mono text-[#848a96]">
+          <div className="pt-2 flex items-center gap-3 text-xs font-mono text-[#888888]">
             <span>{sectionDishes.length} Platillos disponibles</span>
             <span>•</span>
-            <span className="text-[#a3e6b4]">🍷 Maridajes de Sommelier Incluidos</span>
+            <span className="text-[#C4924A]">🍷 Maridajes de Sommelier Incluidos</span>
           </div>
         </div>
       </div>
 
       {/* DISHES GRID FOR THIS SECTION */}
-      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 mb-16">
+      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 mb-16 relative z-10">
         {sectionDishes.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#848a96] card-lujo-obsidian">
+          <div className="p-12 text-center text-xs text-[#888888] card-obsidian border border-[#2c2c2e] rounded-[10px]">
             No se encontraron platillos en esta clasificación.
           </div>
         ) : (
@@ -81,23 +85,23 @@ export default function SectionPage({ onOpenItemModal, onAddToCart }) {
       </div>
 
       {/* BOTTOM SECTION NAVIGATION (PÁGINA ANTERIOR / SIGUIENTE PÁGINA) */}
-      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 pt-8 border-t border-[#232730]">
+      <div className="max-w-[1300px] mx-auto px-6 sm:px-12 pt-8 border-t border-[#2c2c2e] relative z-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           
           <Link
             to={prevCat.id === 'todos' ? '/menu' : `/section/${prevCat.id}`}
-            className="w-full sm:w-auto btn-outline-amber flex items-center justify-center gap-2"
+            className="w-full sm:w-auto btn-ghost-border flex items-center justify-center gap-2 py-3 px-6 text-xs"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>← Clasificación Anterior: {prevCat.name}</span>
+            <span>Clasificación Anterior: {prevCat.name}</span>
           </Link>
 
           <Link
             to={nextCat.id === 'todos' ? '/menu' : `/section/${nextCat.id}`}
-            className="w-full sm:w-auto btn-caramel-amber flex items-center justify-center gap-2"
+            className="w-full sm:w-auto btn-gold-luxury flex items-center justify-center gap-2 py-3 px-6 text-xs text-black font-bold"
           >
-            <span>Siguiente Clasificación: {nextCat.name} →</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>Siguiente Clasificación: {nextCat.name}</span>
+            <ArrowRight className="w-4 h-4 text-black" />
           </Link>
 
         </div>

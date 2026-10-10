@@ -1,34 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  /* DARK LUXE EARTH & FIRE TOKENS */
-  --bg-pitch-black: #050505;
-  --bg-midnight-obsidian: #0b0e14;
-  --bg-obsidian-card: #12141a;
-  --border-graphite: #232730;
+  /* PÚA BRASA Y VINO — PURE VOID & LUXURY FLAME GOLD TOKENS */
+  --color-void-black: #000000;
+  --color-obsidian-bg: #090a0f;
+  --color-card-bg: #0d0e12;
+  --color-card-border: #232730;
 
-  /* ACCENT TOKENS */
-  --color-caramel-amber: #987232;
-  --color-caramel-amber-hover: #b0853b;
-  --color-metallic-gold: #c89f53;
-  --color-forest-green-bg: #1e3524;
-  --color-forest-green-border: #2d4e36;
-  --color-forest-green-text: #a3e6b4;
+  /* FLAME GOLD METALLIC TOKENS */
+  --color-flame-gold: #C4924A;
+  --color-flame-gold-light: #E5C388;
+  --color-flame-gold-dark: #A67531;
 
-  /* TYPOGRAPHY COLORS */
-  --text-mist-white: #f5f7f5;
-  --text-mushroom-taupe: #d4d3c9;
-  --text-graphite-muted: #848a96;
+  /* TEXT COLORS */
+  --color-text-white: #ffffff;
+  --color-text-bone: #F4F0EA;
+  --color-text-muted: #aaaaaa;
 
-  /* FONT STACK */
-  --font-plus-jakarta: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-cormorant-garamond: 'Cormorant Garamond', Georgia, serif;
+  /* WINE PAIRING ACCENT */
+  --color-wine-bg: #1a1622;
+  --color-wine-border: #3d2a45;
+  --color-wine-text: #e2b6ed;
+
+  /* FONT FAMILIES */
+  --font-serif-luxury: 'Cormorant Garamond', Georgia, serif;
+  --font-sans-modern: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* RADII */
-  --radius-capsule: 9999px;
-  --radius-card-lujo: 20px;
-  --radius-button-lujo: 12px;
-  --radius-input-lujo: 10px;
+  --radius-cards: 16px;
+  --radius-buttons: 9999px;
 }
 
 *, ::before, ::after {
@@ -41,9 +41,9 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--bg-pitch-black);
-  color: var(--text-mist-white);
-  font-family: var(--font-plus-jakarta);
+  background-color: var(--color-void-black);
+  color: var(--color-text-bone);
+  font-family: var(--font-sans-modern);
   letter-spacing: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -55,140 +55,142 @@ img, video {
   display: block;
 }
 
-/* TYPOGRAPHY UTILITIES */
-.font-jakarta {
-  font-family: var(--font-plus-jakarta);
-}
-
-.font-garamond {
-  font-family: var(--font-cormorant-garamond);
+/* LUXURY TYPOGRAPHY CLASSES */
+.font-serif-lujo {
+  font-family: var(--font-serif-luxury);
   font-weight: 400;
-  letter-spacing: -0.01em;
-}
-
-.text-title-lujo {
-  font-family: var(--font-cormorant-garamond);
-  font-size: clamp(42px, 6.5vw, 92px);
   line-height: 0.95;
-  letter-spacing: -0.015em;
-  color: var(--text-mist-white);
+  letter-spacing: 0.03em;
+  color: var(--color-text-white);
   text-transform: uppercase;
 }
 
-.text-section-title {
-  font-family: var(--font-cormorant-garamond);
-  font-size: clamp(32px, 4.5vw, 56px);
-  line-height: 1.0;
-  letter-spacing: -0.01em;
-  color: var(--text-mist-white);
+.font-script-lujo {
+  font-family: var(--font-serif-luxury);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-flame-gold);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans-modern);
+}
+
+.text-title-hero {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(40px, 6.5vw, 86px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--color-text-white);
   text-transform: uppercase;
 }
 
-/* CARAMEL AMBER BUTTONS & ACCENTS */
-.btn-caramel-amber {
-  background: linear-gradient(135deg, #987232 0%, #b0853b 100%);
-  color: #ffffff;
-  font-family: var(--font-plus-jakarta);
+/* LUXURY GOLD BUTTONS */
+.btn-gold-luxury {
+  background: linear-gradient(135deg, #C4924A 0%, #E5C388 50%, #A67531 100%);
+  color: #000000;
+  font-family: var(--font-sans-modern);
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 12px 24px;
-  border-radius: var(--radius-capsule);
+  letter-spacing: 0.12em;
+  padding: 14px 28px;
+  border-radius: var(--radius-buttons);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(152, 114, 50, 0.35);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 25px rgba(196, 146, 74, 0.35);
 }
 
-.btn-caramel-amber:hover {
+.btn-gold-luxury:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(200, 159, 83, 0.5);
-  background: linear-gradient(135deg, #c89f53 0%, #987232 100%);
+  box-shadow: 0 6px 35px rgba(196, 146, 74, 0.55);
+  background: linear-gradient(135deg, #E5C388 0%, #C4924A 100%);
 }
 
-.btn-outline-amber {
-  background: rgba(18, 20, 26, 0.7);
+.btn-ghost-luxury {
+  background: rgba(13, 14, 18, 0.6);
   backdrop-filter: blur(12px);
-  color: var(--text-mist-white);
-  border: 1px solid rgba(200, 159, 83, 0.4);
-  font-family: var(--font-plus-jakarta);
+  color: var(--color-text-white);
+  border: 1px solid rgba(196, 146, 74, 0.4);
+  font-family: var(--font-sans-modern);
   font-size: 13px;
   font-weight: 600;
-  padding: 12px 24px;
-  border-radius: var(--radius-capsule);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 13px 26px;
+  border-radius: var(--radius-buttons);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
-.btn-outline-amber:hover {
-  border-color: var(--color-metallic-gold);
-  color: var(--color-metallic-gold);
-  background: rgba(200, 159, 83, 0.1);
+.btn-ghost-luxury:hover {
+  border-color: var(--color-flame-gold);
+  color: var(--color-flame-gold);
+  background: rgba(196, 146, 74, 0.1);
 }
 
-/* WINE PAIRING FOREST GREEN BADGE */
-.badge-sommelier-wine {
-  background-color: var(--color-forest-green-bg);
-  border: 1px solid var(--color-forest-green-border);
-  color: var(--color-forest-green-text);
-  font-family: var(--font-plus-jakarta);
+/* BADGES & TAGS */
+.badge-gold-pill {
+  background-color: rgba(196, 146, 74, 0.12);
+  color: var(--color-flame-gold);
+  border: 1px solid rgba(196, 146, 74, 0.35);
+  font-family: var(--font-sans-modern);
   font-size: 11px;
   font-weight: 600;
-  padding: 5px 12px;
+  padding: 5px 14px;
+  border-radius: var(--radius-buttons);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.badge-wine-pill {
+  background-color: var(--color-wine-bg);
+  color: var(--color-wine-text);
+  border: 1px solid var(--color-wine-border);
+  font-family: var(--font-sans-modern);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-.badge-amber-tag {
-  background-color: rgba(200, 159, 83, 0.12);
-  border: 1px solid rgba(200, 159, 83, 0.3);
-  color: var(--color-metallic-gold);
-  font-family: var(--font-plus-jakarta);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
 /* CARDS */
 .card-lujo-obsidian {
-  background-color: var(--bg-obsidian-card);
-  border: 1px solid var(--border-graphite);
-  border-radius: var(--radius-card-lujo);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-cards);
   padding: 20px;
   transition: all 0.3s ease;
 }
 
 .card-lujo-obsidian:hover {
-  border-color: rgba(200, 159, 83, 0.4);
-  background-color: #171a22;
+  border-color: rgba(196, 146, 74, 0.5);
   transform: translateY(-3px);
 }
 
-/* Glassmorphism Capsule Navbar */
-.nav-capsule-glass {
-  background: rgba(5, 5, 5, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(35, 39, 48, 0.9);
+/* FLOATING NAV BAR */
+.nav-pill-floating {
+  background: rgba(9, 10, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
 /* Custom Scrollbar */
@@ -197,12 +199,12 @@ img, video {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-pitch-black);
+  background: var(--color-void-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-graphite);
+  background: #232730;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-metallic-gold);
+  background: var(--color-flame-gold);
 }

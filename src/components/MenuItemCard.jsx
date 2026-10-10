@@ -12,7 +12,7 @@ export default function MenuItemCard({ item, onClick, onAddToCart }) {
   return (
     <div
       onClick={() => onClick(item)}
-      className="card-lujo-obsidian overflow-hidden group cursor-pointer border border-[#232730] hover:border-[#c89f53] transition-all duration-300 flex flex-col justify-between p-0 bg-[#0b0e14] text-left"
+      className="card-obsidian overflow-hidden group cursor-pointer border border-[#2c2c2e] hover:border-[#C4924A] transition-all duration-300 flex flex-col justify-between p-0 bg-[#0d0e12] text-left rounded-[10px]"
     >
       <div>
         {/* Photo Container */}
@@ -22,54 +22,54 @@ export default function MenuItemCard({ item, onClick, onAddToCart }) {
             alt={item.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-95 group-hover:brightness-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e14] via-transparent to-transparent opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0e12] via-transparent to-transparent opacity-90" />
           
           {item.tags && item.tags.length > 0 && (
-            <span className="absolute top-3 left-3 badge-amber-tag">
+            <span className="absolute top-3 left-3 eyebrow-tag-pill !py-1 !px-2.5 text-[10px]">
               ★ {item.tags[0]}
             </span>
           )}
 
           {item.waitTime && (
-            <span className="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-[#848a96] border border-[#232730] text-[10px] font-mono px-2.5 py-1 rounded-full flex items-center gap-1">
-              <Clock className="w-3 h-3 text-[#c89f53]" />
+            <span className="absolute top-3 right-3 bg-black/80 backdrop-blur-md text-[#888888] border border-[#2c2c2e] text-[10px] font-mono px-2.5 py-1 rounded-full flex items-center gap-1">
+              <Clock className="w-3 h-3 text-[#C4924A]" />
               15 min
             </span>
           )}
 
           {/* Price Badge */}
-          <span className="absolute bottom-3 right-3 bg-[#050505]/90 border border-[#c89f53]/50 text-[#c89f53] font-mono text-sm font-bold px-3 py-1 rounded-full backdrop-blur-md">
+          <span className="absolute bottom-3 right-3 bg-[#000000]/90 border border-[#C4924A]/50 text-[#C4924A] font-mono text-sm font-bold px-3 py-1 rounded-full backdrop-blur-md">
             ${item.price.toLocaleString()} MXN
           </span>
         </div>
 
         {/* Details */}
         <div className="p-5 space-y-2.5">
-          <h3 className="font-garamond text-2xl text-white group-hover:text-[#c89f53] transition-colors leading-snug">
+          <h3 className="font-display-stellar text-2xl text-white group-hover:text-[#C4924A] transition-colors leading-snug">
             {item.name}
           </h3>
           
-          <p className="font-jakarta text-xs text-[#d4d3c9] line-clamp-2 leading-relaxed font-light">
+          <p className="font-subtext-stellar text-xs text-[#888888] line-clamp-2 leading-relaxed">
             {item.description}
           </p>
 
-          {/* Wine Pairing Pill in Forest Green */}
+          {/* Wine Pairing Pill */}
           {item.pairing && (
-            <div className="mt-3 badge-sommelier-wine w-full justify-start truncate">
-              <WineIcon className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">Maridaje: {item.pairing}</span>
+            <div className="mt-3 p-2 rounded-lg bg-[#171718] border border-[#C4924A]/30 flex items-center gap-2 text-xs text-[#C4924A]">
+              <WineIcon className="w-3.5 h-3.5 shrink-0 text-[#C4924A]" />
+              <span className="truncate text-[11px] font-medium text-white">Maridaje: {item.pairing}</span>
             </div>
           )}
         </div>
       </div>
 
       {/* Footer Tags & Actions */}
-      <div className="p-5 pt-0 flex items-center justify-between border-t border-[#232730]/60 mt-3">
+      <div className="p-5 pt-0 flex items-center justify-between border-t border-[#2c2c2e] mt-3">
         <div className="flex flex-wrap gap-1.5 pt-3">
           {item.tags && item.tags.slice(0, 2).map((t, idx) => (
             <span
               key={idx}
-              className="text-[10px] bg-[#12141a] border border-[#232730] text-[#848a96] px-2 py-0.5 rounded-md font-mono"
+              className="text-[10px] bg-[#171718] border border-[#2c2c2e] text-[#888888] px-2 py-0.5 rounded-md font-mono"
             >
               #{t}
             </span>
@@ -78,9 +78,9 @@ export default function MenuItemCard({ item, onClick, onAddToCart }) {
 
         <button
           onClick={handleQuickAdd}
-          className="mt-3 btn-caramel-amber !py-1.5 !px-3 !text-xs rounded-full shadow-none"
+          className="mt-3 btn-gold-luxury !py-1.5 !px-3.5 !text-xs font-bold text-black rounded-full flex items-center gap-1"
         >
-          <Plus className="w-3.5 h-3.5" />
+          <Plus className="w-3.5 h-3.5 text-black stroke-[3]" />
           <span>Mesa</span>
         </button>
       </div>

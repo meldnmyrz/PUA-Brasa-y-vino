@@ -69,9 +69,9 @@ export default function ServicesPage() {
 
       {/* HEADER BLOCK — STELLAR DISPLAY HEADLINE */}
       <div className="max-w-[1200px] mx-auto px-4 text-center space-y-4 mb-20 relative z-10">
-        <div className="eyebrow-tag-violet mx-auto">EXPERIENCIAS EXCLUSIVAS VIP</div>
+        <div className="eyebrow-tag-pill mx-auto">EXPERIENCIAS EXCLUSIVAS VIP</div>
         <h1 className="font-display-stellar text-5xl sm:text-7xl md:text-8xl text-[#ffffff] uppercase tracking-tight">
-          SERVICIOS <span className="text-[#6a48f2]">PÚA</span>
+          SERVICIOS <span className="text-[#C4924A]">PÚA</span>
         </h1>
         <p className="font-subtext-stellar max-w-2xl mx-auto text-[#888888]">
           Organización integral para banquetes corporativos, catas privadas de cava y servicios de parrilla gourmet a domicilio.
@@ -88,12 +88,12 @@ export default function ServicesPage() {
             }`}
           >
             <div className={`space-y-6 ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-              <div className="eyebrow-tag-violet">0{idx + 1} // EXPERIENCIA EXCLUSIVA</div>
+              <div className="eyebrow-tag-pill">0{idx + 1} // EXPERIENCIA EXCLUSIVA</div>
               
               <h2 className="font-display-stellar text-3xl sm:text-5xl text-[#ffffff] leading-tight">
                 {service.title}
               </h2>
-              <p className="font-mono text-xs text-[#6a48f2] uppercase tracking-wider">
+              <p className="font-mono text-xs text-[#C4924A] uppercase tracking-wider">
                 {service.subtitle}
               </p>
               
@@ -104,7 +104,7 @@ export default function ServicesPage() {
               <div className="space-y-3 pt-2">
                 {service.features.map((feat, fIdx) => (
                   <div key={fIdx} className="flex items-center gap-3 font-subtext-stellar text-xs text-[#ffffff]">
-                    <Check className="w-4 h-4 text-[#6a48f2]" />
+                    <Check className="w-4 h-4 text-[#C4924A]" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -127,7 +127,7 @@ export default function ServicesPage() {
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <div className="card-obsidian p-8 sm:p-12 border border-[#2c2c2e] rounded-[10px] relative">
           <div className="text-center space-y-3 mb-10">
-            <span className="eyebrow-tag-violet mx-auto">
+            <span className="eyebrow-tag-pill mx-auto">
               ATENCIÓN PERSONALIZADA VIP
             </span>
             <h2 className="font-display-stellar text-3xl sm:text-5xl text-[#ffffff] tracking-tight">
@@ -142,13 +142,13 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               <div>
-                <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
+                <label className="block font-mono text-xs uppercase tracking-wider text-[#C4924A] mb-2">
                   Tipo de Evento
                 </label>
                 <select
                   value={eventType}
                   onChange={(e) => setEventType(e.target.value)}
-                  className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
+                  className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#C4924A]"
                 >
                   <option value="corporativo">Evento Corporativo / Cena de Negocios</option>
                   <option value="cumpleanios">Cumpleaños o Celebración Social</option>
@@ -159,13 +159,13 @@ export default function ServicesPage() {
               </div>
 
               <div>
-                <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
+                <label className="block font-mono text-xs uppercase tracking-wider text-[#C4924A] mb-2">
                   Número Estimado de Invitados
                 </label>
                 <select
                   value={guestsCount}
                   onChange={(e) => setGuestsCount(e.target.value)}
-                  className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
+                  className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#C4924A]"
                 >
                   <option value="2-6 personas">2 a 6 personas</option>
                   <option value="7-15 personas">7 a 15 personas</option>
@@ -177,19 +177,19 @@ export default function ServicesPage() {
             </div>
 
             <div>
-              <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
+              <label className="block font-mono text-xs uppercase tracking-wider text-[#C4924A] mb-2">
                 Fecha Tentativa
               </label>
               <input
                 type="date"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
-                className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
+                className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#C4924A]"
               />
             </div>
 
             <div>
-              <label className="block font-mono text-xs uppercase tracking-wider text-[#6a48f2] mb-2">
+              <label className="block font-mono text-xs uppercase tracking-wider text-[#C4924A] mb-2">
                 Detalles o Peticiones Especiales
               </label>
               <textarea
@@ -197,13 +197,13 @@ export default function ServicesPage() {
                 placeholder="Indica cualquier preferencia alimenticia, presupuesto o requerimiento de espacio..."
                 value={eventNotes}
                 onChange={(e) => setEventNotes(e.target.value)}
-                className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#6a48f2]"
+                className="w-full px-4 py-3.5 bg-[#171718] border border-[#2c2c2e] rounded-[6px] text-[#ffffff] text-xs focus:outline-none focus:border-[#C4924A]"
               />
             </div>
 
-            <button type="submit" className="btn-sprint-violet w-full py-3.5 text-xs">
-              <MessageSquare className="w-4 h-4 text-white" />
-              Enviar Cotización a WhatsApp
+            <button type="submit" className="btn-gold-luxury w-full py-3.5 text-xs flex items-center justify-center gap-2">
+              <MessageSquare className="w-4 h-4 text-black" />
+              <span>Enviar Cotización a WhatsApp</span>
             </button>
           </form>
         </div>

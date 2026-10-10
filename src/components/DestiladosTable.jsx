@@ -64,18 +64,18 @@ export default function DestiladosTable({ onAddToCart }) {
   };
 
   return (
-    <div className="space-y-6 text-left my-8">
+    <div className="space-y-6 text-left my-8 font-subtext-stellar">
       
       {/* TABS SELECTOR */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-[#232730]">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-[#2c2c2e]">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
               activeTab === tab.id
-                ? 'bg-[#987232] text-white border border-[#c89f53] shadow-md'
-                : 'bg-[#12141a] text-[#848a96] border border-[#232730] hover:text-white'
+                ? 'bg-gradient-to-r from-[#C4924A] via-[#E5C388] to-[#A67531] text-black border border-[#C4924A] shadow-[0_0_15px_rgba(196,146,74,0.4)]'
+                : 'bg-[#171718] text-[#888888] border border-[#2c2c2e] hover:text-white hover:border-[#C4924A]'
             }`}
           >
             {tab.label}
@@ -84,33 +84,33 @@ export default function DestiladosTable({ onAddToCart }) {
       </div>
 
       {/* RESPONSIVE TABLE */}
-      <div className="overflow-x-auto rounded-2xl border border-[#232730] bg-[#0b0e14]">
+      <div className="overflow-x-auto rounded-[10px] border border-[#2c2c2e] bg-[#0d0e12]">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-[#232730] bg-[#12141a] text-[11px] font-mono uppercase tracking-wider text-[#c89f53]">
+            <tr className="border-b border-[#2c2c2e] bg-[#171718] text-[11px] font-mono uppercase tracking-wider text-[#C4924A]">
               <th className="p-4">Etiqueta / Destilado</th>
               <th className="p-4 hidden sm:table-cell">Origen & Notas</th>
               <th className="p-4 text-right">Precio Copa</th>
               <th className="p-4 text-right">Precio Botella</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#232730] text-xs">
+          <tbody className="divide-y divide-[#2c2c2e] text-xs">
             {currentList.map((item) => (
-              <tr key={item.id} className="hover:bg-[#12141a]/80 transition-colors">
+              <tr key={item.id} className="hover:bg-[#171718]/80 transition-colors">
                 
                 <td className="p-4">
                   <div className="font-semibold text-white text-sm">{item.name}</div>
-                  <div className="text-[11px] text-[#848a96] sm:hidden mt-0.5">{item.origin}</div>
+                  <div className="text-[11px] text-[#888888] sm:hidden mt-0.5">{item.origin}</div>
                 </td>
 
-                <td className="p-4 text-[#848a96] hidden sm:table-cell font-light">
+                <td className="p-4 text-[#888888] hidden sm:table-cell font-light">
                   {item.origin}
                 </td>
 
                 <td className="p-4 text-right whitespace-nowrap">
                   <button
                     onClick={() => handleAddOption(item, 'copa')}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#12141a] border border-[#232730] hover:border-[#c89f53] text-[#c89f53] font-mono font-bold transition-all"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#171718] border border-[#2c2c2e] hover:border-[#C4924A] text-[#C4924A] font-mono font-bold transition-all text-xs"
                   >
                     <span>${item.copa.toLocaleString()}</span>
                     <Plus className="w-3 h-3 text-white" />
@@ -120,7 +120,7 @@ export default function DestiladosTable({ onAddToCart }) {
                 <td className="p-4 text-right whitespace-nowrap">
                   <button
                     onClick={() => handleAddOption(item, 'botella')}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#987232]/20 border border-[#c89f53]/50 hover:bg-[#987232] text-white font-mono font-bold transition-all"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#C4924A]/20 border border-[#C4924A]/60 hover:bg-[#C4924A] hover:text-black text-white font-mono font-bold transition-all text-xs"
                   >
                     <span>${item.botella.toLocaleString()}</span>
                     <Plus className="w-3 h-3 text-white" />

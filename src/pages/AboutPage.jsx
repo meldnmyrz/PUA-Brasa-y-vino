@@ -26,9 +26,9 @@ export default function AboutPage() {
 
       {/* HEADER BLOCK — STELLAR DISPLAY HEADLINE */}
       <div className="max-w-[1200px] mx-auto px-4 text-center space-y-4 mb-20 relative z-10">
-        <div className="eyebrow-tag-violet mx-auto">NUESTRA HISTORIA & IDENTIDAD</div>
+        <div className="eyebrow-tag-pill mx-auto">NUESTRA HISTORIA & IDENTIDAD</div>
         <h1 className="font-display-stellar text-5xl sm:text-7xl md:text-8xl text-[#ffffff] uppercase tracking-tight">
-          NOSOTROS <span className="text-[#6a48f2]">PÚA</span>
+          NOSOTROS <span className="text-[#C4924A]">PÚA</span>
         </h1>
         <p className="font-subtext-stellar max-w-2xl mx-auto text-[#888888]">
           Devoción constante por el fuego de encino, los mejores cortes prime y una cava curated de nivel internacional.
@@ -52,11 +52,11 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 gap-6 pt-4">
             <div className="card-obsidian p-6 rounded-[10px] text-center border border-[#2c2c2e]">
-              <span className="font-display-stellar text-3xl text-[#6a48f2] block">100%</span>
+              <span className="font-display-stellar text-3xl text-[#C4924A] block">100%</span>
               <span className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">Leña de Encino</span>
             </div>
             <div className="card-obsidian p-6 rounded-[10px] text-center border border-[#2c2c2e]">
-              <span className="font-display-stellar text-3xl text-[#6a48f2] block">500+</span>
+              <span className="font-display-stellar text-3xl text-[#C4924A] block">500+</span>
               <span className="font-mono text-[10px] text-[#888888] uppercase tracking-wider">Etiquetas de Cava</span>
             </div>
           </div>
@@ -74,8 +74,8 @@ export default function AboutPage() {
             <source src="/assets/pua-vid-3.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70" />
-          <div className="absolute bottom-8 left-8 right-8 text-center border-t border-[#6a48f2]/40 pt-4">
-            <span className="font-script-lujo text-3xl text-[#6a48f2] block">
+          <div className="absolute bottom-8 left-8 right-8 text-center border-t border-[#C4924A]/40 pt-4">
+            <span className="font-script-lujo text-3xl text-[#C4924A] block">
               "Fuego, Tiempo y Devoción Gastronómica"
             </span>
           </div>
@@ -87,9 +87,9 @@ export default function AboutPage() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-24 relative z-10">
         
         <div className="text-center space-y-4 mb-16">
-          <div className="eyebrow-tag-violet mx-auto">UNIVERSO VISUAL</div>
+          <div className="eyebrow-tag-pill mx-auto">UNIVERSO VISUAL</div>
           <h2 className="font-display-stellar text-3xl sm:text-5xl text-[#ffffff] flex items-center justify-center gap-3 tracking-tight">
-            <ImageIcon className="w-6 h-6 text-[#6a48f2]" />
+            <ImageIcon className="w-6 h-6 text-[#C4924A]" />
             GALERÍA GASTRONÓMICA PÚA
           </h2>
         </div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
           {galleryImages.map((imgUrl, i) => (
             <div
               key={i}
-              className="relative h-64 overflow-hidden rounded-[10px] group border border-[#2c2c2e] hover:border-[#6a48f2] transition-all bg-[#171718]"
+              className="relative h-64 overflow-hidden rounded-[10px] group border border-[#2c2c2e] hover:border-[#C4924A] transition-all bg-[#171718]"
             >
               <img
                 src={imgUrl}
@@ -106,7 +106,7 @@ export default function AboutPage() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#6a48f2] font-bold">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#C4924A] font-bold">
                   PÚA Brasa y Vino
                 </span>
               </div>
