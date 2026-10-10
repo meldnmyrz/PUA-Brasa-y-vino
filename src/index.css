@@ -1,28 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  /* COLORS FROM MENU-PUA.VERCEL.APP */
-  --bg-obsidian: #050505;
-  --bg-card: #0e0f14;
-  --bg-card-hover: #161820;
-  --text-main: #f4f4f5;
-  --text-muted: #9a9a9a;
+  /* DARK LUXE EARTH & FIRE TOKENS */
+  --bg-pitch-black: #050505;
+  --bg-midnight-obsidian: #0b0e14;
+  --bg-obsidian-card: #12141a;
+  --border-graphite: #232730;
 
-  /* ACCENT COLORS */
-  --color-acid-lime: #e6ff55;
-  --color-pua-green: #9eef80;
-  --color-flame-gold: #C4924A;
-  --color-flame-gold-light: #E5C388;
+  /* ACCENT TOKENS */
+  --color-caramel-amber: #987232;
+  --color-caramel-amber-hover: #b0853b;
+  --color-metallic-gold: #c89f53;
+  --color-forest-green-bg: #1e3524;
+  --color-forest-green-border: #2d4e36;
+  --color-forest-green-text: #a3e6b4;
 
-  /* TYPOGRAPHY FAMILIES */
-  --font-body-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif-cormorant: 'Cormorant Garamond', Georgia, serif;
+  /* TYPOGRAPHY COLORS */
+  --text-mist-white: #f5f7f5;
+  --text-mushroom-taupe: #d4d3c9;
+  --text-graphite-muted: #848a96;
 
-  /* RADIUS TOKENS */
-  --radius-card: 16px;
-  --radius-pill: 9999px;
-  --radius-tag: 8px;
-  --radius-button: 12px;
+  /* FONT STACK */
+  --font-plus-jakarta: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-cormorant-garamond: 'Cormorant Garamond', Georgia, serif;
+
+  /* RADII */
+  --radius-capsule: 9999px;
+  --radius-card-lujo: 20px;
+  --radius-button-lujo: 12px;
+  --radius-input-lujo: 10px;
 }
 
 *, ::before, ::after {
@@ -35,9 +41,9 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--bg-obsidian);
-  color: var(--text-main);
-  font-family: var(--font-body-ui);
+  background-color: var(--bg-pitch-black);
+  color: var(--text-mist-white);
+  font-family: var(--font-plus-jakarta);
   letter-spacing: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,196 +55,140 @@ img, video {
   display: block;
 }
 
-/* TYPOGRAPHY CLASSES MATCHING MENU-PUA */
-.font-sans-pua {
-  font-family: var(--font-body-ui);
+/* TYPOGRAPHY UTILITIES */
+.font-jakarta {
+  font-family: var(--font-plus-jakarta);
 }
 
-.font-serif-pua {
-  font-family: var(--font-serif-cormorant);
+.font-garamond {
+  font-family: var(--font-cormorant-garamond);
   font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: 0.01em;
-}
-
-.text-title-display {
-  font-family: var(--font-serif-cormorant);
-  font-size: clamp(44px, 7vw, 96px);
-  line-height: 0.95;
   letter-spacing: -0.01em;
+}
+
+.text-title-lujo {
+  font-family: var(--font-cormorant-garamond);
+  font-size: clamp(42px, 6.5vw, 92px);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  color: var(--text-mist-white);
+  text-transform: uppercase;
+}
+
+.text-section-title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--text-mist-white);
+  text-transform: uppercase;
+}
+
+/* CARAMEL AMBER BUTTONS & ACCENTS */
+.btn-caramel-amber {
+  background: linear-gradient(135deg, #987232 0%, #b0853b 100%);
   color: #ffffff;
-  text-transform: uppercase;
-}
-
-/* BADGES & TAGS */
-.badge-lime-pua {
-  background-color: rgba(230, 255, 85, 0.12);
-  color: #e6ff55;
-  border: 1px solid rgba(230, 255, 85, 0.3);
-  font-family: var(--font-body-ui);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: var(--radius-tag);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.badge-gold-pua {
-  background-color: rgba(196, 146, 74, 0.12);
-  color: #C4924A;
-  border: 1px solid rgba(196, 146, 74, 0.3);
-  font-family: var(--font-body-ui);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: var(--radius-tag);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* BUTTONS MATCHING MENU-PUA */
-.btn-lime-pua {
-  background-color: #e6ff55;
-  color: #000000;
-  font-family: var(--font-body-ui);
+  font-family: var(--font-plus-jakarta);
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   padding: 12px 24px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-capsule);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25 ease;
-  box-shadow: 0 0 20px rgba(230, 255, 85, 0.25);
-}
-
-.btn-lime-pua:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(230, 255, 85, 0.45);
-  background-color: #f1ff7a;
-}
-
-.btn-outline-pua {
-  background: rgba(14, 15, 20, 0.7);
-  backdrop-filter: blur(12px);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-family: var(--font-body-ui);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-outline-pua:hover {
-  border-color: #e6ff55;
-  color: #e6ff55;
-}
-
-/* CARD STYLES MATCHING MENU-PUA */
-.card-menu-pua {
-  background-color: #0e0f14;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-card);
-  padding: 20px;
-  transition: all 0.3s ease;
-}
-
-.card-menu-pua:hover {
-  border-color: rgba(230, 255, 85, 0.4);
-  background-color: #14161f;
-  transform: translateY(-3px);
-}
-
-/* Legacy Fallbacks */
-.font-serif-lujo {
-  font-family: var(--font-serif-cormorant);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.font-subtext-stellar {
-  font-family: var(--font-body-ui);
-  font-weight: 300;
-  color: #9a9a9a;
-}
-
-.eyebrow-tag-pill {
-  background-color: rgba(230, 255, 85, 0.1);
-  color: #e6ff55;
-  border: 1px solid rgba(230, 255, 85, 0.3);
-  font-family: var(--font-body-ui);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.btn-gold-luxury {
-  background-color: #e6ff55;
-  color: #000000;
-  font-family: var(--font-body-ui);
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 12px 24px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(152, 114, 50, 0.35);
 }
 
-.btn-gold-luxury:hover {
+.btn-caramel-amber:hover {
   transform: translateY(-2px);
-  background-color: #f1ff7a;
+  box-shadow: 0 6px 28px rgba(200, 159, 83, 0.5);
+  background: linear-gradient(135deg, #c89f53 0%, #987232 100%);
 }
 
-.btn-ghost-border {
-  background: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-family: var(--font-body-ui);
+.btn-outline-amber {
+  background: rgba(18, 20, 26, 0.7);
+  backdrop-filter: blur(12px);
+  color: var(--text-mist-white);
+  border: 1px solid rgba(200, 159, 83, 0.4);
+  font-family: var(--font-plus-jakarta);
   font-size: 13px;
   font-weight: 600;
-  padding: 10px 20px;
-  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  border-radius: var(--radius-capsule);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  transition: all 0.2s ease;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.btn-ghost-border:hover {
-  border-color: #e6ff55;
-  color: #e6ff55;
+.btn-outline-amber:hover {
+  border-color: var(--color-metallic-gold);
+  color: var(--color-metallic-gold);
+  background: rgba(200, 159, 83, 0.1);
+}
+
+/* WINE PAIRING FOREST GREEN BADGE */
+.badge-sommelier-wine {
+  background-color: var(--color-forest-green-bg);
+  border: 1px solid var(--color-forest-green-border);
+  color: var(--color-forest-green-text);
+  font-family: var(--font-plus-jakarta);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-amber-tag {
+  background-color: rgba(200, 159, 83, 0.12);
+  border: 1px solid rgba(200, 159, 83, 0.3);
+  color: var(--color-metallic-gold);
+  font-family: var(--font-plus-jakarta);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* CARDS */
+.card-lujo-obsidian {
+  background-color: var(--bg-obsidian-card);
+  border: 1px solid var(--border-graphite);
+  border-radius: var(--radius-card-lujo);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.card-lujo-obsidian:hover {
+  border-color: rgba(200, 159, 83, 0.4);
+  background-color: #171a22;
+  transform: translateY(-3px);
+}
+
+/* Glassmorphism Capsule Navbar */
+.nav-capsule-glass {
+  background: rgba(5, 5, 5, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(35, 39, 48, 0.9);
+  border-radius: 9999px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
 /* Custom Scrollbar */
@@ -247,12 +197,12 @@ img, video {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--bg-pitch-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: #252835;
+  background: var(--border-graphite);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e6ff55;
+  background: var(--color-metallic-gold);
 }
