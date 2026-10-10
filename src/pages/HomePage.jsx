@@ -8,6 +8,8 @@ import { menuItems, menuCategories, restaurantInfo } from '../data/menuData';
 import MenuItemCard from '../components/MenuItemCard';
 import ParticleConstellation from '../components/ParticleConstellation';
 
+import Features11 from '../components/Features11';
+
 export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const navigate = useNavigate();
@@ -96,65 +98,10 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
 
       </section>
 
-      {/* 02 UPGRADE COMPARISON MODULE (#111111 CHARCOAL STAGE WITH 3-COLUMN METRIC TILES) */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 my-20 z-10 relative">
-        <div className="module-charcoal-stage p-8 sm:p-14">
-          
-          <div className="max-w-3xl space-y-4 mb-12">
-            <span className="badge-availability">
-              ESTÁNDARES DE CALIDAD PÚA
-            </span>
-            <h2 className="text-section-heading text-[#f5f5f7]">
-              MÁXIMA PRECISIÓN EN CADA CORTE Y ETIQUETA.
-            </h2>
-            <p className="text-body-apple text-[#86868b]">
-              Evaluamos cada parámetro de maduración en seco y control de temperatura en la brasa para garantizar la consistencia, ternura y aroma ahumado distintivo.
-            </p>
-          </div>
-
-          {/* THREE COLUMN GRID OF 28px METRIC TILES */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div className="tile-feature-metric space-y-3">
-              <span className="text-xs text-[#86868b] uppercase tracking-wider block font-semibold">
-                FUEGO DE ENCINO
-              </span>
-              <span className="text-metric-display text-[#ff3037] block">
-                600°C
-              </span>
-              <p className="text-xs text-[#86868b] leading-relaxed">
-                Sellado rápido que sella los jugos naturales y crea la corteza caramelizada perfecta.
-              </p>
-            </div>
-
-            <div className="tile-feature-metric space-y-3">
-              <span className="text-xs text-[#86868b] uppercase tracking-wider block font-semibold">
-                CÁMARA DE MADURACIÓN
-              </span>
-              <span className="text-metric-display text-[#00d959] block">
-                45 DÍAS
-              </span>
-              <p className="text-xs text-[#86868b] leading-relaxed">
-                Maduración en ambiente controlado a 85% de humedad relativa para maximizar la concentración de sabor.
-              </p>
-            </div>
-
-            <div className="tile-feature-metric space-y-3">
-              <span className="text-xs text-[#86868b] uppercase tracking-wider block font-semibold">
-                SELECCIÓN DE CAVA
-              </span>
-              <span className="text-metric-display text-[#f5f5f7] block">
-                500+
-              </span>
-              <p className="text-xs text-[#86868b] leading-relaxed">
-                Etiquetas internacionales de Valle de Guadalupe, Rioja, Burdeos, Napa Valley y champagne.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+      {/* ============================================================
+          02 REACT BITS PRO FEATURES 11: SPLIT HEADLINE WITH 3 INDEXED CARDS
+         ============================================================ */}
+      <Features11 />
 
       {/* 03 WHITE MERCHANDISING CARD (#ffffff PAPER CANVAS WITH INK #1d1d1f TEXT) */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 my-20 z-10 relative">
