@@ -29,107 +29,67 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const featuredDishes = menuItems.filter(item => item.tags && item.tags.length > 0).slice(0, 6);
 
   return (
-    <div className="pt-24 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
+    <div className="pt-20 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
       {/* ============================================================
-          01 FULL-BLEED VIDEO HERO STAGE (PUA HEAD OF BACKGROUND)
+          01 FULL-SCREEN HIGH-BRIGHTNESS VIDEO HERO STAGE (PUA HEAD OF)
          ============================================================ */}
-      <section className="relative min-h-[90vh] flex flex-col justify-between max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 z-10 my-4 rounded-[28px] overflow-hidden border border-white/10 shadow-2xl">
+      <section className="relative w-full h-[88vh] sm:h-[92vh] flex flex-col justify-end pb-20 z-10 overflow-hidden">
         
-        {/* FULL-BLEED BACKGROUND VIDEO PLAYER */}
+        {/* FULL-BLEED HIGH-OPACITY VIDEO PLAYER (ENQUADRE ELEVADO HACIA PÚA) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover filter brightness-75 scale-105"
+            className="w-full h-full object-cover brightness-105 contrast-105 scale-110 sm:scale-105 transition-all duration-700"
+            style={{ objectPosition: 'center 75%' }}
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
             <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
           </video>
 
-          {/* CINEMATIC DARK GRADIENT OVERLAY FOR HIGH-CONTRAST READABILITY */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
+          {/* MINIMAL SUBTLE GRADIENT OVERLAY SO VIDEO SHINES & TEXT STAYS CRISP */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </div>
 
-        {/* AVAILABILITY BADGES OVERLAY */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
-          <span className="badge-availability !bg-black/80 !border-white/20 backdrop-blur-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ff791b] animate-ping" />
-            RESERVA VIP DISPONIBLE · POLANCO CDMX
-          </span>
-          <div className="hidden sm:flex items-center gap-2">
-            <span className="text-[11px] font-mono text-[#00d959] bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
-              ✓ 45 Días Maduración
-            </span>
-            <span className="text-[11px] font-mono text-[#ff3037] bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
-              🔥 600°C Leña Encino
-            </span>
-          </div>
-        </div>
-
-        {/* HERO MAIN TEXT CONTENT OVER VIDEO */}
-        <div className="relative z-10 max-w-2xl space-y-6 my-16">
-          <div className="space-y-3">
-            <span className="text-xs uppercase font-semibold tracking-wider text-[#ff791b] block">
-              GASTRONOMÍA A LAS BRASAS & CAVA DE AUTOR
-            </span>
-            <h1 className="text-hero-display tracking-[-1.2px] text-[#f5f5f7] drop-shadow-2xl">
-              EL RITUAL DEL <br />
-              <span className="text-[#f5f5f7]">FUEGO & LA CAVA.</span>
-            </h1>
-          </div>
+        {/* HERO MAIN TEXT CONTENT ONLY (SIN COMPONENTES NI BADGES ALREDEDOR) */}
+        <div className="relative z-10 max-w-[1360px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           
-          <p className="text-body-apple max-w-xl text-[#e8e8ed] drop-shadow-md">
-            Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
-          </p>
+          <div className="max-w-2xl space-y-4">
+            <h1 className="text-hero-display tracking-[-1.2px] text-[#ffffff] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+              EL RITUAL DEL <br />
+              <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
+            </h1>
+            
+            <p className="text-body-apple max-w-xl text-[#f5f5f7] font-medium text-base sm:text-lg drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+              Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
+            </p>
+          </div>
 
-          {/* FLOATING DARK UTILITY CAPSULE OVER VIDEO */}
-          <div className="pt-4 flex flex-wrap items-center gap-4">
-            <div className="dark-utility-capsule max-w-md w-full sm:w-auto bg-black/80 backdrop-blur-md border border-white/20">
-              <div className="flex flex-col">
-                <span className="text-xs font-semibold text-[#f5f5f7] leading-tight">
-                  Experiencia Gastronómica desde $680 MXN
-                </span>
-                <span className="text-[11px] text-[#86868b]">
-                  Incluye Maridaje de Cava & Degustación
-                </span>
-              </div>
-              <Link to="/reservas" className="btn-apple-blue font-semibold shrink-0">
-                <span>Reservar Mesa</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+          {/* CLEAN PRIMARY CALL TO ACTION BUTTONS */}
+          <div className="pt-2 flex flex-wrap items-center gap-4">
+            <Link 
+              to="/reservas" 
+              className="btn-apple-blue font-semibold !py-3.5 !px-7 !text-xs text-white shadow-[0_4px_20px_rgba(0,113,227,0.4)]"
+            >
+              <span>Reservar Mesa VIP</span>
+              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+            </Link>
 
-            <Link to="/menu" className="btn-white-outline bg-black/60 backdrop-blur-md border-white/30">
+            <Link 
+              to="/menu" 
+              className="btn-white-outline !py-3.5 !px-7 !text-xs bg-black/50 backdrop-blur-md border-white/40 hover:bg-black/80"
+            >
               <span>Ver Carta Completa</span>
             </Link>
           </div>
-        </div>
 
-        {/* 5 CONNECTED SECTIONS NAV QUICK LINKS OVER VIDEO FOOTER */}
-        <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/20 text-center">
-          <Link to="/nosotros" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
-            <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">01. NOSOTROS</span>
-            <span className="text-[11px] text-[#86868b]">Historia & Filosofía</span>
-          </Link>
-          <Link to="/menu" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
-            <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">02. MENÚ</span>
-            <span className="text-[11px] text-[#86868b]">Carta & Maridajes</span>
-          </Link>
-          <Link to="/servicios" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
-            <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">03. SERVICIOS</span>
-            <span className="text-[11px] text-[#86868b]">Eventos & Cava VIP</span>
-          </Link>
-          <Link to="/contacto" className="py-3 px-4 rounded-2xl bg-black/70 backdrop-blur-md hover:bg-black/90 transition-colors border border-white/10 group">
-            <span className="text-xs font-semibold text-[#f5f5f7] group-hover:text-[#0071e3] block">04. CONTACTO</span>
-            <span className="text-[11px] text-[#86868b]">Ubicación & Reservas</span>
-          </Link>
         </div>
 
       </section>
