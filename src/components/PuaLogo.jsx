@@ -9,20 +9,15 @@ import React from 'react';
  * @param {string} [props.className=''] - Additional CSS classes
  */
 export default function PuaLogo({ size = 'small', className = '' }) {
-  const heightMap = {
-    small: 'h-8 sm:h-9',
-    medium: 'h-11 sm:h-12',
-    large: 'h-16 sm:h-20'
-  };
-
-  const currentHeightClass = heightMap[size] || heightMap.small;
+  const heightPx = size === 'large' ? 48 : size === 'medium' ? 38 : 30;
 
   return (
     <div className={`inline-flex items-center justify-center select-none ${className}`}>
       <img 
         src="/pua-logo-transparent.png" 
         alt="PÚA Brasa y Vino" 
-        className={`${currentHeightClass} w-auto object-contain filter brightness-120 drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]`}
+        style={{ height: `${heightPx}px`, maxHeight: `${heightPx}px`, width: 'auto' }}
+        className="object-contain filter brightness-120 drop-shadow-[0_2px_8px_rgba(255,255,255,0.2)]"
       />
     </div>
   );
