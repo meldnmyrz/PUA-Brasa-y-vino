@@ -26,9 +26,9 @@ export default function HomePage() {
   const signatureDishes = menuItems.filter(item => item.badge).slice(0, 3);
 
   return (
-    <div className="relative min-h-screen bg-[#090a0f] text-[#F4F0EA] overflow-hidden font-typewriter">
+    <div className="relative min-h-screen bg-[#000000] text-[#F4F0EA] overflow-hidden font-sans">
       
-      {/* 01 FULL-BLEED HERO PLATE (GRAZA HERO MODEL) */}
+      {/* 01 FULL-BLEED HERO PLATE — USING EXACT TYPOGRAPHY & STYLES FROM PHOTO 1 (NOSOTROS PAGE) */}
       <section className="relative min-h-[90vh] flex flex-col justify-end pt-28 pb-16 px-6 sm:px-12 lg:px-16 overflow-hidden">
         
         {/* Full-bleed background video plate */}
@@ -42,101 +42,89 @@ export default function HomePage() {
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
           </video>
-          {/* Subtle gradient vignette bottom-left for contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-[#090a0f]/60 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#090a0f] via-[#090a0f]/50 to-transparent pointer-events-none" />
+          {/* Dark gradient overlay for crystal clear text reading */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#000000]/50 to-transparent pointer-events-none" />
         </div>
 
-        {/* BOTTOM-LEFT OVERLAY CONTENT */}
+        {/* BOTTOM-LEFT OVERLAY CONTENT — EXACT FONTS FROM PHOTO 1 */}
         <div className="relative z-10 max-w-4xl space-y-6 text-left">
           
-          {/* APER CU STATUS BADGE FLANKED BY ASTERISKS */}
-          <div className="inline-flex items-center gap-2 text-[#9eef80] badge-apercu">
-            <span>✱</span>
-            <span>PÚA BRASA Y VINO — POLANCO, CDMX</span>
-            <span>✱</span>
+          {/* EYEBROW TAG PILL (PHOTO 1 FONT STYLE) */}
+          <div className="inline-flex items-center gap-2 bg-[#171718]/90 border border-[#C4924A]/40 px-4 py-1.5 rounded-full text-xs font-sans uppercase tracking-[0.25em] text-[#C4924A] shadow-md">
+            <span>★ PÚA BRASA Y VINO — POLANCO, CDMX ★</span>
           </div>
 
-          {/* DISPLAY HEADLINE IN ITC GARAMOND CONDENSED (120px TRACKING SIGNATURE) */}
-          <h1 className="text-display-graza text-[#F4F0EA] tracking-tight drop-shadow-md">
+          {/* DISPLAY HEADLINE (PHOTO 1 CORMORANT GARAMOND ELEGANT SERIF SIGNATURE) */}
+          <h1 className="font-display-stellar text-5xl sm:text-7xl md:text-8xl text-white tracking-tight uppercase leading-[0.95] drop-shadow-2xl">
             EL ARTE DE LA BRASA Y EL VINO
           </h1>
 
-          {/* TYPEWRITER SERIF BODY PARAGRAPH */}
-          <p className="font-typewriter text-sm sm:text-base text-[#F4F0EA]/80 max-w-2xl leading-relaxed font-light">
+          {/* SUBTEXT PARAGRAPH (PHOTO 1 INTER SANS-SERIF CLEAN STYLE) */}
+          <p className="font-subtext-stellar text-sm sm:text-base text-[#dddddd] max-w-2xl leading-relaxed font-light drop-shadow-md">
             Una cocina de autor inspirada en la gastronomía mediterránea y las brasas de encino. Maduraciones artesanales, maridajes de cava internacional y mixología de humo en mesa.
           </p>
 
-          {/* ACTION BUTTONS (GRAZA FILLED CTA + OUTLINE GHOST) */}
+          {/* ACTION BUTTONS (PHOTO 1 LUXURY GOLD CTA + GHOST BORDER) */}
           <div className="pt-4 flex flex-wrap items-center gap-4">
             <Link 
               to="/reservas" 
-              className="btn-primary-graza"
+              className="btn-gold-luxury"
             >
               <span>RESERVAR MESA DE AUTOR</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              <ArrowRight className="w-4 h-4 text-black stroke-[2.5]" />
             </Link>
             
             <Link 
               to="/menu" 
-              className="btn-outline-graza"
+              className="btn-ghost-border !border-white/40 text-white hover:!border-[#C4924A] hover:text-[#C4924A]"
             >
-              <span>VER CARTA COMPLETA</span>
+              <span>EXPLORAR CARTA COMPLETA</span>
             </Link>
           </div>
 
         </div>
       </section>
 
-      {/* 02 FULL-BLEED EDITORIAL BAND 1 — MUSTARD SUN (#fbd535) ACCENT BAND */}
-      <section className="band-full-bleed bg-[#fbd535] text-[#3c422e] py-24 my-12">
-        <div className="max-w-[1200px] mx-auto text-center space-y-6">
+      {/* 02 EDITORIAL SECTION BAND 1 — GOLD & BRASA SHOWCASE */}
+      <section className="bg-[#12141a] text-[#F4F0EA] py-24 border-y border-[#2c2c2e]">
+        <div className="max-w-[1200px] mx-auto text-center space-y-6 px-4">
           
-          {/* APERCU BADGE */}
-          <div className="badge-apercu text-[#3c422e] uppercase font-semibold">
-            ✱ SELECCIÓN DE BRASAS & MARIDAJE ✱
-          </div>
+          <div className="eyebrow-tag-pill mx-auto">SELECCIÓN DE BRASAS & MARIDAJE</div>
 
-          {/* GARAMOND CONDENSED HEADLINE (102px) */}
-          <h2 className="text-heading-graza text-[#3c422e] font-normal max-w-4xl mx-auto">
+          <h2 className="font-display-stellar text-3xl sm:text-6xl text-white uppercase max-w-4xl mx-auto leading-tight">
             CORTES PRIME SELECCIONADOS A LA LEÑA DE ENCINO Y CAVA DE 500 ETIQUETAS
           </h2>
 
-          {/* TYPEWRITER BODY */}
-          <p className="font-typewriter text-base text-[#3c422e]/90 max-w-xl mx-auto leading-relaxed">
+          <p className="font-subtext-stellar text-base text-[#888888] max-w-xl mx-auto leading-relaxed">
             Cada pieza se asa con fuego de madera seleccionada y sales artesanales. Una experiencia pensada para compartirse con los mejores tintos y blancos del mundo.
           </p>
 
-          {/* OUTLINE GHOST BUTTON IN OLIVE INK */}
           <div className="pt-4">
             <Link 
               to="/nosotros" 
-              className="inline-flex items-center gap-2 border border-[#3c422e] text-[#3c422e] hover:bg-[#3c422e] hover:text-[#fbd535] font-typewriter text-sm font-bold px-8 py-3.5 rounded-[10px] transition-all"
+              className="btn-gold-luxury"
             >
               <span>CONOCER NUESTRA HISTORIA</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-black" />
             </Link>
           </div>
 
         </div>
       </section>
 
-      {/* 03 SCATTERED KEYWORD CLUSTER — SQUEEZE BOTTLE GREEN BAND (#9eef80) */}
-      <section className="band-full-bleed bg-[#9eef80] text-[#3c422e] py-20 my-16 overflow-hidden">
-        <div className="max-w-[1300px] mx-auto relative px-4">
+      {/* 03 KEYWORD CLUSTER — RITUAL DE FUEGO */}
+      <section className="py-20 bg-[#000000] border-b border-[#2c2c2e]">
+        <div className="max-w-[1300px] mx-auto text-center px-4">
           
-          <div className="text-center mb-8 badge-apercu text-[#3c422e]">
-            ✱ RITUAL DE FUEGO & TÉCNICAS DE LA CASA ✱
-          </div>
+          <div className="eyebrow-tag-pill mx-auto mb-8">RITUAL DE FUEGO & TÉCNICAS DE LA CASA</div>
 
-          {/* ASYMMETRIC KEYWORD CLOUD IN GARAMOND CONDENSED */}
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 font-garamond-condensed text-4xl sm:text-6xl md:text-7xl text-[#3c422e] uppercase py-6">
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 font-serif-lujo text-3xl sm:text-5xl md:text-6xl text-[#ffffff] uppercase">
             <span className="opacity-90">ASAR</span>
-            <span className="opacity-75">AHUMAR</span>
-            {/* CIRCLED ANNOTATED WORD */}
-            <span className="oval-annotation text-[#3c422e] font-bold">SELLAR</span>
+            <span className="opacity-60">AHUMAR</span>
+            <span className="text-[#C4924A] font-bold border-b-2 border-[#C4924A] pb-1">SELLAR</span>
             <span className="opacity-90">MARIDAR</span>
-            <span className="opacity-75">TRINCHAR</span>
+            <span className="opacity-60">TRINCHAR</span>
             <span className="opacity-90">FLAMBEAR</span>
             <span className="opacity-80">MADURAR</span>
           </div>
@@ -144,84 +132,77 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 04 SPLIT FEATURE BLOCK (50/50 EDITORIAL LAYOUT) */}
+      {/* 04 SPLIT FEATURE BLOCK */}
       <section className="py-24 max-w-[1300px] mx-auto px-6 sm:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          {/* LEFT COLUMN: TEXT CONTENT */}
           <div className="space-y-6 text-left">
-            <div className="badge-apercu text-[#9eef80]">
-              ✱ CAVA & SOMMELIER ✱
-            </div>
+            <div className="eyebrow-tag-pill">CAVA & SOMMELIER</div>
 
-            <h2 className="text-heading-graza text-[#F4F0EA]">
+            <h2 className="font-display-stellar text-3xl sm:text-5xl text-white">
               MÁS DE 500 ETIQUETAS DE VINOS INTERNACIONALES
             </h2>
 
-            <p className="font-typewriter text-sm sm:text-base text-[#F4F0EA]/70 leading-relaxed font-light">
+            <p className="font-subtext-stellar text-sm sm:text-base text-[#888888] leading-relaxed">
               Nuestra cava reúne cosechas exclusivas de Europa y América Latina, curadas por nuestro equipo de sommeliers para acompañar cada corte de carne y creación de autor.
             </p>
 
             <div className="pt-2">
-              <Link to="/menu" className="link-editorial-graza text-[#9eef80]">
+              <Link to="/menu" className="btn-ghost-border !pl-0 text-[#C4924A] hover:text-white">
                 <span>EXPLORAR LA CAVA COMPLETA</span>
-                <span>→</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: PRODUCT / FOOD IMAGE WITH 20px RADIUS AND NO SHADOW */}
-          <div className="relative">
+          <div className="relative rounded-[10px] overflow-hidden border border-[#2c2c2e] shadow-2xl">
             <img 
               src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" 
               alt="Cortes Prime PÚA" 
-              className="w-full h-[460px] img-graza-radius"
+              className="w-full h-[460px] object-cover"
             />
           </div>
 
         </div>
       </section>
 
-      {/* 05 INLINE RECIPE / SIGNATURE DISH CARDS (GRAZA PRODUCT CARDS) */}
-      <section className="py-24 bg-[#14171f] my-12 band-full-bleed">
-        <div className="max-w-[1300px] mx-auto space-y-12">
+      {/* 05 PLATILLOS INSIGNIA DE PÚA */}
+      <section className="py-24 bg-[#0d0e12] border-t border-[#2c2c2e]">
+        <div className="max-w-[1300px] mx-auto space-y-12 px-6 sm:px-12">
           
           <div className="text-center space-y-3">
-            <div className="badge-apercu text-[#fbd535]">
-              ✱ SELECCIÓN DEL CHEF ✱
-            </div>
-            <h2 className="text-heading-graza text-[#F4F0EA]">
+            <div className="eyebrow-tag-pill mx-auto">SELECCIÓN DEL CHEF</div>
+            <h2 className="font-display-stellar text-3xl sm:text-5xl text-white">
               PLATILLOS INSIGNIA DE PÚA
             </h2>
           </div>
 
-          {/* 3 PRODUCT CARDS WITH 20px RADIUS PHOTOS & TYPEWRITER CAPTIONS */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {signatureDishes.map((dish, idx) => (
-              <div key={dish.id} className="space-y-4 text-left group">
-                <div className="overflow-hidden rounded-[20px]">
+            {signatureDishes.map((dish) => (
+              <div key={dish.id} className="card-obsidian space-y-4 text-left group">
+                <div className="overflow-hidden rounded-[8px] h-64">
                   <img 
                     src={dish.image || "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800&auto=format&fit=crop"} 
                     alt={dish.name}
-                    className="w-full h-72 img-graza-radius group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 
                 <div className="space-y-1.5 pt-2">
-                  <div className="font-typewriter text-xs text-[#9eef80] uppercase tracking-wider">
+                  <div className="font-mono text-xs text-[#C4924A] uppercase tracking-wider">
                     Platillo de Autor · ${dish.price} MXN
                   </div>
-                  <h3 className="font-garamond-condensed text-3xl text-[#F4F0EA] leading-tight">
+                  <h3 className="font-serif-lujo text-2xl text-white">
                     {dish.name}
                   </h3>
-                  <p className="font-typewriter text-xs text-[#F4F0EA]/70 line-clamp-2 leading-relaxed">
+                  <p className="font-subtext-stellar text-xs text-[#888888] line-clamp-2 leading-relaxed">
                     {dish.description}
                   </p>
                   
                   <div className="pt-2">
-                    <Link to="/menu" className="link-editorial-graza text-xs text-[#F4F0EA]">
+                    <Link to="/menu" className="btn-ghost-border !pl-0 text-xs text-white hover:text-[#C4924A]">
                       <span>ORDENAR EN MESA</span>
-                      <span>→</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
@@ -232,25 +213,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 06 ATMOSPHERIC CLOSING IMAGE — FOOTER OLIVE / BRASA BRANCH PHOTO */}
-      <section className="relative h-80 band-full-bleed overflow-hidden my-8">
-        <img 
-          src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1600&auto=format&fit=crop" 
-          alt="PÚA Brasa & Vino Atmosphere" 
-          className="w-full h-full object-cover filter brightness-75 contrast-110"
-        />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <span className="font-garamond-condensed text-4xl sm:text-6xl text-[#F4F0EA] tracking-widest uppercase text-center px-4">
-            PÚA BRASA Y VINO · POLANCO
-          </span>
-        </div>
-      </section>
-
       {/* FLOATING BACK TO TOP BUTTON */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[#9eef80] text-[#090a0f] rounded-full flex items-center justify-center hover:bg-[#fbd535] transition-all transform hover:scale-110 border border-[#090a0f]"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[#C4924A] text-black rounded-xl flex items-center justify-center shadow-2xl hover:bg-[#E5C388] transition-all transform hover:scale-110 border border-white/20"
           aria-label="Back to top"
         >
           <ChevronUp className="w-6 h-6 stroke-[3]" />
