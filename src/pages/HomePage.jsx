@@ -39,18 +39,16 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
          ============================================================ */}
       <section className="relative w-full h-[88vh] min-h-[560px] flex flex-col justify-center py-10 z-10 overflow-hidden">
         
-        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER WITH NATURAL RATIO */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER WITH NATURAL CONTAINED PROPORTION */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover brightness-115 contrast-110 opacity-100 transition-all duration-700"
+            className="w-full h-full object-contain md:object-right brightness-115 contrast-110 opacity-100 transition-all duration-700"
             style={{ 
-              objectPosition: '70% 50%',
-              transform: 'scale(1.0)',
-              transformOrigin: 'center center'
+              objectPosition: '85% center'
             }}
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
