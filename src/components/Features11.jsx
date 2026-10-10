@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Flame, Thermometer, Wine, ArrowRight, Sparkles } from 'lucide-react';
 
 /**
  * Features11 Component (React Bits Pro Specification)
@@ -10,24 +9,18 @@ export default function Features11() {
   const cards = [
     {
       index: '01',
-      icon: Flame,
-      iconColor: 'text-[#8c672b]', // CARAMEL
       metric: '600°C',
       title: 'Fuego Directo de Encino',
       desc: 'Sellado en parrilla a temperatura extrema que sella los jugos naturales y genera la costra caramelizada perfecta en cada corte Angus Prime.'
     },
     {
       index: '02',
-      icon: Thermometer,
-      iconColor: 'text-[#487a52]', // FOREST
       metric: '45 DÍAS',
       title: 'Cámara de Maduración en Seco',
       desc: 'Ambiente estrictamente controlado a 85% de humedad relativa y flujo de aire constante para maximizar la concentración de sabor y ternura.'
     },
     {
       index: '03',
-      icon: Wine,
-      iconColor: 'text-[#c49a4a]', // CARAMEL LIGHT
       metric: '500+',
       title: 'Cava VIP & Sommelier',
       desc: 'Curaduría internacional con cosechas de Valle de Guadalupe, Rioja, Burdeos, Napa Valley y Champagne listos para maridar cada tiempo.'
@@ -42,7 +35,6 @@ export default function Features11() {
         
         <div className="lg:col-span-7 space-y-4">
           <div className="inline-flex items-center gap-2 bg-[#8c672b]/15 border border-[#8c672b]/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#c49a4a] tracking-wider uppercase">
-            <Sparkles className="w-3.5 h-3.5 text-[#8c672b]" />
             <span>ESTÁNDARES DE CALIDAD PÚA</span>
           </div>
           
@@ -56,31 +48,25 @@ export default function Features11() {
             Evaluamos cada parámetro de maduración en seco y control de temperatura en la brasa para garantizar consistencia, ternura extrema y el sello ahumado característico de PÚA.
           </p>
           <Link to="/nosotros" className="inline-flex items-center gap-2 text-xs font-semibold text-[#c49a4a] hover:text-[#8c672b] transition-colors group pt-2">
-            <span>Conoce nuestra filosofía del fuego</span>
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+            <span>Conoce nuestra filosofía del fuego →</span>
           </Link>
         </div>
 
       </div>
 
-      {/* THREE INDEXED COLUMNS (DIRECTLY ON FULL SCREEN CANVAS - NO CARD BOXES) */}
+      {/* THREE INDEXED COLUMNS (PURE TYPOGRAPHY - NO ICONS) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
         {cards.map((card) => {
-          const Icon = card.icon;
-
           return (
             <div
               key={card.index}
               className="space-y-6 group cursor-default"
             >
-              {/* TOP INDEX & ICON ROW */}
+              {/* TOP INDEX ROW */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <span className="font-mono text-xs font-bold tracking-widest text-[#8c672b]">
                   [{card.index}]
                 </span>
-                <div className={`p-2 rounded-xl bg-transparent ${card.iconColor}`}>
-                  <Icon className="w-6 h-6 stroke-[2]" />
-                </div>
               </div>
 
               {/* METRIC DISPLAY & TITLE */}
