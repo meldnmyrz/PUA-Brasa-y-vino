@@ -1,30 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Check, MessageSquare, ArrowRight, Calendar, Users, Wine } from 'lucide-react';
-import { restaurantInfo } from '../data/menuData';
+import React, { useEffect } from 'react';
+import { Sparkles, Check, ArrowRight, Calendar, Users, Wine } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ParticleConstellation from '../components/ParticleConstellation';
 
 export default function ServicesPage() {
   useEffect(() => {
     document.title = "PÚA Brasa y Vino | Servicios VIP — Eventos Privados & Catering";
   }, []);
-
-  const [eventType, setEventType] = useState('corporativo');
-  const [guestsCount, setGuestsCount] = useState('15-30');
-  const [eventDate, setEventDate] = useState('');
-  const [eventNotes, setEventNotes] = useState('');
-
-  const handleQuoteWhatsApp = (e) => {
-    e.preventDefault();
-    const message = `*SOLICITUD DE COTIZACIÓN DE EVENTO EN PÚA BRASA Y VINO*\n\n` +
-                    `• *Tipo de Evento:* ${eventType.toUpperCase()}\n` +
-                    `• *Número estimado de Invitados:* ${guestsCount}\n` +
-                    `• *Fecha tentativa:* ${eventDate || 'Por definir'}\n` +
-                    `• *Detalles adicionales:* ${eventNotes || 'Sin notas suplementarias'}\n\n` +
-                    `Por favor contáctenme para propuestas de menú y cotización de espacios.`;
-
-    const url = `https://wa.me/${restaurantInfo.whatsapp}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-  };
 
   const servicesList = [
     {
@@ -114,6 +96,13 @@ export default function ServicesPage() {
                   </div>
                 ))}
               </div>
+
+              <div className="pt-3">
+                <Link to="/reservas" className="btn-apple-blue font-semibold text-xs">
+                  <span>Reservar este Servicio</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
 
             <div className="lg:col-span-5">
@@ -127,92 +116,6 @@ export default function ServicesPage() {
             </div>
           </div>
         ))}
-      </section>
-
-      {/* 03 EVENT QUOTE FORM WITH APPLE PILL SELECT INPUTS (#6e6e73 GRAPHITE OUTLINE, 980px RADIUS) */}
-      <section className="max-w-4xl mx-auto px-4 relative z-10">
-        <div className="module-charcoal-stage p-8 sm:p-14 border border-white/10">
-          <div className="text-center space-y-3 mb-10">
-            <span className="badge-availability mx-auto inline-flex">
-              ATENCIÓN PERSONALIZADA VIP
-            </span>
-            <h2 className="text-section-heading text-[#f5f5f7]">
-              SOLICITAR COTIZACIÓN DE EVENTO
-            </h2>
-            <p className="text-body-apple text-xs text-[#86868b]">
-              Completa los detalles de tu evento y nuestro Sommelier & Events Host se comunicará contigo vía WhatsApp.
-            </p>
-          </div>
-
-          <form onSubmit={handleQuoteWhatsApp} className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-[#86868b] font-semibold mb-2">
-                  Tipo de Evento
-                </label>
-                <select
-                  value={eventType}
-                  onChange={(e) => setEventType(e.target.value)}
-                  className="pill-select-input w-full bg-[#000000]"
-                >
-                  <option value="corporativo">Evento Corporativo / Cena de Negocios</option>
-                  <option value="cumpleanios">Cumpleaños o Celebración Social</option>
-                  <option value="aniversario">Aniversario / Cena Romántica VIP</option>
-                  <option value="cata-vino">Cata de Vinos & Maridaje</option>
-                  <option value="catering">Servicio de Catering a Domicilio</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-[#86868b] font-semibold mb-2">
-                  Número de Invitados
-                </label>
-                <select
-                  value={guestsCount}
-                  onChange={(e) => setGuestsCount(e.target.value)}
-                  className="pill-select-input w-full bg-[#000000]"
-                >
-                  <option value="2-6 personas">2 a 6 personas</option>
-                  <option value="7-15 personas">7 a 15 personas</option>
-                  <option value="16-30 personas">16 a 30 personas</option>
-                  <option value="30+ personas">Más de 30 personas (Cierre de Área)</option>
-                </select>
-              </div>
-
-            </div>
-
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-[#86868b] font-semibold mb-2">
-                Fecha Tentativa
-              </label>
-              <input
-                type="date"
-                value={eventDate}
-                onChange={(e) => setEventDate(e.target.value)}
-                className="pill-select-input w-full bg-[#000000]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-[#86868b] font-semibold mb-2">
-                Notas o Requerimientos Especiales
-              </label>
-              <textarea
-                rows={3}
-                placeholder="Indica preferencias alimenticias, presupuesto o requerimiento de espacio..."
-                value={eventNotes}
-                onChange={(e) => setEventNotes(e.target.value)}
-                className="pill-select-input w-full bg-[#000000] !rounded-[20px] !py-3.5"
-              />
-            </div>
-
-            <button type="submit" className="btn-apple-blue w-full py-4 text-xs font-semibold flex items-center justify-center gap-2">
-              <MessageSquare className="w-4 h-4" />
-              <span>Enviar Cotización a WhatsApp</span>
-            </button>
-          </form>
-        </div>
       </section>
 
     </div>
