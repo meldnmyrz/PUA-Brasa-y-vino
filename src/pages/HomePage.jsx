@@ -35,19 +35,23 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       <ParticleConstellation />
 
       {/* ============================================================
-          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO CENTRADO PERFECTAMENTE)
+          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO ELEVADO Y CENTRADO TOTALMENTE)
          ============================================================ */}
-      <section className="relative w-full h-[calc(100vh-96px)] min-h-[580px] flex flex-col justify-center py-12 z-10 overflow-hidden">
+      <section className="relative w-full h-[80vh] sm:h-[84vh] min-h-[500px] max-h-[780px] flex flex-col justify-center py-8 z-10 overflow-hidden">
         
-        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER */}
+        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER WITH ELEVATED TRANSFORM */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover brightness-115 contrast-110 opacity-100 transition-all duration-700 scale-100"
-            style={{ objectPosition: '85% 70%' }}
+            className="w-full h-full object-cover brightness-115 contrast-110 opacity-100 transition-all duration-700"
+            style={{ 
+              objectPosition: '85% 100%',
+              transform: 'translateY(-12%) scale(1.3)',
+              transformOrigin: 'center center'
+            }}
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
             <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
