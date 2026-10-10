@@ -11,7 +11,7 @@ export default function Features11() {
     {
       index: '01',
       icon: Flame,
-      iconColor: 'text-[#ff3037]',
+      iconColor: 'text-[#8c672b]', // CARAMEL
       metric: '600°C',
       title: 'Fuego Directo de Encino',
       desc: 'Sellado en parrilla a temperatura extrema que sella los jugos naturales y genera la costra caramelizada perfecta en cada corte Angus Prime.'
@@ -19,7 +19,7 @@ export default function Features11() {
     {
       index: '02',
       icon: Thermometer,
-      iconColor: 'text-[#00d959]',
+      iconColor: 'text-[#487a52]', // FOREST
       metric: '45 DÍAS',
       title: 'Cámara de Maduración en Seco',
       desc: 'Ambiente estrictamente controlado a 85% de humedad relativa y flujo de aire constante para maximizar la concentración de sabor y ternura.'
@@ -27,7 +27,7 @@ export default function Features11() {
     {
       index: '03',
       icon: Wine,
-      iconColor: 'text-[#0071e3]',
+      iconColor: 'text-[#c49a4a]', // CARAMEL LIGHT
       metric: '500+',
       title: 'Cava VIP & Sommelier',
       desc: 'Curaduría internacional con cosechas de Valle de Guadalupe, Rioja, Burdeos, Napa Valley y Champagne listos para maridar cada tiempo.'
@@ -41,21 +41,21 @@ export default function Features11() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 pb-12 border-b border-white/10">
         
         <div className="lg:col-span-7 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-[#ff3037]/10 border border-[#ff3037]/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#ff3037] tracking-wider uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 bg-[#8c672b]/15 border border-[#8c672b]/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#c49a4a] tracking-wider uppercase">
+            <Sparkles className="w-3.5 h-3.5 text-[#8c672b]" />
             <span>ESTÁNDARES DE CALIDAD PÚA</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#f5f5f7] font-sf-pro-display leading-[1.12]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#f8f9fa] font-sf-pro-display leading-[1.12]">
             MÁXIMA PRECISIÓN EN CADA CORTE Y ETIQUETA.
           </h2>
         </div>
 
         <div className="lg:col-span-5 space-y-4">
-          <p className="text-body-apple text-[#86868b] text-base leading-relaxed">
+          <p className="text-body-apple text-[#c4c2b9] text-base leading-relaxed">
             Evaluamos cada parámetro de maduración en seco y control de temperatura en la brasa para garantizar consistencia, ternura extrema y el sello ahumado característico de PÚA.
           </p>
-          <Link to="/nosotros" className="inline-flex items-center gap-2 text-xs font-semibold text-[#0071e3] hover:text-[#0077ed] transition-colors group pt-2">
+          <Link to="/nosotros" className="inline-flex items-center gap-2 text-xs font-semibold text-[#c49a4a] hover:text-[#8c672b] transition-colors group pt-2">
             <span>Conoce nuestra filosofía del fuego</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </Link>
@@ -75,7 +75,7 @@ export default function Features11() {
             >
               {/* TOP INDEX & ICON ROW */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <span className="font-mono text-xs font-bold tracking-widest text-[#ff3037]">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#8c672b]">
                   [{card.index}]
                 </span>
                 <div className={`p-2 rounded-xl bg-transparent ${card.iconColor}`}>
@@ -85,16 +85,16 @@ export default function Features11() {
 
               {/* METRIC DISPLAY & TITLE */}
               <div className="space-y-2">
-                <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white block font-sf-pro-display group-hover:text-[#0071e3] transition-colors">
+                <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white block font-sf-pro-display group-hover:text-[#c49a4a] transition-colors">
                   {card.metric}
                 </span>
-                <h3 className="text-xl font-semibold text-[#f5f5f7] font-sf-pro-display">
+                <h3 className="text-xl font-semibold text-[#f8f9fa] font-sf-pro-display">
                   {card.title}
                 </h3>
               </div>
 
               {/* DESCRIPTION */}
-              <p className="text-xs sm:text-sm text-[#86868b] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#c4c2b9] leading-relaxed">
                 {card.desc}
               </p>
             </div>
