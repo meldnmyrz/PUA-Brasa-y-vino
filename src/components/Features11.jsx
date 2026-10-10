@@ -35,10 +35,10 @@ export default function Features11() {
   ];
 
   return (
-    <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 my-24 z-10 relative">
+    <section className="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 my-28 z-10 relative text-left">
       
-      {/* REACT BITS PRO FEATURES 11: SPLIT HEADLINE (DIRECTLY ON SCREEN CANVAS) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 pb-10 border-b border-white/10">
+      {/* SPLIT HEADLINE (DIRECTLY ON FULL SCREEN CANVAS) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 pb-12 border-b border-white/10">
         
         <div className="lg:col-span-7 space-y-4">
           <div className="inline-flex items-center gap-2 bg-[#ff3037]/10 border border-[#ff3037]/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#ff3037] tracking-wider uppercase">
@@ -46,16 +46,16 @@ export default function Features11() {
             <span>ESTÁNDARES DE CALIDAD PÚA</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.03em] text-[#f5f5f7] font-sf-pro-display leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#f5f5f7] font-sf-pro-display leading-[1.12]">
             MÁXIMA PRECISIÓN EN CADA CORTE Y ETIQUETA.
           </h2>
         </div>
 
         <div className="lg:col-span-5 space-y-4">
-          <p className="text-body-apple text-[#86868b] text-sm sm:text-base leading-relaxed">
+          <p className="text-body-apple text-[#86868b] text-base leading-relaxed">
             Evaluamos cada parámetro de maduración en seco y control de temperatura en la brasa para garantizar consistencia, ternura extrema y el sello ahumado característico de PÚA.
           </p>
-          <Link to="/nosotros" className="inline-flex items-center gap-2 text-xs font-semibold text-[#0071e3] hover:text-[#0077ed] transition-colors group">
+          <Link to="/nosotros" className="inline-flex items-center gap-2 text-xs font-semibold text-[#0071e3] hover:text-[#0077ed] transition-colors group pt-2">
             <span>Conoce nuestra filosofía del fuego</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </Link>
@@ -63,38 +63,38 @@ export default function Features11() {
 
       </div>
 
-      {/* REACT BITS PRO FEATURES 11: THREE INDEXED CARDS (DIRECTLY ON SCREEN CANVAS) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {/* THREE INDEXED COLUMNS (DIRECTLY ON FULL SCREEN CANVAS - NO CARD BOXES) */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
         {cards.map((card) => {
           const Icon = card.icon;
 
           return (
             <div
               key={card.index}
-              className="group relative bg-[#111111] border border-white/10 hover:border-white/25 rounded-[24px] p-8 transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between space-y-6 shadow-2xl"
+              className="space-y-6 group cursor-default"
             >
               {/* TOP INDEX & ICON ROW */}
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#86868b] group-hover:text-white group-hover:border-white/30 transition-colors">
-                  {card.index}
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#ff3037]">
+                  [{card.index}]
                 </span>
-                <div className={`p-3 rounded-2xl bg-white/5 border border-white/10 ${card.iconColor}`}>
-                  <Icon className="w-5 h-5 stroke-[2.2]" />
+                <div className={`p-2 rounded-xl bg-transparent ${card.iconColor}`}>
+                  <Icon className="w-6 h-6 stroke-[2]" />
                 </div>
               </div>
 
               {/* METRIC DISPLAY & TITLE */}
-              <div className="space-y-2 pt-2">
-                <span className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white block font-sf-pro-display">
+              <div className="space-y-2">
+                <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white block font-sf-pro-display group-hover:text-[#0071e3] transition-colors">
                   {card.metric}
                 </span>
-                <h3 className="text-lg font-semibold text-[#f5f5f7] font-sf-pro-display group-hover:text-[#0071e3] transition-colors">
+                <h3 className="text-xl font-semibold text-[#f5f5f7] font-sf-pro-display">
                   {card.title}
                 </h3>
               </div>
 
               {/* DESCRIPTION */}
-              <p className="text-xs text-[#86868b] leading-relaxed pt-2 border-t border-white/5">
+              <p className="text-xs sm:text-sm text-[#86868b] leading-relaxed">
                 {card.desc}
               </p>
             </div>
