@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Flame, Wine, Calendar, ArrowRight, Sparkles, 
-  MapPin, Phone, Plus, ChevronUp, ChefHat, ArrowUpRight, Thermometer, Droplets, ShieldCheck, Award
+  MapPin, Phone, Plus, ChevronUp, ChefHat, ArrowUpRight, Thermometer, Droplets, ShieldCheck, Award, Mail
 } from 'lucide-react';
-import { menuItems, menuCategories } from '../data/menuData';
+import { menuItems, menuCategories, restaurantInfo } from '../data/menuData';
 import MenuItemCard from '../components/MenuItemCard';
 import ParticleConstellation from '../components/ParticleConstellation';
+import DraggableKnotOfLight from '../components/DraggableKnotOfLight';
 
 export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [emailSignup, setEmailSignup] = useState('');
+  const [signupSuccess, setSignupSuccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +29,15 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleEmailSubscribe = (e) => {
+    e.preventDefault();
+    if (!emailSignup) return;
+    setSignupSuccess(true);
+    setTimeout(() => {
+      navigate('/reservas', { state: { userEmail: emailSignup } });
+    }, 1200);
+  };
+
   const featuredDishes = menuItems.filter(item => item.tags && item.tags.length > 0).slice(0, 6);
 
   return (
@@ -34,36 +46,79 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
 
-      {/* 01 HERO PRODUCT STAGE — FULL-BLEED GALLERY BLACK (#000000) */}
-      <section className="relative min-h-[85vh] flex flex-col justify-between max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 z-10">
+      {/* ============================================================
+          01 HERO 33 BLOCK STAGE — DRAGGABLE KNOT OF LIGHT & VIP EMAIL SIGNUP
+         ============================================================ */}
+      <section className="relative min-h-[90vh] flex flex-col justify-between max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 z-10">
         
-        {/* AVAILABILITY BADGE */}
-        <div className="flex items-center gap-3">
+        {/* AVAILABILITY BADGE & INTEGRATION PLATFORM TAGS */}
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <span className="badge-availability">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff791b] animate-ping" />
-            RESERVA VIP DISPONIBLE · POLANCO CDMX
+            PÚA HERO 33 // RESERVA VIP DISPONIBLE · POLANCO CDMX
           </span>
-          <span className="text-xs text-[#86868b] hidden sm:inline-block">
-            Maduración en Cava & Leña de Encino
-          </span>
+          <div className="hidden sm:flex items-center gap-2">
+            <span className="text-[11px] font-mono text-[#00d959] bg-[#111111] px-3 py-1 rounded-full border border-white/10">
+              ✓ 45 Días Maduración
+            </span>
+            <span className="text-[11px] font-mono text-[#ff3037] bg-[#111111] px-3 py-1 rounded-full border border-white/10">
+              🔥 600°C Leña Encino
+            </span>
+          </div>
         </div>
 
-        {/* HERO MAIN GRID: MONUMENTAL 80px DISPLAY HEADLINE & FLOATING HARDWARE/GASTRONOMY STAGE */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-12">
+        {/* HERO 33 MAIN GRID: MONUMENTAL STATEMENT + DRAGGABLE KNOT OF LIGHT 3D CANVAS */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-8">
           
-          {/* LEFT 7 COLUMNS: MONUMENTAL STATEMENT */}
-          <div className="lg:col-span-7 space-y-6">
-            <h1 className="text-hero-display tracking-[-1.2px] text-[#f5f5f7]">
-              EL ARTE DE <br />
-              <span className="text-[#f5f5f7]">LA BRASA.</span>
-            </h1>
+          {/* LEFT 6 COLUMNS: MONUMENTAL STATEMENT & EMAIL SIGNUP PILL */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="space-y-3">
+              <span className="text-xs uppercase font-semibold tracking-wider text-[#ff791b] block">
+                GASTRONOMÍA A LAS BRASAS & CAVA DE AUTOR
+              </span>
+              <h1 className="text-hero-display tracking-[-1.2px] text-[#f5f5f7]">
+                EL RITUAL DEL <br />
+                <span className="text-[#f5f5f7] drop-shadow-[0_0_25px_rgba(255,121,27,0.3)]">FUEGO & LA CAVA.</span>
+              </h1>
+            </div>
             
             <p className="text-body-apple max-w-xl text-[#86868b]">
-              Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
+              Cortes Angus Prime madurados en seco durante 45 días, sellados a 600°C al fuego directo de encino. Interactúa con el nudo de luz 3D a la derecha y reserva tu experiencia VIP.
             </p>
 
+            {/* HERO 33 EMAIL SIGNUP / VIP RESERVATION PILL INPUT */}
+            <div className="pt-2 space-y-3 max-w-lg">
+              <form onSubmit={handleEmailSubscribe} className="relative flex items-center">
+                <div className="relative w-full">
+                  <Mail className="w-4 h-4 absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" />
+                  <input
+                    type="email"
+                    required
+                    placeholder="Ingresa tu correo para invitación a la Cava VIP..."
+                    value={emailSignup}
+                    onChange={(e) => setEmailSignup(e.target.value)}
+                    className="pill-select-input w-full pl-12 pr-36 bg-[#111111] text-xs sm:text-sm"
+                  />
+                </div>
+                <button 
+                  type="submit" 
+                  className="btn-apple-blue font-semibold absolute right-2 py-2.5 px-5 text-xs rounded-[980px] shrink-0"
+                >
+                  {signupSuccess ? '¡Invitación Lista!' : 'Acceso VIP'}
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </form>
+
+              <div className="flex items-center justify-between text-[11px] text-[#86868b] px-2">
+                <span>✦ Maridajes con +500 Etiquetas</span>
+                <Link to="/menu" className="inline-product-link text-[11px]">
+                  Explorar la Carta →
+                </Link>
+              </div>
+            </div>
+
             {/* FLOATING DARK UTILITY CAPSULE (#333336, 36px radius) */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <div className="dark-utility-capsule max-w-md w-full sm:w-auto">
                 <div className="flex flex-col">
                   <span className="text-xs font-semibold text-[#f5f5f7] leading-tight">
@@ -78,48 +133,13 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-
-              <Link to="/menu" className="btn-white-outline">
-                <span>Ver Carta Completa</span>
-              </Link>
             </div>
+
           </div>
 
-          {/* RIGHT 5 COLUMNS: BRONZE SENSOR / EMBERS VISUAL MEDIA CARD */}
-          <div className="lg:col-span-5 relative">
-            <div className="card-black-media relative h-[440px] w-full group overflow-hidden border border-white/10">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
-              >
-                <source src="/assets/pua-head-of.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-              
-              {/* LIVE METRIC OVERLAYS IN PULSE RED & VITAL GREEN */}
-              <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
-                <div className="bg-[#111111]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
-                  <Thermometer className="w-3.5 h-3.5 text-[#ff3037]" />
-                  <span className="text-xs font-bold text-[#ff3037] font-mono">600°C EMBERS</span>
-                </div>
-                <div className="bg-[#111111]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
-                  <Droplets className="w-3.5 h-3.5 text-[#00d959]" />
-                  <span className="text-xs font-bold text-[#00d959] font-mono">85% HUMIDITY</span>
-                </div>
-              </div>
-
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-xs text-[#86868b] uppercase tracking-wider block font-semibold mb-1">
-                  SELLO DE ASADO A LA LEÑA
-                </span>
-                <p className="text-lg font-semibold text-[#f5f5f7] font-sf-pro-display">
-                  Técnica ancestral con fuego de encino & mezquite.
-                </p>
-              </div>
-            </div>
+          {/* RIGHT 6 COLUMNS: DRAGGABLE KNOT OF LIGHT 3D BLOCK (HERO 33) */}
+          <div className="lg:col-span-6 relative">
+            <DraggableKnotOfLight />
           </div>
 
         </div>
