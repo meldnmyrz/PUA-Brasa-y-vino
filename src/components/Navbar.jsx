@@ -155,44 +155,46 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
             : 'py-6 sm:py-8 bg-transparent border-b border-transparent'
         }`}
       >
-        {/* LEFT: BRAND EMBLEM LOGO */}
-        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <PuaLogo size="small" />
-        </Link>
+        {/* LEFT GROUP: BRAND EMBLEM LOGO & LEFT-ALIGNED NAVIGATION LINKS */}
+        <div className="flex items-center gap-8 sm:gap-12">
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <PuaLogo size="small" />
+          </Link>
 
-        {/* CENTER: MINIMALIST CENTERED NAVIGATION LINKS */}
-        <nav className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => {
-            const hasMega = Boolean(link.megaKey);
-            const isMegaActive = activeMegaMenu === link.megaKey;
+          {/* LEFT-ALIGNED NAVIGATION LINKS */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => {
+              const hasMega = Boolean(link.megaKey);
+              const isMegaActive = activeMegaMenu === link.megaKey;
 
-            return (
-              <div 
-                key={link.path}
-                className="relative py-2 group"
-                onMouseEnter={() => hasMega && setActiveMegaMenu(link.megaKey)}
-              >
-                <NavLink
-                  to={link.path}
-                  end={link.path === '/'}
-                  onClick={() => !hasMega && setActiveMegaMenu(null)}
-                  className={({ isActive }) =>
-                    `flex items-center gap-1 text-[13px] font-medium tracking-tight transition-all duration-200 ${
-                      isActive || isMegaActive
-                        ? 'text-white font-semibold' 
-                        : 'text-white/75 hover:text-white'
-                    }`
-                  }
+              return (
+                <div 
+                  key={link.path}
+                  className="relative py-2 group"
+                  onMouseEnter={() => hasMega && setActiveMegaMenu(link.megaKey)}
                 >
-                  <span>{link.label}</span>
-                  {hasMega && (
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 opacity-60 group-hover:opacity-100 ${isMegaActive ? 'rotate-180 text-white' : ''}`} />
-                  )}
-                </NavLink>
-              </div>
-            );
-          })}
-        </nav>
+                  <NavLink
+                    to={link.path}
+                    end={link.path === '/'}
+                    onClick={() => !hasMega && setActiveMegaMenu(null)}
+                    className={({ isActive }) =>
+                      `flex items-center gap-1 text-[13px] font-medium tracking-tight transition-all duration-200 ${
+                        isActive || isMegaActive
+                          ? 'text-white font-semibold' 
+                          : 'text-white/75 hover:text-white'
+                      }`
+                    }
+                  >
+                    <span>{link.label}</span>
+                    {hasMega && (
+                      <ChevronDown className={`w-3 h-3 transition-transform duration-300 opacity-60 group-hover:opacity-100 ${isMegaActive ? 'rotate-180 text-white' : ''}`} />
+                    )}
+                  </NavLink>
+                </div>
+              );
+            })}
+          </nav>
+        </div>
 
         {/* RIGHT: MINIMALIST CTA LINK & ACTIONS */}
         <div className="flex items-center gap-5 sm:gap-8">
