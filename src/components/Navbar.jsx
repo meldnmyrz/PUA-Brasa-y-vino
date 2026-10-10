@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { 
   Search, Menu, X, Calendar, ShoppingBag, Flame, ChevronDown, 
-  Wine, Sparkles, MapPin, Phone, ChefHat, Clock, Award, ShieldCheck, ArrowRight 
+  ArrowRight, Sparkles, MapPin, Phone, ChefHat
 } from 'lucide-react';
 import PuaLogo from './PuaLogo';
 
@@ -10,7 +10,6 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState(null); // 'menu' | 'servicios' | 'nosotros' | null
-  const [lang, setLang] = useState('ES');
   const location = useLocation();
   const megaMenuRef = useRef(null);
 
@@ -149,82 +148,29 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
   return (
     <header ref={megaMenuRef} className="fixed top-0 inset-x-0 z-50 flex flex-col w-full">
       
-      {/* 01 GLOBAL NAVIGATION BAR — 44px #111111 BAR */}
-      <div className="w-full h-[44px] bg-[#111111] border-b border-white/10 px-4 sm:px-8 flex items-center justify-between text-xs text-[#86868b]">
-        <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center gap-2 text-[#f5f5f7] hover:opacity-80 transition-opacity">
-            <Flame className="w-3.5 h-3.5 text-[#ff3037]" />
-            <span className="font-semibold text-xs tracking-tight">PÚA — BRASA & CAVA</span>
-          </Link>
-          <span className="hidden md:inline-block text-[11px] text-[#6e6e73]">
-            Polanco, Ciudad de México · Cocina a la Leña de Encino
-          </span>
-        </div>
-
-        <div className="flex items-center gap-4">
-          {/* SEARCH BAR BUTTON */}
-          {onOpenSearch && (
-            <button
-              onClick={onOpenSearch}
-              className="flex items-center gap-1.5 bg-[#333336] text-[#f5f5f7] hover:bg-[#3d3d42] px-3 py-1 rounded-[980px] text-[11px] transition-colors"
-            >
-              <Search className="w-3 h-3 text-[#86868b]" />
-              <span>Buscar</span>
-              <kbd className="bg-[#111111] text-[9px] px-1 rounded text-[#86868b] border border-white/10">⌘K</kbd>
-            </button>
-          )}
-
-          {/* LANGUAGE SELECTOR */}
-          <div className="hidden sm:flex items-center gap-1 text-[11px]">
-            <button
-              onClick={() => setLang('ES')}
-              className={lang === 'ES' ? 'text-[#f5f5f7] font-semibold' : 'text-[#86868b] hover:text-[#f5f5f7]'}
-            >
-              ES
-            </button>
-            <span>/</span>
-            <button
-              onClick={() => setLang('EN')}
-              className={lang === 'EN' ? 'text-[#f5f5f7] font-semibold' : 'text-[#86868b] hover:text-[#f5f5f7]'}
-            >
-              EN
-            </button>
-          </div>
-
-          {/* ORDER DRAWER TRIGGER */}
-          {onOpenOrderDrawer && (
-            <button
-              onClick={onOpenOrderDrawer}
-              className="relative p-1.5 text-[#f5f5f7] hover:text-white transition-colors"
-              title="Mi Mesa"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#0071e3] text-white font-mono text-[9px] font-bold flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* 02 LOCAL PRODUCT NAVIGATION BAR WITH MEGA MENU TRIGGER (NAVBAR 5 SPEC) */}
+      {/* SINGLE UNIFIED CLEAN LUXURY NAVBAR — 64px HIGH CONTRAST GLASS BAR */}
       <div 
-        className={`w-full h-[52px] bg-[#000000]/90 backdrop-blur-md border-b border-white/5 px-4 sm:px-8 flex items-center justify-between transition-all ${
-          isScrolled ? 'bg-[#000000]/95 border-white/10 shadow-2xl' : ''
+        className={`w-full h-[64px] px-4 sm:px-8 flex items-center justify-between border-b transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-[#000000]/95 backdrop-blur-2xl border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.9)]' 
+            : 'bg-[#000000]/85 backdrop-blur-xl border-white/10'
         }`}
       >
-        {/* BRAND IDENTITY */}
-        <Link to="/" className="flex items-center gap-2.5">
-          <PuaLogo color="#f5f5f7" size="small" />
-          <span className="text-[#f5f5f7] font-semibold text-sm sm:text-base tracking-tight font-sf-pro-display">
-            PÚA <span className="font-normal text-[#86868b] text-xs">Brasa y Vino</span>
-          </span>
+        {/* BRAND LOGO & IDENTITY */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <PuaLogo color="#ffffff" size="small" />
+          <div className="flex flex-col">
+            <span className="text-[#ffffff] font-semibold text-base sm:text-lg tracking-tight font-sf-pro-display group-hover:text-[#0071e3] transition-colors">
+              PÚA
+            </span>
+            <span className="text-[#86868b] text-[10px] font-medium tracking-widest uppercase -mt-1">
+              Brasa y Vino
+            </span>
+          </div>
         </Link>
 
-        {/* 5 INDEPENDENT NAVIGATION LINKS WITH MEGA MENU HOVER/CLICK (DESKTOP) */}
-        <nav className="hidden lg:flex items-center gap-8 text-[12px] font-normal tracking-[-0.12px]">
+        {/* HIGH CONTRAST NAVIGATION LINKS (DESKTOP) */}
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => {
             const hasMega = Boolean(link.megaKey);
             const isMegaActive = activeMegaMenu === link.megaKey;
@@ -232,7 +178,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
             return (
               <div 
                 key={link.path}
-                className="relative py-3 group"
+                className="relative py-4 group"
                 onMouseEnter={() => hasMega && setActiveMegaMenu(link.megaKey)}
               >
                 <NavLink
@@ -240,16 +186,16 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                   end={link.path === '/'}
                   onClick={() => !hasMega && setActiveMegaMenu(null)}
                   className={({ isActive }) =>
-                    `flex items-center gap-1 transition-colors py-1 ${
+                    `flex items-center gap-1.5 text-xs font-semibold tracking-wider transition-all duration-200 py-1 ${
                       isActive || isMegaActive
-                        ? 'text-[#f5f5f7] font-semibold border-b-2 border-[#0071e3]' 
-                        : 'text-[#86868b] hover:text-[#f5f5f7]'
+                        ? 'text-[#ffffff] border-b-2 border-[#0071e3] drop-shadow-[0_0_12px_rgba(0,113,227,0.8)]' 
+                        : 'text-[#e5e5e7] hover:text-[#0071e3]'
                     }`
                   }
                 >
                   <span>{link.label}</span>
                   {hasMega && (
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isMegaActive ? 'rotate-180 text-[#0071e3]' : 'text-[#86868b]'}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isMegaActive ? 'rotate-180 text-[#0071e3]' : 'text-[#86868b]'}`} />
                   )}
                 </NavLink>
               </div>
@@ -257,29 +203,59 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
           })}
         </nav>
 
-        {/* RIGHT ACTION: APPLE BLUE RESERVATION PILL */}
-        <div className="flex items-center gap-3">
+        {/* RIGHT SIDE ACTIONS: SEARCH, CART & RESERVATION PILL */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          
+          {/* SEARCH BUTTON */}
+          {onOpenSearch && (
+            <button
+              onClick={onOpenSearch}
+              className="flex items-center gap-2 bg-[#1c1c1e] text-[#f5f5f7] hover:bg-[#2c2c2e] hover:text-white px-3 py-1.5 rounded-full text-xs font-medium border border-white/10 transition-all"
+            >
+              <Search className="w-3.5 h-3.5 text-[#86868b]" />
+              <span className="hidden sm:inline text-[11px]">Buscar</span>
+            </button>
+          )}
+
+          {/* CART / ORDER DRAWER */}
+          {onOpenOrderDrawer && (
+            <button
+              onClick={onOpenOrderDrawer}
+              className="relative p-2 text-[#f5f5f7] hover:text-white hover:bg-white/10 rounded-full transition-colors"
+              title="Mi Mesa"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              {cartCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#0071e3] text-white font-mono text-[9px] font-bold flex items-center justify-center shadow-lg">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          )}
+
+          {/* APPLE BLUE RESERVATION PILL */}
           <Link
             to="/reservas"
-            className="btn-apple-blue font-normal"
+            className="btn-apple-blue font-semibold !py-2 !px-5 !text-xs text-white shadow-[0_2px_14px_rgba(0,113,227,0.5)] flex items-center gap-2"
           >
             <Calendar className="w-3.5 h-3.5" />
-            <span>RESERVAR MESA</span>
+            <span className="hidden sm:inline">RESERVAR MESA</span>
+            <span className="sm:hidden">RESERVAR</span>
           </Link>
 
           {/* MOBILE TOGGLE */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-[#f5f5f7] hover:text-white"
+            className="lg:hidden p-2 text-[#f5f5f7] hover:text-white"
             aria-label="Menu Toggle"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* ============================================================
-          03 MEGA MENU FLOATING DROPDOWN PANEL (REACT BITS PRO NAVBAR 5 SPECIFICATION)
+          MEGA MENU FLOATING DROPDOWN PANEL
          ============================================================ */}
       {activeMegaMenu && megaMenuData[activeMegaMenu] && (
         <div 

@@ -29,7 +29,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const featuredDishes = menuItems.filter(item => item.tags && item.tags.length > 0).slice(0, 6);
 
   return (
-    <div className="pt-[96px] pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
+    <div className="pt-[64px] pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
       <ParticleConstellation />
