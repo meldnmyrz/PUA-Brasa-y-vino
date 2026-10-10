@@ -30,11 +30,11 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl animate-fadeIn"
       onClick={onClose}
     >
       <div 
-        className="bg-[#0b0e14] border border-[#232730] rounded-[24px] max-w-2xl w-full overflow-hidden shadow-2xl relative space-y-0 text-left"
+        className="bg-black/75 backdrop-blur-3xl border border-white/15 rounded-[24px] max-w-2xl w-full overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.8)] relative space-y-0 text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* PHOTO HEADER */}
@@ -46,12 +46,12 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
           />
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/70 border border-white/20 text-white hover:text-[#c89f53] transition-colors"
+            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/50 border border-white/20 text-white hover:text-[#c49a4a] transition-colors backdrop-blur-md"
           >
             <X className="w-5 h-5" />
           </button>
           
-          <div className="absolute bottom-4 left-6 bg-[#050505]/90 border border-[#c89f53] text-[#c89f53] font-mono text-lg font-bold px-4 py-1.5 rounded-full backdrop-blur-md">
+          <div className="absolute bottom-4 left-6 bg-black/60 border border-[#c49a4a]/50 text-[#c49a4a] font-mono text-lg font-bold px-4 py-1.5 rounded-full backdrop-blur-md">
             ${dish.price.toLocaleString()} MXN
           </div>
         </div>
@@ -60,35 +60,35 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
         <div className="p-6 sm:p-8 space-y-5 max-h-[60vh] overflow-y-auto">
           
           <div className="space-y-1">
-            <span className="badge-amber-tag">PÚA BRASA Y VINO</span>
-            <h2 className="font-garamond text-3xl sm:text-4xl text-white font-semibold">
+            <span className="px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-[#8c672b]/20 text-[#c49a4a] border border-[#8c672b]/30">PÚA BRASA Y VINO</span>
+            <h2 className="font-sf-pro-display text-3xl sm:text-4xl text-white font-semibold pt-1">
               {dish.name}
             </h2>
           </div>
 
-          <p className="font-jakarta text-xs sm:text-sm text-[#d4d3c9] leading-relaxed">
+          <p className="font-sf-pro-text text-xs sm:text-sm text-[#c4c2b9] leading-relaxed">
             {dish.description}
           </p>
 
           {/* SOMMELIER WINE PAIRING BOX */}
           {dish.pairing && (
-            <div className="p-4 rounded-xl bg-[#1e3524] border border-[#2d4e36] flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#2d4e36] text-[#a3e6b4] flex items-center justify-center shrink-0">
+            <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/15 flex items-center gap-3 backdrop-blur-md">
+              <div className="w-10 h-10 rounded-xl bg-[#8c672b]/20 text-[#c49a4a] border border-[#8c672b]/30 flex items-center justify-center shrink-0">
                 <WineIcon className="w-5 h-5 stroke-[2.5]" />
               </div>
               <div>
-                <span className="text-[10px] text-[#a3e6b4] font-bold uppercase tracking-wider block">
+                <span className="text-[10px] text-[#c49a4a] font-bold uppercase tracking-wider block font-mono">
                   Maridaje Sugerido por Sommelier
                 </span>
-                <span className="text-sm text-white font-semibold">{dish.pairing}</span>
+                <span className="text-sm text-white font-semibold font-sf-pro-display">{dish.pairing}</span>
               </div>
             </div>
           )}
 
           {/* MEAT TERM SELECTION IF MEAT DISH */}
           {isMeat && (
-            <div className="space-y-2 pt-2 border-t border-[#232730]">
-              <label className="text-xs font-mono text-[#c89f53] uppercase tracking-wider block font-bold">
+            <div className="space-y-2 pt-2 border-t border-white/10">
+              <label className="text-xs font-mono text-[#c49a4a] uppercase tracking-wider block font-bold">
                 Término de la Carne:
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -96,10 +96,10 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
                   <button
                     key={term}
                     onClick={() => setSelectedTerm(term)}
-                    className={`py-2 px-3 rounded-lg text-xs font-semibold border transition-all text-center ${
+                    className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all text-center ${
                       selectedTerm === term
-                        ? 'bg-[#987232] text-white border-[#c89f53]'
-                        : 'bg-[#12141a] text-[#848a96] border-[#232730] hover:border-[#c89f53] hover:text-white'
+                        ? 'bg-[#8c672b] text-white border-[#c49a4a] shadow-lg'
+                        : 'bg-white/[0.04] text-[#c4c2b9] border-white/15 hover:bg-white/10 hover:text-white'
                     }`}
                   >
                     {term}
@@ -110,9 +110,9 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
           )}
 
           {/* SPECIAL INSTRUCTIONS */}
-          <div className="space-y-2 pt-2 border-t border-[#232730]">
-            <label className="text-xs font-mono text-[#848a96] uppercase tracking-wider flex items-center gap-2">
-              <MessageSquare className="w-3.5 h-3.5 text-[#c89f53]" />
+          <div className="space-y-2 pt-2 border-t border-white/10">
+            <label className="text-xs font-mono text-[#c4c2b9] uppercase tracking-wider flex items-center gap-2">
+              <MessageSquare className="w-3.5 h-3.5 text-[#c49a4a]" />
               Instrucciones Especiales para Cocina:
             </label>
             <textarea
@@ -120,25 +120,25 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
               placeholder="Ej. Sin sal adicional, salsa aparte, extra limón..."
               value={specialInstructions}
               onChange={(e) => setSpecialInstructions(e.target.value)}
-              className="w-full p-3 bg-[#12141a] border border-[#232730] rounded-xl text-white text-xs placeholder-[#848a96] focus:outline-none focus:border-[#c89f53]"
+              className="w-full p-3 bg-black/50 border border-white/15 rounded-xl text-white text-xs placeholder-[#c4c2b9]/60 focus:outline-none focus:border-[#c49a4a] font-sf-pro-text transition-all"
             />
           </div>
 
           {/* QUANTITY & ADD TO TABLE ACTION */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 border-t border-[#232730]">
+          <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 border-t border-white/10">
             
             {/* Quantity Controls */}
-            <div className="flex items-center gap-3 bg-[#12141a] border border-[#232730] p-1.5 rounded-full">
+            <div className="flex items-center gap-3 bg-black/40 border border-white/15 p-1.5 rounded-full">
               <button 
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-8 h-8 rounded-full bg-[#050505] text-white flex items-center justify-center hover:bg-[#987232] transition-colors"
+                className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#8c672b] transition-colors"
               >
                 <Minus className="w-4 h-4" />
               </button>
               <span className="font-mono text-sm font-bold w-6 text-center text-white">{quantity}</span>
               <button 
                 onClick={() => setQuantity(quantity + 1)}
-                className="w-8 h-8 rounded-full bg-[#050505] text-white flex items-center justify-center hover:bg-[#987232] transition-colors"
+                className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#8c672b] transition-colors"
               >
                 <Plus className="w-4 h-4" />
               </button>
@@ -148,8 +148,10 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
             <button
               onClick={handleAdd}
               disabled={addedSuccess}
-              className={`flex-1 w-full btn-caramel-amber py-3.5 rounded-full ${
-                addedSuccess ? '!bg-emerald-600' : ''
+              className={`flex-1 w-full py-3.5 px-6 rounded-full font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
+                addedSuccess 
+                  ? 'bg-emerald-600/90 text-white' 
+                  : 'bg-white/15 hover:bg-white/25 border border-white/25 text-white backdrop-blur-md shadow-lg'
               }`}
             >
               {addedSuccess ? (
@@ -159,7 +161,7 @@ export default function ItemModal({ dish, onClose, onAddToCart }) {
                 </>
               ) : (
                 <>
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-4 h-4 text-[#c49a4a]" />
                   <span>Agregar a Orden — ${(dish.price * quantity).toLocaleString()} MXN</span>
                 </>
               )}

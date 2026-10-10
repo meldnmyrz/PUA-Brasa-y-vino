@@ -219,7 +219,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
             >
               <ShoppingBag className="w-4.5 h-4.5" />
               {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-2 w-4 h-4 rounded-full bg-[#ff3037] text-white font-mono text-[9px] font-bold flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-2 w-4 h-4 rounded-full bg-[#8c672b] text-white font-mono text-[9px] font-bold flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -229,10 +229,10 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
           {/* RIGHT CTA LINK matching reference image style */}
           <Link
             to="/reservas"
-            className="text-xs sm:text-sm font-semibold text-white hover:text-[#ff3037] transition-all flex items-center gap-1.5 tracking-tight group"
+            className="text-xs sm:text-sm font-semibold text-white hover:text-[#c49a4a] transition-all flex items-center gap-1.5 tracking-tight group"
           >
             <span>Reservar mesa</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-white/80 group-hover:text-[#ff3037]" />
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-white/80 group-hover:text-[#c49a4a]" />
           </Link>
 
           {/* MOBILE TOGGLE */}
@@ -247,11 +247,11 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
       </div>
 
       {/* ============================================================
-          MEGA MENU FLOATING DROPDOWN PANEL
+          MEGA MENU FLOATING DROPDOWN PANEL (TRANSPARENT APPLE GLASS)
          ============================================================ */}
       {activeMegaMenu && megaMenuData[activeMegaMenu] && (
         <div 
-          className="hidden lg:block absolute top-full inset-x-0 bg-[#0d0d0e]/98 backdrop-blur-2xl border-b border-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.95)] z-50 animate-fadeIn"
+          className="hidden lg:block absolute top-full inset-x-0 bg-black/60 backdrop-blur-3xl border-b border-white/15 shadow-[0_30px_90px_rgba(0,0,0,0.8)] z-50 animate-fadeIn"
           onMouseLeave={() => setActiveMegaMenu(null)}
         >
           <div className="max-w-[1360px] mx-auto px-8 py-8">
@@ -259,16 +259,16 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
             {/* MEGA MENU HEADER BADGE & TITLE */}
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
               <div className="flex items-center gap-3">
-                <span className="badge-availability !bg-[#ff3037]/20 !text-[#ff3037] !border-[#ff3037]/30">
+                <span className="px-3 py-1 rounded-full text-[10px] font-semibold font-mono uppercase tracking-wider bg-[#8c672b]/20 text-[#c49a4a] border border-[#8c672b]/30">
                   {megaMenuData[activeMegaMenu].badge}
                 </span>
-                <h3 className="text-sm font-semibold tracking-wider text-[#f5f5f7] uppercase font-sf-pro-display">
+                <h3 className="text-sm font-semibold tracking-wider text-[#f8f9fa] uppercase font-sf-pro-display">
                   {megaMenuData[activeMegaMenu].title}
                 </h3>
               </div>
               <button 
                 onClick={() => setActiveMegaMenu(null)}
-                className="text-xs text-[#86868b] hover:text-white transition-colors"
+                className="text-xs text-[#c4c2b9] hover:text-white transition-colors"
               >
                 Cerrar ✕
               </button>
@@ -290,13 +290,13 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                           <Link
                             to={item.path}
                             onClick={() => setActiveMegaMenu(null)}
-                            className="group block space-y-0.5 p-2 -mx-2 rounded-lg hover:bg-white/5 transition-all"
+                            className="group block space-y-0.5 p-2.5 -mx-2 rounded-xl hover:bg-white/10 backdrop-blur-md transition-all border border-transparent hover:border-white/10"
                           >
-                            <div className="flex items-center justify-between text-xs font-semibold text-[#f5f5f7] group-hover:text-[#ff3037] transition-colors">
+                            <div className="flex items-center justify-between text-xs font-semibold text-[#f8f9fa] group-hover:text-[#c49a4a] transition-colors">
                               <span>{item.name}</span>
-                              <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#ff3037]" />
+                              <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#c49a4a]" />
                             </div>
-                            <p className="text-[11px] text-[#86868b] leading-tight font-normal line-clamp-1">
+                            <p className="text-[11px] text-[#c4c2b9] leading-tight font-normal line-clamp-1">
                               {item.desc}
                             </p>
                           </Link>
@@ -307,24 +307,24 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                 ))}
               </div>
 
-              {/* FEATURED CARD COLUMN (3 OR 4 COLS) */}
+              {/* FEATURED CARD COLUMN (TRANSPARENT APPLE GLASS) */}
               <div className={`${megaMenuData[activeMegaMenu].columns.length === 3 ? 'col-span-3' : 'col-span-4'}`}>
-                <div className="bg-[#161618] border border-white/10 rounded-2xl p-6 flex flex-col justify-between h-full space-y-4 hover:border-white/20 transition-all">
+                <div className="bg-white/[0.04] backdrop-blur-xl border border-white/15 rounded-2xl p-6 flex flex-col justify-between h-full space-y-4 hover:bg-white/[0.08] hover:border-white/25 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                   <div className="space-y-2">
-                    <span className="text-[10px] text-[#ff3037] font-semibold uppercase tracking-wider block">
+                    <span className="text-[10px] text-[#c49a4a] font-semibold uppercase tracking-wider block font-mono">
                       RECOMENDACIÓN DESTACADA
                     </span>
-                    <h5 className="text-sm font-semibold text-white">
+                    <h5 className="text-sm font-semibold text-white font-sf-pro-display">
                       {megaMenuData[activeMegaMenu].featured.title}
                     </h5>
-                    <p className="text-xs text-[#86868b] leading-relaxed">
+                    <p className="text-xs text-[#c4c2b9] leading-relaxed">
                       {megaMenuData[activeMegaMenu].featured.desc}
                     </p>
                   </div>
                   <Link
                     to={megaMenuData[activeMegaMenu].featured.path}
                     onClick={() => setActiveMegaMenu(null)}
-                    className="btn-apple-blue !py-2.5 !px-4 !text-xs font-semibold text-center w-full justify-center !bg-[#ff3037] hover:!bg-[#e0282f]"
+                    className="inline-flex items-center justify-center gap-2 py-3 px-4 text-xs font-semibold text-center w-full rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white backdrop-blur-md transition-all shadow-lg hover:shadow-xl"
                   >
                     <span>{megaMenuData[activeMegaMenu].featured.linkText}</span>
                   </Link>
@@ -337,9 +337,9 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
         </div>
       )}
 
-      {/* MOBILE MENU DROPDOWN */}
+      {/* MOBILE MENU DROPDOWN (TRANSPARENT APPLE GLASS) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#111111] border-b border-white/10 px-6 py-5 flex flex-col gap-4 shadow-2xl animate-fadeIn">
+        <div className="lg:hidden bg-black/80 backdrop-blur-3xl border-b border-white/15 px-6 py-5 flex flex-col gap-4 shadow-2xl animate-fadeIn">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -347,7 +347,7 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
               end={link.path === '/'}
               className={({ isActive }) =>
                 `text-left py-2 font-sf-pro-text text-sm transition-colors border-b border-white/5 ${
-                  isActive ? 'text-[#ff3037] font-semibold pl-2' : 'text-[#86868b]'
+                  isActive ? 'text-[#c49a4a] font-semibold pl-2' : 'text-[#c4c2b9]'
                 }`
               }
             >

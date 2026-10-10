@@ -10,11 +10,11 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 group flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white px-4 py-3 rounded-full shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-105"
+      className="fixed bottom-6 right-6 z-40 group flex items-center gap-3 bg-black/40 hover:bg-white/15 backdrop-blur-xl border border-white/20 text-white px-4 py-3 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105"
       aria-label="Atención por WhatsApp"
     >
-      <MessageSquare className="w-6 h-6 animate-bounce" />
-      <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider pr-1">
+      <MessageSquare className="w-5 h-5 text-[#c49a4a] group-hover:text-white transition-colors" />
+      <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-white/90 group-hover:text-white pr-1 font-sf-pro-text">
         WhatsApp PÚA
       </span>
     </a>
