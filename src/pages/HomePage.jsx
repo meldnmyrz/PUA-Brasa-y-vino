@@ -35,11 +35,11 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       <ParticleConstellation />
 
       {/* ============================================================
-          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO ELEVADO Y CENTRADO TOTALMENTE)
+          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO CENTRADO PERFECTAMENTE SIN REFORTES)
          ============================================================ */}
-      <section className="relative w-full h-[80vh] sm:h-[84vh] min-h-[500px] max-h-[780px] flex flex-col justify-center py-8 z-10 overflow-hidden">
+      <section className="relative w-full h-[88vh] min-h-[560px] flex flex-col justify-center py-10 z-10 overflow-hidden">
         
-        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER WITH ELEVATED TRANSFORM */}
+        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER WITH NATURAL RATIO */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
             autoPlay
@@ -48,8 +48,8 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
             playsInline
             className="w-full h-full object-cover brightness-115 contrast-110 opacity-100 transition-all duration-700"
             style={{ 
-              objectPosition: '85% 100%',
-              transform: 'translateY(-12%) scale(1.3)',
+              objectPosition: '70% 50%',
+              transform: 'scale(1.0)',
               transformOrigin: 'center center'
             }}
           >
