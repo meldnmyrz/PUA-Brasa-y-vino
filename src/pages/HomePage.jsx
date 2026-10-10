@@ -35,39 +35,39 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       <ParticleConstellation />
 
       {/* ============================================================
-          01 FULL-SCREEN HIGH-BRIGHTNESS VIDEO HERO STAGE (PUA HEAD OF)
+          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (PÚA LOGO CENTRADO)
          ============================================================ */}
-      <section className="relative w-full h-[88vh] sm:h-[92vh] flex flex-col justify-end pb-20 z-10 overflow-hidden">
+      <section className="relative w-full h-[90vh] sm:h-[94vh] flex flex-col justify-end pb-20 z-10 overflow-hidden">
         
-        {/* FULL-BLEED HIGH-OPACITY VIDEO PLAYER (ENQUADRE ELEVADO HACIA PÚA) */}
+        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover brightness-105 contrast-105 scale-110 sm:scale-105 transition-all duration-700"
-            style={{ objectPosition: 'center 75%' }}
+            className="w-full h-full object-cover brightness-115 contrast-110 opacity-100 transition-all duration-700"
+            style={{ objectPosition: '85% 62%' }}
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
             <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
           </video>
 
-          {/* MINIMAL SUBTLE GRADIENT OVERLAY SO VIDEO SHINES & TEXT STAYS CRISP */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          {/* ULTRA LIGHT GRADIENT SHADOW ONLY UNDER LEFT TEXT FOR MAXIMUM VIDEO VISIBILITY */}
+          <div className="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/90 via-black/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
         </div>
 
-        {/* HERO MAIN TEXT CONTENT ONLY (SIN COMPONENTES NI BADGES ALREDEDOR) */}
+        {/* HERO MAIN TEXT CONTENT ONLY */}
         <div className="relative z-10 max-w-[1360px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           
-          <div className="max-w-2xl space-y-4">
-            <h1 className="text-hero-display tracking-[-1.2px] text-[#ffffff] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+          <div className="max-w-xl space-y-4">
+            <h1 className="text-hero-display tracking-[-1.2px] text-[#ffffff] drop-shadow-[0_4px_28px_rgba(0,0,0,0.98)]">
               EL RITUAL DEL <br />
               <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
             </h1>
             
-            <p className="text-body-apple max-w-xl text-[#f5f5f7] font-medium text-base sm:text-lg drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+            <p className="text-body-apple max-w-lg text-[#ffffff] font-medium text-base sm:text-lg drop-shadow-[0_2px_16px_rgba(0,0,0,0.98)]">
               Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link 
               to="/reservas" 
-              className="btn-apple-blue font-semibold !py-3.5 !px-7 !text-xs text-white shadow-[0_4px_20px_rgba(0,113,227,0.4)]"
+              className="btn-apple-blue font-semibold !py-3.5 !px-8 !text-xs text-white shadow-[0_4px_24px_rgba(0,113,227,0.5)]"
             >
               <span>Reservar Mesa VIP</span>
               <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -84,7 +84,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
 
             <Link 
               to="/menu" 
-              className="btn-white-outline !py-3.5 !px-7 !text-xs bg-black/50 backdrop-blur-md border-white/40 hover:bg-black/80"
+              className="btn-white-outline !py-3.5 !px-8 !text-xs bg-black/60 backdrop-blur-md border-white/50 hover:bg-black/80 text-white"
             >
               <span>Ver Carta Completa</span>
             </Link>
