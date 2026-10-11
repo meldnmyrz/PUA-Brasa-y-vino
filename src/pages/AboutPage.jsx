@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Thermometer, ArrowRight } from 'lucide-react';
+import { Thermometer, ArrowRight, ArrowUpRight } from 'lucide-react';
 import About10 from '../components/About10';
 
 export default function AboutPage() {

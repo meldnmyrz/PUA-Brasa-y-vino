@@ -9,6 +9,7 @@ import MenuItemCard from '../components/MenuItemCard';
 import ParticleConstellation from '../components/ParticleConstellation';
 
 import Features11 from '../components/Features11';
+import ScrollRevealStatement from '../components/ScrollRevealStatement';
 
 export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -112,10 +113,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
             loop
             muted
             playsInline
-            className="w-full h-full object-contain md:object-right brightness-115 contrast-110 opacity-100 transition-all duration-700"
-            style={{ 
-              objectPosition: '85% center'
-            }}
+            className="w-full h-full object-cover object-center brightness-105 contrast-110 opacity-100 transition-all duration-700"
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
             <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
@@ -164,6 +162,11 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
         </div>
 
       </section>
+
+      {/* ============================================================
+          01.5 TYPOGRAPHY STATEMENT WITH WORD-BY-WORD SCROLL ILLUMINATION
+         ============================================================ */}
+      <ScrollRevealStatement />
 
       {/* ============================================================
           02 REACT BITS PRO FEATURES 11: SPLIT HEADLINE WITH 3 INDEXED CARDS
