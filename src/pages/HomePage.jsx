@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Flame, Wine, Calendar, ArrowRight, Sparkles, 
@@ -13,6 +13,8 @@ import ScrollRevealStatement from '../components/ScrollRevealStatement';
 
 export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const mobileVideoRef = useRef(null);
+  const desktopVideoRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +24,28 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       setShowBackToTop(window.scrollY > 400);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Auto-play videos for mobile and desktop
+    const attemptPlay = () => {
+      if (mobileVideoRef.current) {
+        mobileVideoRef.current.play().catch(() => {});
+      }
+      if (desktopVideoRef.current) {
+        desktopVideoRef.current.play().catch(() => {});
+      }
+    };
+    attemptPlay();
+
+    const handleFirstTouch = () => {
+      attemptPlay();
+      window.removeEventListener('touchstart', handleFirstTouch);
+    };
+    window.addEventListener('touchstart', handleFirstTouch, { once: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchstart', handleFirstTouch);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -106,34 +129,57 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
          ============================================================ */}
       <section className="relative w-full h-screen min-h-[600px] flex flex-col justify-center pt-24 pb-12 z-10 overflow-hidden">
         
-        {/* FULL-BLEED MAXIMUM OPACITY VIDEO PLAYER WITH NATURAL CONTAINED PROPORTION */}
+        {/* FULL-BLEED RESPONSIVE VIDEO PLAYER */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end">
+          {/* MOBILE VIDEO: PUA BRAND OF (QUITA EL ACTUAL PARA MOBILE) */}
           <video
+            ref={mobileVideoRef}
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover object-center brightness-105 contrast-110 opacity-100 transition-all duration-700"
+            webkit-playsinline="true"
+            preload="auto"
+            className="md:hidden w-full h-full object-cover brightness-105 contrast-105"
+          >
+            <source src="/assets/pua-brand-of.mp4" type="video/mp4" />
+            <source src="/assets/PUA BRAND OF.mp4" type="video/mp4" />
+          </video>
+
+          {/* DESKTOP VIDEO: PUA HEAD OF */}
+          <video
+            ref={desktopVideoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            webkit-playsinline="true"
+            preload="auto"
+            className="hidden md:block w-full h-full object-cover md:object-contain md:object-right brightness-115 contrast-110 opacity-100 transition-all duration-700"
+            style={{ 
+              objectPosition: '85% center'
+            }}
           >
             <source src="/assets/pua-head-of.mp4" type="video/mp4" />
             <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
           </video>
 
-          {/* ULTRA LIGHT GRADIENT SHADOW ONLY UNDER LEFT TEXT FOR MAXIMUM VIDEO VISIBILITY */}
-          <div className="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/90 via-black/40 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
+          {/* GRADIENT OVERLAYS FOR MAXIMUM TEXT READABILITY */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/25 pointer-events-none" />
+          <div className="hidden md:block absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/90 via-black/40 to-transparent pointer-events-none" />
+          <div className="hidden md:block absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
         </div>
 
-        {/* HERO MAIN TEXT CONTENT ONLY */}
+        {/* HERO MAIN TEXT CONTENT */}
         <div className="relative z-10 max-w-[1360px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           
           <div className="max-w-xl space-y-4">
-            <h1 className="text-hero-display tracking-[-1.2px] text-[#ffffff] drop-shadow-[0_4px_28px_rgba(0,0,0,0.98)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-sf-pro-display font-semibold tracking-[-1.2px] text-[#ffffff] drop-shadow-[0_4px_28px_rgba(0,0,0,0.98)] leading-[1.1]">
               EL RITUAL DEL <br />
               <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
             </h1>
             
-            <p className="text-body-apple max-w-lg text-[#ffffff] font-medium text-base sm:text-lg drop-shadow-[0_2px_16px_rgba(0,0,0,0.98)]">
+            <p className="text-body-apple max-w-lg text-[#ffffff] font-medium text-sm sm:text-base md:text-lg drop-shadow-[0_2px_16px_rgba(0,0,0,0.98)]">
               Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
             </p>
           </div>
@@ -164,7 +210,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       </section>
 
       {/* ============================================================
-          01.5 TYPOGRAPHY STATEMENT WITH WORD-BY-WORD SCROLL ILLUMINATION
+          01.5 TYPOGRAPHY STATEMENT (SUBE CON SCROLL SUAVEMENTE)
          ============================================================ */}
       <ScrollRevealStatement />
 
