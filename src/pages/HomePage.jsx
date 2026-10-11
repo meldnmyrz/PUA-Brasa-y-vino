@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Flame, Wine, Calendar, ArrowRight, Sparkles, 
-  MapPin, Phone, Plus, ChevronUp, ChefHat, ArrowUpRight, Thermometer, Droplets, ShieldCheck, Award
+  MapPin, Phone, Plus, ChevronUp, ChevronDown, ChefHat, ArrowUpRight, Thermometer, Droplets, ShieldCheck, Award
 } from 'lucide-react';
 import { menuItems, menuCategories, restaurantInfo } from '../data/menuData';
 import MenuItemCard from '../components/MenuItemCard';
@@ -45,6 +45,15 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleScrollDown = () => {
+    const el = document.getElementById('ritual-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+    }
   };
 
   const featuredDishes = [
@@ -120,9 +129,9 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     <div className="pt-0 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* ============================================================
-          01 FULL-SCREEN VIDEO HERO STAGE (PUA BRAND OF A 100% OPACIDAD)
+          01 FULL-SCREEN VIDEO HERO STAGE (COMO EN FOTO DOS)
          ============================================================ */}
-      <section className="relative w-full h-screen min-h-[600px] flex flex-col justify-center pt-24 pb-12 z-10 overflow-hidden">
+      <section className="relative w-full h-screen h-[100dvh] flex flex-col justify-end items-center z-10 overflow-hidden">
         
         {/* FULL-BLEED VIDEO WITH 100% OPACITY */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -143,43 +152,45 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
           </video>
         </div>
 
-        {/* HERO MAIN TEXT CONTENT */}
-        <div className="relative z-10 max-w-[1360px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          
-          <div className="max-w-xl space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-sf-pro-display font-semibold tracking-[-1.2px] text-[#ffffff] drop-shadow-[0_4px_28px_rgba(0,0,0,0.98)] leading-[1.1]">
-              EL RITUAL DEL <br />
-              <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
-            </h1>
-            
-            <p className="text-body-apple max-w-lg text-[#ffffff] font-medium text-sm sm:text-base md:text-lg drop-shadow-[0_2px_18px_rgba(0,0,0,0.98)]">
-              Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
-            </p>
+        {/* SUBTLE BOTTOM VIGNETTE FOR CLEAN SCROLL PROMPT */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-10" />
+
+        {/* DESLIZA PARA EXPLORAR (EXACTO COMO EN FOTO DOS) */}
+        <div 
+          onClick={handleScrollDown}
+          className="relative z-20 flex flex-col items-center justify-center gap-2 cursor-pointer pb-8 select-none group"
+        >
+          <span className="text-[11px] font-sans uppercase tracking-[0.28em] text-[#d4d3c9] font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-white transition-colors">
+            DESLIZA PARA EXPLORAR
+          </span>
+          <div className="w-8 h-8 rounded-full border border-white/25 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover:border-[#c49a4a] group-hover:scale-110 transition-all shadow-xl animate-bounce">
+            <ChevronDown className="w-4 h-4 text-white group-hover:text-[#c49a4a] transition-colors" />
           </div>
-
-          {/* CLEAN PRIMARY CALL TO ACTION BUTTONS */}
-          <div className="pt-2 flex flex-wrap items-center gap-4">
-            <Link 
-              to="/reservas" 
-              className="btn-gold-luxury font-semibold !py-3.5 !px-8 !text-xs shadow-[0_4px_24px_rgba(196,146,74,0.4)]"
-            >
-              <span>Reservar Mesa VIP</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-            </Link>
-
-            <a 
-              href="https://menu-pua.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn-white-outline !py-3.5 !px-8 !text-xs bg-black/60 backdrop-blur-md border-white/40 hover:bg-black/80 text-white flex items-center gap-2"
-            >
-              <span>Ver Carta Completa</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
         </div>
 
+      </section>
+
+      {/* ============================================================
+          01.5 CENTRED RITUAL STATEMENT (APARECE CON SCROLL, CENTRADO Y SIN BOTONES)
+         ============================================================ */}
+      <section 
+        id="ritual-section"
+        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center bg-[#000000] z-10 border-b border-white/5"
+      >
+        <div className="max-w-3xl mx-auto space-y-6">
+          <span className="text-xs font-mono text-[#c49a4a] tracking-[0.25em] uppercase block font-semibold">
+            EL ARTE DE LA BRASA
+          </span>
+          
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-sf-pro-display font-semibold tracking-[-0.02em] text-[#ffffff] leading-[1.15] text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
+            EL RITUAL DEL <br className="hidden sm:block" />
+            <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
+          </h2>
+          
+          <p className="text-base sm:text-lg text-[#d4d3c9] max-w-2xl mx-auto leading-relaxed font-normal text-center drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
+            Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
+          </p>
+        </div>
       </section>
 
       {/* ============================================================
