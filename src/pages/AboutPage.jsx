@@ -76,27 +76,47 @@ export default function AboutPage() {
 
           {/* RIGHT 6 COLUMNS: BLACK FEATURE MEDIA CARD WITH LIVE VIDEO & READOUTS */}
           <div className="lg:col-span-6">
-            <div className="card-black-media relative h-[480px] w-full border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="card-black-media relative h-[440px] sm:h-[480px] w-full border border-white/10 rounded-3xl overflow-hidden shadow-2xl bg-black">
+              {/* VIDEO FILLING ENTIRE COMPONENT 100% */}
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
+                webkit-playsinline="true"
+                preload="auto"
                 className="w-full h-full object-cover filter brightness-95"
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '100%',
+                  height: '100%',
+                  minWidth: '100%',
+                  minHeight: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
               >
                 <source src="/assets/pua-vid-3.mp4" type="video/mp4" />
+                <source src="/pua-vid-3.mp4" type="video/mp4" />
+                <source src="/assets/PUA VID 3.mp4" type="video/mp4" />
+                <source src="/PUA VID 3.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
               
-              <div className="absolute top-6 left-6 flex items-center gap-3">
-                <div className="bg-[#111111]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+              {/* SUBTLE GRADIENT OVERLAY ONLY FOR READABILITY OF BADGE & QUOTE */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/30 pointer-events-none" />
+              
+              <div className="absolute top-6 left-6 z-10 flex items-center gap-3">
+                <div className="bg-[#111111]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2 shadow-lg">
                   <Thermometer className="w-3.5 h-3.5 text-[#c49a4a]" />
                   <span className="text-xs font-bold text-[#c49a4a] font-mono">600°C BRASA</span>
                 </div>
               </div>
 
-              <div className="absolute bottom-8 left-8 right-8 text-center border-t border-white/10 pt-4">
-                <p className="text-sm font-semibold text-[#f5f5f7] italic font-sf-pro-display">
+              <div className="absolute bottom-8 left-8 right-8 z-10 text-center border-t border-white/15 pt-4">
+                <p className="text-sm font-semibold text-[#f5f5f7] italic font-sf-pro-display drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                   "El fuego exige paciencia; el vino, memoria."
                 </p>
               </div>
