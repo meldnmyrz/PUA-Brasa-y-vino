@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Flame, Wine, Award, ShieldCheck, Thermometer, Droplets, ArrowRight, Image as ImageIcon } from 'lucide-react';
-import ParticleConstellation from '../components/ParticleConstellation';
+import { Thermometer, ArrowRight } from 'lucide-react';
+import About10 from '../components/About10';
 
 export default function AboutPage() {
   useEffect(() => {
@@ -22,13 +22,10 @@ export default function AboutPage() {
   return (
     <div className="pt-24 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
-      {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
-      <ParticleConstellation />
-
       {/* 01 HEADER HERO STAGE */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 relative z-10">
         <div className="space-y-4 mb-12">
-          <span className="badge-availability">
+          <span className="text-xs font-mono text-[#c49a4a] tracking-widest uppercase block font-semibold">
             SECCIÓN 02 // HISTORIA & IDENTIDAD
           </span>
           <h1 className="text-hero-display text-[#f5f5f7]">
@@ -52,13 +49,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 02 BLACK FEATURE MEDIA CARD STORY & METRICS */}
+      {/* 02 REACT BITS PRO ABOUT 10: PORTRAIT COLLAGE AROUND A BRAND STATEMENT */}
+      <About10 />
+
+      {/* 03 BLACK FEATURE MEDIA CARD STORY & METRICS */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 my-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* LEFT 6 COLUMNS: PHILOSOPHY */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="badge-availability">DEVOCIÓN GASTRONÓMICA</span>
+            <span className="text-xs font-mono text-[#c49a4a] tracking-widest uppercase block font-semibold">DEVOCIÓN GASTRONÓMICA</span>
             <h2 className="text-section-heading text-[#f5f5f7]">
               FUEGO, TIEMPO Y DEVOCIÓN.
             </h2>
@@ -122,7 +122,7 @@ export default function AboutPage() {
         <div className="module-charcoal-stage p-8 sm:p-14">
           
           <div className="max-w-2xl space-y-4 mb-12">
-            <span className="badge-availability">
+            <span className="text-xs font-mono text-[#c49a4a] tracking-widest uppercase block font-semibold">
               TÉCNICA & MADURACIÓN EN CAVA
             </span>
             <h2 className="text-section-heading text-[#f5f5f7]">
@@ -177,7 +177,7 @@ export default function AboutPage() {
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 my-20 z-10 relative">
         <div className="flex items-center justify-between mb-10">
           <div>
-            <span className="badge-availability mb-2 inline-flex">UNIVERSO VISUAL</span>
+            <span className="text-xs font-mono text-[#c49a4a] tracking-widest uppercase block font-semibold mb-2">UNIVERSO VISUAL</span>
             <h2 className="text-section-heading text-[#f5f5f7]">
               GALERÍA DE LA EXPERIENCIA
             </h2>

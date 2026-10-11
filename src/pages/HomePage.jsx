@@ -33,9 +33,6 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
   return (
     <div className="pt-0 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
-      {/* AMBIENT CONSTELLATION PARTICLES BACKGROUND */}
-      <ParticleConstellation />
-
       {/* ============================================================
           01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (NAVBAR 100% TRANSPARENTE FLOTANTE SOBRE VIDEO)
          ============================================================ */}
@@ -108,7 +105,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
         <div className="card-white-merchandising p-8 sm:p-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-7 space-y-4">
-            <span className="bg-[#1d1d1f] text-white text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+            <span className="text-[#1d1d1f] text-xs font-mono uppercase tracking-widest font-semibold block">
               EXPERIENCIA EXCLUSIVA DEL CHEF
             </span>
             <h2 className="text-card-heading sm:text-4xl text-[#1d1d1f] font-sf-pro-display font-semibold">
@@ -147,7 +144,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="badge-availability mb-3 inline-flex">
+            <span className="text-xs font-mono text-[#c49a4a] uppercase tracking-widest block font-semibold mb-2">
               SELECCIÓN DEL SOMMELIER & CHEF
             </span>
             <h2 className="text-section-heading text-[#f5f5f7]">
@@ -171,17 +168,6 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
         </div>
 
       </section>
-
-      {/* FLOATING BACK TO TOP BUTTON */}
-      {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[#0071e3] text-white rounded-full flex items-center justify-center hover:bg-[#0077ed] transition-all border border-white/20"
-          aria-label="Volver arriba"
-        >
-          <ChevronUp className="w-6 h-6 stroke-[2.5]" />
-        </button>
-      )}
 
     </div>
   );

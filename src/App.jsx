@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
 import ErrorBoundary from './components/ErrorBoundary';
 import CommandMenu from './components/CommandMenu';
 import ItemModal from './components/ItemModal';
@@ -143,9 +142,6 @@ export default function App() {
             onRemoveItem={handleRemoveItem}
             onClearCart={handleClearCart}
           />
-
-          {/* FLOATING WHATSAPP BUTTON */}
-          <WhatsAppButton />
 
           {/* GLOBAL FOOTER */}
           <Footer />

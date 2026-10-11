@@ -30,13 +30,13 @@ export default function Features11() {
   return (
     <section className="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 my-28 z-10 relative text-left">
       
-      {/* SPLIT HEADLINE (DIRECTLY ON FULL SCREEN CANVAS) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 pb-12 border-b border-white/10">
+      {/* SPLIT HEADLINE (PURE TYPOGRAPHY) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
         
-        <div className="lg:col-span-7 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-[#8c672b]/15 border border-[#8c672b]/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#c49a4a] tracking-wider uppercase">
-            <span>ESTÁNDARES DE CALIDAD PÚA</span>
-          </div>
+        <div className="lg:col-span-7 space-y-3">
+          <span className="text-xs font-semibold text-[#c49a4a] tracking-widest uppercase font-mono block">
+            ESTÁNDARES DE CALIDAD PÚA
+          </span>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#f8f9fa] font-sf-pro-display leading-[1.12]">
             MÁXIMA PRECISIÓN EN CADA CORTE Y ETIQUETA.
@@ -47,31 +47,24 @@ export default function Features11() {
           <p className="text-body-apple text-[#c4c2b9] text-base leading-relaxed">
             Evaluamos cada parámetro de maduración en seco y control de temperatura en la brasa para garantizar consistencia, ternura extrema y el sello ahumado característico de PÚA.
           </p>
-          <Link to="/nosotros" className="inline-flex items-center gap-2 text-xs font-semibold text-[#c49a4a] hover:text-[#8c672b] transition-colors group pt-2">
+          <Link to="/nosotros" className="inline-flex items-center gap-2 text-xs font-semibold text-[#c49a4a] hover:text-white transition-colors group pt-2">
             <span>Conoce nuestra filosofía del fuego →</span>
           </Link>
         </div>
 
       </div>
 
-      {/* THREE INDEXED COLUMNS (PURE TYPOGRAPHY - NO ICONS) */}
+      {/* THREE COLUMNS (PURE TYPOGRAPHY - NO LINES OR BRACKETS) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
         {cards.map((card) => {
           return (
             <div
               key={card.index}
-              className="space-y-6 group cursor-default"
+              className="space-y-4 group cursor-default"
             >
-              {/* TOP INDEX ROW */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <span className="font-mono text-xs font-bold tracking-widest text-[#8c672b]">
-                  [{card.index}]
-                </span>
-              </div>
-
               {/* METRIC DISPLAY & TITLE */}
               <div className="space-y-2">
-                <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white block font-sf-pro-display group-hover:text-[#c49a4a] transition-colors">
+                <span className="text-5xl sm:text-6xl font-extrabold tracking-tight text-white block font-sf-pro-display group-hover:text-[#c49a4a] transition-colors">
                   {card.metric}
                 </span>
                 <h3 className="text-xl font-semibold text-[#f8f9fa] font-sf-pro-display">
