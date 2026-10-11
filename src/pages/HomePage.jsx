@@ -9,12 +9,10 @@ import MenuItemCard from '../components/MenuItemCard';
 import ParticleConstellation from '../components/ParticleConstellation';
 
 import Features11 from '../components/Features11';
-import ScrollRevealStatement from '../components/ScrollRevealStatement';
 
 export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const mobileVideoRef = useRef(null);
-  const desktopVideoRef = useRef(null);
+  const videoRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,13 +23,10 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     };
     window.addEventListener('scroll', handleScroll);
 
-    // Auto-play videos for mobile and desktop
+    // Auto-play hero video with 100% opacity
     const attemptPlay = () => {
-      if (mobileVideoRef.current) {
-        mobileVideoRef.current.play().catch(() => {});
-      }
-      if (desktopVideoRef.current) {
-        desktopVideoRef.current.play().catch(() => {});
+      if (videoRef.current) {
+        videoRef.current.play().catch(() => {});
       }
     };
     attemptPlay();
@@ -125,49 +120,27 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     <div className="pt-0 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* ============================================================
-          01 FULL-SCREEN HIGH-OPACITY VIDEO HERO STAGE (NAVBAR 100% TRANSPARENTE FLOTANTE SOBRE VIDEO)
+          01 FULL-SCREEN VIDEO HERO STAGE (PUA BRAND OF A 100% OPACIDAD)
          ============================================================ */}
       <section className="relative w-full h-screen min-h-[600px] flex flex-col justify-center pt-24 pb-12 z-10 overflow-hidden">
         
-        {/* FULL-BLEED RESPONSIVE VIDEO PLAYER */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end">
-          {/* MOBILE VIDEO: PUA BRAND OF (QUITA EL ACTUAL PARA MOBILE) */}
+        {/* FULL-BLEED VIDEO WITH 100% OPACITY */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
-            ref={mobileVideoRef}
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
             webkit-playsinline="true"
             preload="auto"
-            className="md:hidden w-full h-full object-cover brightness-105 contrast-105"
+            className="w-full h-full object-cover opacity-100"
           >
             <source src="/assets/pua-brand-of.mp4" type="video/mp4" />
+            <source src="/pua-brand-of.mp4" type="video/mp4" />
             <source src="/assets/PUA BRAND OF.mp4" type="video/mp4" />
+            <source src="/PUA BRAND OF.mp4" type="video/mp4" />
           </video>
-
-          {/* DESKTOP VIDEO: PUA HEAD OF */}
-          <video
-            ref={desktopVideoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            webkit-playsinline="true"
-            preload="auto"
-            className="hidden md:block w-full h-full object-cover md:object-contain md:object-right brightness-115 contrast-110 opacity-100 transition-all duration-700"
-            style={{ 
-              objectPosition: '85% center'
-            }}
-          >
-            <source src="/assets/pua-head-of.mp4" type="video/mp4" />
-            <source src="/assets/PUA HEAD OF.mp4" type="video/mp4" />
-          </video>
-
-          {/* GRADIENT OVERLAYS FOR MAXIMUM TEXT READABILITY */}
-          <div className="md:hidden absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/25 pointer-events-none" />
-          <div className="hidden md:block absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/90 via-black/40 to-transparent pointer-events-none" />
-          <div className="hidden md:block absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
         </div>
 
         {/* HERO MAIN TEXT CONTENT */}
@@ -179,7 +152,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
               <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
             </h1>
             
-            <p className="text-body-apple max-w-lg text-[#ffffff] font-medium text-sm sm:text-base md:text-lg drop-shadow-[0_2px_16px_rgba(0,0,0,0.98)]">
+            <p className="text-body-apple max-w-lg text-[#ffffff] font-medium text-sm sm:text-base md:text-lg drop-shadow-[0_2px_18px_rgba(0,0,0,0.98)]">
               Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
             </p>
           </div>
@@ -188,7 +161,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link 
               to="/reservas" 
-              className="btn-apple-blue font-semibold !py-3.5 !px-8 !text-xs text-white shadow-[0_4px_24px_rgba(0,113,227,0.5)]"
+              className="btn-gold-luxury font-semibold !py-3.5 !px-8 !text-xs shadow-[0_4px_24px_rgba(196,146,74,0.4)]"
             >
               <span>Reservar Mesa VIP</span>
               <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -198,7 +171,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
               href="https://menu-pua.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="btn-white-outline !py-3.5 !px-8 !text-xs bg-black/60 backdrop-blur-md border-white/50 hover:bg-black/80 text-white flex items-center gap-2"
+              className="btn-white-outline !py-3.5 !px-8 !text-xs bg-black/60 backdrop-blur-md border-white/40 hover:bg-black/80 text-white flex items-center gap-2"
             >
               <span>Ver Carta Completa</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -208,11 +181,6 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
         </div>
 
       </section>
-
-      {/* ============================================================
-          01.5 TYPOGRAPHY STATEMENT (SUBE CON SCROLL SUAVEMENTE)
-         ============================================================ */}
-      <ScrollRevealStatement />
 
       {/* ============================================================
           02 REACT BITS PRO FEATURES 11: SPLIT HEADLINE WITH 3 INDEXED CARDS
