@@ -142,12 +142,12 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       {/* ============================================================
           01 HERO STAGE: VIDEO EN EL FONDO (EL TEXTO APARECE SOBRE EL VIDEO AL HACER SCROLL)
          ============================================================ */}
-      <section ref={heroRef} className="relative w-full h-[180vh] z-10 bg-black">
+      <section ref={heroRef} className="relative w-full h-[115vh] md:h-[130vh] z-10 bg-black">
         
         {/* STICKY STAGE A PANTALLA COMPLETA */}
         <div className="sticky top-0 h-screen h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden">
 
-          {/* BACKGROUND VIDEO 100% PANTALLA COMPLETA */}
+          {/* BACKGROUND VIDEO PUA BRAND OF CENTRADO 100% PANTALLA COMPLETA */}
           <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
             <video
               ref={videoRef}
@@ -168,13 +168,13 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
                 minWidth: '100%',
                 minHeight: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center',
+                objectPosition: 'center center',
               }}
             >
-              <source src="/assets/pua-header.mp4" type="video/mp4" />
-              <source src="/pua-header.mp4" type="video/mp4" />
-              <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
               <source src="/assets/pua-brand-of.mp4" type="video/mp4" />
+              <source src="/pua-brand-of.mp4" type="video/mp4" />
+              <source src="/assets/PUA BRAND OF.mp4" type="video/mp4" />
+              <source src="/PUA BRAND OF.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -182,7 +182,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
           <div 
             className="absolute inset-0 bg-black/60 pointer-events-none transition-opacity duration-200"
             style={{
-              opacity: Math.min(Math.max((heroProgress - 0.08) * 1.6, 0), 0.72)
+              opacity: Math.min(Math.max((heroProgress - 0.05) * 1.8, 0), 0.72)
             }}
           />
 
@@ -190,8 +190,8 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
           <div 
             className="relative z-20 max-w-3xl mx-auto px-6 sm:px-12 text-center space-y-6 transition-all duration-300 pointer-events-none"
             style={{
-              opacity: Math.min(Math.max((heroProgress - 0.12) / 0.45, 0), 1),
-              transform: `translateY(${Math.max((0.55 - heroProgress) * 35, 0)}px)`,
+              opacity: Math.min(Math.max((heroProgress - 0.08) / 0.45, 0), 1),
+              transform: `translateY(${Math.max((0.5 - heroProgress) * 25, 0)}px)`,
             }}
           >
             <span className="text-xs font-mono text-[#c49a4a] tracking-[0.25em] uppercase block font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">

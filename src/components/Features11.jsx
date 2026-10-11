@@ -28,7 +28,7 @@ export default function Features11() {
   ];
 
   return (
-    <section className="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 my-28 z-10 relative text-left">
+    <section className="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 mt-4 mb-20 md:my-28 z-10 relative text-left">
       
       {/* SPLIT HEADLINE (PURE TYPOGRAPHY) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
