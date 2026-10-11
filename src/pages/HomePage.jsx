@@ -12,7 +12,8 @@ import Features11 from '../components/Features11';
 
 export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [heroProgress, setHeroProgress] = useState(0);
+  const heroRef = useRef(null);
   const videoRef = useRef(null);
   const navigate = useNavigate();
 
@@ -21,9 +22,14 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 400);
-      const threshold = window.innerHeight * 0.4;
-      const progress = Math.min(Math.max(window.scrollY / threshold, 0), 1);
-      setScrollProgress(progress);
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const total = heroRef.current.offsetHeight - window.innerHeight;
+        if (total > 0) {
+          const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+          setHeroProgress(progress);
+        }
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -53,11 +59,11 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
   };
 
   const handleScrollDown = () => {
-    const el = document.getElementById('ritual-section');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    if (heroRef.current) {
+      const target = heroRef.current.offsetTop + (heroRef.current.offsetHeight - window.innerHeight) * 0.85;
+      window.scrollTo({ top: target, behavior: 'smooth' });
     } else {
-      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });
     }
   };
 
@@ -134,80 +140,93 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     <div className="pt-0 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* ============================================================
-          01 HERO STAGE: VIDEO A PANTALLA COMPLETA 100% (COMO EN FOTO DOS)
+          01 HERO STAGE: VIDEO EN EL FONDO (EL TEXTO APARECE SOBRE EL VIDEO AL HACER SCROLL)
          ============================================================ */}
-      <section className="relative w-full h-screen h-[100dvh] min-h-[100dvh] flex flex-col justify-end items-center z-10 overflow-hidden bg-black">
+      <section ref={heroRef} className="relative w-full h-[180vh] z-10 bg-black">
         
-        {/* BACKGROUND VIDEO ABARCANDO 100% DE LA PANTALLA */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            webkit-playsinline="true"
-            preload="auto"
-            className="w-full h-full object-cover"
+        {/* STICKY STAGE A PANTALLA COMPLETA */}
+        <div className="sticky top-0 h-screen h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden">
+
+          {/* BACKGROUND VIDEO 100% PANTALLA COMPLETA */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              webkit-playsinline="true"
+              preload="auto"
+              className="w-full h-full object-cover"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '100%',
+                height: '100%',
+                minWidth: '100%',
+                minHeight: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+              }}
+            >
+              <source src="/assets/pua-header.mp4" type="video/mp4" />
+              <source src="/pua-header.mp4" type="video/mp4" />
+              <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
+              <source src="/assets/pua-brand-of.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* OSCURECIMIENTO SUAVE QUE SE INTENSIFICA AL HACER SCROLL PARA QUE EL TEXTO RESALTE */}
+          <div 
+            className="absolute inset-0 bg-black/60 pointer-events-none transition-opacity duration-200"
             style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '100%',
-              height: '100%',
-              minWidth: '100%',
-              minHeight: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center',
+              opacity: Math.min(Math.max((heroProgress - 0.08) * 1.6, 0), 0.72)
+            }}
+          />
+
+          {/* COMPONENTE DE TEXTO: APARECE DIRECTAMENTE SOBRE EL FONDO DEL VIDEO AL HACER SCROLL */}
+          <div 
+            className="relative z-20 max-w-3xl mx-auto px-6 sm:px-12 text-center space-y-6 transition-all duration-300 pointer-events-none"
+            style={{
+              opacity: Math.min(Math.max((heroProgress - 0.12) / 0.45, 0), 1),
+              transform: `translateY(${Math.max((0.55 - heroProgress) * 35, 0)}px)`,
             }}
           >
-            <source src="/assets/pua-header.mp4" type="video/mp4" />
-            <source src="/pua-header.mp4" type="video/mp4" />
-            <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
-            <source src="/assets/pua-brand-of.mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        {/* SUTIL VIÑETA INFERIOR SOLO PARA EL BOTÓN DE DESLIZAR */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-10" />
-
-        {/* DESLIZA PARA EXPLORAR (EXACTO COMO EN FOTO DOS) */}
-        <div 
-          onClick={handleScrollDown}
-          className="relative z-20 flex flex-col items-center justify-center gap-2 cursor-pointer pb-8 select-none group"
-        >
-          <span className="text-[11px] font-sans uppercase tracking-[0.28em] text-[#d4d3c9] font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] group-hover:text-white transition-colors">
-            DESLIZA PARA EXPLORAR
-          </span>
-          <div className="w-8 h-8 rounded-full border border-white/25 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover:border-[#c49a4a] group-hover:scale-110 transition-all shadow-xl animate-bounce">
-            <ChevronDown className="w-4 h-4 text-white group-hover:text-[#c49a4a] transition-colors" />
+            <span className="text-xs font-mono text-[#c49a4a] tracking-[0.25em] uppercase block font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+              EL ARTE DE LA BRASA
+            </span>
+            
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-sf-pro-display font-semibold tracking-[-0.02em] text-[#ffffff] leading-[1.15] text-center drop-shadow-[0_4px_24px_rgba(0,0,0,0.98)]">
+              EL RITUAL DEL <br className="hidden sm:block" />
+              <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
+            </h1>
+            
+            <p className="text-base sm:text-lg text-[#f5f5f7] max-w-2xl mx-auto leading-relaxed font-normal text-center drop-shadow-[0_2px_16px_rgba(0,0,0,0.98)]">
+              Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
+            </p>
           </div>
+
+          {/* DESLIZA PARA EXPLORAR (VISIBLE AL INICIO, DESAPARECE AL HACER SCROLL) */}
+          <div 
+            onClick={handleScrollDown}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center gap-2 cursor-pointer select-none group transition-opacity duration-300"
+            style={{
+              opacity: Math.max(1 - heroProgress * 4, 0),
+              pointerEvents: heroProgress < 0.18 ? 'auto' : 'none'
+            }}
+          >
+            <span className="text-[11px] font-sans uppercase tracking-[0.28em] text-[#d4d3c9] font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] group-hover:text-white transition-colors">
+              DESLIZA PARA EXPLORAR
+            </span>
+            <div className="w-8 h-8 rounded-full border border-white/25 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover:border-[#c49a4a] group-hover:scale-110 transition-all shadow-xl animate-bounce">
+              <ChevronDown className="w-4 h-4 text-white group-hover:text-[#c49a4a] transition-colors" />
+            </div>
+          </div>
+
         </div>
 
-      </section>
-
-      {/* ============================================================
-          01.5 SECCIÓN QUE APARECE AL HACER SCROLL (CENTRADO Y ESTÉTICO)
-         ============================================================ */}
-      <section 
-        id="ritual-section"
-        className="relative w-full py-28 sm:py-36 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center bg-[#000000] z-10 border-b border-white/5"
-      >
-        <div className="max-w-3xl mx-auto space-y-6">
-          <span className="text-xs font-mono text-[#c49a4a] tracking-[0.25em] uppercase block font-semibold">
-            EL ARTE DE LA BRASA
-          </span>
-          
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-sf-pro-display font-semibold tracking-[-0.02em] text-[#ffffff] leading-[1.15] text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-            EL RITUAL DEL <br className="hidden sm:block" />
-            <span className="text-[#ffffff]">FUEGO & LA CAVA.</span>
-          </h2>
-          
-          <p className="text-base sm:text-lg text-[#d4d3c9] max-w-2xl mx-auto leading-relaxed font-normal text-center drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
-            Cortes Angus Prime madurados en seco durante 45 días, sellados al fuego directo de encino a 600°C. Acompañados por una cava de más de 500 etiquetas internacionales curadas por sommelier.
-          </p>
-        </div>
       </section>
 
       {/* ============================================================
