@@ -28,7 +28,74 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const featuredDishes = menuItems.filter(item => item.tags && item.tags.length > 0).slice(0, 6);
+  const featuredDishes = [
+    {
+      id: "feat-1",
+      name: "Tomahawk Angus Prime (45 Días de Maduración)",
+      category: "cortes",
+      price: 1350,
+      description: "Corte grueso marmoleado con hueso, asado pacientemente al fuego de leña de encino y terminado con mantequilla de romero y sal marina ahumada.",
+      image: "/assets/corte-filete-mignon.jpg",
+      tags: ["Corte Insignia", "Maduración 45D"],
+      pairing: "Gran Reserva Malbec / Cabernet Sauvignon",
+      waitTime: "25 min"
+    },
+    {
+      id: "feat-2",
+      name: "Tuétanos a la Leña con Escamoles",
+      category: "entradas",
+      price: 420,
+      description: "Canoas de tuétano rostizadas a fuego vivo de leña, montadas con escamoles a la mantequilla de epazote, perejil crocante y tortillas de comal.",
+      image: "/assets/tuetanos-carne-brasas.jpg",
+      tags: ["Especialidad del Fuego", "Tradición"],
+      pairing: "Mezcal Espadín Ancestral / Tempranillo",
+      waitTime: "15 min"
+    },
+    {
+      id: "feat-3",
+      name: "Tiradito de Atún Aleta Azul & Ponzu Trufado",
+      category: "mariscos",
+      price: 395,
+      description: "Láminas frescas de atún aleta azul con emulsión de ponzu cítrico, aceite de ajonjolí tostado, trufa negra fresca y aguacate tatemado.",
+      image: "/assets/tuna-sashimi-tiradito.jpg",
+      tags: ["Especialidad del Mar", "Pesca del Día"],
+      pairing: "Sauvignon Blanc Valle de Guadalupe",
+      waitTime: "12 min"
+    },
+    {
+      id: "feat-4",
+      name: "Parrillada al Fuego de Encino (Master Grill)",
+      category: "cortes",
+      price: 1180,
+      description: "Degustación selecta de cortes Prime asados a las brasas vivas, chistorra artesanal y guarnición de vegetales ahumados al sarmiento con chimichurri.",
+      image: "/assets/parrillada-brasas.jpg",
+      tags: ["Para Compartir", "Master Griller"],
+      pairing: "Ribera del Duero Crianza",
+      waitTime: "30 min"
+    },
+    {
+      id: "feat-5",
+      name: "Smoked Mezcalita Flameada de Autor",
+      category: "mixologia",
+      price: 260,
+      description: "Destilado de agave artesanal infusionado con romero flameado al momento frente al comensal, licor de chile ancho y campana de humo de mezquite.",
+      image: "/assets/mixologia-flameada-bar.jpg",
+      tags: ["Mixología de Autor", "Flameado"],
+      pairing: "Maridaje ideal para entradas y cortes a la leña",
+      waitTime: "8 min"
+    },
+    {
+      id: "feat-6",
+      name: "Gran Cava Sommelier & Cosechas Privadas",
+      category: "maridajes",
+      price: 1450,
+      description: "Selección curada de más de 500 etiquetas internacionales, servicio a temperatura controlada en cristalería Riedel y asesoría por nuestro sommelier.",
+      image: "/assets/cava-vino-mesa.jpg",
+      tags: ["Cava Privada", "Etiquetas VIP"],
+      pairing: "Maridaje guiado en 5 tiempos de brasas",
+      waitTime: "5 min"
+    }
+  ];
 
   return (
     <div className="pt-0 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
@@ -145,10 +212,10 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <span className="text-xs font-mono text-[#c49a4a] uppercase tracking-widest block font-semibold mb-2">
-              SELECCIÓN DEL SOMMELIER & CHEF
+              SELECCIÓN DEL CHEF & SOMMELIER
             </span>
             <h2 className="text-section-heading text-[#f5f5f7]">
-              PLATILLOS DESTACADOS
+              PLATILLOS Y BEBIDAS DESTACADAS
             </h2>
           </div>
           <Link to="/menu" className="inline-product-link text-sm font-semibold">

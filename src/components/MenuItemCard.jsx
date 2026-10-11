@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Wine as WineIcon, Clock, Plus, Eye, ChevronRight } from 'lucide-react';
 
 export default function MenuItemCard({ item, onClick, onAddToCart }) {
   const [imgSrc, setImgSrc] = useState(item.image || '/assets/corte-filete-mignon.jpg');
+
+  useEffect(() => {
+    if (item.image) {
+      setImgSrc(item.image);
+    }
+  }, [item.image]);
 
   const handleQuickAdd = (e) => {
     e.stopPropagation();
@@ -15,7 +21,8 @@ export default function MenuItemCard({ item, onClick, onAddToCart }) {
     // Fallback based on category
     if (item.category === 'cortes') setImgSrc('/assets/corte-filete-mignon.jpg');
     else if (item.category === 'mariscos') setImgSrc('/assets/tuna-sashimi-tiradito.jpg');
-    else if (item.category === 'mixologia' || item.category === 'maridajes') setImgSrc('/assets/coctel-negroni-rojo.jpg');
+    else if (item.category === 'mixologia') setImgSrc('/assets/mixologia-flameada-bar.jpg');
+    else if (item.category === 'maridajes') setImgSrc('/assets/cava-vino-mesa.jpg');
     else if (item.category === 'postres') setImgSrc('/assets/postre-crocante-helado.jpg');
     else setImgSrc('/assets/parrillada-brasas.jpg');
   };

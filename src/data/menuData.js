@@ -83,7 +83,7 @@ export const menuItems = [
     "name": "Queso Camembert Rostizado",
     "price": 330,
     "description": "Pieza de suave camembert arropado de chutney de pera, frutas del bosque, jamón serrano y arúgula.",
-    "image": "/assets/images/material_pua/dish_1.jpg",
+    "image": "/assets/platillo-crema-rosa.jpg",
     "tags": [
       "Maridaje",
       "Chef Pick"
@@ -96,7 +96,7 @@ export const menuItems = [
     "name": "Jamón Ibérico (100 grs.)",
     "price": 345,
     "description": "Corte fino realizado al momento en mesa, que resalta la textura y complejidad aromática de este jamón de alta calidad. Su curación prolongada de 24 meses revela matices intensos, untuosos y delicadamente salinos, ofreciendo una experiencia auténtica y refinada.",
-    "image": "/assets/images/material_pua/dish_2.jpg",
+    "image": "/assets/platillo-gourmet-nogada.jpg",
     "tags": [
       "Curado 24 Meses",
       "Servicio en Mesa",
@@ -110,7 +110,7 @@ export const menuItems = [
     "name": "Tapa Mediterránea (4 piezas)",
     "price": 210,
     "description": "Base de delicada salsa italiana acompañada de jitomate deshidratado, arúgula fresca, alcaparras y jamón ibérico de excelente curación. Una armonía de sabores del viejo continente.",
-    "image": "/assets/images/material_pua/dish_3.jpg",
+    "image": "/assets/tapas-pizza-tabla.jpg",
     "tags": [
       "4 piezas",
       "Entrante"
@@ -123,7 +123,7 @@ export const menuItems = [
     "name": "Tapa de Salmón (4 piezas)",
     "price": 210,
     "description": "Salmón sellado a las finas hierbas, servido con un dip cremoso de chipotle especiado y cebolla desflemada. Una propuesta sutilmente ahumada con matices delicados.",
-    "image": "/assets/images/material_pua/dish_4.jpg",
+    "image": "/assets/tapas-pizza-tabla.jpg",
     "tags": [
       "4 piezas",
       "Mar"
@@ -136,7 +136,7 @@ export const menuItems = [
     "name": "Tapa Púa (4 piezas)",
     "price": 210,
     "description": "Fina combinación de manzana caramelizada y queso camembert. Un contraste entre dulzura y suavidad que seduce al paladar con cada bocado.",
-    "image": "/assets/images/material_pua/dish_5.jpg",
+    "image": "/assets/tapas-pizza-tabla.jpg",
     "tags": [
       "4 piezas",
       "Insignia"
@@ -149,7 +149,7 @@ export const menuItems = [
     "name": "Tabla de Quesos",
     "price": 375,
     "description": "Cuidadosa selección de quesos, frutas de temporada y frutos secos.",
-    "image": "/assets/images/material_pua/dish_6.jpg",
+    "image": "/assets/cava-vino-mesa.jpg",
     "tags": [
       "Para Compartir",
       "Artesanal"
@@ -224,7 +224,7 @@ export const menuItems = [
     "name": "Tuétanos con Pulpo",
     "price": 360,
     "description": "Exquisito hueso de res horneado con salsas negras con pulpo al ajillo receta secreta de la casa, acompañado de tortillas y salsa de chile ajo.",
-    "image": "/assets/images/material_pua/dish_12.jpg",
+    "image": "/assets/tuetanos-carne-brasas.jpg",
     "tags": [
       "Tiempo de espera",
       "Imperdible",
@@ -386,7 +386,7 @@ export const menuItems = [
     "name": "Cowboy (Calidad angus 800 grs.)",
     "price": 1300,
     "description": "Corte grueso Angus con hueso, sartenado a la mantequilla de romero y asado a las brasas.",
-    "image": "/assets/images/tomahawk_grill.png",
+    "image": "/assets/parrillada-brasas.jpg",
     "tags": [
       "Angus 800g",
       "Guarnición Incluida"
@@ -399,7 +399,7 @@ export const menuItems = [
     "name": "Porter House (Calidad angus 1100 grs.)",
     "price": 2100,
     "description": "Imponente corte que reúne New York y Tenderloin en un solo hueso en forma de T.",
-    "image": "/assets/images/material_pua/dish_21.jpg",
+    "image": "/assets/corte-filete-mignon.jpg",
     "tags": [
       "Angus 1100g",
       "Tiempo de espera",
@@ -413,7 +413,7 @@ export const menuItems = [
     "name": "Tomahawk (Calidad angus 1500 grs.)",
     "price": 2700,
     "description": "El rey de la parrilla Angus, madurado y flameado a la mesa con mantequilla de finas hierbas.",
-    "image": "/assets/images/tomahawk_grill.png",
+    "image": "/assets/corte-filete-mignon.jpg",
     "tags": [
       "Angus 1500g",
       "Tiempo de espera",
