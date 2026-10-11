@@ -12,6 +12,7 @@ import Features11 from '../components/Features11';
 
 export default function HomePage({ onOpenItemModal, onAddToCart }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const videoRef = useRef(null);
   const navigate = useNavigate();
 
@@ -20,8 +21,12 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 400);
+      const threshold = window.innerHeight * 0.4;
+      const progress = Math.min(Math.max(window.scrollY / threshold, 0), 1);
+      setScrollProgress(progress);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
     // Auto-play hero video with 100% opacity
     const attemptPlay = () => {
@@ -129,12 +134,12 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
     <div className="pt-0 pb-28 min-h-screen text-[#f5f5f7] bg-[#000000] relative overflow-hidden font-sf-pro-text text-left">
       
       {/* ============================================================
-          01 FULL-SCREEN VIDEO HERO STAGE (COMO EN FOTO DOS)
+          01 HERO STAGE: VIDEO A PANTALLA COMPLETA 100% (COMO EN FOTO DOS)
          ============================================================ */}
-      <section className="relative w-full h-screen h-[100dvh] flex flex-col justify-end items-center z-10 overflow-hidden">
+      <section className="relative w-full h-screen h-[100dvh] min-h-[100dvh] flex flex-col justify-end items-center z-10 overflow-hidden bg-black">
         
-        {/* FULL-BLEED VIDEO WITH 100% OPACITY */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* BACKGROUND VIDEO ABARCANDO 100% DE LA PANTALLA */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
             ref={videoRef}
             autoPlay
@@ -143,16 +148,28 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
             playsInline
             webkit-playsinline="true"
             preload="auto"
-            className="w-full h-full object-cover opacity-100"
+            className="w-full h-full object-cover"
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '100%',
+              height: '100%',
+              minWidth: '100%',
+              minHeight: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
           >
+            <source src="/assets/pua-header.mp4" type="video/mp4" />
+            <source src="/pua-header.mp4" type="video/mp4" />
+            <source src="/assets/PUA HEADER.mp4" type="video/mp4" />
             <source src="/assets/pua-brand-of.mp4" type="video/mp4" />
-            <source src="/pua-brand-of.mp4" type="video/mp4" />
-            <source src="/assets/PUA BRAND OF.mp4" type="video/mp4" />
-            <source src="/PUA BRAND OF.mp4" type="video/mp4" />
           </video>
         </div>
 
-        {/* SUBTLE BOTTOM VIGNETTE FOR CLEAN SCROLL PROMPT */}
+        {/* SUTIL VIÑETA INFERIOR SOLO PARA EL BOTÓN DE DESLIZAR */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-10" />
 
         {/* DESLIZA PARA EXPLORAR (EXACTO COMO EN FOTO DOS) */}
@@ -160,7 +177,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
           onClick={handleScrollDown}
           className="relative z-20 flex flex-col items-center justify-center gap-2 cursor-pointer pb-8 select-none group"
         >
-          <span className="text-[11px] font-sans uppercase tracking-[0.28em] text-[#d4d3c9] font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-white transition-colors">
+          <span className="text-[11px] font-sans uppercase tracking-[0.28em] text-[#d4d3c9] font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] group-hover:text-white transition-colors">
             DESLIZA PARA EXPLORAR
           </span>
           <div className="w-8 h-8 rounded-full border border-white/25 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover:border-[#c49a4a] group-hover:scale-110 transition-all shadow-xl animate-bounce">
@@ -171,7 +188,7 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
       </section>
 
       {/* ============================================================
-          01.5 CENTRED RITUAL STATEMENT (APARECE CON SCROLL, CENTRADO Y SIN BOTONES)
+          01.5 SECCIÓN QUE APARECE AL HACER SCROLL (CENTRADO Y ESTÉTICO)
          ============================================================ */}
       <section 
         id="ritual-section"
