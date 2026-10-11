@@ -59,10 +59,15 @@ export default function AboutPage() {
             </div>
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Link to="/menu" className="btn-apple-blue font-semibold !py-3 !px-6 !text-xs">
+              <a 
+                href="https://menu-pua.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-apple-blue font-semibold !py-3 !px-6 !text-xs flex items-center gap-2"
+              >
                 <span>Explorar Nuestra Carta</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              </a>
               <Link to="/servicios" className="btn-white-outline !py-3 !px-6 !text-xs">
                 <span>Ver Servicios VIP</span>
               </Link>

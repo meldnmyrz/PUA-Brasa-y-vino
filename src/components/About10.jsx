@@ -102,12 +102,15 @@ export default function About10() {
             >
               <span>Vivir la Experiencia VIP</span>
             </Link>
-            <Link 
-              to="/menu" 
-              className="py-3 px-6 rounded-full text-xs font-semibold bg-transparent hover:bg-white/5 border border-white/10 text-[#c4c2b9] hover:text-white transition-all"
+            <a 
+              href="https://menu-pua.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="py-3 px-6 rounded-full text-xs font-semibold bg-transparent hover:bg-white/5 border border-white/10 text-[#c4c2b9] hover:text-white transition-all flex items-center gap-1.5"
             >
-              <span>Ver Nuestra Cava & Cortes →</span>
-            </Link>
+              <span>Ver Nuestra Cava & Cortes</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 

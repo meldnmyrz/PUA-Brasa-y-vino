@@ -49,41 +49,41 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
   const megaMenuData = {
     menu: {
       title: 'MENÚ GASTRO-BAR & CAVA',
-      badge: '165+ SELECCIONES',
+      badge: 'CARTA OFICIAL',
       columns: [
         {
           heading: 'CORTES & BRASA DIRECTA',
           items: [
-            { name: 'Tomahawk Angus Prime (45 Días)', desc: '1.2 kg sellado a 600°C con leña de encino', path: '/menu?cat=Cortes%20Prime' },
-            { name: 'Ribeye Dry Aged (400g)', desc: 'Madurado en seco con mantequilla de trufa', path: '/menu?cat=Cortes%20Prime' },
-            { name: 'Filete Mignon al Romero', desc: 'Centro de filete en reducción de oporto', path: '/menu?cat=Cortes%20Prime' },
-            { name: 'Pulpo a la Brasa de Encino', desc: 'Con alioli de chile manzano y papas cambray', path: '/menu?cat=Entradas' }
+            { name: 'Tomahawk Angus Prime (45 Días)', desc: '1.2 kg sellado a 600°C con leña de encino', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Ribeye Dry Aged (400g)', desc: 'Madurado en seco con mantequilla de trufa', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Filete Mignon al Romero', desc: 'Centro de filete en reducción de oporto', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Pulpo a la Brasa de Encino', desc: 'Con alioli de chile manzano y papas cambray', path: 'https://menu-pua.vercel.app/' }
           ]
         },
         {
           heading: 'LA CAVA & SOMMELIER',
           items: [
-            { name: 'Tintos de Guarde & Burdeos', desc: 'Gran Reserva Rioja, Ribera del Duero y Napa', path: '/menu?cat=Cava%20%26%20Vinos' },
-            { name: 'Vinos de Autor del Valle', desc: 'Curaduría exclusiva de Valle de Guadalupe', path: '/menu?cat=Cava%20%26%20Vinos' },
-            { name: 'Champagne & Espumosos', desc: 'Dom Pérignon, Veuve Clicquot y Cava VIP', path: '/menu?cat=Cava%20%26%20Vinos' },
-            { name: 'Coctelería de Autor con Ahumados', desc: 'Smoked Mezcalita, Carajillo Púa y Gin', path: '/menu?cat=Cocteler%C3%ADa' }
+            { name: 'Tintos de Guarde & Burdeos', desc: 'Gran Reserva Rioja, Ribera del Duero y Napa', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Vinos de Autor del Valle', desc: 'Curaduría exclusiva de Valle de Guadalupe', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Champagne & Espumosos', desc: 'Dom Pérignon, Veuve Clicquot y Cava VIP', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Coctelería de Autor con Ahumados', desc: 'Smoked Mezcalita, Carajillo Púa y Gin', path: 'https://menu-pua.vercel.app/' }
           ]
         },
         {
           heading: 'ENTRADAS & COMPLEMENTOS',
           items: [
-            { name: 'Tuétano a la Brasa con Esquites', desc: 'Servido en hueso canoa con chile de árbol', path: '/menu?cat=Entradas' },
-            { name: 'Carpaccio de Res Trufado', desc: 'Láminas finas con alcaparras y parmesano', path: '/menu?cat=Entradas' },
-            { name: 'Empanadas de Picaña & Queso', desc: 'Horneadas al carbón con chimichurri casero', path: '/menu?cat=Entradas' },
-            { name: 'Postres Artesanales de Fuego', desc: 'Volcán de dulce de leche y tarta ahumada', path: '/menu?cat=Postres' }
+            { name: 'Tuétano a la Brasa con Esquites', desc: 'Servido en hueso canoa con chile de árbol', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Carpaccio de Res Trufado', desc: 'Láminas finas con alcaparras y parmesano', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Empanadas de Picaña & Queso', desc: 'Horneadas al carbón con chimichurri casero', path: 'https://menu-pua.vercel.app/' },
+            { name: 'Postres Artesanales de Fuego', desc: 'Volcán de dulce de leche y tarta ahumada', path: 'https://menu-pua.vercel.app/' }
           ]
         }
       ],
       featured: {
-        title: 'Menú Degustación 5 Tiempos',
-        desc: 'Maridaje guiado por nuestro sommelier en la cava subterránea.',
-        linkText: 'Explorar Carta Completa →',
-        path: '/menu'
+        title: 'Menú Digital Interactivo',
+        desc: 'Accede a la carta oficial completa con todos los platillos, cortes y cava.',
+        linkText: 'Abrir Menú Oficial →',
+        path: 'https://menu-pua.vercel.app/'
       }
     },
     servicios: {
@@ -285,23 +285,35 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                       {col.heading}
                     </h4>
                     <ul className="space-y-3">
-                      {col.items.map((item, iIdx) => (
-                        <li key={iIdx}>
-                          <Link
-                            to={item.path}
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="group block space-y-0.5 p-2.5 -mx-2 rounded-xl hover:bg-white/10 backdrop-blur-md transition-all border border-transparent hover:border-white/10"
-                          >
-                            <div className="flex items-center justify-between text-xs font-semibold text-[#f8f9fa] group-hover:text-[#c49a4a] transition-colors">
-                              <span>{item.name}</span>
-                              <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#c49a4a]" />
-                            </div>
-                            <p className="text-[11px] text-[#c4c2b9] leading-tight font-normal line-clamp-1">
-                              {item.desc}
-                            </p>
-                          </Link>
-                        </li>
-                      ))}
+                      {col.items.map((item, iIdx) => {
+                        const isExternal = item.path.startsWith('http');
+                        const Component = isExternal ? 'a' : Link;
+                        const linkProps = isExternal
+                          ? { href: item.path, target: '_blank', rel: 'noopener noreferrer' }
+                          : { to: item.path };
+
+                        return (
+                          <li key={iIdx}>
+                            <Component
+                              {...linkProps}
+                              onClick={() => setActiveMegaMenu(null)}
+                              className="group block space-y-0.5 p-2.5 -mx-2 rounded-xl hover:bg-white/10 backdrop-blur-md transition-all border border-transparent hover:border-white/10"
+                            >
+                              <div className="flex items-center justify-between text-xs font-semibold text-[#f8f9fa] group-hover:text-[#c49a4a] transition-colors">
+                                <span>{item.name}</span>
+                                {isExternal ? (
+                                  <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-all text-[#c49a4a]" />
+                                ) : (
+                                  <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#c49a4a]" />
+                                )}
+                              </div>
+                              <p className="text-[11px] text-[#c4c2b9] leading-tight font-normal line-clamp-1">
+                                {item.desc}
+                              </p>
+                            </Component>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 ))}
@@ -321,13 +333,26 @@ export default function Navbar({ onOpenSearch, onOpenOrderDrawer, cartCount = 0 
                       {megaMenuData[activeMegaMenu].featured.desc}
                     </p>
                   </div>
-                  <Link
-                    to={megaMenuData[activeMegaMenu].featured.path}
-                    onClick={() => setActiveMegaMenu(null)}
-                    className="inline-flex items-center justify-center gap-2 py-3 px-4 text-xs font-semibold text-center w-full rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white backdrop-blur-md transition-all shadow-lg hover:shadow-xl"
-                  >
-                    <span>{megaMenuData[activeMegaMenu].featured.linkText}</span>
-                  </Link>
+                  {megaMenuData[activeMegaMenu].featured.path.startsWith('http') ? (
+                    <a
+                      href={megaMenuData[activeMegaMenu].featured.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setActiveMegaMenu(null)}
+                      className="inline-flex items-center justify-center gap-2 py-3 px-4 text-xs font-semibold text-center w-full rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white backdrop-blur-md transition-all shadow-lg hover:shadow-xl"
+                    >
+                      <span>{megaMenuData[activeMegaMenu].featured.linkText}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={megaMenuData[activeMegaMenu].featured.path}
+                      onClick={() => setActiveMegaMenu(null)}
+                      className="inline-flex items-center justify-center gap-2 py-3 px-4 text-xs font-semibold text-center w-full rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white backdrop-blur-md transition-all shadow-lg hover:shadow-xl"
+                    >
+                      <span>{megaMenuData[activeMegaMenu].featured.linkText}</span>
+                    </Link>
+                  )}
                 </div>
               </div>
 

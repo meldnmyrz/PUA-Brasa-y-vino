@@ -150,12 +150,15 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
               <ArrowRight className="w-4 h-4 stroke-[2.5]" />
             </Link>
 
-            <Link 
-              to="/menu" 
-              className="btn-white-outline !py-3.5 !px-8 !text-xs bg-black/60 backdrop-blur-md border-white/50 hover:bg-black/80 text-white"
+            <a 
+              href="https://menu-pua.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-white-outline !py-3.5 !px-8 !text-xs bg-black/60 backdrop-blur-md border-white/50 hover:bg-black/80 text-white flex items-center gap-2"
             >
               <span>Ver Carta Completa</span>
-            </Link>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
 
         </div>
@@ -218,9 +221,15 @@ export default function HomePage({ onOpenItemModal, onAddToCart }) {
               PLATILLOS Y BEBIDAS DESTACADAS
             </h2>
           </div>
-          <Link to="/menu" className="inline-product-link text-sm font-semibold">
-            Ver Menú Completo →
-          </Link>
+          <a 
+            href="https://menu-pua.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-product-link text-sm font-semibold flex items-center gap-1.5"
+          >
+            <span>Ver Menú Completo</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
